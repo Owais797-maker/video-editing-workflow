@@ -110,6 +110,14 @@ top-right, left, center, right, bottom-left, bottom, bottom-right (or `x`, `y` f
 "start": 1, "end": 3.5, "radius": 0.28, "blur": 22, "tint": 0.10, "border": 0.55, "size": 3.6}]`.
 Only on request.
 
+**captions.style.mode: "html"** – designer captions rendered with HTML/CSS in headless Chromium
+(`tools/html_captions.py`, templates in `tools/htmlcaps/templates.css`): `"template"`: `box-pop`
+(spoken word in a rounded accent box), `editorial` (small sans + big serif italic word),
+`minimal` (whole line dim, spoken words light up), `outline-3d` (Anton with ink stroke and
+extrusion), `press` (vintage letterpress ink), `glass` (frosted pill); `"accent"` colour, `"y"`.
+Words pop in as spoken; `*big*` marks and keywords apply. Preview all templates on a frame:
+`python tools/html_captions.py --showcase "<edit.json>" --at 12.4`. New looks = new CSS classes.
+
 **captions.keywords** – words styled differently whenever they appear in captions:
 `{"heavy": {"font": "Anton", "color": "#FFD400", "size": 6.6, "uppercase": true}}`.
 **captions.style.glow** – soft blur on the outline (e.g. 6) for a glow look; `outline_alpha`

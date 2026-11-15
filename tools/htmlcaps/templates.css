@@ -1,0 +1,52 @@
+/* Caption templates. The engine sets on #cap: class "t-<template>", --accent, --y (0-1).
+   Words are <span class="w ..."> with state classes: past | active | future, and big | kw.
+   --p is the eased entrance progress (0 -> 1, may overshoot) of the word that just appeared.
+   Rows (kinetic layouts) are <div class="row">. */
+
+#cap { position: absolute; left: 6%; right: 6%; top: calc(var(--y) * 100%); transform: translateY(-50%);
+  display: flex; flex-direction: column; align-items: center; gap: .08em; text-align: center; }
+.row { display: flex; flex-wrap: wrap; justify-content: center; align-items: baseline; column-gap: .26em; row-gap: .05em; }
+.w { display: inline-block; white-space: nowrap; transform-origin: 50% 70%; }
+.w.future { visibility: hidden; }
+.w.active { transform: scale(calc(.55 + .45 * var(--p, 1))) translateY(calc((1 - var(--p, 1)) * .25em)); opacity: clamp(0, calc(var(--p, 1) * 2), 1); }
+
+/* 1. BOX POP — heavy geometric caps, the spoken word sits in a rounded accent box */
+.t-box-pop { font-family: "Montserrat Black", sans-serif; font-size: 74px; line-height: 1.12; text-transform: uppercase; letter-spacing: .005em; color: #fff;
+  text-shadow: 0 4px 0 rgba(0,0,0,.35), 0 8px 22px rgba(0,0,0,.45); }
+.t-box-pop .w.active { background: var(--accent); color: #111; text-shadow: none; padding: .02em .2em .06em; margin: 0 -.2em; border-radius: .2em;
+  box-shadow: 0 .12em 0 rgba(0,0,0,.35), 0 .3em .6em rgba(0,0,0,.35); rotate: -2deg; }
+.t-box-pop .w.kw { color: var(--accent); }
+.t-box-pop .w.kw.active { color: #111; }
+
+/* 2. EDITORIAL MIX — small clean sans + one big serif italic word in the accent, soft glow (Raj / editorial reels) */
+.t-editorial { font-family: "Poppins SemiBold", sans-serif; font-size: 50px; line-height: 1.05; color: #fff; letter-spacing: -.005em;
+  text-shadow: 0 2px 3px rgba(0,0,0,.45), 0 0 26px rgba(0,0,0,.55); }
+.t-editorial .w.big, .t-editorial .w.kw { font-family: "Instrument Serif", serif; font-style: italic; font-size: 150px; line-height: .92; color: var(--accent);
+  letter-spacing: -.02em; text-shadow: 0 0 34px rgba(0,0,0,.55), 0 3px 4px rgba(0,0,0,.35); }
+.t-editorial .row:has(.big) { margin: -.02em 0; }
+
+/* 3. MINIMAL — dynamic minimalism: sentence case, the whole line visible dim, spoken words light up */
+.t-minimal { font-family: "Poppins SemiBold", sans-serif; font-size: 62px; line-height: 1.15; color: #fff; letter-spacing: -.01em;
+  text-shadow: 0 2px 10px rgba(0,0,0,.55); }
+.t-minimal .w.future { visibility: visible; opacity: .38; }
+.t-minimal .w.active { transform: translateY(calc((1 - var(--p, 1)) * -.08em)); opacity: 1; }
+.t-minimal .w.big, .t-minimal .w.kw { color: var(--accent); }
+
+/* 4. OUTLINE 3D — condensed caps with a thick ink stroke and a hard extruded shadow */
+.t-outline-3d { font-family: "Anton", sans-serif; font-size: 112px; line-height: 1.02; text-transform: uppercase; letter-spacing: .01em; color: #fff;
+  -webkit-text-stroke: 7px #111; paint-order: stroke fill; text-shadow: 0 7px 0 #111, 0 12px 22px rgba(0,0,0,.45); }
+.t-outline-3d .w.big, .t-outline-3d .w.kw { color: var(--accent); }
+.t-outline-3d .w.active { rotate: calc((1 - var(--p, 1)) * -6deg); }
+
+/* 5. PRESS — vintage letterpress: condensed caps in warm cream ink with a worn texture */
+.t-press { font-family: "Oswald", sans-serif; font-weight: 700; font-size: 96px; line-height: 1.0; text-transform: uppercase; letter-spacing: .02em; color: #f2e8d0;
+  -webkit-mask-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='220' height='220'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' seed='3'/><feColorMatrix values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 -1.6 1.35'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+  -webkit-mask-size: 220px 220px; text-shadow: 0 0 1px rgba(242,232,208,.6), 0 3px 0 rgba(0,0,0,.55); }
+.t-press .w.small { font-size: .5em; letter-spacing: .14em; }
+.t-press .w.big, .t-press .w.kw { color: var(--accent); }
+
+/* 6. GLASS PILL — the line sits on a light frosted pill (liquid-glass family) */
+.t-glass .row { background: linear-gradient(180deg, rgba(255,255,255,.30), rgba(255,255,255,.12)); border: 1.5px solid rgba(255,255,255,.55);
+  border-radius: 999px; padding: .22em .7em .28em; box-shadow: 0 10px 30px rgba(0,0,0,.28), inset 0 1px 0 rgba(255,255,255,.6); }
+.t-glass { font-family: "Poppins SemiBold", sans-serif; font-size: 54px; line-height: 1.1; color: #fff; text-shadow: 0 1px 6px rgba(0,0,0,.35); }
+.t-glass .w.big, .t-glass .w.kw, .t-glass .w.active { color: var(--accent); }

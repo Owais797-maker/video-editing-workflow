@@ -62,13 +62,9 @@
       }
     },
     "sfx": {
-      "line": {
-        "sound": "tick",
-        "volume": 0.22
-      },
       "big": {
-        "sound": "whoosh_fast",
-        "volume": 0.12
+        "sound": "swish",
+        "volume": 0.16
       }
     }
   },

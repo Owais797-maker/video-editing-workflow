@@ -15,7 +15,7 @@ from common import REPO
 
 SR = 48000
 DIR = REPO / "assets" / "sfx"
-NAMES = ["whoosh", "whoosh_fast", "swoosh_up", "pop", "click", "tick", "ding", "ching", "impact", "boom", "riser", "glitch"]
+NAMES = ["whoosh", "whoosh_fast", "swoosh_up", "pop", "click", "tick", "swish", "ding", "ching", "impact", "boom", "riser", "glitch"]
 
 
 def _np():
@@ -78,6 +78,10 @@ def make(name: str):
         t = np.arange(int(d * SR)) / SR
         s = np.random.default_rng(3).standard_normal(len(t)) * np.exp(-t * 180) * 0.6 + np.sin(2 * np.pi * 2500 * t) * np.exp(-t * 120) * 0.5
         return s
+    if name == "swish":  # soft, airy, very short: for caption words
+        d = 0.22
+        s = swept_noise(d, 900, 5000, 1.6, np, 9) * np.sin(np.linspace(0, np.pi, int(d * SR))) ** 2
+        return s * 0.6
     if name == "tick":  # very soft, short "tk" for captions
         d = 0.05
         t = np.arange(int(d * SR)) / SR

@@ -12,6 +12,17 @@ mood, and keep the frame clean: every graphic must earn its place. Each video sh
 little different from the last (vary hook design, badge layout, transitions, accent colour
 treatment) while staying inside the owner's style.
 
+**Creative standard:** read `guides/creative-director.md` before designing anything: think,
+plan, create and critique like an elite international creative agency (authenticity,
+typography, composition, real photography and storytelling over decoration and templates).
+
+**Owner's working rules (learned the hard way):**
+- Confirm caption WORDING with the owner first (Caption Review page), then do the rest.
+  Never guess unclear words; mark them `_` with a note and ask.
+- Keep replies short: the owner works on a phone with limited usage. Do the work, show the
+  result, ask only what is needed. When they say "final de do", deliver the final.
+- No click/tick sound on every caption line (annoying). Use the soft `swish` on big words only.
+
 The owner writes in Urdu (sometimes English or Roman Urdu). Reply in the language
 they used. Keep replies short and non-technical; they are a video creator, not a
 programmer. Never ask them to run commands.

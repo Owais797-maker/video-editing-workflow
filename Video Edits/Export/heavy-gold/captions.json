@@ -120,10 +120,10 @@
         {
           "start": 5.64,
           "end": 6.08,
-          "text": "_"
+          "text": "nikal"
         }
       ],
-      "text": "Muzammil bhai ne _"
+      "text": "Muzammil bhai ne nikal"
     },
     {
       "start": 6.08,
@@ -205,10 +205,10 @@
         {
           "start": 8.58,
           "end": 8.84,
-          "text": "_"
+          "text": "animals"
         }
       ],
-      "text": "chahe dairy _"
+      "text": "chahe dairy animals"
     },
     {
       "start": 8.84,
@@ -481,10 +481,11 @@
         {
           "start": 16.7,
           "end": 16.98,
-          "text": "_"
+          "text": "halal",
+          "big": true
         }
       ],
-      "text": "_"
+      "text": "halal"
     },
     {
       "start": 17.0,
@@ -492,21 +493,26 @@
       "words": [
         {
           "start": 17.0,
-          "end": 17.18,
+          "end": 17.164,
           "text": "wala"
         },
         {
-          "start": 17.18,
-          "end": 17.52,
+          "start": 17.164,
+          "end": 17.327,
           "text": "dala"
         },
         {
-          "start": 17.52,
+          "start": 17.327,
+          "end": 17.464,
+          "text": "hua"
+        },
+        {
+          "start": 17.464,
           "end": 17.6,
           "text": "hai"
         }
       ],
-      "text": "wala dala hai"
+      "text": "wala dala hua hai"
     },
     {
       "start": 17.6,

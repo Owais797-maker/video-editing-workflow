@@ -1,0 +1,362 @@
+{
+  "project": "heavy-gold",
+  "title": "Heavy Gold reel",
+  "summary": "Shop reel for Heavy Gold 5-in-1 feed supplement: hook on animals not gaining weight, product reveal, why it is needed (vitamins, minerals, calcium, Japanese DCP), strong ending.",
+  "reference_notes": "Default style bold-clean: clean video, bold Poppins captions with gold active word and Anton gold brand name, product cutout rising from the bottom on 'Heavy Gold', icon badges for vitamins/minerals/calcium/DCP as they are said, product card ending, SFX on key moments.",
+  "captions": {
+    "keywords": {
+      "heavy": {
+        "font": "Oswald",
+        "bold": true,
+        "color": "#FFD400",
+        "size": 8.4,
+        "uppercase": true
+      },
+      "gold": {
+        "font": "Oswald",
+        "bold": true,
+        "color": "#FFD400",
+        "size": 8.4,
+        "uppercase": true
+      },
+      "dcp": {
+        "font": "Oswald",
+        "bold": true,
+        "color": "#FFD400",
+        "size": 8.4,
+        "uppercase": true
+      }
+    }
+  },
+  "shots": [
+    {
+      "src": "IMG_5930.mov",
+      "in": 0.0,
+      "out": 2.23,
+      "description": "Hook: customer at the counter. 'Aap ke janwar ka bhi wazan nahi barh raha na?'",
+      "motion": {
+        "type": "zoom_in",
+        "amount": 0.08
+      },
+      "punch": [
+        [
+          1.1,
+          2.23
+        ]
+      ]
+    },
+    {
+      "src": "IMG_5930.mov",
+      "in": 2.23,
+      "out": 4.33,
+      "description": "The bag on the counter. On 'Heavy Gold' the product cutout rises from the bottom on the right.",
+      "motion": {
+        "type": "zoom_out",
+        "amount": 0.08
+      },
+      "punch": [
+        [
+          1.1,
+          2.1
+        ]
+      ]
+    },
+    {
+      "src": "IMG_5930.mov",
+      "in": 4.33,
+      "out": 6.5,
+      "description": "Shop staff.",
+      "motion": {
+        "type": "zoom_in",
+        "amount": 0.06
+      }
+    },
+    {
+      "src": "IMG_5930.mov",
+      "in": 6.5,
+      "out": 9.27,
+      "description": "Bag close-up: for dairy and qurbani animals.",
+      "motion": {
+        "type": "zoom_out",
+        "amount": 0.06
+      }
+    },
+    {
+      "src": "IMG_5930.mov",
+      "in": 9.27,
+      "out": 12.1,
+      "description": "Bag: goats, dumbas. VITAMINS and MINERALS badges pop up as they are said.",
+      "motion": {
+        "type": "zoom_in",
+        "amount": 0.07
+      }
+    },
+    {
+      "src": "IMG_5930.mov",
+      "in": 12.1,
+      "out": 17.0,
+      "description": "Bag: CALCIUM badge, then D.C.P (Japan, bone based) badge with a 'ching'. Punch-in on 'DCP Japan wala'.",
+      "motion": {
+        "type": "zoom_in",
+        "amount": 0.06
+      },
+      "punch": [
+        [
+          2.9,
+          3.9
+        ]
+      ]
+    },
+    {
+      "src": "IMG_5930.mov",
+      "in": 17.0,
+      "out": 19.97,
+      "description": "Ending: 'Bohat zaroori hai bhai'. Background blurs and darkens, the bag rises up big in the centre.",
+      "motion": {
+        "type": "zoom_out",
+        "amount": 0.08
+      },
+      "punch": [
+        [
+          0.6,
+          1.6
+        ]
+      ]
+    }
+  ],
+  "texts": [
+    {
+      "segments": [
+        {
+          "text": "aap ke janwar ka",
+          "preset": "label"
+        },
+        {
+          "text": "WAZAN",
+          "preset": "headline",
+          "size": 12,
+          "newline": true
+        },
+        {
+          "text": "nahi barh raha?",
+          "preset": "accent",
+          "size": 7,
+          "newline": true
+        }
+      ],
+      "start": 0.05,
+      "end": 2.2,
+      "y": 0.5,
+      "animation": "pop",
+      "outline": 0.3,
+      "shadow": 4,
+      "shadow_alpha": 64
+    },
+    {
+      "segments": [
+        {
+          "text": "HEAVY",
+          "preset": "headline",
+          "size": 7.5
+        },
+        {
+          "text": "GOLD",
+          "preset": "headline_accent",
+          "size": 7.5
+        },
+        {
+          "text": "5 in 1",
+          "preset": "accent",
+          "size": 5.2,
+          "newline": true
+        }
+      ],
+      "start": 3.45,
+      "end": 4.3,
+      "x": 0.72,
+      "y": 0.25,
+      "animation": "slide_up",
+      "outline": 0.3,
+      "shadow": 4,
+      "shadow_alpha": 64
+    },
+    {
+      "segments": [
+        {
+          "text": "dairy aur qurbani ke janwaron ke liye",
+          "preset": "label",
+          "size": 3.0
+        },
+        {
+          "text": "HEAVY",
+          "preset": "headline",
+          "size": 10,
+          "newline": true
+        },
+        {
+          "text": "GOLD",
+          "preset": "headline_accent",
+          "size": 10
+        },
+        {
+          "text": "5 in 1",
+          "preset": "accent",
+          "size": 6.5,
+          "newline": true
+        }
+      ],
+      "start": 17.75,
+      "end": 19.97,
+      "y": 0.14,
+      "animation": "slide_up",
+      "outline": 0.3,
+      "shadow": 4,
+      "shadow_alpha": 64
+    }
+  ],
+  "overlays": [
+    {
+      "file": "heavy-gold-bag-cutout.png",
+      "start": 3.25,
+      "end": 4.3,
+      "x": 0.72,
+      "y": 0.52,
+      "width": 0.3,
+      "animation": "rise"
+    },
+    {
+      "file": "badge-vitamins.png",
+      "start": 11.5,
+      "end": 13.5,
+      "x": 0.3,
+      "y": 0.24,
+      "width": 0.24
+    },
+    {
+      "file": "badge-minerals.png",
+      "start": 11.95,
+      "end": 13.5,
+      "x": 0.7,
+      "y": 0.24,
+      "width": 0.24
+    },
+    {
+      "file": "badge-calcium.png",
+      "start": 13.55,
+      "end": 14.95,
+      "x": 0.5,
+      "y": 0.24,
+      "width": 0.24
+    },
+    {
+      "file": "badge-d-c-p.png",
+      "start": 15.0,
+      "end": 17.5,
+      "x": 0.5,
+      "y": 0.24,
+      "width": 0.28
+    },
+    {
+      "file": "heavy-gold-bag-cutout.png",
+      "start": 17.6,
+      "end": 19.97,
+      "x": 0.5,
+      "y": 0.42,
+      "width": 0.42,
+      "animation": "rise"
+    }
+  ],
+  "sfx": [
+    {
+      "sound": "impact",
+      "at": 0.0,
+      "volume": 0.5
+    },
+    {
+      "sound": "whoosh",
+      "at": 2.05,
+      "volume": 0.4
+    },
+    {
+      "sound": "swoosh_up",
+      "at": 3.15,
+      "volume": 0.45
+    },
+    {
+      "sound": "whoosh_fast",
+      "at": 6.4,
+      "volume": 0.3
+    },
+    {
+      "sound": "pop",
+      "at": 11.5,
+      "volume": 0.55
+    },
+    {
+      "sound": "pop",
+      "at": 11.95,
+      "volume": 0.55
+    },
+    {
+      "sound": "pop",
+      "at": 13.55,
+      "volume": 0.55
+    },
+    {
+      "sound": "ching",
+      "at": 15.0,
+      "volume": 0.4
+    },
+    {
+      "sound": "swoosh_up",
+      "at": 17.45,
+      "volume": 0.45
+    },
+    {
+      "sound": "impact",
+      "at": 17.75,
+      "volume": 0.35
+    },
+    {
+      "sound": "pop",
+      "at": 3.55,
+      "volume": 0.45
+    },
+    {
+      "sound": "whoosh_fast",
+      "at": 3.45,
+      "volume": 0.3
+    },
+    {
+      "sound": "whoosh",
+      "at": 17.7,
+      "volume": 0.35
+    }
+  ],
+  "fade": {
+    "out": 0.4
+  },
+  "backdrop": [
+    {
+      "start": 17.6,
+      "end": 19.97,
+      "blur": 20,
+      "dim": 0.4
+    }
+  ],
+  "style": "bold-clean",
+  "flashes": [
+    {
+      "at": 2.23,
+      "alpha": 0.55
+    },
+    {
+      "at": 6.5,
+      "alpha": 0.45
+    },
+    {
+      "at": 12.1,
+      "alpha": 0.45
+    }
+  ]
+}

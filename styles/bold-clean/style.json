@@ -1,0 +1,165 @@
+{
+  "output": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30,
+    "fit": "crop"
+  },
+  "transition": {
+    "type": "cut"
+  },
+  "motion": {
+    "type": "zoom_in",
+    "amount": 0.06
+  },
+  "captions": {
+    "words_per_line": 3,
+    "max_gap": 0.45,
+    "style": {
+      "mode": "kinetic",
+      "font": "Poppins SemiBold",
+      "bold": false,
+      "italic": false,
+      "lowercase": true,
+      "size": 4.0,
+      "color": "white",
+      "y": 0.68,
+      "outline": 0.55,
+      "outline_color": "#000000",
+      "outline_alpha": 40,
+      "glow": 7,
+      "shadow": 0,
+      "kinetic": {
+        "small": {
+          "font": "Poppins SemiBold",
+          "size": 4.8,
+          "color": "white"
+        },
+        "big": [
+          {
+            "font": "Oswald",
+            "bold": true,
+            "size": 8.4,
+            "color": "white",
+            "uppercase": true
+          },
+          {
+            "font": "Instrument Serif",
+            "italic": true,
+            "size": 10.5,
+            "color": "#FFD400"
+          },
+          {
+            "font": "Oswald",
+            "bold": true,
+            "size": 8.4,
+            "color": "#FFD400",
+            "uppercase": true
+          }
+        ],
+        "min_len": 4,
+        "no_big_scale": 1.25
+      }
+    },
+    "sfx": {
+      "line": {
+        "sound": "tick",
+        "volume": 0.22
+      },
+      "big": {
+        "sound": "whoosh_fast",
+        "volume": 0.12
+      }
+    }
+  },
+  "type_presets": {
+    "label": {
+      "font": "Poppins SemiBold",
+      "italic": false,
+      "bold": false,
+      "size": 3.6,
+      "color": "white"
+    },
+    "small": {
+      "font": "Poppins SemiBold",
+      "italic": false,
+      "bold": false,
+      "size": 4.2,
+      "lowercase": true
+    },
+    "headline": {
+      "font": "Oswald",
+      "italic": false,
+      "bold": true,
+      "size": 9,
+      "uppercase": true,
+      "color": "white"
+    },
+    "headline_accent": {
+      "font": "Oswald",
+      "italic": false,
+      "bold": true,
+      "size": 9,
+      "uppercase": true,
+      "color": "#FFD400"
+    },
+    "accent": {
+      "font": "Instrument Serif",
+      "italic": true,
+      "bold": false,
+      "size": 6,
+      "lowercase": true,
+      "color": "#FFD400"
+    },
+    "serif": {
+      "font": "Instrument Serif",
+      "italic": true,
+      "bold": false,
+      "size": 12
+    },
+    "heavy": {
+      "font": "Oswald",
+      "italic": false,
+      "bold": true,
+      "size": 9,
+      "uppercase": true,
+      "color": "#FFD400"
+    }
+  },
+  "text": {
+    "font": "Poppins ExtraBold",
+    "bold": false,
+    "size": 5.5,
+    "color": "white",
+    "outline": 0.4,
+    "shadow": 3,
+    "shadow_alpha": 90,
+    "animation": "pop",
+    "y": 0.5
+  },
+  "lower_third": {
+    "font": "Poppins SemiBold",
+    "color": "#111111"
+  },
+  "overlay": {
+    "animation": "pop",
+    "width": 0.22
+  },
+  "look": {
+    "contrast": 1.08,
+    "saturation": 1.12,
+    "warmth": 0.04,
+    "sharpen": 0.45,
+    "vignette": 0.5,
+    "grain": 4
+  },
+  "music": {
+    "volume": 0.15,
+    "duck": true
+  },
+  "loudness": -14,
+  "quality": {
+    "crf": 17,
+    "preset": "slow"
+  }
+}

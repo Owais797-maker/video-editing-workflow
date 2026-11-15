@@ -10,6 +10,7 @@ from __future__ import annotations
 
 import argparse
 import os
+import re
 import shutil
 import time
 from pathlib import Path
@@ -47,11 +48,12 @@ def style_line(name: str, st: dict, H: int, default_size: float, align: int) -> 
     size = int(H * float(st.get("size", default_size)) / 100)
     outline = st.get("outline", 0.35)
     box = st.get("box", False)
-    return ("Style: {n},{font},{size},{pc},{sc},{oc},{bc},{bold},0,0,0,100,100,0,0,{bs},{ol},{sh},{al},60,60,{mv},1"
+    return ("Style: {n},{font},{size},{pc},{sc},{oc},{bc},{bold},{it},0,0,100,100,0,0,{bs},{ol},{sh},{al},60,60,{mv},1"
             .format(n=name, font=st.get("font", "DejaVu Sans"), size=size,
                     pc=ass_color(st.get("color", "white")), sc=ass_color(st.get("color", "white")),
-                    oc=ass_color(st.get("box_color", "black"), 0x40) if box else ass_color(st.get("outline_color", "black")),
-                    bc=ass_color("#000000", 0x80), bold=-1 if st.get("bold", True) else 0,
+                    oc=ass_color(st.get("box_color", "black"), 0x40) if box else ass_color(st.get("outline_color", "black"), int(st.get("outline_alpha", 0))),
+                    bc=ass_color(st.get("shadow_color", "#000000"), int(st.get("shadow_alpha", 0x80))),
+                    bold=-1 if st.get("bold", True) else 0, it=-1 if st.get("italic") else 0,
                     bs=3 if box else 1, ol=round(size * outline / 10, 1) if not box else round(size * 0.25),
                     sh=st.get("shadow", 0), al=align, mv=int(H * float(st.get("margin", 12)) / 100)))
 
@@ -84,6 +86,117 @@ def typewriter(text: str, step_ms: int = 110) -> str:
             j += 1
         out.append(" ".join(words))
     return "\\N".join(out)
+
+
+def segments_text(segs: list, presets: dict, H: int) -> str:
+    """Mixed typography in one block: each segment has its own font/size/colour.
+    {"text": "8cr+", "preset": "serif"} or explicit font/size/italic/bold/color; "newline": true starts a new line."""
+    out = []
+    for i, sg in enumerate(segs):
+        sg = {**presets.get(sg.get("preset", ""), {}), **sg}
+        tags = ""
+        if sg.get("font"):
+            tags += "\\fn" + sg["font"]
+        if sg.get("size"):
+            tags += f"\\fs{int(H * float(sg['size']) / 100)}"
+        if "italic" in sg:
+            tags += f"\\i{1 if sg['italic'] else 0}"
+        if "bold" in sg:
+            tags += f"\\b{1 if sg['bold'] else 0}"
+        if sg.get("color"):
+            tags += "\\c" + ass_color(sg["color"])
+        text = sg["text"].upper() if sg.get("uppercase") else sg["text"].lower() if sg.get("lowercase") else sg["text"]
+        sep = "" if i == 0 else ("\\N" if sg.get("newline") else " ")
+        out.append(f"{sep}{{{tags}}}{ass_text(text)}")
+    return "".join(out)
+
+
+STOPWORDS = set("""hai hain ka ki ke ko se mein main aur to yeh ye woh wo bhai ne bhi hon ho kar ja
+chahe hoti hota parti padti kyunke kyun liye sab diya dala lekar wahi bas abhi
+raha rahe rahi wala wali wale is us in un ek koi kya na nahi tha thi the hi par pe aap hum
+the a an the of to in on and or is are was it for with at by this that you your""".split())
+
+
+def plan_kinetic(lines: list, cap: dict) -> list:
+    """For each caption line, pick the word to show big (index or None)."""
+    kc = cap.get("style", {}).get("kinetic", {})
+    kw = {k.lower() for k in (cap.get("keywords") or {})}
+    min_len = int(kc.get("min_len", 4))
+    stop = STOPWORDS | {w.lower() for w in kc.get("stopwords", [])}
+    plan = []
+    manual = any(w.get("big") for ln in lines for w in (ln.get("words") or []))
+    for ln in lines:
+        wl = ln.get("words") or []
+        if manual:  # words marked *like this* in captions.txt decide; unmarked lines have no big word
+            plan.append(next((i for i, w in enumerate(wl) if w.get("big")), None))
+            continue
+        words = [re.sub(r"[^\w]", "", w["text"].lower()) for w in wl]
+        pick = next((i for i, w in enumerate(words) if w in kw), None)
+        if pick is None:
+            cands = [(len(w), -i, i) for i, w in enumerate(words) if w not in stop and len(w) >= min_len]
+            pick = max(cands)[2] if cands else None
+        plan.append(pick)
+    return plan
+
+
+def kinetic_events(lines: list, cap: dict, W: int, H: int, glow: str, pos: str) -> list:
+    """Kinetic captions: small words + one big word per line in alternating display fonts,
+    stacked (before / BIG / after); words appear one by one as they are spoken and pop in."""
+    st = cap.get("style", {})
+    kc = st.get("kinetic", {})
+    small = {"font": "Poppins SemiBold", "size": 4.0, "color": "white", **kc.get("small", {})}
+    bigs = kc.get("big") or [{"font": "Instrument Serif", "italic": True, "size": 11, "color": "white"},
+                             {"font": "Anton", "size": 8.5, "color": "#FFD400", "uppercase": True}]
+    kw = {k.lower(): v for k, v in (cap.get("keywords") or {}).items()}
+    plain = {**small, "size": float(small["size"]) * float(kc.get("no_big_scale", 1.3))}
+    lower = st.get("lowercase", True)
+
+    def tags(v: dict, hidden: bool, popin: bool) -> str:
+        t = "\\r" + glow
+        t += "\\fn" + v["font"] + f"\\fs{int(H * float(v['size']) / 100)}" + "\\c" + ass_color(v.get("color", "white"))
+        t += f"\\i{1 if v.get('italic') else 0}\\b0"
+        if hidden:
+            t += "\\alpha&HFF&"
+        elif popin:
+            t += "\\fscx45\\fscy45\\t(0,110,\\fscx108\\fscy108)\\t(110,190,\\fscx100\\fscy100)"
+        return "{" + t + "}"
+
+    events, plan, bi = [], plan_kinetic(lines, cap), 0
+    for ln, pick in zip(lines, plan):
+        words = ln.get("words") or []
+        if not words:
+            continue
+        looks = []
+        for i, w in enumerate(words):
+            key = re.sub(r"[^\w]", "", w["text"].lower())
+            if key in kw:
+                looks.append({**bigs[-1], **kw[key]})
+            elif i == pick:
+                looks.append(bigs[bi % len(bigs)])
+            else:
+                looks.append(small if pick is not None else plain)
+        if pick is not None:
+            bi += 1
+        texts = []
+        for w, v in zip(words, looks):
+            t = w["text"]
+            texts.append(t.upper() if v.get("uppercase") else t.lower() if lower and v is not bigs[0] else t)
+        # stacked layout: words before the big word / big word / words after
+        groups = [[i for i in range(len(words)) if pick is None or i < pick], [pick] if pick is not None else [],
+                  [i for i in range(len(words)) if pick is not None and i > pick]]
+        groups = [gq for gq in groups if gq]
+        for k in range(len(words)):
+            a = words[k]["start"] if k else ln["start"]
+            b = words[k + 1]["start"] if k + 1 < len(words) else ln["end"]
+            if b <= a:
+                continue
+            rows = []
+            for gq in groups:
+                row = " ".join(tags(looks[i], i > k, i == k) + ass_text(texts[i]) for i in gq if texts[i] != "_")
+                if row:
+                    rows.append(row)
+            events.append(f"Dialogue: 0,{ass_time(a)},{ass_time(b)},Cap,,0,0,0,,{{{pos}}}" + "\\N".join(rows))
+    return events
 
 
 def lower_third(i: int, x: dict, W: int, H: int, styles: list, events: list) -> None:
@@ -123,8 +236,24 @@ def build_ass(edit: dict, path: Path) -> bool:
         x0, y0 = anchor(x, W, H, mv)
         has_pos = "x" in x or "y" in x
         fx = text_fx(anim, x0, y0, W, H, has_pos)
-        body = typewriter(x["text"]) if anim == "typewriter" else ass_text(x["text"])
+        if x.get("segments"):
+            body = segments_text(x["segments"], edit.get("type_presets", {}), H)
+        else:
+            body = typewriter(x["text"]) if anim == "typewriter" else ass_text(x["text"])
         events.append(f"Dialogue: 1,{ass_time(x.get('start', 0))},{ass_time(x['end'])},{name},,0,0,0,,{{{fx}}}{body}")
+
+    for k, gl in enumerate(edit.get("glass", [])):
+        if not gl.get("text"):
+            continue
+        x0, y0, bw, bh = glass_box(gl, W, H)
+        st = {"font": gl.get("font", "Poppins SemiBold"), "bold": False, "size": gl.get("size", 3.6),
+              "color": gl.get("color", "white"), "outline": 0, "shadow": 2, "shadow_alpha": 140}
+        styles.append(style_line(f"G{k}", st, H, 3.2, 5))
+        body = ass_text(gl["text"])
+        if gl.get("subtext"):
+            body += "\\N{\\fs" + str(int(H * float(gl.get("size", 3.2)) * 0.55 / 100)) + "\\alpha&H40&}" + ass_text(gl["subtext"])
+        s0, s1 = float(gl.get("start", 0)), float(gl.get("end", edit["_total"]))
+        events.append(f"Dialogue: 4,{ass_time(s0)},{ass_time(s1)},G{k},,0,0,0,,{{\\an5\\pos({x0 + bw // 2},{y0 + bh // 2})\\fad(250,250)}}{body}")
 
     cap = edit.get("captions")
     if cap:
@@ -136,22 +265,50 @@ def build_ass(edit: dict, path: Path) -> bool:
         hi = st.get("highlight_color")
         hscale = int(float(st.get("highlight_scale", 1.0)) * 100)
         upper = st.get("uppercase", False)
-        pop = "{\\fscx70\\fscy70\\t(0,120,\\fscx100\\fscy100)}" if st.get("animation") == "pop" else ""
-        for ln in load_json(cfile)["lines"]:
-            text = ln["text"].upper() if upper else ln["text"]
+        lower = st.get("lowercase", False)
+        case = (lambda v: v.upper()) if upper else (lambda v: v.lower()) if lower else (lambda v: v)
+        pos = f"\\an5\\pos({W // 2},{int(H * float(st['y']))})" if "y" in st else ""
+        anim = {"pop": "\\fscx70\\fscy70\\t(0,120,\\fscx100\\fscy100)", "fade": "\\fad(120,80)"}.get(st.get("animation"), "")
+        glow = f"\\blur{float(st['glow'])}" if st.get("glow") else ""
+        pop = "{" + pos + glow + anim + "}" if pos or anim or glow else ""
+        keep = "{" + pos + glow + "}" if pos or glow else ""
+        kw = {k.lower(): v for k, v in (cap.get("keywords") or {}).items()}
+
+        def styled(word: str) -> str:
+            k = re.sub(r"[^\w]", "", word.lower())
+            if k not in kw:
+                return ass_text(case(word))
+            v = kw[k]
+            tags = ""
+            if v.get("font"):
+                tags += "\\fn" + v["font"]
+            if v.get("size"):
+                tags += f"\\fs{int(H * float(v['size']) / 100)}"
+            if v.get("color"):
+                tags += "\\c" + ass_color(v["color"])
+            if "italic" in v:
+                tags += f"\\i{1 if v['italic'] else 0}"
+            text = word.upper() if v.get("uppercase") else case(word)
+            return "{" + tags + "}" + ass_text(text) + "{\\r" + glow + "}"
+        all_lines = load_json(cfile)["lines"]
+        if st.get("mode") == "kinetic":
+            events += kinetic_events(all_lines, cap, W, H, glow, pos or f"\\an5\\pos({W // 2},{int(H * 0.68)})")
+            all_lines = []
+        for ln in all_lines:
+            text = case(ln["text"])
             words = ln.get("words") or []
             if hi and words and " ".join(w["text"] for w in words) == ln["text"]:
                 # one event per spoken word, with that word highlighted
-                parts = [ass_text(w["text"].upper() if upper else w["text"]) for w in words]
+                parts = [styled(w["text"]) for w in words]
                 for k, w in enumerate(words):
                     a = w["start"] if k else ln["start"]
                     b = words[k + 1]["start"] if k + 1 < len(words) else ln["end"]
                     big = f"\\fscx{hscale}\\fscy{hscale}" if hscale != 100 else ""
                     shown = list(parts)
-                    shown[k] = "{\\c" + ass_color(hi) + big + "}" + parts[k] + "{\\r}"
-                    events.append(f"Dialogue: 0,{ass_time(a)},{ass_time(b)},Cap,,0,0,0,,{pop if k == 0 else ''}{' '.join(shown)}")
+                    shown[k] = "{\\c" + ass_color(hi) + big + "}" + parts[k] + "{\\r" + glow + "}"
+                    events.append(f"Dialogue: 0,{ass_time(a)},{ass_time(b)},Cap,,0,0,0,,{pop if k == 0 else keep}{' '.join(shown)}")
             else:
-                events.append(f"Dialogue: 0,{ass_time(ln['start'])},{ass_time(ln['end'])},Cap,,0,0,0,,{pop}{ass_text(text)}")
+                events.append(f"Dialogue: 0,{ass_time(ln['start'])},{ass_time(ln['end'])},Cap,,0,0,0,,{pop}{' '.join(styled(w) for w in text.split(' '))}")
     if not events:
         return False
     head = ["[Script Info]", "ScriptType: v4.00+", f"PlayResX: {W}", f"PlayResY: {H}", "WrapStyle: 0",
@@ -223,6 +380,15 @@ def build_graph(edit: dict, work: Path, preview: bool) -> tuple[list[str], str, 
     look = edit.get("look") or {}
     if any(k in look for k in ("brightness", "contrast", "saturation", "gamma")):
         vf.append("eq=" + ":".join(f"{k}={look[k]}" for k in ("brightness", "contrast", "saturation", "gamma") if k in look))
+    if look.get("warmth"):  # + warmer, - cooler
+        wv = float(look["warmth"])
+        vf.append(f"colorbalance=rm={wv:.3f}:bm={-wv:.3f}:rh={wv / 2:.3f}:bh={-wv / 2:.3f}")
+    if look.get("sharpen"):
+        vf.append(f"unsharp=5:5:{float(look['sharpen'])}:5:5:0")
+    if look.get("grain"):  # light film grain for a cinematic touch (applied under text and stickers)
+        vf.append(f"noise=alls={int(look['grain'])}:allf=t")
+    if look.get("vignette"):
+        vf.append(f"vignette=angle={float(look['vignette']):.3f}")
     if look.get("lut"):
         lut = resolve(look["lut"])
         shutil.copy(lut, work / ("look" + lut.suffix))
@@ -230,6 +396,27 @@ def build_graph(edit: dict, work: Path, preview: bool) -> tuple[list[str], str, 
     if vf:
         g.append(f"{cv}{','.join(vf)}[look]")
         cv, vf = "[look]", []
+    for b in edit.get("backdrop", []):  # blur/dim the video behind a product card or title
+        s0, s1 = float(b.get("start", 0)), float(b.get("end", total))
+        en = f"enable='between(t,{s0},{s1})'"
+        parts = []
+        if b.get("blur", 18):
+            parts.append(f"boxblur=luma_radius={int(b.get('blur', 18))}:luma_power=2:chroma_radius={int(b.get('blur', 18))}:{en}")
+        if b.get("dim", 0.35):
+            parts.append(f"drawbox=x=0:y=0:w=iw:h=ih:color=black@{float(b.get('dim', 0.35))}:t=fill:{en}")
+        if parts:
+            g.append(f"{cv}{','.join(parts)}[bd{len(g)}]")
+            cv = f"[bd{len(g) - 1}]"
+    for k, fl in enumerate(edit.get("flashes", [])):  # quick white (or any colour) flash, e.g. on cuts
+        at, d = float(fl.get("at", fl) if isinstance(fl, dict) else fl), float(fl.get("dur", 0.18) if isinstance(fl, dict) else 0.18)
+        a = float(fl.get("alpha", 0.75) if isinstance(fl, dict) else 0.75)
+        col = "0x" + render_color(fl.get("color", "white") if isinstance(fl, dict) else "white")
+        g.append(f"color=c={col}@{a}:s={W}x{H}:r={fps}:d={total:.3f},format=rgba,"
+                 f"fade=t=in:st={max(0, at - 0.03):.3f}:d=0.03:alpha=1,fade=t=out:st={at:.3f}:d={d}:alpha=1[fl{k}]")
+        g.append(f"{cv}[fl{k}]overlay=0:0:enable='between(t,{max(0, at - 0.03):.3f},{at + d:.3f})'[flo{k}]")
+        cv = f"[flo{k}]"
+    for k, gl in enumerate(edit.get("glass", [])):
+        cv = glass_chain(gl, k, cv, W, H, fps, total, work, inputs, g)
     for j, ov in enumerate(edit.get("overlays", [])):
         idx = inputs.count("-i")
         img = overlay_image(edit, ov)
@@ -283,6 +470,35 @@ def build_graph(edit: dict, work: Path, preview: bool) -> tuple[list[str], str, 
         else:
             g.append(f"{ca}[mus]amix=inputs=2:duration=first:normalize=0[mix]")
         ca = "[mix]"
+    sfx = list(edit.get("sfx") or [])
+    cap = edit.get("captions") or {}
+    csfx = cap.get("sfx") if cap else None
+    if csfx:  # soft sound under every caption line (and optionally under each big word)
+        lines = load_json(edit["_dir"] / cap.get("file", "captions.json"))["lines"]
+        lines = [ln for ln in lines if any(w["text"] != "_" for w in ln.get("words") or [{"text": ln["text"]}])]
+        for ln in lines:
+            if csfx.get("line"):
+                sfx.append({**csfx["line"], "at": ln["start"]})
+        if csfx.get("big") and cap.get("style", {}).get("mode") == "kinetic":
+            for ln, pick in zip(lines, plan_kinetic(lines, cap)):
+                if pick is not None and pick > 0:
+                    sfx.append({**csfx["big"], "at": ln["words"][pick]["start"]})
+    if sfx:
+        import sfx as sfxlib
+        labels = []
+        for j, fx in enumerate(sfx):
+            at = float(fx.get("at", 0))
+            if at >= total:
+                continue
+            path = edl._src(edit["project"], fx["file"]) if fx.get("file") else sfxlib.get(fx.get("sound", "whoosh"))
+            idx = inputs.count("-i")
+            inputs += ["-i", str(path)]
+            ms = int(at * 1000)
+            g.append(f"[{idx}:a]{AUDIO_FMT},volume={float(fx.get('volume', 0.7))},adelay={ms}|{ms}[sfx{j}]")
+            labels.append(f"[sfx{j}]")
+        if labels:
+            g.append(f"{ca}{''.join(labels)}amix=inputs={len(labels) + 1}:duration=first:normalize=0[withsfx]")
+            ca = "[withsfx]"
     af = []
     if fade.get("in"):
         af.append(f"afade=t=in:st=0:d={fade['in']}")
@@ -334,8 +550,10 @@ def overlay_chain(ov: dict, idx: int, j: int, base: str, W: int, H: int) -> list
     else:
         sc = f"scale={wo}:-2"
     chain = f"[{idx}:v]format=rgba,{sc}"
+    if anim not in ("none", "rise"):
+        chain += f",fade=t=in:st={s0}:d=0.2:alpha=1"
     if anim != "none":
-        chain += f",fade=t=in:st={s0}:d=0.2:alpha=1,fade=t=out:st={max(s0, s1 - 0.25):.3f}:d=0.25:alpha=1"
+        chain += f",fade=t=out:st={max(s0, s1 - 0.25):.3f}:d=0.25:alpha=1"
     m = float(ov.get("margin", 0.06))
     if "x" in ov or "y" in ov:
         cx, cy = f"{W}*{float(ov.get('x', 0.5))}", f"{H}*{float(ov.get('y', 0.5))}"
@@ -344,8 +562,69 @@ def overlay_chain(ov: dict, idx: int, j: int, base: str, W: int, H: int) -> list
         cx = f"({W}*{m}+w/2)" if px == 0 else f"({W}-{W}*{m}-w/2)" if px == 1 else f"{W}/2"
         cy = f"({H}*{m * 1.5}+h/2)" if py == 0 else f"({H}-{H}*{m * 3}-h/2)" if py == 1 else f"{H}/2"
     dy = f"+{H * 0.08:.0f}*(1-clip({u}/0.3,0,1))" if anim == "slide_up" else ""
+    if anim == "rise":  # comes up from the bottom edge with a little overshoot
+        p = f"clip({u}/0.5,0,1)"
+        ease = f"(1+2.4*pow({p}-1,3)+1.4*pow({p}-1,2))"
+        dy = f"+({H}-({cy})+h/2+10)*(1-{ease})"
     return [chain + f"[img{j}]",
             f"{base}[img{j}]overlay=x='{cx}-w/2':y='{cy}-h/2{dy}':enable='between(t,{s0},{s1})':eval=frame[ov{j}]"]
+
+
+def glass_box(gl: dict, W: int, H: int) -> tuple[int, int, int, int]:
+    bw = int(W * float(gl.get("w", 0.6))) // 2 * 2
+    bh = int(H * float(gl.get("h", 0.1))) // 2 * 2
+    x0 = int(W * float(gl.get("x", 0.5)) - bw / 2)
+    y0 = int(H * float(gl.get("y", 0.5)) - bh / 2)
+    return max(0, min(x0, W - bw)), max(0, min(y0, H - bh)), bw, bh
+
+
+def glass_chain(gl: dict, k: int, cv: str, W: int, H: int, fps: int, total: float, work: Path,
+                inputs: list, g: list) -> str:
+    """Liquid-glass card: blurred, brightened video inside a rounded rectangle with a light
+    tint, top highlight, thin white border and soft shadow (PNG layers made with Pillow)."""
+    import numpy as np
+    from PIL import Image, ImageDraw, ImageFilter
+    x0, y0, bw, bh = glass_box(gl, W, H)
+    s0, s1 = float(gl.get("start", 0)), float(gl.get("end", total))
+    rad = int(min(bw, bh) * float(gl.get("radius", 0.28)))
+    ss = 4  # supersampling for smooth corners
+    big = Image.new("L", (bw * ss, bh * ss), 0)
+    ImageDraw.Draw(big).rounded_rectangle((0, 0, bw * ss - 1, bh * ss - 1), rad * ss, fill=255)
+    mask = big.resize((bw, bh), Image.LANCZOS)
+    mask.save(work / f"glass{k}_mask.png")
+    face = Image.new("RGBA", (bw, bh), (255, 255, 255, int(255 * float(gl.get("tint", 0.10)))))
+    hl = Image.new("L", (bw, bh), 0)
+    for y in range(int(bh * 0.5)):
+        ImageDraw.Draw(hl).line((0, y, bw, y), fill=int(70 * (1 - y / (bh * 0.5))))
+    face.putalpha(Image.fromarray(np.minimum(np.array(face.split()[-1]).astype(int) + np.array(hl).astype(int), 255).astype("uint8")))
+    bd = Image.new("RGBA", (bw * ss, bh * ss), (0, 0, 0, 0))
+    ImageDraw.Draw(bd).rounded_rectangle((ss, ss, bw * ss - ss - 1, bh * ss - ss - 1), rad * ss,
+                                         outline=(255, 255, 255, int(255 * float(gl.get("border", 0.55)))), width=2 * ss)
+    face.alpha_composite(bd.resize((bw, bh), Image.LANCZOS))
+    clear = Image.new("RGBA", (bw, bh), (0, 0, 0, 0))
+    face = Image.composite(face, clear, mask)
+    face.save(work / f"glass{k}_face.png")
+    pad = 40
+    sh = Image.new("RGBA", (bw + 2 * pad, bh + 2 * pad), (0, 0, 0, 0))
+    ImageDraw.Draw(sh).rounded_rectangle((pad, pad + 10, pad + bw, pad + bh + 10), rad, fill=(0, 0, 0, 110))
+    sh.filter(ImageFilter.GaussianBlur(18)).save(work / f"glass{k}_shadow.png")
+
+    idx = inputs.count("-i")
+    for name in ("mask", "face", "shadow"):
+        inputs += ["-loop", "1", "-framerate", str(fps), "-t", f"{total:.3f}", "-i", f"glass{k}_{name}.png"]
+    fade = f"fade=t=in:st={s0}:d=0.25:alpha=1,fade=t=out:st={max(s0, s1 - 0.25):.3f}:d=0.25:alpha=1"
+    en = f"enable='between(t,{s0},{s1})'"
+    blur = float(gl.get("blur", 22))
+    g.append(f"{cv}split[ga{k}][gb{k}]")
+    g.append(f"[gb{k}]crop={bw}:{bh}:{x0}:{y0},gblur=sigma={blur},eq=brightness=0.05:saturation=1.3,format=rgba[gbl{k}]")
+    g.append(f"[{idx}:v]format=gray[gm{k}]")
+    g.append(f"[gbl{k}][gm{k}]alphamerge,{fade}[gg{k}]")
+    g.append(f"[{idx + 2}:v]format=rgba,{fade}[gs{k}]")
+    g.append(f"[{idx + 1}:v]format=rgba,{fade}[gf{k}]")
+    g.append(f"[ga{k}][gs{k}]overlay={x0 - pad}:{y0 - pad}:{en}[g1{k}]")
+    g.append(f"[g1{k}][gg{k}]overlay={x0}:{y0}:{en}[g2{k}]")
+    g.append(f"[g2{k}][gf{k}]overlay={x0}:{y0}:{en}[g3{k}]")
+    return f"[g3{k}]"
 
 
 def resolve_music(edit: dict, music: dict) -> Path:

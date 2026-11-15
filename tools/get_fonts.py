@@ -3,6 +3,7 @@
 
     python tools/get_fonts.py                      # the standard set below
     python tools/get_fonts.py "Lobster" "Oswald:400,700" --folder "Bold Display Fonts"
+    python tools/get_fonts.py "Poppins:500i,900"      # i = italic
 
 Fonts already downloaded are skipped.
 """
@@ -15,10 +16,10 @@ from common import FONTS, REPO, die
 # folder -> {family: weights}
 STANDARD = {
     "Urdu Fonts": {"Noto Nastaliq Urdu": "400,700", "Gulzar": "400", "Noto Naskh Arabic": "400,700"},
-    "Subtitle Fonts": {"Poppins": "400,600,800", "Montserrat": "500,800", "Roboto": "400,700"},
+    "Subtitle Fonts": {"Poppins": "400,600,800,900,500i,600i", "Montserrat": "500,800", "Roboto": "400,700"},
     "Bold Display Fonts": {"Bebas Neue": "400", "Anton": "400", "Archivo Black": "400"},
     "Social Media Fonts": {"Luckiest Guy": "400", "Bangers": "400"},
-    "Cinematic Fonts": {"Cinzel": "400,700", "Playfair Display": "400,700"},
+    "Cinematic Fonts": {"Cinzel": "400,700", "Playfair Display": "400,700,600i,800i", "DM Serif Display": "400i"},
 }
 UA = "Mozilla/4.0"  # an old agent makes Google Fonts send plain .ttf files
 
@@ -30,16 +31,18 @@ def fetch(url: str) -> bytes:
 
 
 def download(family: str, weights: str, folder: str) -> int:
+    """weights: "400,700" or with italics "500i,900" (i = italic)."""
     dest_dir = FONTS / folder
-    q = family.replace(" ", "+") + ":wght@" + ";".join(weights.split(","))
+    pairs = sorted({(1 if w.strip().endswith("i") else 0, int(w.strip().rstrip("i"))) for w in weights.split(",")})
+    q = family.replace(" ", "+") + ":ital,wght@" + ";".join(f"{i},{w}" for i, w in pairs)
     try:
         css = fetch(f"https://fonts.googleapis.com/css2?family={q}").decode()
     except Exception as e:  # noqa: BLE001
         print(f"  !! {family}: not found on Google Fonts ({e})")
         return 0
     got = 0
-    for weight, url in re.findall(r"font-weight:\s*(\d+);.*?src:\s*url\(([^)]+\.ttf)\)", css, re.S):
-        name = f"{family.replace(' ', '')}-{weight}.ttf"
+    for style, weight, url in re.findall(r"font-style:\s*(\w+);\s*font-weight:\s*(\d+);.*?src:\s*url\(([^)]+\.ttf)\)", css, re.S):
+        name = f"{family.replace(' ', '')}-{weight}{'i' if style == 'italic' else ''}.ttf"
         dest = dest_dir / name
         if dest.exists():
             continue

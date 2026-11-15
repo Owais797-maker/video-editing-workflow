@@ -1,0 +1,575 @@
+{
+  "note": "Edit 'text' and the words freely; times are seconds on the final video.",
+  "lines": [
+    {
+      "start": 2.24,
+      "end": 2.78,
+      "words": [
+        {
+          "start": 2.24,
+          "end": 2.44,
+          "text": "to"
+        },
+        {
+          "start": 2.44,
+          "end": 2.64,
+          "text": "bhai"
+        },
+        {
+          "start": 2.64,
+          "end": 2.78,
+          "text": "yeh"
+        }
+      ],
+      "text": "to bhai yeh"
+    },
+    {
+      "start": 2.78,
+      "end": 3.34,
+      "words": [
+        {
+          "start": 2.78,
+          "end": 3.2,
+          "text": "Kaleem",
+          "big": true
+        },
+        {
+          "start": 3.2,
+          "end": 3.34,
+          "text": "bhai"
+        }
+      ],
+      "text": "Kaleem bhai"
+    },
+    {
+      "start": 3.34,
+      "end": 3.88,
+      "words": [
+        {
+          "start": 3.34,
+          "end": 3.6,
+          "text": "_"
+        },
+        {
+          "start": 3.6,
+          "end": 3.88,
+          "text": "_"
+        }
+      ],
+      "text": "_ _"
+    },
+    {
+      "start": 3.88,
+      "end": 4.38,
+      "words": [
+        {
+          "start": 3.88,
+          "end": 3.96,
+          "text": "le"
+        },
+        {
+          "start": 3.96,
+          "end": 4.16,
+          "text": "kar"
+        },
+        {
+          "start": 4.16,
+          "end": 4.33,
+          "text": "ja"
+        }
+      ],
+      "text": "le kar ja"
+    },
+    {
+      "start": 4.38,
+      "end": 4.78,
+      "words": [
+        {
+          "start": 4.38,
+          "end": 4.62,
+          "text": "rahe"
+        },
+        {
+          "start": 4.62,
+          "end": 4.78,
+          "text": "hain"
+        }
+      ],
+      "text": "rahe hain"
+    },
+    {
+      "start": 4.78,
+      "end": 6.08,
+      "words": [
+        {
+          "start": 4.78,
+          "end": 5.32,
+          "text": "Muzammil",
+          "big": true
+        },
+        {
+          "start": 5.32,
+          "end": 5.52,
+          "text": "bhai"
+        },
+        {
+          "start": 5.52,
+          "end": 5.64,
+          "text": "ne"
+        },
+        {
+          "start": 5.64,
+          "end": 6.08,
+          "text": "_"
+        }
+      ],
+      "text": "Muzammil bhai ne _"
+    },
+    {
+      "start": 6.08,
+      "end": 6.5,
+      "words": [
+        {
+          "start": 6.08,
+          "end": 6.26,
+          "text": "kar"
+        },
+        {
+          "start": 6.26,
+          "end": 6.46,
+          "text": "diya"
+        }
+      ],
+      "text": "kar diya"
+    },
+    {
+      "start": 6.5,
+      "end": 7.26,
+      "words": [
+        {
+          "start": 6.5,
+          "end": 6.68,
+          "text": "is"
+        },
+        {
+          "start": 6.68,
+          "end": 6.82,
+          "text": "ki"
+        },
+        {
+          "start": 6.82,
+          "end": 7.26,
+          "text": "zaroorat",
+          "big": true
+        }
+      ],
+      "text": "is ki zaroorat"
+    },
+    {
+      "start": 7.26,
+      "end": 7.86,
+      "words": [
+        {
+          "start": 7.26,
+          "end": 7.56,
+          "text": "hoti"
+        },
+        {
+          "start": 7.56,
+          "end": 7.64,
+          "text": "hai"
+        },
+        {
+          "start": 7.64,
+          "end": 7.86,
+          "text": "bhai"
+        }
+      ],
+      "text": "hoti hai bhai"
+    },
+    {
+      "start": 7.86,
+      "end": 8.84,
+      "words": [
+        {
+          "start": 7.86,
+          "end": 8.06,
+          "text": "chahe"
+        },
+        {
+          "start": 8.06,
+          "end": 8.58,
+          "text": "dairy",
+          "big": true
+        },
+        {
+          "start": 8.58,
+          "end": 8.84,
+          "text": "_"
+        }
+      ],
+      "text": "chahe dairy _"
+    },
+    {
+      "start": 8.84,
+      "end": 9.6,
+      "words": [
+        {
+          "start": 8.84,
+          "end": 8.98,
+          "text": "chahe"
+        },
+        {
+          "start": 9.27,
+          "end": 9.6,
+          "text": "qurbani",
+          "big": true
+        }
+      ],
+      "text": "chahe qurbani"
+    },
+    {
+      "start": 9.6,
+      "end": 9.72,
+      "words": [
+        {
+          "start": 9.6,
+          "end": 9.65,
+          "text": "ke"
+        },
+        {
+          "start": 9.64,
+          "end": 9.72,
+          "text": "hon"
+        }
+      ],
+      "text": "ke hon"
+    },
+    {
+      "start": 9.72,
+      "end": 10.48,
+      "words": [
+        {
+          "start": 9.72,
+          "end": 10.0,
+          "text": "chahe"
+        },
+        {
+          "start": 10.0,
+          "end": 10.4,
+          "text": "bakre",
+          "big": true
+        },
+        {
+          "start": 10.4,
+          "end": 10.48,
+          "text": "hon"
+        }
+      ],
+      "text": "chahe bakre hon"
+    },
+    {
+      "start": 10.48,
+      "end": 11.34,
+      "words": [
+        {
+          "start": 10.48,
+          "end": 10.88,
+          "text": "dumbe",
+          "big": true
+        },
+        {
+          "start": 10.88,
+          "end": 10.98,
+          "text": "hon"
+        },
+        {
+          "start": 10.98,
+          "end": 11.34,
+          "text": "kyunke"
+        }
+      ],
+      "text": "dumbe hon kyunke"
+    },
+    {
+      "start": 11.34,
+      "end": 12.1,
+      "words": [
+        {
+          "start": 11.34,
+          "end": 11.58,
+          "text": "bhai"
+        },
+        {
+          "start": 11.58,
+          "end": 11.92,
+          "text": "vitamins",
+          "big": true
+        },
+        {
+          "start": 11.92,
+          "end": 12.02,
+          "text": "aur"
+        }
+      ],
+      "text": "bhai vitamins aur"
+    },
+    {
+      "start": 12.1,
+      "end": 12.6,
+      "words": [
+        {
+          "start": 12.1,
+          "end": 12.42,
+          "text": "minerals",
+          "big": true
+        },
+        {
+          "start": 12.42,
+          "end": 12.52,
+          "text": "ki"
+        },
+        {
+          "start": 12.52,
+          "end": 12.6,
+          "text": "bhi"
+        }
+      ],
+      "text": "minerals ki bhi"
+    },
+    {
+      "start": 12.6,
+      "end": 13.6,
+      "words": [
+        {
+          "start": 12.6,
+          "end": 13.0,
+          "text": "zaroorat",
+          "big": true
+        },
+        {
+          "start": 13.0,
+          "end": 13.38,
+          "text": "parti"
+        },
+        {
+          "start": 13.38,
+          "end": 13.6,
+          "text": "hai"
+        }
+      ],
+      "text": "zaroorat parti hai"
+    },
+    {
+      "start": 13.6,
+      "end": 14.36,
+      "words": [
+        {
+          "start": 13.6,
+          "end": 14.06,
+          "text": "calcium",
+          "big": true
+        },
+        {
+          "start": 14.06,
+          "end": 14.2,
+          "text": "ki"
+        },
+        {
+          "start": 14.2,
+          "end": 14.36,
+          "text": "bhi"
+        }
+      ],
+      "text": "calcium ki bhi"
+    },
+    {
+      "start": 14.36,
+      "end": 14.76,
+      "words": [
+        {
+          "start": 14.36,
+          "end": 14.48,
+          "text": "need",
+          "big": true
+        },
+        {
+          "start": 14.48,
+          "end": 14.7,
+          "text": "hoti"
+        },
+        {
+          "start": 14.7,
+          "end": 14.76,
+          "text": "hai"
+        }
+      ],
+      "text": "need hoti hai"
+    },
+    {
+      "start": 14.76,
+      "end": 15.0,
+      "words": [
+        {
+          "start": 14.76,
+          "end": 14.84,
+          "text": "to"
+        },
+        {
+          "start": 14.84,
+          "end": 14.92,
+          "text": "is"
+        },
+        {
+          "start": 14.92,
+          "end": 15.0,
+          "text": "mein"
+        }
+      ],
+      "text": "to is mein"
+    },
+    {
+      "start": 15.0,
+      "end": 15.88,
+      "words": [
+        {
+          "start": 15.0,
+          "end": 15.36,
+          "text": "DCP",
+          "big": true
+        },
+        {
+          "start": 15.36,
+          "end": 15.5,
+          "text": "_"
+        },
+        {
+          "start": 15.5,
+          "end": 15.88,
+          "text": "Japan"
+        }
+      ],
+      "text": "DCP _ Japan"
+    },
+    {
+      "start": 15.88,
+      "end": 16.7,
+      "words": [
+        {
+          "start": 15.88,
+          "end": 16.22,
+          "text": "wala"
+        },
+        {
+          "start": 16.22,
+          "end": 16.5,
+          "text": "bone",
+          "big": true
+        },
+        {
+          "start": 16.5,
+          "end": 16.7,
+          "text": "based"
+        }
+      ],
+      "text": "wala bone based"
+    },
+    {
+      "start": 16.7,
+      "end": 17.0,
+      "words": [
+        {
+          "start": 16.7,
+          "end": 16.98,
+          "text": "_"
+        }
+      ],
+      "text": "_"
+    },
+    {
+      "start": 17.0,
+      "end": 17.6,
+      "words": [
+        {
+          "start": 17.0,
+          "end": 17.18,
+          "text": "wala"
+        },
+        {
+          "start": 17.18,
+          "end": 17.52,
+          "text": "dala"
+        },
+        {
+          "start": 17.52,
+          "end": 17.6,
+          "text": "hai"
+        }
+      ],
+      "text": "wala dala hai"
+    },
+    {
+      "start": 17.6,
+      "end": 18.8,
+      "words": [
+        {
+          "start": 17.6,
+          "end": 18.24,
+          "text": "bohat"
+        },
+        {
+          "start": 18.24,
+          "end": 18.72,
+          "text": "zaroori",
+          "big": true
+        },
+        {
+          "start": 18.72,
+          "end": 18.8,
+          "text": "hai"
+        }
+      ],
+      "text": "bohat zaroori hai"
+    },
+    {
+      "start": 18.8,
+      "end": 19.28,
+      "words": [
+        {
+          "start": 18.8,
+          "end": 19.02,
+          "text": "bhai"
+        },
+        {
+          "start": 19.02,
+          "end": 19.14,
+          "text": "yeh"
+        },
+        {
+          "start": 19.14,
+          "end": 19.28,
+          "text": "sab"
+        }
+      ],
+      "text": "bhai yeh sab"
+    },
+    {
+      "start": 19.28,
+      "end": 19.85,
+      "words": [
+        {
+          "start": 19.28,
+          "end": 19.5,
+          "text": "cheez",
+          "big": true
+        },
+        {
+          "start": 19.5,
+          "end": 19.6,
+          "text": "hai"
+        }
+      ],
+      "text": "cheez hai"
+    }
+  ]
+}

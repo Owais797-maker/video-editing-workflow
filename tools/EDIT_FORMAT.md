@@ -102,15 +102,47 @@ camera shake (`shake_amount` in pixels). All are smooth, sub-pixel movement.
 transparency, from Raw/<project>/) or `emoji` (any emoji; Google's Noto emoji, downloaded
 automatically; `"animated": true` uses the animated version). `position`: top-left, top,
 top-right, left, center, right, bottom-left, bottom, bottom-right (or `x`, `y` fractions).
-`width`: fraction of the video width. `animation`: `pop`, `fade`, `slide_up`, `none`.
+`width`: fraction of the video width. `animation`: `pop`, `fade`, `slide_up`, `rise`
+(comes up from the bottom edge with a small overshoot), `none`.
+
+**glass** – liquid-glass cards (frosted, blurred video behind, white border, rounded):
+`[{"x": 0.5, "y": 0.2, "w": 0.72, "h": 0.09, "text": "Heavy Gold", "subtext": "5 in 1",
+"start": 1, "end": 3.5, "radius": 0.28, "blur": 22, "tint": 0.10, "border": 0.55, "size": 3.6}]`.
+Only on request.
+
+**captions.keywords** – words styled differently whenever they appear in captions:
+`{"heavy": {"font": "Anton", "color": "#FFD400", "size": 6.6, "uppercase": true}}`.
+**captions.style.glow** – soft blur on the outline (e.g. 6) for a glow look; `outline_alpha`
+makes the outline see-through (0 = solid, 255 = invisible).
+
+**backdrop** – `[{"start": 17.6, "end": 20, "blur": 18, "dim": 0.35}]` blurs and darkens the
+video for that time, e.g. behind a product cutout ("product card") or a big title.
 
 **progress_bar** – a bar that fills across the top (or bottom) as the video plays.
 
 **captions.style** – `highlight_scale` enlarges the word being spoken (1.1 = 10%);
-`animation: "pop"` makes each caption line pop in.
+`animation`: `pop` or `fade`. `italic`, `uppercase` / `lowercase`. `y` (0–1) places captions
+at that height in the middle of the frame instead of using `position`. `outline` (0 = none),
+`shadow` (depth in px), `shadow_color`, `shadow_alpha` (0 = solid, 255 = invisible).
+The same `italic`, `outline`, `shadow*` keys work on texts.
+
+**Mixed typography** – a text item can use `segments` instead of `text`: each segment has
+its own `font`, `size`, `italic`, `bold`, `color`, `uppercase`/`lowercase`, or a `preset`
+name from `type_presets` (usually defined by the style). `"newline": true` starts a new line.
+```json
+{"segments": [{"text": "se zyada", "preset": "small"}, {"text": "8cr", "preset": "serif", "newline": true},
+              {"text": "+", "preset": "heavy"}], "start": 0.3, "end": 3.0, "y": 0.5}
+```
+
+**sfx** – sound effects at exact times: `[{"sound": "whoosh", "at": 3.2, "volume": 0.5}]` with the
+built-in sounds from `tools/sfx.py` (whoosh, whoosh_fast, swoosh_up, pop, click, ding, ching,
+impact, boom, riser, glitch) or `{"file": "my-sound.wav", "at": ...}` from Raw/<project>/.
 
 **music** – loops if shorter than the video. `duck` lowers it while people speak.
 
-**look** – simple colour adjustment (`eq`), and/or a `.cube` LUT file.
+**look** – `brightness`, `contrast`, `saturation`, `gamma` (eq), `warmth` (+ warmer / − cooler),
+`sharpen` (0.3–0.8), `vignette` (angle, ~0.5), `grain` (film grain 3–6), and/or a `.cube` LUT.
+
+**flashes** – `[{"at": 2.23, "alpha": 0.5, "dur": 0.18, "color": "white"}]` quick flash, e.g. on a cut.
 
 **loudness** – target LUFS for the final mix (-14 suits social media). `null` turns it off.

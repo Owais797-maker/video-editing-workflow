@@ -1,0 +1,6 @@
+{
+  "output": { "width": 1080, "height": 1920, "fps": 30, "fit": "crop" },
+  "transition": { "type": "cut" },
+  "motion": { "type": "zoom_in", "amount": 0.05 },
+  "loudness": -14
+}

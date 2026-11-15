@@ -13,7 +13,7 @@ Claude edits videos here with FFmpeg, entirely in a Claude Code cloud session dr
 2. Claude app میں **Code** کھولیں اور یہ ریپو (`video-editing-workflow`) اور environment **video-editing-workflow** چنیں۔ اس environment میں انٹرنیٹ کھلا ہے اور سب ٹولز خود انسٹال ہوتے ہیں۔
 
 ### ہر ویڈیو کے لیے
-1. **فوٹیج:** اپنی ویڈیوز اور میوزک Google Drive کے ایک فولڈر میں اپلوڈ کریں۔ فولڈر پر **Share → General access → Anyone with the link** کریں، پھر **Copy link**۔
+1. **فوٹیج:** ویڈیو اور تصویریں سیدھا چیٹ میں بھیج دیں۔ بہت بڑی فائلیں ہوں تو Google Drive کے ایک فولڈر میں اپلوڈ کریں۔ فولڈر پر **Share → General access → Anyone with the link** کریں، پھر **Copy link**۔
 2. **انسپریشن:** Instagram، TikTok یا Facebook ویڈیو کا لنک کاپی کریں۔ YouTube کی ویڈیو ہو تو اسے **Screen Recording** سے ریکارڈ کر کے Drive میں ڈال دیں (YouTube cloud سے ڈاؤن لوڈ نہیں ہونے دیتا)۔
 3. **Claude کو لکھیں**، مثلاً:
    > نیا پروجیکٹ: eid-reel۔ فوٹیج: (Drive لنک)۔ انسپریشن: (Instagram لنک)۔ 30 سیکنڈ کی reel بناؤ، رومن اردو کیپشن، تیز کٹنگ، آخر میں "Follow karein"۔ یہ انداز آئندہ کے لیے بھی یاد رکھو۔
@@ -47,6 +47,8 @@ After Effects جیسا کام (3D، tracking، پیچیدہ animation) نہیں 
 | `tools/storyboard.py <edit.json>` | Storyboard frames from a quick preview render |
 | `tools/render.py <edit.json> [--preview]` | Final video |
 | `tools/get_fonts.py [family]` | Downloads free Google Fonts into `fonts/` |
+| `tools/cutout.py <image>` | Product cutout with transparent background (BiRefNet) |
+| `tools/sfx.py` | Built-in synthesised sound effects (whoosh, pop, ding, impact ...) |
 
 The edit is described in `edit.json`; see [tools/EDIT_FORMAT.md](tools/EDIT_FORMAT.md). Workflow rules for Claude are in [CLAUDE.md](CLAUDE.md). Styles: [styles/README.md](styles/README.md).
 

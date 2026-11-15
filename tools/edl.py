@@ -45,7 +45,9 @@ def apply_style(edit: dict) -> None:
     for key in ("output", "look", "fade"):
         if key in st:
             edit[key] = _merge(st[key], edit.get(key) or {})
-    for key in ("loudness", "progress_bar"):
+    if "type_presets" in st:
+        edit["type_presets"] = _merge(st["type_presets"], edit.get("type_presets") or {})
+    for key in ("loudness", "progress_bar", "quality"):
         if key in st and key not in edit:
             edit[key] = st[key]
     if edit.get("captions") is not None and edit.get("captions") is not False and "captions" in st:
@@ -144,6 +146,8 @@ def load(edit_path: Path) -> dict:
     edit["_total"] = t
 
     for x in edit.setdefault("texts", []):
+        if x.get("segments") and "text" not in x:
+            x["text"] = " ".join(sg["text"] for sg in x["segments"])
         x.setdefault("position", "center")
         if x["position"] not in POSITIONS:
             die(f"text position must be one of {sorted(POSITIONS)}")

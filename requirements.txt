@@ -9,3 +9,7 @@ yt-dlp[default]>=2025.1.1
 
 # Download shared Google Drive files and folders
 gdown>=5.0
+
+# Product cutouts (AI background removal) for sticker overlays
+rembg[cpu]>=2.0.60
+scipy>=1.11

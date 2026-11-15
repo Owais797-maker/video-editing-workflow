@@ -31,12 +31,13 @@ pip install -r requirements.txt
 
 Whisper (آواز سے کیپشن) کا ماڈل پہلی بار استعمال پر خود ڈاؤن لوڈ ہوگا۔ اردو کے لیے `medium` ماڈل تقریباً 1.5GB کا ہے، ایک ہی بار ڈاؤن لوڈ ہوتا ہے۔
 
-### 3. فونٹس ڈالیں
+### 3. فونٹس
 
-1. [fonts.google.com](https://fonts.google.com) پر فونٹ کھولیں → **Get font** → **Download all**
-2. zip کھولیں اور `.ttf` فائلیں ریپو کے `fonts/` فولڈر میں ڈال دیں (اندر فولڈر بنا سکتے ہیں، جیسے `fonts/Urdu/`)
+21 مفت فونٹس (اردو نستعلیق، کیپشن، ٹائٹل، سنیمیٹک) پہلے سے `fonts/` میں موجود ہیں، اور ریپو کے ساتھ خود آ جاتے ہیں۔ فہرست `fonts/README.md` میں ہے۔ اور فونٹ چاہیے تو Claude سے کہیں، یا خود چلائیں:
 
-اچھے مفت فونٹس: **Noto Nastaliq Urdu** (اردو نستعلیق)، **Noto Naskh Arabic** (اردو، صاف)، **Montserrat**، **Poppins**، **Bebas Neue**، **Anton** (ٹائٹل اور کیپشن)۔
+```
+python tools/get_fonts.py "Lobster"
+```
 
 ### 4. چیک کریں
 
@@ -69,10 +70,12 @@ python tools/check_setup.py
 | Script | What it does |
 |---|---|
 | `tools/check_setup.py` | Checks FFmpeg, Whisper and fonts |
+| `tools/get_fonts.py [family]` | Downloads free Google Fonts into `fonts/` |
 | `tools/new_project.py <name>` | Creates the project folders and `brief.md` |
 | `tools/analyze.py <video> --project <name>` | Cuts, shot lengths, loudness, frames + contact sheet |
 | `tools/transcribe.py <clips> --project <name>` | Whisper speech-to-text with word timings |
 | `tools/captions.py <edit.json>` | Captions on the final timeline (editable `captions.json`) |
+| `tools/caption_text.py export/apply <edit.json>` | Caption wording as plain text: fix it or rewrite in Roman Urdu/English, timings kept |
 | `tools/storyboard.py <edit.json>` | Storyboard (`storyboard.md` + framed frames with text) |
 | `tools/render.py <edit.json> [--preview]` | Final video |
 

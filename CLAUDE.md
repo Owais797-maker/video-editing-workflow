@@ -14,7 +14,7 @@ Video Edits/Raw/<project>/         footage + music (never modify or delete these
 Video Edits/Reference/<project>/   inspiration videos + brief.md (the instructions)
 Video Edits/Export/<project>/      edit.json, captions.json, storyboard.md, storyboard/, final video
 Video Edits/Export/<project>/work/ analysis, transcripts, render scratch (git-ignored)
-fonts/                             .ttf/.otf fonts (searched recursively)
+fonts/                             .ttf/.otf fonts (searched recursively); see fonts/README.md
 tools/                             scripts; tools/EDIT_FORMAT.md documents edit.json
 ```
 
@@ -44,8 +44,17 @@ mistakes, pauses and repeats.
 **4. Write the edit.** Create `Export/<name>/edit.json` (see `tools/EDIT_FORMAT.md`)
 matching the reference style and the brief. Fill `summary`, `reference_notes`
 and a `description` for every shot. If captions are wanted:
-`python tools/captions.py "<edit.json>"`, then read `captions.json` and fix obvious
-transcription errors (Urdu spelling, names) before showing it.
+`python tools/captions.py "<edit.json>"`, then
+`python tools/caption_text.py export "<edit.json>"`, edit `captions.txt` (fix
+transcription errors, names) and `python tools/caption_text.py apply "<edit.json>"`.
+
+**Caption language.** Whisper writes Urdu speech in Urdu script. For **Roman Urdu**
+(e.g. "yeh mera pehla vlog hai") or English captions, transcribe with
+`--language ur`, export `captions.txt`, and rewrite every line yourself in Roman Urdu
+(common spellings: yeh, hai, nahi, kya, mein, aap, bohat, acha) or English, keeping
+word-for-word order where possible so the word highlighting stays in sync. Then
+`apply`. Use a Latin font (Poppins ExtraBold, Montserrat ExtraBold, Bebas Neue…) for
+Roman Urdu/English and an Urdu font for Urdu script.
 
 **5. Storyboard → approval.** `python tools/storyboard.py "<edit.json>"`. Look at
 `storyboard/overview.jpg` yourself first and fix anything wrong (bad framing, text
@@ -65,7 +74,8 @@ directly with a preview first.
 ## Rules
 - Never change or delete anything in `Raw/` or `Reference/` except `brief.md`.
 - Never invent transcript text; if Whisper is unsure, mark it and ask.
-- If a font the style needs is missing from `fonts/`, say which one and suggest a free
-  Google Fonts alternative instead of silently falling back.
+- If a font the style needs is missing from `fonts/`, download it from Google Fonts:
+  `python tools/get_fonts.py "Family Name:400,700" --folder "<category> Fonts"`, and
+  commit it (fonts are small and Open Font License). Do not silently fall back.
 - Commit edit.json, captions.json, storyboard.md and storyboard images (small text/images)
   so the project history is kept; never commit media files.

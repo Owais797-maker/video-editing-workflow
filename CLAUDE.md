@@ -22,13 +22,21 @@ Video and audio files are git-ignored (too big for GitHub). Do not commit them.
 
 ## The workflow — follow these stages in order
 
-**0. Setup check.** On a new machine or if something fails: `python tools/check_setup.py`.
+**0. Setup.** On a new machine run `setup/setup-windows.ps1` (PowerShell, with
+`-ExecutionPolicy Bypass`) or `bash setup/setup-mac.sh`, installing Git first if needed.
+If something fails later: `python tools/check_setup.py`. On a Mac the scripts use a
+virtualenv: run every tool with `.venv/bin/python` instead of `python`.
 
 **1. Start.** `python tools/new_project.py <name>` if the folders don't exist. Read
 `Reference/<name>/brief.md` and anything the owner said. If key facts are missing
 (platform/size, length, captions yes/no + language), ask in ONE short message.
 
-**2. Study the reference.** For each reference video:
+**2. Study the reference.** If the owner sends a link (YouTube, Instagram, TikTok,
+Facebook...), download it first: `python tools/fetch_reference.py "<url>" --project <name>`
+(it also runs analyze.py). If it fails because a login is needed, retry with
+`--cookies-from chrome` (or edge/firefox/safari, whichever browser they use) and tell
+them. Reference videos are for studying style only: never put their footage or music
+in the owner's video. For each reference video:
 `python tools/analyze.py "<path>" --project <name>`, then read its `analysis.md`
 and LOOK at `sheet.jpg` and several `shot_###.jpg` frames. Note: shot length and
 pacing, framing (close-ups, crops), caption style (font feel, size, position, colour,

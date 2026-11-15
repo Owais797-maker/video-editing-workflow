@@ -38,6 +38,12 @@ try:
 except ImportError:
     report(False, "faster-whisper (speech to text)", "pip install -r requirements.txt   (only needed for captions)")
 
+try:
+    import yt_dlp  # noqa: F401
+    report(True, "yt-dlp (download videos from links)")
+except ImportError:
+    report(False, "yt-dlp (download videos from links)", "pip install -r requirements.txt")
+
 fonts = font_files()
 report(bool(fonts), f"fonts in {FONTS.relative_to(REPO)}/: {len(fonts)} found",
        "put .ttf/.otf files in the fonts/ folder (see README)")

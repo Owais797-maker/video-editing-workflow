@@ -10,26 +10,26 @@ Claude edits videos here with FFmpeg: you give footage, an inspiration video and
 
 ویڈیو فائلیں بڑی ہوتی ہیں، اس لیے یہ کام **اپنے کمپیوٹر پر Claude Code** کے ساتھ بہترین چلتا ہے۔
 
-### 1. یہ چیزیں انسٹال کریں
+### 1. Claude desktop app انسٹال کریں
 
-| چیز | کس لیے | Windows | Mac |
-|---|---|---|---|
-| Claude (desktop app) | Claude Code چلانے کے لیے | claude.ai/download | claude.ai/download |
-| Git | ریپو ڈاؤن لوڈ کرنے کے لیے | `winget install Git.Git` | `xcode-select --install` |
-| Python 3.9+ | اسکرپٹس اور Whisper | `winget install Python.Python.3.12` | `brew install python` |
-| FFmpeg | ویڈیو ایڈٹنگ کا انجن | `winget install Gyan.FFmpeg` | `brew install ffmpeg` |
+[claude.ai/download](https://claude.ai/download) سے ڈاؤن لوڈ کریں، لاگ اِن کریں، اور **Code** والا حصہ کھولیں۔
 
-Windows پر کمانڈز **PowerShell** میں چلائیں۔ Mac پر پہلے [Homebrew](https://brew.sh) انسٹال کریں۔ انسٹال کے بعد ٹرمینل بند کر کے دوبارہ کھولیں۔
+### 2. باقی سب Claude سے کروائیں
 
-### 2. ریپو ڈاؤن لوڈ کریں اور Whisper انسٹال کریں
+Code میں ایک فولڈر چنیں (مثلاً Documents) اور یہ لکھیں:
+
+> یہ ریپو clone کرو: https://github.com/Owais797-maker/video-editing-workflow ، پھر اس کا setup چلاؤ۔
+
+Claude یہ سب خود انسٹال کر دے گا: Git، FFmpeg، Python، Whisper (اردو ماڈل تقریباً 1.5GB)، اور yt-dlp (لنک سے ویڈیو ڈاؤن لوڈ کرنے کے لیے)۔ بیچ میں اجازت مانگے تو **Allow** کریں۔
+
+**خود کرنا چاہیں تو:** Git انسٹال کریں (Windows: `winget install Git.Git`، Mac: `xcode-select --install`)، پھر:
 
 ```
 git clone https://github.com/Owais797-maker/video-editing-workflow.git
 cd video-editing-workflow
-pip install -r requirements.txt
 ```
-
-Whisper (آواز سے کیپشن) کا ماڈل پہلی بار استعمال پر خود ڈاؤن لوڈ ہوگا۔ اردو کے لیے `medium` ماڈل تقریباً 1.5GB کا ہے، ایک ہی بار ڈاؤن لوڈ ہوتا ہے۔
+- **Windows (PowerShell):** `powershell -ExecutionPolicy Bypass -File setup\setup-windows.ps1`
+- **Mac (Terminal):** `bash setup/setup-mac.sh`
 
 ### 3. فونٹس
 
@@ -55,7 +55,7 @@ python tools/check_setup.py
 2. Claude سے کہیں: **"نیا پروجیکٹ بناؤ: eid-reel"**۔ یہ تین فولڈر اور ایک `brief.md` بنا دے گا۔
 3. فائلیں رکھیں:
    - `Video Edits/Raw/eid-reel/` میں اپنی فوٹیج اور میوزک
-   - `Video Edits/Reference/eid-reel/` میں انسپریشن ویڈیو
+   - `Video Edits/Reference/eid-reel/` میں انسپریشن ویڈیو، **یا** بس اس کا لنک چیٹ میں دے دیں (YouTube، Instagram، TikTok، Facebook)۔ Claude خود ڈاؤن لوڈ کر لے گا۔
 4. `brief.md` بھریں، یا Claude کو چیٹ میں بتا دیں کہ کیسی ایڈٹنگ چاہیے۔
 5. Claude ریفرنس اور فوٹیج دیکھ کر **اسٹوری بورڈ** دکھائے گا: ہر شاٹ کی تصویر، وقت، ٹیکسٹ اور کیپشن۔
 6. **OK** لکھیں، یا تبدیلیاں بتائیں (مثلاً "شاٹ 3 چھوٹا کرو، کیپشن بڑے کرو")۔
@@ -72,6 +72,7 @@ python tools/check_setup.py
 | `tools/check_setup.py` | Checks FFmpeg, Whisper and fonts |
 | `tools/get_fonts.py [family]` | Downloads free Google Fonts into `fonts/` |
 | `tools/new_project.py <name>` | Creates the project folders and `brief.md` |
+| `tools/fetch_reference.py <url> --project <name>` | Downloads an inspiration video from a link (yt-dlp) and analyses it |
 | `tools/analyze.py <video> --project <name>` | Cuts, shot lengths, loudness, frames + contact sheet |
 | `tools/transcribe.py <clips> --project <name>` | Whisper speech-to-text with word timings |
 | `tools/captions.py <edit.json>` | Captions on the final timeline (editable `captions.json`) |

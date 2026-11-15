@@ -21,3 +21,4 @@
 Video Edits/Export/*/work/
 __pycache__/
 .DS_Store
+.venv/

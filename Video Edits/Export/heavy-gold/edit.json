@@ -8,13 +8,19 @@
       "heavy": {
         "font": "Anton",
         "color": "#FFD400",
-        "size": 6.6,
+        "size": 8.6,
         "uppercase": true
       },
       "gold": {
         "font": "Anton",
         "color": "#FFD400",
-        "size": 6.6,
+        "size": 8.6,
+        "uppercase": true
+      },
+      "dcp": {
+        "font": "Anton",
+        "color": "#FFD400",
+        "size": 8.6,
         "uppercase": true
       }
     }
@@ -146,7 +152,7 @@
     {
       "file": "heavy-gold-bag-cutout.png",
       "start": 3.25,
-      "end": 6.3,
+      "end": 4.3,
       "x": 0.79,
       "y": 0.5,
       "width": 0.32,
@@ -211,11 +217,6 @@
       "volume": 0.45
     },
     {
-      "sound": "pop",
-      "at": 3.6,
-      "volume": 0.5
-    },
-    {
       "sound": "whoosh_fast",
       "at": 6.4,
       "volume": 0.3
@@ -249,6 +250,11 @@
       "sound": "impact",
       "at": 17.75,
       "volume": 0.35
+    },
+    {
+      "sound": "pop",
+      "at": 3.55,
+      "volume": 0.45
     }
   ],
   "fade": {
@@ -262,5 +268,19 @@
       "dim": 0.4
     }
   ],
-  "style": "bold-clean"
+  "style": "bold-clean",
+  "flashes": [
+    {
+      "at": 2.23,
+      "alpha": 0.55
+    },
+    {
+      "at": 6.5,
+      "alpha": 0.45
+    },
+    {
+      "at": 12.1,
+      "alpha": 0.45
+    }
+  ]
 }

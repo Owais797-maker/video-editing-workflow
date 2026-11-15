@@ -12,6 +12,8 @@ or English, while keeping the timing.
     python tools/caption_text.py apply "Video Edits/Export/my-reel/edit.json"
         -> puts the new words back into captions.json
 
+Mark the word to show BIG in kinetic captions with stars: "is ki *zaroorat*". A lone "_" is a
+silent placeholder: it keeps a spoken word's time slot but shows nothing.
 Keep the line numbers; an empty row drops that caption. If the kept rows have the same
 total number of words as before, lines can be re-broken freely (move words between
 rows) and every word keeps its exact spoken time. Otherwise each row keeps its own time
@@ -24,6 +26,15 @@ import edl
 from common import REPO, die, load_json, resolve, save_json
 
 ROW = re.compile(r"^\s*(\d+)\s*\|\s?(.*)$")
+
+
+def mark(w: dict) -> dict:
+    """*word* = show this word big (kinetic captions). _ = silent placeholder (keeps timing, not shown)."""
+    w = {k: v for k, v in w.items() if k != "big"}
+    t = w["text"]
+    if len(t) > 2 and t.startswith("*") and t.endswith("*"):
+        w["text"], w["big"] = t[1:-1], True
+    return w
 
 
 def respread(line: dict, words: list[str]) -> list[dict]:
@@ -54,7 +65,9 @@ def main() -> None:
     lines = data["lines"]
 
     if args.action == "export":
-        tfile.write_text("\n".join(f"{i} | {ln['text']}" for i, ln in enumerate(lines, 1)) + "\n", encoding="utf-8")
+        rows = [" ".join(f"*{w['text']}*" if w.get("big") else w["text"] for w in ln.get("words") or []) or ln["text"]
+                for ln in lines]
+        tfile.write_text("\n".join(f"{i} | {r}" for i, r in enumerate(rows, 1)) + "\n", encoding="utf-8")
         print(f"{len(lines)} lines -> {tfile.relative_to(REPO)}")
         return
 
@@ -81,14 +94,15 @@ def main() -> None:
             seg = pool[k:k + len(ws)]
             k += len(ws)
             kept.append({"start": seg[0]["start"], "end": seg[-1]["end"] + 0.25,
-                         "words": [{**w, "text": t} for w, t in zip(seg, ws)], "text": " ".join(ws)})
+                         "words": [mark({**w, "text": t}) for w, t in zip(seg, ws)],
+                         "text": " ".join(t.strip("*") for t in ws)})
         for a, b in zip(kept, kept[1:]):
             a["end"] = round(min(a["end"], b["start"]), 3)
         print("word timing: exact (lines re-broken)")
     else:
         for i in keep_ids:
             ln = lines[i - 1]
-            ln["words"] = respread(ln, texts[i].split())
+            ln["words"] = [mark(w) for w in respread(ln, texts[i].split())]
             ln["text"] = " ".join(w["text"] for w in ln["words"])
             kept.append(ln)
     data["lines"] = kept

@@ -4,7 +4,7 @@
     python tools/sfx.py            # make them all and list them
     python tools/sfx.py --play-list
 
-Names: whoosh, whoosh_fast, swoosh_up, pop, click, ding, ching, impact, boom, riser, glitch
+Names: whoosh, whoosh_fast, swoosh_up, pop, click, tick, ding, ching, impact, boom, riser, glitch
 In edit.json:  "sfx": [{"sound": "whoosh", "at": 3.2, "volume": 0.8}]  (or "file": "my.wav")
 """
 import argparse
@@ -15,7 +15,7 @@ from common import REPO
 
 SR = 48000
 DIR = REPO / "assets" / "sfx"
-NAMES = ["whoosh", "whoosh_fast", "swoosh_up", "pop", "click", "ding", "ching", "impact", "boom", "riser", "glitch"]
+NAMES = ["whoosh", "whoosh_fast", "swoosh_up", "pop", "click", "tick", "ding", "ching", "impact", "boom", "riser", "glitch"]
 
 
 def _np():
@@ -77,6 +77,11 @@ def make(name: str):
         d = 0.04
         t = np.arange(int(d * SR)) / SR
         s = np.random.default_rng(3).standard_normal(len(t)) * np.exp(-t * 180) * 0.6 + np.sin(2 * np.pi * 2500 * t) * np.exp(-t * 120) * 0.5
+        return s
+    if name == "tick":  # very soft, short "tk" for captions
+        d = 0.05
+        t = np.arange(int(d * SR)) / SR
+        s = np.sin(2 * np.pi * 1800 * t) * np.exp(-t * 160) + np.random.default_rng(7).standard_normal(len(t)) * np.exp(-t * 300) * 0.3
         return s
     if name == "ding":
         return tone(1318.5, 1.4, np, 4.0, ((1, 1), (2.0, 0.35), (3.01, 0.2), (4.2, 0.08))) * 0.6

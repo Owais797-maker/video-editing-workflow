@@ -111,6 +111,94 @@ def segments_text(segs: list, presets: dict, H: int) -> str:
     return "".join(out)
 
 
+STOPWORDS = set("""hai hain ka ki ke ko se mein main aur to yeh ye woh wo bhai ne bhi hon ho kar ja
+chahe hoti hota parti padti kyunke kyun liye sab diya dala lekar wahi bas abhi
+raha rahe rahi wala wali wale is us in un ek koi kya na nahi tha thi the hi par pe aap hum
+the a an the of to in on and or is are was it for with at by this that you your""".split())
+
+
+def plan_kinetic(lines: list, cap: dict) -> list:
+    """For each caption line, pick the word to show big (index or None)."""
+    kc = cap.get("style", {}).get("kinetic", {})
+    kw = {k.lower() for k in (cap.get("keywords") or {})}
+    min_len = int(kc.get("min_len", 4))
+    stop = STOPWORDS | {w.lower() for w in kc.get("stopwords", [])}
+    plan = []
+    manual = any(w.get("big") for ln in lines for w in (ln.get("words") or []))
+    for ln in lines:
+        wl = ln.get("words") or []
+        if manual:  # words marked *like this* in captions.txt decide; unmarked lines have no big word
+            plan.append(next((i for i, w in enumerate(wl) if w.get("big")), None))
+            continue
+        words = [re.sub(r"[^\w]", "", w["text"].lower()) for w in wl]
+        pick = next((i for i, w in enumerate(words) if w in kw), None)
+        if pick is None:
+            cands = [(len(w), -i, i) for i, w in enumerate(words) if w not in stop and len(w) >= min_len]
+            pick = max(cands)[2] if cands else None
+        plan.append(pick)
+    return plan
+
+
+def kinetic_events(lines: list, cap: dict, W: int, H: int, glow: str, pos: str) -> list:
+    """Kinetic captions: small words + one big word per line in alternating display fonts,
+    stacked (before / BIG / after); words appear one by one as they are spoken and pop in."""
+    st = cap.get("style", {})
+    kc = st.get("kinetic", {})
+    small = {"font": "Poppins SemiBold", "size": 4.0, "color": "white", **kc.get("small", {})}
+    bigs = kc.get("big") or [{"font": "Instrument Serif", "italic": True, "size": 11, "color": "white"},
+                             {"font": "Anton", "size": 8.5, "color": "#FFD400", "uppercase": True}]
+    kw = {k.lower(): v for k, v in (cap.get("keywords") or {}).items()}
+    plain = {**small, "size": float(small["size"]) * float(kc.get("no_big_scale", 1.3))}
+    lower = st.get("lowercase", True)
+
+    def tags(v: dict, hidden: bool, popin: bool) -> str:
+        t = "\\r" + glow
+        t += "\\fn" + v["font"] + f"\\fs{int(H * float(v['size']) / 100)}" + "\\c" + ass_color(v.get("color", "white"))
+        t += f"\\i{1 if v.get('italic') else 0}\\b0"
+        if hidden:
+            t += "\\alpha&HFF&"
+        elif popin:
+            t += "\\fscx45\\fscy45\\t(0,110,\\fscx108\\fscy108)\\t(110,190,\\fscx100\\fscy100)"
+        return "{" + t + "}"
+
+    events, plan, bi = [], plan_kinetic(lines, cap), 0
+    for ln, pick in zip(lines, plan):
+        words = ln.get("words") or []
+        if not words:
+            continue
+        looks = []
+        for i, w in enumerate(words):
+            key = re.sub(r"[^\w]", "", w["text"].lower())
+            if key in kw:
+                looks.append({**bigs[-1], **kw[key]})
+            elif i == pick:
+                looks.append(bigs[bi % len(bigs)])
+            else:
+                looks.append(small if pick is not None else plain)
+        if pick is not None:
+            bi += 1
+        texts = []
+        for w, v in zip(words, looks):
+            t = w["text"]
+            texts.append(t.upper() if v.get("uppercase") else t.lower() if lower and v is not bigs[0] else t)
+        # stacked layout: words before the big word / big word / words after
+        groups = [[i for i in range(len(words)) if pick is None or i < pick], [pick] if pick is not None else [],
+                  [i for i in range(len(words)) if pick is not None and i > pick]]
+        groups = [gq for gq in groups if gq]
+        for k in range(len(words)):
+            a = words[k]["start"] if k else ln["start"]
+            b = words[k + 1]["start"] if k + 1 < len(words) else ln["end"]
+            if b <= a:
+                continue
+            rows = []
+            for gq in groups:
+                row = " ".join(tags(looks[i], i > k, i == k) + ass_text(texts[i]) for i in gq if texts[i] != "_")
+                if row:
+                    rows.append(row)
+            events.append(f"Dialogue: 0,{ass_time(a)},{ass_time(b)},Cap,,0,0,0,,{{{pos}}}" + "\\N".join(rows))
+    return events
+
+
 def lower_third(i: int, x: dict, W: int, H: int, styles: list, events: list) -> None:
     size = H * float(x.get("size", 3.4)) / 100
     sub = x.get("subtext", "")
@@ -202,7 +290,11 @@ def build_ass(edit: dict, path: Path) -> bool:
                 tags += f"\\i{1 if v['italic'] else 0}"
             text = word.upper() if v.get("uppercase") else case(word)
             return "{" + tags + "}" + ass_text(text) + "{\\r" + glow + "}"
-        for ln in load_json(cfile)["lines"]:
+        all_lines = load_json(cfile)["lines"]
+        if st.get("mode") == "kinetic":
+            events += kinetic_events(all_lines, cap, W, H, glow, pos or f"\\an5\\pos({W // 2},{int(H * 0.68)})")
+            all_lines = []
+        for ln in all_lines:
             text = case(ln["text"])
             words = ln.get("words") or []
             if hi and words and " ".join(w["text"] for w in words) == ln["text"]:
@@ -288,6 +380,13 @@ def build_graph(edit: dict, work: Path, preview: bool) -> tuple[list[str], str, 
     look = edit.get("look") or {}
     if any(k in look for k in ("brightness", "contrast", "saturation", "gamma")):
         vf.append("eq=" + ":".join(f"{k}={look[k]}" for k in ("brightness", "contrast", "saturation", "gamma") if k in look))
+    if look.get("warmth"):  # + warmer, - cooler
+        wv = float(look["warmth"])
+        vf.append(f"colorbalance=rm={wv:.3f}:bm={-wv:.3f}:rh={wv / 2:.3f}:bh={-wv / 2:.3f}")
+    if look.get("sharpen"):
+        vf.append(f"unsharp=5:5:{float(look['sharpen'])}:5:5:0")
+    if look.get("vignette"):
+        vf.append(f"vignette=angle={float(look['vignette']):.3f}")
     if look.get("lut"):
         lut = resolve(look["lut"])
         shutil.copy(lut, work / ("look" + lut.suffix))
@@ -306,6 +405,14 @@ def build_graph(edit: dict, work: Path, preview: bool) -> tuple[list[str], str, 
         if parts:
             g.append(f"{cv}{','.join(parts)}[bd{len(g)}]")
             cv = f"[bd{len(g) - 1}]"
+    for k, fl in enumerate(edit.get("flashes", [])):  # quick white (or any colour) flash, e.g. on cuts
+        at, d = float(fl.get("at", fl) if isinstance(fl, dict) else fl), float(fl.get("dur", 0.18) if isinstance(fl, dict) else 0.18)
+        a = float(fl.get("alpha", 0.75) if isinstance(fl, dict) else 0.75)
+        col = "0x" + render_color(fl.get("color", "white") if isinstance(fl, dict) else "white")
+        g.append(f"color=c={col}@{a}:s={W}x{H}:r={fps}:d={total:.3f},format=rgba,"
+                 f"fade=t=in:st={max(0, at - 0.03):.3f}:d=0.03:alpha=1,fade=t=out:st={at:.3f}:d={d}:alpha=1[fl{k}]")
+        g.append(f"{cv}[fl{k}]overlay=0:0:enable='between(t,{max(0, at - 0.03):.3f},{at + d:.3f})'[flo{k}]")
+        cv = f"[flo{k}]"
     for k, gl in enumerate(edit.get("glass", [])):
         cv = glass_chain(gl, k, cv, W, H, fps, total, work, inputs, g)
     for j, ov in enumerate(edit.get("overlays", [])):
@@ -361,7 +468,18 @@ def build_graph(edit: dict, work: Path, preview: bool) -> tuple[list[str], str, 
         else:
             g.append(f"{ca}[mus]amix=inputs=2:duration=first:normalize=0[mix]")
         ca = "[mix]"
-    sfx = edit.get("sfx") or []
+    sfx = list(edit.get("sfx") or [])
+    cap = edit.get("captions") or {}
+    csfx = cap.get("sfx") if cap else None
+    if csfx:  # soft sound under every caption line (and optionally under each big word)
+        lines = load_json(edit["_dir"] / cap.get("file", "captions.json"))["lines"]
+        for ln in lines:
+            if csfx.get("line"):
+                sfx.append({**csfx["line"], "at": ln["start"]})
+        if csfx.get("big") and cap.get("style", {}).get("mode") == "kinetic":
+            for ln, pick in zip(lines, plan_kinetic(lines, cap)):
+                if pick is not None and pick > 0:
+                    sfx.append({**csfx["big"], "at": ln["words"][pick]["start"]})
     if sfx:
         import sfx as sfxlib
         labels = []

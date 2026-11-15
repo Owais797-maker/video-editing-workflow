@@ -30,7 +30,8 @@
         {
           "start": 2.78,
           "end": 3.2,
-          "text": "Kaleem"
+          "text": "Kaleem",
+          "big": true
         },
         {
           "start": 3.2,
@@ -42,7 +43,7 @@
     },
     {
       "start": 3.34,
-      "end": 4.16,
+      "end": 3.88,
       "words": [
         {
           "start": 3.34,
@@ -53,7 +54,14 @@
           "start": 3.6,
           "end": 3.88,
           "text": "Gold"
-        },
+        }
+      ],
+      "text": "Heavy Gold"
+    },
+    {
+      "start": 3.88,
+      "end": 4.38,
+      "words": [
         {
           "start": 3.88,
           "end": 3.96,
@@ -63,25 +71,18 @@
           "start": 3.96,
           "end": 4.16,
           "text": "kar"
-        }
-      ],
-      "text": "Heavy Gold le kar"
-    },
-    {
-      "start": 4.16,
-      "end": 4.38,
-      "words": [
+        },
         {
           "start": 4.16,
           "end": 4.33,
           "text": "ja"
         }
       ],
-      "text": "ja"
+      "text": "le kar ja"
     },
     {
       "start": 4.38,
-      "end": 5.32,
+      "end": 4.78,
       "words": [
         {
           "start": 4.38,
@@ -92,19 +93,20 @@
           "start": 4.62,
           "end": 4.78,
           "text": "hain"
-        },
+        }
+      ],
+      "text": "rahe hain"
+    },
+    {
+      "start": 4.78,
+      "end": 6.08,
+      "words": [
         {
           "start": 4.78,
           "end": 5.32,
-          "text": "Muzammil"
-        }
-      ],
-      "text": "rahe hain Muzammil"
-    },
-    {
-      "start": 5.32,
-      "end": 6.08,
-      "words": [
+          "text": "Muzammil",
+          "big": true
+        },
         {
           "start": 5.32,
           "end": 5.52,
@@ -121,7 +123,7 @@
           "text": "[?]"
         }
       ],
-      "text": "bhai ne [?]"
+      "text": "Muzammil bhai ne [?]"
     },
     {
       "start": 6.08,
@@ -157,7 +159,8 @@
         {
           "start": 6.82,
           "end": 7.26,
-          "text": "zaroorat"
+          "text": "zaroorat",
+          "big": true
         }
       ],
       "text": "is ki zaroorat"
@@ -196,7 +199,8 @@
         {
           "start": 8.06,
           "end": 8.58,
-          "text": "dairy"
+          "text": "dairy",
+          "big": true
         },
         {
           "start": 8.58,
@@ -208,25 +212,26 @@
     },
     {
       "start": 8.84,
-      "end": 9.23,
+      "end": 9.6,
       "words": [
         {
           "start": 8.84,
           "end": 8.98,
           "text": "chahe"
-        }
-      ],
-      "text": "chahe"
-    },
-    {
-      "start": 9.27,
-      "end": 9.72,
-      "words": [
+        },
         {
           "start": 9.27,
           "end": 9.6,
-          "text": "qurbani"
-        },
+          "text": "qurbani",
+          "big": true
+        }
+      ],
+      "text": "chahe qurbani"
+    },
+    {
+      "start": 9.6,
+      "end": 9.72,
+      "words": [
         {
           "start": 9.6,
           "end": 9.65,
@@ -238,7 +243,7 @@
           "text": "hon"
         }
       ],
-      "text": "qurbani ke hon"
+      "text": "ke hon"
     },
     {
       "start": 9.72,
@@ -252,7 +257,8 @@
         {
           "start": 10.0,
           "end": 10.4,
-          "text": "bakre"
+          "text": "bakre",
+          "big": true
         },
         {
           "start": 10.4,
@@ -269,7 +275,8 @@
         {
           "start": 10.48,
           "end": 10.88,
-          "text": "dumbe"
+          "text": "dumbe",
+          "big": true
         },
         {
           "start": 10.88,
@@ -296,7 +303,8 @@
         {
           "start": 11.58,
           "end": 11.92,
-          "text": "vitamins"
+          "text": "vitamins",
+          "big": true
         },
         {
           "start": 11.92,
@@ -313,7 +321,8 @@
         {
           "start": 12.1,
           "end": 12.42,
-          "text": "minerals"
+          "text": "minerals",
+          "big": true
         },
         {
           "start": 12.42,
@@ -335,7 +344,8 @@
         {
           "start": 12.6,
           "end": 13.0,
-          "text": "zaroorat"
+          "text": "zaroorat",
+          "big": true
         },
         {
           "start": 13.0,
@@ -357,7 +367,8 @@
         {
           "start": 13.6,
           "end": 14.06,
-          "text": "calcium"
+          "text": "calcium",
+          "big": true
         },
         {
           "start": 14.06,
@@ -379,7 +390,8 @@
         {
           "start": 14.36,
           "end": 14.48,
-          "text": "need"
+          "text": "need",
+          "big": true
         },
         {
           "start": 14.48,
@@ -423,12 +435,13 @@
         {
           "start": 15.0,
           "end": 15.36,
-          "text": "DCP"
+          "text": "DCP",
+          "big": true
         },
         {
           "start": 15.36,
           "end": 15.5,
-          "text": "—"
+          "text": "_"
         },
         {
           "start": 15.5,
@@ -436,7 +449,7 @@
           "text": "Japan"
         }
       ],
-      "text": "DCP — Japan"
+      "text": "DCP _ Japan"
     },
     {
       "start": 15.88,
@@ -450,7 +463,8 @@
         {
           "start": 16.22,
           "end": 16.5,
-          "text": "bone"
+          "text": "bone",
+          "big": true
         },
         {
           "start": 16.5,
@@ -506,7 +520,8 @@
         {
           "start": 18.24,
           "end": 18.72,
-          "text": "zaroori"
+          "text": "zaroori",
+          "big": true
         },
         {
           "start": 18.72,
@@ -545,7 +560,8 @@
         {
           "start": 19.28,
           "end": 19.5,
-          "text": "cheez"
+          "text": "cheez",
+          "big": true
         },
         {
           "start": 19.5,

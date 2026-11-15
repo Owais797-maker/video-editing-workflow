@@ -27,7 +27,7 @@ Default style bold-clean: clean video, bold Poppins captions with gold active wo
 
 - **Clip:** `IMG_5930.mov` 0:02.2–0:04.3
 - **What happens:** The bag on the counter. On 'Heavy Gold' the product cutout rises from the bottom on the right.
-- **Captions:** to bhai yeh / Kaleem bhai / Heavy Gold le kar / ja
+- **Captions:** to bhai yeh / Kaleem bhai / Heavy Gold / le kar ja
 - **Then:** hard cut
 
 ### 3. 0:04.3 – 0:06.5 (2.2s)
@@ -36,7 +36,7 @@ Default style bold-clean: clean video, bold Poppins captions with gold active wo
 
 - **Clip:** `IMG_5930.mov` 0:04.3–0:06.5
 - **What happens:** Shop staff.
-- **Captions:** rahe hain Muzammil / bhai ne [?] / kar diya
+- **Captions:** rahe hain / Muzammil bhai ne [?] / kar diya
 - **Then:** hard cut
 
 ### 4. 0:06.5 – 0:09.3 (2.8s)
@@ -45,7 +45,7 @@ Default style bold-clean: clean video, bold Poppins captions with gold active wo
 
 - **Clip:** `IMG_5930.mov` 0:06.5–0:09.3
 - **What happens:** Bag close-up: for dairy and qurbani animals.
-- **Captions:** is ki zaroorat / hoti hai bhai / chahe dairy [?] / chahe
+- **Captions:** is ki zaroorat / hoti hai bhai / chahe dairy [?] / chahe qurbani
 - **Then:** hard cut
 
 ### 5. 0:09.3 – 0:12.1 (2.8s)
@@ -54,7 +54,7 @@ Default style bold-clean: clean video, bold Poppins captions with gold active wo
 
 - **Clip:** `IMG_5930.mov` 0:09.3–0:12.1
 - **What happens:** Bag: goats, dumbas. VITAMINS and MINERALS badges pop up as they are said.
-- **Captions:** qurbani ke hon / chahe bakre hon / dumbe hon kyunke / bhai vitamins aur
+- **Captions:** ke hon / chahe bakre hon / dumbe hon kyunke / bhai vitamins aur
 - **Then:** hard cut
 
 ### 6. 0:12.1 – 0:17.0 (4.9s)
@@ -63,7 +63,7 @@ Default style bold-clean: clean video, bold Poppins captions with gold active wo
 
 - **Clip:** `IMG_5930.mov` 0:12.1–0:17.0
 - **What happens:** Bag: CALCIUM badge, then D.C.P (Japan, bone based) badge with a 'ching'. Punch-in on 'DCP Japan wala'.
-- **Captions:** minerals ki bhi / zaroorat parti hai / calcium ki bhi / need hoti hai / to is mein / DCP — Japan / wala bone based / [?]
+- **Captions:** minerals ki bhi / zaroorat parti hai / calcium ki bhi / need hoti hai / to is mein / DCP _ Japan / wala bone based / [?]
 - **Then:** hard cut
 
 ### 7. 0:17.0 – 0:20.0 (3.0s)

@@ -96,7 +96,7 @@ def lower_third(i: int, x: dict, W: int, H: int, styles: list, events: list) -> 
     pad = int(size * 0.35)
     bw = int(max(len(x["text"]) * size * 0.58, len(sub) * ssize * 0.55) + 2 * pad)
     bh = int(size * 1.25 + (ssize * 1.35 if sub else 0) + pad)
-    x0, y0 = int(W * float(x.get("x", 0.06))), int(H * float(x.get("y", 0.76)))
+    x0, y0 = int(W * float(x.get("x", 0.06))), int(H * float(x.get("y", 0.64)))
     a, b = ass_time(x.get("start", 0)), ass_time(x["end"])
     col = ass_color(x.get("color", "#E91E63"))
     events.append(f"Dialogue: 2,{a},{b},LT{i},,0,0,0,,{{\\an7\\move({x0 - bw - 40},{y0},{x0},{y0},0,350)\\p1\\bord0\\shad0"
@@ -234,7 +234,7 @@ def build_graph(edit: dict, work: Path, preview: bool) -> tuple[list[str], str, 
         idx = inputs.count("-i")
         img = overlay_image(edit, ov)
         if img.suffix.lower() == ".gif":  # animated: loop it for the whole video
-            inputs += ["-ignore_loop", "0", "-t", f"{total:.3f}", "-i", str(img)]
+            inputs += ["-stream_loop", "-1", "-t", f"{total:.3f}", "-i", str(img)]
         else:
             inputs += ["-loop", "1", "-framerate", str(fps), "-t", f"{total:.3f}", "-i", str(img)]
         g += overlay_chain(ov, idx, j, cv, W, H)

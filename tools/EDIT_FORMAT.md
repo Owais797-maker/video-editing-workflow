@@ -85,7 +85,7 @@ file doesn't set (see styles/README.md). Default: `styles/default.txt`. `null` =
 `typewriter` (words appear one by one), `none`.
 `"type": "lower_third"` makes a name strip that slides in from the left:
 `{"type": "lower_third", "text": "Owais", "subtext": "Video Creator", "start": 2, "end": 6,
-"color": "#E91E63", "font": "Montserrat", "x": 0.06, "y": 0.76}`.
+"color": "#E91E63", "font": "Montserrat", "x": 0.06, "y": 0.64}`. The default position sits just above bottom captions.
 `font`: the font *name* (`python tools/check_setup.py` lists them), not the file name.
 
 **captions** – built by `tools/captions.py` from Whisper transcripts into `captions.json`,

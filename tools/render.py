@@ -56,15 +56,75 @@ def style_line(name: str, st: dict, H: int, default_size: float, align: int) -> 
                     sh=st.get("shadow", 0), al=align, mv=int(H * float(st.get("margin", 12)) / 100)))
 
 
+def anchor(x: dict, W: int, H: int, mv: int) -> tuple[int, int]:
+    if "x" in x or "y" in x:
+        return int(W * float(x.get("x", 0.5))), int(H * float(x.get("y", 0.5)))
+    return {"top": (W // 2, mv), "center": (W // 2, H // 2), "bottom": (W // 2, H - mv)}[x["position"]]
+
+
+def text_fx(anim: str, x0: int, y0: int, W: int, H: int, has_pos: bool) -> str:
+    pos = f"\\pos({x0},{y0})" if has_pos else ""
+    return {
+        "none": pos,
+        "fade": pos + "\\fad(200,200)",
+        "pop": pos + "\\fad(80,150)\\fscx40\\fscy40\\t(0,160,\\fscx115\\fscy115)\\t(160,280,\\fscx100\\fscy100)",
+        "slide_up": f"\\move({x0},{y0 + int(H * 0.06)},{x0},{y0},0,300)\\fad(200,150)",
+        "slide_left": f"\\move({x0 + W // 2},{y0},{x0},{y0},0,320)\\fad(100,150)",
+        "typewriter": pos + "\\fad(0,150)",
+    }[anim]
+
+
+def typewriter(text: str, step_ms: int = 110) -> str:
+    out, j = [], 0
+    for line in text.split("\n"):
+        words = []
+        for w in line.split(" "):
+            t0 = j * step_ms
+            words.append("{\\alpha&HFF&\\t(%d,%d,\\alpha&H00&)}%s" % (t0, t0 + 60, ass_text(w)))
+            j += 1
+        out.append(" ".join(words))
+    return "\\N".join(out)
+
+
+def lower_third(i: int, x: dict, W: int, H: int, styles: list, events: list) -> None:
+    size = H * float(x.get("size", 3.4)) / 100
+    sub = x.get("subtext", "")
+    ssize = H * float(x.get("subsize", 2.3)) / 100
+    styles.append(style_line(f"LT{i}", {**x, "outline": 0, "size": x.get("size", 3.4), "color": x.get("text_color", "white")}, H, 3.4, 7))
+    styles.append(style_line(f"LS{i}", {**x, "outline": 0, "bold": False, "size": x.get("subsize", 2.3),
+                                        "color": x.get("subtext_color", x.get("text_color", "white"))}, H, 2.3, 7))
+    pad = int(size * 0.35)
+    bw = int(max(len(x["text"]) * size * 0.58, len(sub) * ssize * 0.55) + 2 * pad)
+    bh = int(size * 1.25 + (ssize * 1.35 if sub else 0) + pad)
+    x0, y0 = int(W * float(x.get("x", 0.06))), int(H * float(x.get("y", 0.76)))
+    a, b = ass_time(x.get("start", 0)), ass_time(x["end"])
+    col = ass_color(x.get("color", "#E91E63"))
+    events.append(f"Dialogue: 2,{a},{b},LT{i},,0,0,0,,{{\\an7\\move({x0 - bw - 40},{y0},{x0},{y0},0,350)\\p1\\bord0\\shad0"
+                  f"\\1c{col}\\fad(0,250)}}m 0 0 l {bw} 0 {bw} {bh} 0 {bh}{{\\p0}}")
+    events.append(f"Dialogue: 3,{a},{b},LT{i},,0,0,0,,{{\\an7\\move({x0 - bw},{y0 + pad // 2},{x0 + pad},{y0 + pad // 2},120,450)"
+                  f"\\fad(150,250)}}{ass_text(x['text'])}")
+    if sub:
+        ys = y0 + pad // 2 + int(size * 1.2)
+        events.append(f"Dialogue: 3,{a},{b},LS{i},,0,0,0,,{{\\an7\\move({x0 - bw},{ys},{x0 + pad},{ys},200,520)"
+                      f"\\fad(200,250)}}{ass_text(sub)}")
+
+
 def build_ass(edit: dict, path: Path) -> bool:
     W, H = edit["output"]["width"], edit["output"]["height"]
     styles, events = [], []
     for i, x in enumerate(edit["texts"]):
+        if x.get("type") == "lower_third":
+            lower_third(i, x, W, H, styles, events)
+            continue
         name = f"T{i}"
         styles.append(style_line(name, x, H, 5.0, edl.POSITIONS[x["position"]]))
         anim = x.get("animation", "fade")
-        fx = "{\\fad(200,200)}" if anim == "fade" else "{\\fad(0,0)\\t(0,180,\\fscx112\\fscy112)\\t(180,320,\\fscx100\\fscy100)}" if anim == "pop" else ""
-        events.append(f"Dialogue: 1,{ass_time(x.get('start', 0))},{ass_time(x['end'])},{name},,0,0,0,,{fx}{ass_text(x['text'])}")
+        mv = int(H * float(x.get("margin", 12)) / 100)
+        x0, y0 = anchor(x, W, H, mv)
+        has_pos = "x" in x or "y" in x
+        fx = text_fx(anim, x0, y0, W, H, has_pos)
+        body = typewriter(x["text"]) if anim == "typewriter" else ass_text(x["text"])
+        events.append(f"Dialogue: 1,{ass_time(x.get('start', 0))},{ass_time(x['end'])},{name},,0,0,0,,{{{fx}}}{body}")
 
     cap = edit.get("captions")
     if cap:
@@ -74,21 +134,24 @@ def build_ass(edit: dict, path: Path) -> bool:
         st = cap.get("style", {})
         styles.append(style_line("Cap", st, H, 4.2, edl.POSITIONS[st.get("position", "bottom")]))
         hi = st.get("highlight_color")
+        hscale = int(float(st.get("highlight_scale", 1.0)) * 100)
         upper = st.get("uppercase", False)
+        pop = "{\\fscx70\\fscy70\\t(0,120,\\fscx100\\fscy100)}" if st.get("animation") == "pop" else ""
         for ln in load_json(cfile)["lines"]:
             text = ln["text"].upper() if upper else ln["text"]
             words = ln.get("words") or []
             if hi and words and " ".join(w["text"] for w in words) == ln["text"]:
                 # one event per spoken word, with that word highlighted
+                parts = [ass_text(w["text"].upper() if upper else w["text"]) for w in words]
                 for k, w in enumerate(words):
                     a = w["start"] if k else ln["start"]
                     b = words[k + 1]["start"] if k + 1 < len(words) else ln["end"]
-                    parts = [(p.upper() if upper else p) for p in (x["text"] for x in words)]
-                    parts[k] = "{\\c" + ass_color(hi) + "}" + ass_text(parts[k]) + "{\\r}"
-                    body = " ".join(p if j == k else ass_text(p) for j, p in enumerate(parts))
-                    events.append(f"Dialogue: 0,{ass_time(a)},{ass_time(b)},Cap,,0,0,0,,{body}")
+                    big = f"\\fscx{hscale}\\fscy{hscale}" if hscale != 100 else ""
+                    shown = list(parts)
+                    shown[k] = "{\\c" + ass_color(hi) + big + "}" + parts[k] + "{\\r}"
+                    events.append(f"Dialogue: 0,{ass_time(a)},{ass_time(b)},Cap,,0,0,0,,{pop if k == 0 else ''}{' '.join(shown)}")
             else:
-                events.append(f"Dialogue: 0,{ass_time(ln['start'])},{ass_time(ln['end'])},Cap,,0,0,0,,{ass_text(text)}")
+                events.append(f"Dialogue: 0,{ass_time(ln['start'])},{ass_time(ln['end'])},Cap,,0,0,0,,{pop}{ass_text(text)}")
     if not events:
         return False
     head = ["[Script Info]", "ScriptType: v4.00+", f"PlayResX: {W}", f"PlayResY: {H}", "WrapStyle: 0",
@@ -130,7 +193,7 @@ def build_graph(edit: dict, work: Path, preview: bool) -> tuple[list[str], str, 
         sp = f",setpts=PTS/{s['speed']}" if s["speed"] != 1 else ""
         g.append(f"[{idx}:v]setpts=PTS-STARTPTS{sp}[r{n}]")
         g.append(edl.fit_filter(edit, s, f"[r{n}]", f"[f{n}]"))
-        g.append(f"[f{n}]fps={fps},format=yuv420p,trim=duration={L:.3f},setpts=PTS-STARTPTS,settb=AVTB[v{n}]")
+        g.append(f"[f{n}]fps={fps}{edl.motion_filter(edit, s)},format=yuv420p,trim=duration={L:.3f},setpts=PTS-STARTPTS,settb=AVTB[v{n}]")
         vol = float(s.get("volume", 1.0))
         if s["_info"]["has_audio"] and not s.get("mute"):
             g.append(f"[{idx}:a]asetpts=PTS-STARTPTS,{atempo(s['speed'])},{AUDIO_FMT},volume={vol},"
@@ -154,7 +217,8 @@ def build_graph(edit: dict, work: Path, preview: bool) -> tuple[list[str], str, 
         cv, ca = f"[jv{n}]", f"[ja{n}]"
     total = edit["_total"]
 
-    # picture: look, text overlay, fades, preview scale
+    # picture: look, stickers/images, progress bar, text, fades, preview scale
+    W, H = o["width"], o["height"]
     vf = []
     look = edit.get("look") or {}
     if any(k in look for k in ("brightness", "contrast", "saturation", "gamma")):
@@ -163,6 +227,26 @@ def build_graph(edit: dict, work: Path, preview: bool) -> tuple[list[str], str, 
         lut = resolve(look["lut"])
         shutil.copy(lut, work / ("look" + lut.suffix))
         vf.append(f"lut3d=look{lut.suffix}")
+    if vf:
+        g.append(f"{cv}{','.join(vf)}[look]")
+        cv, vf = "[look]", []
+    for j, ov in enumerate(edit.get("overlays", [])):
+        idx = inputs.count("-i")
+        img = overlay_image(edit, ov)
+        if img.suffix.lower() == ".gif":  # animated: loop it for the whole video
+            inputs += ["-ignore_loop", "0", "-t", f"{total:.3f}", "-i", str(img)]
+        else:
+            inputs += ["-loop", "1", "-framerate", str(fps), "-t", f"{total:.3f}", "-i", str(img)]
+        g += overlay_chain(ov, idx, j, cv, W, H)
+        cv = f"[ov{j}]"
+    pb = edit.get("progress_bar")
+    if pb:
+        hpx = int(pb.get("height", 10))
+        y = 0 if pb.get("position", "top") == "top" else H - hpx
+        col = "0x" + render_color(pb.get("color", "#FFE600"))
+        g.append(f"color=c={col}:s={W}x{hpx}:r={fps}:d={total:.3f}[pbar]")
+        g.append(f"{cv}[pbar]overlay=x='-{W}+{W}*t/{total:.3f}':y={y}:eval=frame[pb]")
+        cv = "[pb]"
     if build_ass(edit, work / "overlay.ass"):
         fdir = work / "fonts"
         shutil.rmtree(fdir, ignore_errors=True)
@@ -211,8 +295,75 @@ def build_graph(edit: dict, work: Path, preview: bool) -> tuple[list[str], str, 
     return inputs, ";\n".join(g), "[vout]", "[aout]"
 
 
+def render_color(c: str) -> str:
+    """RRGGBB hex for FFmpeg filters."""
+    bgr = ass_color(c)[4:]
+    return bgr[4:6] + bgr[2:4] + bgr[0:2]
+
+
+POS9 = {"top-left": (0, 0), "top": (0.5, 0), "top-right": (1, 0), "left": (0, 0.5), "center": (0.5, 0.5),
+        "right": (1, 0.5), "bottom-left": (0, 1), "bottom": (0.5, 1), "bottom-right": (1, 1)}
+
+
+def overlay_image(edit: dict, ov: dict) -> Path:
+    if ov.get("file"):
+        return edl._src(edit["project"], ov["file"])
+    cps = "_".join(f"{ord(ch):x}" for ch in ov["emoji"] if ord(ch) != 0xFE0F)
+    ext = "gif" if ov.get("animated") else "png"
+    dest = REPO / "assets" / "emoji" / f"{cps}.{ext}"
+    if not dest.exists():
+        import urllib.request
+        dest.parent.mkdir(parents=True, exist_ok=True)
+        url = f"https://fonts.gstatic.com/s/e/notoemoji/latest/{cps}/512.{ext}"
+        try:
+            with urllib.request.urlopen(url, timeout=60) as r:
+                dest.write_bytes(r.read())
+        except Exception as e:  # noqa: BLE001
+            die(f"could not download emoji {ov['emoji']} ({e})")
+    return dest
+
+
+def overlay_chain(ov: dict, idx: int, j: int, base: str, W: int, H: int) -> list[str]:
+    s0, s1 = float(ov["start"]), float(ov["end"])
+    wo = max(2, int(W * float(ov.get("width", 0.18))) // 2 * 2)
+    anim = ov.get("animation", "pop")
+    u = f"(t-{s0})"
+    if anim == "pop":
+        f = f"if(lt({u},0.15),{u}/0.15*1.15,if(lt({u},0.3),1.15-({u}-0.15),1))"
+        sc = f"scale=w='max(2,trunc({wo}*max(0.02,{f})/2)*2)':h=-2:eval=frame"
+    else:
+        sc = f"scale={wo}:-2"
+    chain = f"[{idx}:v]format=rgba,{sc}"
+    if anim != "none":
+        chain += f",fade=t=in:st={s0}:d=0.2:alpha=1,fade=t=out:st={max(s0, s1 - 0.25):.3f}:d=0.25:alpha=1"
+    m = float(ov.get("margin", 0.06))
+    if "x" in ov or "y" in ov:
+        cx, cy = f"{W}*{float(ov.get('x', 0.5))}", f"{H}*{float(ov.get('y', 0.5))}"
+    else:
+        px, py = POS9[ov.get("position", "top-right")]
+        cx = f"({W}*{m}+w/2)" if px == 0 else f"({W}-{W}*{m}-w/2)" if px == 1 else f"{W}/2"
+        cy = f"({H}*{m * 1.5}+h/2)" if py == 0 else f"({H}-{H}*{m * 3}-h/2)" if py == 1 else f"{H}/2"
+    dy = f"+{H * 0.08:.0f}*(1-clip({u}/0.3,0,1))" if anim == "slide_up" else ""
+    return [chain + f"[img{j}]",
+            f"{base}[img{j}]overlay=x='{cx}-w/2':y='{cy}-h/2{dy}':enable='between(t,{s0},{s1})':eval=frame[ov{j}]"]
+
+
 def resolve_music(edit: dict, music: dict) -> Path:
     return edl._src(edit["project"], music.get("file") or die("music needs a \"file\""))
+
+
+def render_to(edit: dict, dest: Path, preview: bool, work: Path) -> None:
+    work.mkdir(parents=True, exist_ok=True)
+    inputs, graph, vout, aout = build_graph(edit, work, preview)
+    (work / "graph.txt").write_text(graph, encoding="utf-8")
+    q = edit.get("quality", {})
+    enc = (["-c:v", "libx264", "-preset", "veryfast", "-crf", "28"] if preview else
+           ["-c:v", "libx264", "-preset", q.get("preset", "medium"), "-crf", str(q.get("crf", 18))])
+    cmd = (["ffmpeg", "-hide_banner", "-y"] + inputs +
+           ["-filter_complex", graph, "-map", vout, "-map", aout] + enc +
+           ["-pix_fmt", "yuv420p", "-r", str(edit["output"]["fps"]), "-c:a", "aac", "-b:a", "192k",
+            "-t", f"{edit['_total']:.3f}", "-movflags", "+faststart", os.path.abspath(dest)])
+    run(cmd, cwd=work)
 
 
 def main() -> None:
@@ -224,24 +375,12 @@ def main() -> None:
     need("ffmpeg")
 
     edit = edl.load(resolve(args.edit))
-    work = edit["_dir"] / "work" / "render"
-    work.mkdir(parents=True, exist_ok=True)
-    inputs, graph, vout, aout = build_graph(edit, work, args.preview)
-    (work / "graph.txt").write_text(graph, encoding="utf-8")
-
     name = edit["project"] + ("_preview" if args.preview else "")
     dest = resolve(args.out) if args.out else edit["_dir"] / f"{name}.mp4"
-    q = edit.get("quality", {})
-    enc = (["-c:v", "libx264", "-preset", "veryfast", "-crf", "28"] if args.preview else
-           ["-c:v", "libx264", "-preset", q.get("preset", "medium"), "-crf", str(q.get("crf", 18))])
-    cmd = (["ffmpeg", "-hide_banner", "-y"] + inputs +
-           ["-filter_complex", graph, "-map", vout, "-map", aout] + enc +
-           ["-pix_fmt", "yuv420p", "-r", str(edit["output"]["fps"]), "-c:a", "aac", "-b:a", "192k",
-            "-t", f"{edit['_total']:.3f}", "-movflags", "+faststart", os.path.abspath(dest)])
     print(f"Rendering {len(edit['shots'])} shots, {fmt_time(edit['_total'])} -> {dest.relative_to(REPO) if dest.is_relative_to(REPO) else dest}")
     t0 = time.time()
-    run(cmd, cwd=work)
-    print(f"Done in {time.time() - t0:.0f}s: {dest}")
+    render_to(edit, dest, args.preview, edit["_dir"] / "work" / "render")
+    print(f"Done in {time.time() - t0:.0f}s: {dest} ({dest.stat().st_size / 1e6:.1f} MB)")
 
 
 if __name__ == "__main__":

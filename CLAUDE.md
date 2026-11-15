@@ -1,89 +1,104 @@
 # Video editing workflow
 
-This repo is used to edit videos with Claude. The owner gives raw footage, one or
-more reference ("inspiration") videos and instructions; Claude makes a storyboard,
-waits for approval, then renders the video with FFmpeg through the scripts in `tools/`.
+The owner edits videos with Claude **from an iPhone only** (Claude app → Claude Code,
+cloud session). They have no computer. Everything happens in this cloud container:
+downloading their footage, studying the inspiration, storyboard, render, and sending
+the result back into the chat.
 
-The owner writes in Urdu (sometimes English). Reply in the language they used.
-Keep replies short and non-technical; they are a video creator, not a programmer.
+The owner writes in Urdu (sometimes English or Roman Urdu). Reply in the language
+they used. Keep replies short and non-technical; they are a video creator, not a
+programmer. Never ask them to run commands.
 
 ## Folders
 
 ```
-Video Edits/Raw/<project>/         footage + music (never modify or delete these files)
-Video Edits/Reference/<project>/   inspiration videos + brief.md (the instructions)
+Video Edits/Raw/<project>/         footage + music (never modify or delete)
+Video Edits/Reference/<project>/   inspiration videos + brief.md
 Video Edits/Export/<project>/      edit.json, captions.json, storyboard.md, storyboard/, final video
 Video Edits/Export/<project>/work/ analysis, transcripts, render scratch (git-ignored)
-fonts/                             .ttf/.otf fonts (searched recursively); see fonts/README.md
+styles/                            remembered editing styles (see styles/README.md)
+fonts/                             fonts (see fonts/README.md)
+assets/emoji/                      emoji images, downloaded on demand
 tools/                             scripts; tools/EDIT_FORMAT.md documents edit.json
 ```
 
-Video and audio files are git-ignored (too big for GitHub). Do not commit them.
+Video/audio files are git-ignored and only live in this container: they disappear
+when the session ends. The owner keeps originals in Google Drive and the finished
+video in Photos.
+
+## Setup check (start of every session)
+
+`python3 tools/check_setup.py`. If faster-whisper / yt-dlp / gdown are missing:
+`pip install -q -r requirements.txt`. The environment has full internet access.
 
 ## The workflow — follow these stages in order
 
-**0. Setup.** On a new machine run `setup/setup-windows.ps1` (PowerShell, with
-`-ExecutionPolicy Bypass`) or `bash setup/setup-mac.sh`, installing Git first if needed.
-If something fails later: `python tools/check_setup.py`. On a Mac the scripts use a
-virtualenv: run every tool with `.venv/bin/python` instead of `python`.
+**1. Start.** Pick a short project name (e.g. `eid-reel`) and run
+`python3 tools/new_project.py <name>`. Write what the owner said into
+`Reference/<name>/brief.md` (fill what you know, leave the rest).
 
-**1. Start.** `python tools/new_project.py <name>` if the folders don't exist. Read
-`Reference/<name>/brief.md` and anything the owner said. If key facts are missing
-(platform/size, length, captions yes/no + language), ask in ONE short message.
+**2. Get the files.** The owner pastes links in the chat:
+- Footage/music: usually a Google Drive file or folder link →
+  `python3 tools/fetch.py "<link>" --project <name> --to raw`
+- Inspiration: Instagram/TikTok/Facebook link, or a Drive link to a screen recording →
+  `python3 tools/fetch.py "<link>" --project <name> --to reference` (also analyses it)
 
-**2. Study the reference.** If the owner sends a link (YouTube, Instagram, TikTok,
-Facebook...), download it first: `python tools/fetch_reference.py "<url>" --project <name>`
-(it also runs analyze.py). If it fails because a login is needed, retry with
-`--cookies-from chrome` (or edge/firefox/safari, whichever browser they use) and tell
-them. Reference videos are for studying style only: never put their footage or music
-in the owner's video. For each reference video:
-`python tools/analyze.py "<path>" --project <name>`, then read its `analysis.md`
-and LOOK at `sheet.jpg` and several `shot_###.jpg` frames. Note: shot length and
-pacing, framing (close-ups, crops), caption style (font feel, size, position, colour,
-words per line, highlight), on-screen titles, transitions, colour/look, hook in the
-first 2 seconds, ending. If the reference has speech, transcribing it helps too.
+If a Drive link fails, ask them to set sharing to "Anyone with the link". YouTube
+blocks cloud downloads: ask them to screen-record the YouTube video (Control Centre ⏺)
+and share it via Drive. Instagram/TikTok can also fail for private posts: same fix.
+Screen recordings contain the phone's status bar: ignore it when studying the style.
 
-**3. Study the raw footage.** Run `analyze.py` on every raw clip (look at the frames
-to know what is in each clip and where), and `python tools/transcribe.py <clips...>
---project <name> --language <ur|en|...>` for clips with speech (model `medium` or
-better for Urdu). Use the transcripts to choose the best lines and cut out
+**3. Study the inspiration.** For each reference: read `analysis.md`, LOOK at
+`sheet.jpg` and several `shot_###.jpg` frames, and transcribe it if it has speech.
+Note: pacing (shot length), hook in the first 2 s, framing, caption style (font feel,
+size, position, colour, words per line, highlight, animation), titles, stickers/emoji,
+motion (zooms, punch-ins, shakes), transitions, colour/look, music, ending.
+
+**4. Remember the style.** If the owner says this inspiration is for future videos
+too (or it's the first one), save it: `python3 tools/save_style.py <style-name>
+--project <name> --reference <file> --default`, then edit `styles/<style-name>/style.json`
+and `style.md` to match what you saw (fonts from fonts/README.md). Commit and push the
+style so future sessions have it. Without a new inspiration, use the default style
+(`styles/default.txt`) and say which style you used.
+
+**5. Study the footage.** `python3 tools/analyze.py "<clip>" --project <name>` for every
+raw clip (look at the frames), and `python3 tools/transcribe.py <clips...> --project <name>
+--language ur` for clips with speech. Use the transcripts to pick the best lines and cut
 mistakes, pauses and repeats.
 
-**4. Write the edit.** Create `Export/<name>/edit.json` (see `tools/EDIT_FORMAT.md`)
-matching the reference style and the brief. Fill `summary`, `reference_notes`
-and a `description` for every shot. If captions are wanted:
-`python tools/captions.py "<edit.json>"`, then
-`python tools/caption_text.py export "<edit.json>"`, edit `captions.txt` (fix
-transcription errors, names) and `python tools/caption_text.py apply "<edit.json>"`.
+**6. Write the edit.** Create `Export/<name>/edit.json` (see `tools/EDIT_FORMAT.md`).
+Fill `summary`, `reference_notes` and a `description` for every shot. Use motion
+graphics the way the style does: `motion`, `punch`, `shake` on shots; `texts` with
+animations and `lower_third`; `overlays` with emoji/stickers; `progress_bar`.
 
-**Caption language.** Whisper writes Urdu speech in Urdu script. For **Roman Urdu**
-(e.g. "yeh mera pehla vlog hai") or English captions, transcribe with
-`--language ur`, export `captions.txt`, and rewrite every line yourself in Roman Urdu
-(common spellings: yeh, hai, nahi, kya, mein, aap, bohat, acha) or English, keeping
-word-for-word order where possible so the word highlighting stays in sync. Then
-`apply`. Use a Latin font (Poppins ExtraBold, Montserrat ExtraBold, Bebas Neue…) for
-Roman Urdu/English and an Urdu font for Urdu script.
+Captions: `python3 tools/captions.py "<edit.json>"`, then
+`python3 tools/caption_text.py export "<edit.json>"`, rewrite `captions.txt`, then
+`python3 tools/caption_text.py apply "<edit.json>"`.
+Whisper writes Urdu speech in Urdu script. The owner wants **Roman Urdu** captions by
+default: rewrite every line in natural Roman Urdu (yeh, hai, nahi, kya, mein, aap,
+bohat, acha, kaise, kyun), keeping word-for-word order where possible so the word
+highlighting stays in sync, and fix names and recognition mistakes. Never invent
+words that weren't said; if a part is unclear, mark it and ask.
 
-**5. Storyboard → approval.** `python tools/storyboard.py "<edit.json>"`. Look at
-`storyboard/overview.jpg` yourself first and fix anything wrong (bad framing, text
-off-screen, unreadable captions). Then show the owner: send `storyboard/overview.jpg`
-and `storyboard.md` (SendUserFile when available, otherwise give the paths), with a
-short summary of the plan. **STOP and wait.** Never render the final video before the
-owner says OK. For change requests, edit `edit.json`/`captions.json`, regenerate the
-storyboard and ask again.
+**7. Storyboard → approval.** `python3 tools/storyboard.py "<edit.json>"`. Look at
+`storyboard/overview.jpg` yourself first and fix problems (bad framing, text off-screen,
+unreadable captions, stickers covering faces). Then send `storyboard/overview.jpg` with
+SendUserFile and a short Urdu summary listing the shots by number (what happens, text,
+effects, music). **STOP and wait for OK.** Never render the final video before approval.
+For changes, edit and send a new storyboard.
 
-**6. Render.** After approval: `python tools/render.py "<edit.json>" --preview` and check a
-few frames of it (`ffmpeg -ss <t> -i <file> -frames:v 1 frame.jpg`), then
-`python tools/render.py "<edit.json>"`. Give the owner the path of
-`Export/<name>/<name>.mp4` (and send it if possible). Further changes go back to step 4/5
-only if they change the story; small fixes (text size, music volume) can be re-rendered
-directly with a preview first.
+**8. Render and deliver.** After approval: `python3 tools/render.py "<edit.json>" --preview`,
+check a few frames of it, then `python3 tools/render.py "<edit.json>"`. Send
+`Export/<name>/<name>.mp4` with SendUserFile and tell them: open it → Share → Save Video.
+If it is too large to send, re-render with `"quality": {"crf": 23}`. Commit and push
+edit.json, captions.json, storyboard.md and storyboard images (never media files).
 
 ## Rules
-- Never change or delete anything in `Raw/` or `Reference/` except `brief.md`.
-- Never invent transcript text; if Whisper is unsure, mark it and ask.
-- If a font the style needs is missing from `fonts/`, download it from Google Fonts:
-  `python tools/get_fonts.py "Family Name:400,700" --folder "<category> Fonts"`, and
-  commit it (fonts are small and Open Font License). Do not silently fall back.
-- Commit edit.json, captions.json, storyboard.md and storyboard images (small text/images)
-  so the project history is kept; never commit media files.
+- Never change or delete files in `Raw/` or `Reference/` except `brief.md`.
+- Reference videos are for studying style only: never put their footage or music in
+  the owner's video.
+- If a font is missing, download it: `python3 tools/get_fonts.py "Family:400,700" --folder "<category> Fonts"`
+  and commit it. Do not silently fall back.
+- Motion graphics are limited to what the tools do (see EDIT_FORMAT.md). If the owner
+  wants something they can't do (3D, tracking, complex animation), say so plainly and
+  offer the closest thing.

@@ -104,6 +104,9 @@ automatically; `"animated": true` uses the animated version). `position`: top-le
 top-right, left, center, right, bottom-left, bottom, bottom-right (or `x`, `y` fractions).
 `width`: fraction of the video width. `animation`: `pop`, `fade`, `slide_up`, `none`.
 
+**backdrop** – `[{"start": 17.6, "end": 20, "blur": 18, "dim": 0.35}]` blurs and darkens the
+video for that time, e.g. behind a product cutout ("product card") or a big title.
+
 **progress_bar** – a bar that fills across the top (or bottom) as the video plays.
 
 **captions.style** – `highlight_scale` enlarges the word being spoken (1.1 = 10%);

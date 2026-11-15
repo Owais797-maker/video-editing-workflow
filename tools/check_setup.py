@@ -50,6 +50,12 @@ try:
 except ImportError:
     report(False, "gdown (Google Drive links)", "pip install -r requirements.txt")
 
+try:
+    import rembg  # noqa: F401
+    report(True, "rembg (product cutouts)")
+except ImportError:
+    report(False, "rembg (product cutouts)", "pip install -r requirements.txt")
+
 fonts = font_files()
 report(bool(fonts), f"fonts in {FONTS.relative_to(REPO)}/: {len(fonts)} found",
        "put .ttf/.otf files in the fonts/ folder (see README)")

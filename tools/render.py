@@ -262,6 +262,17 @@ def build_graph(edit: dict, work: Path, preview: bool) -> tuple[list[str], str, 
     if vf:
         g.append(f"{cv}{','.join(vf)}[look]")
         cv, vf = "[look]", []
+    for b in edit.get("backdrop", []):  # blur/dim the video behind a product card or title
+        s0, s1 = float(b.get("start", 0)), float(b.get("end", total))
+        en = f"enable='between(t,{s0},{s1})'"
+        parts = []
+        if b.get("blur", 18):
+            parts.append(f"boxblur=luma_radius={int(b.get('blur', 18))}:luma_power=2:chroma_radius={int(b.get('blur', 18))}:{en}")
+        if b.get("dim", 0.35):
+            parts.append(f"drawbox=x=0:y=0:w=iw:h=ih:color=black@{float(b.get('dim', 0.35))}:t=fill:{en}")
+        if parts:
+            g.append(f"{cv}{','.join(parts)}[bd{len(g)}]")
+            cv = f"[bd{len(g) - 1}]"
     for j, ov in enumerate(edit.get("overlays", [])):
         idx = inputs.count("-i")
         img = overlay_image(edit, ov)
@@ -315,6 +326,23 @@ def build_graph(edit: dict, work: Path, preview: bool) -> tuple[list[str], str, 
         else:
             g.append(f"{ca}[mus]amix=inputs=2:duration=first:normalize=0[mix]")
         ca = "[mix]"
+    sfx = edit.get("sfx") or []
+    if sfx:
+        import sfx as sfxlib
+        labels = []
+        for j, fx in enumerate(sfx):
+            at = float(fx.get("at", 0))
+            if at >= total:
+                continue
+            path = edl._src(edit["project"], fx["file"]) if fx.get("file") else sfxlib.get(fx.get("sound", "whoosh"))
+            idx = inputs.count("-i")
+            inputs += ["-i", str(path)]
+            ms = int(at * 1000)
+            g.append(f"[{idx}:a]{AUDIO_FMT},volume={float(fx.get('volume', 0.7))},adelay={ms}|{ms}[sfx{j}]")
+            labels.append(f"[sfx{j}]")
+        if labels:
+            g.append(f"{ca}{''.join(labels)}amix=inputs={len(labels) + 1}:duration=first:normalize=0[withsfx]")
+            ca = "[withsfx]"
     af = []
     if fade.get("in"):
         af.append(f"afade=t=in:st=0:d={fade['in']}")

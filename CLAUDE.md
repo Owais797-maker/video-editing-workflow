@@ -37,7 +37,9 @@ video in Photos.
 `python3 tools/new_project.py <name>`. Write what the owner said into
 `Reference/<name>/brief.md` (fill what you know, leave the rest).
 
-**2. Get the files.** The owner pastes links in the chat:
+**2. Get the files.** Files the owner attaches in the chat (videos, photos) arrive under
+`/root/.claude/uploads/<session>/`: copy them into `Raw/<name>/` (or `Reference/<name>/`)
+with sensible names. Or the owner pastes links:
 - Footage/music: usually a Google Drive file or folder link →
   `python3 tools/fetch.py "<link>" --project <name> --to raw`
 - Inspiration: Instagram/TikTok/Facebook link, or a Drive link to a screen recording →
@@ -70,6 +72,16 @@ mistakes, pauses and repeats.
 Fill `summary`, `reference_notes` and a `description` for every shot. Use motion
 graphics the way the style does: `motion`, `punch`, `shake` on shots; `texts` with
 animations and `lower_third`; `overlays` with emoji/stickers; `progress_bar`.
+
+Product photos: `python3 tools/cutout.py "<image>"` makes a clean transparent cutout
+(BiRefNet). Always look at the cutout on a dark and a bright background before using it.
+Show it when the product is mentioned (`overlays`, not too big, never over a face), and
+use a `backdrop` (blur + dim) behind a big product card at the end.
+
+Sound effects: `"sfx"` in edit.json with the built-in synthesised sounds (`tools/sfx.py`:
+whoosh, whoosh_fast, swoosh_up, pop, click, ding, ching, impact, boom, riser, glitch) or
+the owner's own files. Typical reel use: impact on the hook, whoosh on cuts/titles, pop
+when a sticker/cutout appears, ding/ching on key facts. Keep them under the voice (0.3–0.6).
 
 Captions: `python3 tools/captions.py "<edit.json>"`, then
 `python3 tools/caption_text.py export "<edit.json>"`, rewrite `captions.txt`, then

@@ -1,0 +1,261 @@
+{
+  "project": "heavy-gold",
+  "title": "Heavy Gold reel",
+  "summary": "Shop reel for Heavy Gold 5-in-1 feed supplement: hook on animals not gaining weight, product reveal, why it is needed (vitamins, minerals, calcium, Japanese DCP), strong ending.",
+  "reference_notes": "Default style italic-kinetic: lowercase italic Roman Urdu captions mid-frame, stacked mixed-font emphasis titles on key lines, fast feel with gentle push-ins and punch-ins.",
+  "captions": {
+    "style": {
+      "outline": 0.35,
+      "outline_color": "#000000",
+      "shadow": 4,
+      "shadow_alpha": 64
+    }
+  },
+  "shots": [
+    {
+      "src": "IMG_5930.mov",
+      "in": 0.0,
+      "out": 2.23,
+      "description": "Hook: customer at the counter. 'Aap ke janwar ka bhi wazan nahi barh raha na?'",
+      "motion": {
+        "type": "zoom_in",
+        "amount": 0.08
+      },
+      "punch": [
+        [
+          1.1,
+          2.23
+        ]
+      ]
+    },
+    {
+      "src": "IMG_5930.mov",
+      "in": 2.23,
+      "out": 4.33,
+      "description": "The Heavy Gold bag on the counter. Product cutout pops in when 'Heavy Gold' is said.",
+      "motion": {
+        "type": "zoom_out",
+        "amount": 0.08
+      },
+      "punch": [
+        [
+          1.1,
+          2.1
+        ]
+      ]
+    },
+    {
+      "src": "IMG_5930.mov",
+      "in": 4.33,
+      "out": 6.5,
+      "description": "Shop staff.",
+      "motion": {
+        "type": "zoom_in",
+        "amount": 0.06
+      }
+    },
+    {
+      "src": "IMG_5930.mov",
+      "in": 6.5,
+      "out": 9.27,
+      "description": "Bag close-up: for dairy and qurbani animals.",
+      "motion": {
+        "type": "zoom_out",
+        "amount": 0.06
+      }
+    },
+    {
+      "src": "IMG_5930.mov",
+      "in": 9.27,
+      "out": 12.1,
+      "description": "Bag: goats, dumbas. Vitamins + minerals title.",
+      "motion": {
+        "type": "zoom_in",
+        "amount": 0.07
+      }
+    },
+    {
+      "src": "IMG_5930.mov",
+      "in": 12.1,
+      "out": 17.0,
+      "description": "Bag: calcium, DCP from Japan, bone based. Punch-in on 'DCP Japan wala'.",
+      "motion": {
+        "type": "zoom_in",
+        "amount": 0.06
+      },
+      "punch": [
+        [
+          2.9,
+          3.9
+        ]
+      ]
+    },
+    {
+      "src": "IMG_5930.mov",
+      "in": 17.0,
+      "out": 19.97,
+      "description": "Ending: 'Bohat zaroori hai bhai'. Background blurs and darkens, product cutout pops up big in the centre.",
+      "motion": {
+        "type": "zoom_out",
+        "amount": 0.08
+      },
+      "punch": [
+        [
+          0.6,
+          1.6
+        ]
+      ]
+    }
+  ],
+  "texts": [
+    {
+      "segments": [
+        {
+          "text": "aap ke janwar ka",
+          "preset": "small"
+        },
+        {
+          "text": "wazan",
+          "preset": "serif",
+          "newline": true
+        },
+        {
+          "text": "nahi barh raha?",
+          "preset": "heavy",
+          "size": 6.2,
+          "newline": true
+        }
+      ],
+      "start": 0.05,
+      "end": 2.2,
+      "y": 0.52,
+      "outline": 0.3,
+      "shadow": 4,
+      "shadow_alpha": 64
+    },
+    {
+      "segments": [
+        {
+          "text": "vitamins aur",
+          "preset": "small"
+        },
+        {
+          "text": "minerals",
+          "preset": "heavy",
+          "size": 7.5,
+          "newline": true
+        }
+      ],
+      "start": 11.55,
+      "end": 13.0,
+      "y": 0.5,
+      "outline": 0.3,
+      "shadow": 4,
+      "shadow_alpha": 64
+    },
+    {
+      "segments": [
+        {
+          "text": "DCP",
+          "preset": "heavy",
+          "size": 9
+        },
+        {
+          "text": "japan wala",
+          "preset": "small",
+          "newline": true
+        },
+        {
+          "text": "bone based",
+          "preset": "serif",
+          "size": 10,
+          "newline": true
+        }
+      ],
+      "start": 15.0,
+      "end": 17.5,
+      "y": 0.5,
+      "outline": 0.3,
+      "shadow": 4,
+      "shadow_alpha": 64
+    }
+  ],
+  "overlays": [
+    {
+      "file": "heavy-gold-bag-cutout.png",
+      "start": 3.3,
+      "end": 5.8,
+      "x": 0.79,
+      "y": 0.58,
+      "width": 0.3,
+      "animation": "pop"
+    },
+    {
+      "file": "heavy-gold-bag-cutout.png",
+      "start": 17.6,
+      "end": 19.97,
+      "x": 0.5,
+      "y": 0.37,
+      "width": 0.5,
+      "animation": "pop"
+    }
+  ],
+  "sfx": [
+    {
+      "sound": "impact",
+      "at": 0.0,
+      "volume": 0.5
+    },
+    {
+      "sound": "whoosh",
+      "at": 2.05,
+      "volume": 0.45
+    },
+    {
+      "sound": "pop",
+      "at": 3.3,
+      "volume": 0.6
+    },
+    {
+      "sound": "whoosh_fast",
+      "at": 6.4,
+      "volume": 0.35
+    },
+    {
+      "sound": "ding",
+      "at": 11.55,
+      "volume": 0.35
+    },
+    {
+      "sound": "ching",
+      "at": 15.0,
+      "volume": 0.4
+    },
+    {
+      "sound": "whoosh",
+      "at": 16.85,
+      "volume": 0.4
+    },
+    {
+      "sound": "pop",
+      "at": 17.6,
+      "volume": 0.6
+    }
+  ],
+  "look": {
+    "brightness": 0.02,
+    "contrast": 1.08,
+    "saturation": 1.12
+  },
+  "fade": {
+    "out": 0.4
+  },
+  "backdrop": [
+    {
+      "start": 17.6,
+      "end": 19.97,
+      "blur": 20,
+      "dim": 0.4
+    }
+  ]
+}

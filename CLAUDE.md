@@ -22,6 +22,10 @@ typography, composition, real photography and storytelling over decoration and t
 - Keep replies short: the owner works on a phone with limited usage. Do the work, show the
   result, ask only what is needed. When they say "final de do", deliver the final.
 - No click/tick sound on every caption line (annoying). Use the soft `swish` on big words only.
+- Captions must look designed, never basic: use the HTML caption engine (`"mode": "html"`,
+  templates box-pop / editorial / minimal / outline-3d / press / glass, accent from the product
+  palette). Vary the template between videos; add new CSS templates when a reference shows a
+  new look worth having.
 
 The owner writes in Urdu (sometimes English or Roman Urdu). Reply in the language
 they used. Keep replies short and non-technical; they are a video creator, not a

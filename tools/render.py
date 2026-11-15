@@ -291,7 +291,9 @@ def build_ass(edit: dict, path: Path) -> bool:
             text = word.upper() if v.get("uppercase") else case(word)
             return "{" + tags + "}" + ass_text(text) + "{\\r" + glow + "}"
         all_lines = load_json(cfile)["lines"]
-        if st.get("mode") == "kinetic":
+        if st.get("mode") == "html":
+            all_lines = []
+        elif st.get("mode") == "kinetic":
             events += kinetic_events(all_lines, cap, W, H, glow, pos or f"\\an5\\pos({W // 2},{int(H * 0.68)})")
             all_lines = []
         for ln in all_lines:
@@ -426,6 +428,16 @@ def build_graph(edit: dict, work: Path, preview: bool) -> tuple[list[str], str, 
             inputs += ["-loop", "1", "-framerate", str(fps), "-t", f"{total:.3f}", "-i", str(img)]
         g += overlay_chain(ov, idx, j, cv, W, H)
         cv = f"[ov{j}]"
+    capc = edit.get("captions") or {}
+    if capc and capc.get("style", {}).get("mode") == "html":
+        import html_captions
+        lines = load_json(edit["_dir"] / capc.get("file", "captions.json"))["lines"]
+        lst = html_captions.build(edit, capc, lines, plan_kinetic(lines, capc), work / "htmlcaps", fps, total)
+        idx = inputs.count("-i")
+        inputs += ["-f", "concat", "-safe", "0", "-i", str(lst)]
+        g.append(f"[{idx}:v]fps={fps},format=rgba[hcap]")
+        g.append(f"{cv}[hcap]overlay=0:0:eof_action=pass:format=auto[hcv]")
+        cv = "[hcv]"
     pb = edit.get("progress_bar")
     if pb:
         hpx = int(pb.get("height", 10))

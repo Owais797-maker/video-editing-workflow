@@ -1,0 +1,10 @@
+{
+  "output": { "width": 1080, "height": 1920, "fps": 30, "fit": "crop" },
+  "type_presets": {
+    "label": { "font": "Poppins SemiBold", "italic": false, "bold": false, "size": 3.4, "color": "white" },
+    "headline": { "font": "Oswald", "italic": false, "bold": true, "size": 9, "uppercase": true, "color": "white" },
+    "headline_accent": { "font": "Oswald", "italic": false, "bold": true, "size": 9, "uppercase": true, "color": "#FFE11A" },
+    "accent": { "font": "Instrument Serif", "italic": true, "bold": false, "size": 5.6, "lowercase": true, "color": "#FFE11A" }
+  },
+  "loudness": -14
+}

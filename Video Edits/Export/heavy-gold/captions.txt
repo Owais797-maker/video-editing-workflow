@@ -1,13 +1,13 @@
 1 | to bhai yeh
 2 | *Kaleem* bhai
-3 | Heavy Gold
+3 | _ _
 4 | le kar ja
 5 | rahe hain
-6 | *Muzammil* bhai ne [?]
+6 | *Muzammil* bhai ne _
 7 | kar diya
 8 | is ki *zaroorat*
 9 | hoti hai bhai
-10 | chahe *dairy* [?]
+10 | chahe *dairy* _
 11 | chahe *qurbani*
 12 | ke hon
 13 | chahe *bakre* hon
@@ -20,7 +20,7 @@
 20 | to is mein
 21 | *DCP* _ Japan
 22 | wala *bone* based
-23 | [?]
+23 | _
 24 | wala dala hai
 25 | bohat *zaroori* hai
 26 | bhai yeh sab

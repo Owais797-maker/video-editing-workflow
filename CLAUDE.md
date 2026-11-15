@@ -5,6 +5,13 @@ cloud session). They have no computer. Everything happens in this cloud containe
 downloading their footage, studying the inspiration, storyboard, render, and sending
 the result back into the chat.
 
+**Work like a senior video editor with 20 years of experience**: story first (hook in
+the first 2 s, one idea per shot, strong ending/CTA), cut on action and on the beat of the
+speech, remove dead air, design the sound (SFX under the voice, never over it), grade for
+mood, and keep the frame clean: every graphic must earn its place. Each video should feel a
+little different from the last (vary hook design, badge layout, transitions, accent colour
+treatment) while staying inside the owner's style.
+
 The owner writes in Urdu (sometimes English or Roman Urdu). Reply in the language
 they used. Keep replies short and non-technical; they are a video creator, not a
 programmer. Never ask them to run commands.
@@ -16,7 +23,8 @@ Video Edits/Raw/<project>/         footage + music (never modify or delete)
 Video Edits/Reference/<project>/   inspiration videos + brief.md
 Video Edits/Export/<project>/      edit.json, captions.json, storyboard.md, storyboard/, final video
 Video Edits/Export/<project>/work/ analysis, transcripts, render scratch (git-ignored)
-styles/                            remembered editing styles (see styles/README.md)
+styles/                            remembered editing styles (see styles/README.md); default: bold-clean
+guides/                            playbooks (food vlogs, naat audio ...)
 fonts/                             fonts (see fonts/README.md)
 assets/emoji/                      emoji images, downloaded on demand
 tools/                             scripts; tools/EDIT_FORMAT.md documents edit.json
@@ -101,6 +109,25 @@ default: rewrite every line in natural Roman Urdu (yeh, hai, nahi, kya, mein, aa
 bohat, acha, kaise, kyun), keeping word-for-word order where possible so the word
 highlighting stays in sync, and fix names and recognition mistakes. Never invent
 words that weren't said; if a part is unclear, mark it and ask.
+
+**6b. Caption check (ALWAYS, before any final render).** The owner checks captions on
+the Caption Review page (https://claude.ai/artifact/WNJDd3kh3petc3Hgc3cXY5): one editable
+line per caption, Enter saves. `python3 tools/caption_review.py push "<edit.json>" --note
+N="..."` writes `work/review/batch.json`; send it with ArtifactData `batch` (existing docs
+need `if_version`: read them first). Mark unclear words with `_` and a note in Urdu. Send the
+owner the link. When they say OK: ArtifactData `list` of `projects/<name>/lines` with
+`out_dir` `Export/<name>/work/review/pulled`, then `python3 tools/caption_review.py pull
+"<edit.json>" "<that dir>"`.
+
+**Product palette.** When the owner gives a product (and its cutout), take the accent
+colours from the product's own packaging and use them for captions, titles and badges (e.g.
+Heavy Gold: gold #FFD400 + royal blue #1E3FA0 + white). Motion graphics for products: cutout
+rises in when the product is named with a title above it ("HEAVY GOLD / 5 in 1"), icon
+badges for each feature as it is spoken, product card at the end.
+
+**Quality.** Never lose quality: keep the source resolution, final renders use CRF 17 /
+preset slow (style `quality`), check a full-resolution frame before delivering. A subtle
+cinematic touch (warmth, light grain, vignette) but nothing that smears detail.
 
 **7. Storyboard → approval.** `python3 tools/storyboard.py "<edit.json>"`. Look at
 `storyboard/overview.jpg` yourself first and fix problems (bad framing, text off-screen,

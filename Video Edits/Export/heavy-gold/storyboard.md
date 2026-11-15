@@ -18,7 +18,7 @@ Default style bold-clean: clean video, bold Poppins captions with gold active wo
 
 - **Clip:** `IMG_5930.mov` 0:00.0–0:02.2
 - **What happens:** Hook: customer at the counter. 'Aap ke janwar ka bhi wazan nahi barh raha na?'
-- **On-screen text:** aap ke janwar ka wazan nahi barh raha?
+- **On-screen text:** aap ke janwar ka WAZAN nahi barh raha?
 - **Then:** hard cut
 
 ### 2. 0:02.2 – 0:04.3 (2.1s)
@@ -27,7 +27,8 @@ Default style bold-clean: clean video, bold Poppins captions with gold active wo
 
 - **Clip:** `IMG_5930.mov` 0:02.2–0:04.3
 - **What happens:** The bag on the counter. On 'Heavy Gold' the product cutout rises from the bottom on the right.
-- **Captions:** to bhai yeh / Kaleem bhai / Heavy Gold / le kar ja
+- **On-screen text:** HEAVY GOLD 5 in 1
+- **Captions:** to bhai yeh / Kaleem bhai / _ _ / le kar ja
 - **Then:** hard cut
 
 ### 3. 0:04.3 – 0:06.5 (2.2s)
@@ -36,7 +37,7 @@ Default style bold-clean: clean video, bold Poppins captions with gold active wo
 
 - **Clip:** `IMG_5930.mov` 0:04.3–0:06.5
 - **What happens:** Shop staff.
-- **Captions:** rahe hain / Muzammil bhai ne [?] / kar diya
+- **Captions:** rahe hain / Muzammil bhai ne _ / kar diya
 - **Then:** hard cut
 
 ### 4. 0:06.5 – 0:09.3 (2.8s)
@@ -45,7 +46,7 @@ Default style bold-clean: clean video, bold Poppins captions with gold active wo
 
 - **Clip:** `IMG_5930.mov` 0:06.5–0:09.3
 - **What happens:** Bag close-up: for dairy and qurbani animals.
-- **Captions:** is ki zaroorat / hoti hai bhai / chahe dairy [?] / chahe qurbani
+- **Captions:** is ki zaroorat / hoti hai bhai / chahe dairy _ / chahe qurbani
 - **Then:** hard cut
 
 ### 5. 0:09.3 – 0:12.1 (2.8s)
@@ -63,7 +64,7 @@ Default style bold-clean: clean video, bold Poppins captions with gold active wo
 
 - **Clip:** `IMG_5930.mov` 0:12.1–0:17.0
 - **What happens:** Bag: CALCIUM badge, then D.C.P (Japan, bone based) badge with a 'ching'. Punch-in on 'DCP Japan wala'.
-- **Captions:** minerals ki bhi / zaroorat parti hai / calcium ki bhi / need hoti hai / to is mein / DCP _ Japan / wala bone based / [?]
+- **Captions:** minerals ki bhi / zaroorat parti hai / calcium ki bhi / need hoti hai / to is mein / DCP _ Japan / wala bone based / _
 - **Then:** hard cut
 
 ### 7. 0:17.0 – 0:20.0 (3.0s)
@@ -72,6 +73,7 @@ Default style bold-clean: clean video, bold Poppins captions with gold active wo
 
 - **Clip:** `IMG_5930.mov` 0:17.0–0:20.0
 - **What happens:** Ending: 'Bohat zaroori hai bhai'. Background blurs and darkens, the bag rises up big in the centre.
+- **On-screen text:** dairy aur qurbani ke janwaron ke liye HEAVY GOLD 5 in 1
 - **Captions:** wala dala hai / bohat zaroori hai / bhai yeh sab / cheez hai
 
 ## Audio

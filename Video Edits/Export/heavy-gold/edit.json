@@ -6,21 +6,24 @@
   "captions": {
     "keywords": {
       "heavy": {
-        "font": "Anton",
+        "font": "Oswald",
+        "bold": true,
         "color": "#FFD400",
-        "size": 8.6,
+        "size": 8.4,
         "uppercase": true
       },
       "gold": {
-        "font": "Anton",
+        "font": "Oswald",
+        "bold": true,
         "color": "#FFD400",
-        "size": 8.6,
+        "size": 8.4,
         "uppercase": true
       },
       "dcp": {
-        "font": "Anton",
+        "font": "Oswald",
+        "bold": true,
         "color": "#FFD400",
-        "size": 8.6,
+        "size": 8.4,
         "uppercase": true
       }
     }
@@ -126,23 +129,86 @@
       "segments": [
         {
           "text": "aap ke janwar ka",
-          "preset": "small"
+          "preset": "label"
         },
         {
-          "text": "wazan",
-          "preset": "serif",
+          "text": "WAZAN",
+          "preset": "headline",
+          "size": 12,
           "newline": true
         },
         {
           "text": "nahi barh raha?",
-          "preset": "heavy",
-          "size": 7.2,
+          "preset": "accent",
+          "size": 7,
           "newline": true
         }
       ],
       "start": 0.05,
       "end": 2.2,
       "y": 0.5,
+      "animation": "pop",
+      "outline": 0.3,
+      "shadow": 4,
+      "shadow_alpha": 64
+    },
+    {
+      "segments": [
+        {
+          "text": "HEAVY",
+          "preset": "headline",
+          "size": 7.5
+        },
+        {
+          "text": "GOLD",
+          "preset": "headline_accent",
+          "size": 7.5
+        },
+        {
+          "text": "5 in 1",
+          "preset": "accent",
+          "size": 5.2,
+          "newline": true
+        }
+      ],
+      "start": 3.45,
+      "end": 4.3,
+      "x": 0.72,
+      "y": 0.25,
+      "animation": "slide_up",
+      "outline": 0.3,
+      "shadow": 4,
+      "shadow_alpha": 64
+    },
+    {
+      "segments": [
+        {
+          "text": "dairy aur qurbani ke janwaron ke liye",
+          "preset": "label",
+          "size": 3.0
+        },
+        {
+          "text": "HEAVY",
+          "preset": "headline",
+          "size": 10,
+          "newline": true
+        },
+        {
+          "text": "GOLD",
+          "preset": "headline_accent",
+          "size": 10
+        },
+        {
+          "text": "5 in 1",
+          "preset": "accent",
+          "size": 6.5,
+          "newline": true
+        }
+      ],
+      "start": 17.75,
+      "end": 19.97,
+      "y": 0.14,
+      "animation": "slide_up",
       "outline": 0.3,
       "shadow": 4,
       "shadow_alpha": 64
@@ -153,9 +219,9 @@
       "file": "heavy-gold-bag-cutout.png",
       "start": 3.25,
       "end": 4.3,
-      "x": 0.79,
-      "y": 0.5,
-      "width": 0.32,
+      "x": 0.72,
+      "y": 0.52,
+      "width": 0.3,
       "animation": "rise"
     },
     {
@@ -195,8 +261,8 @@
       "start": 17.6,
       "end": 19.97,
       "x": 0.5,
-      "y": 0.37,
-      "width": 0.5,
+      "y": 0.42,
+      "width": 0.42,
       "animation": "rise"
     }
   ],
@@ -255,6 +321,16 @@
       "sound": "pop",
       "at": 3.55,
       "volume": 0.45
+    },
+    {
+      "sound": "whoosh_fast",
+      "at": 3.45,
+      "volume": 0.3
+    },
+    {
+      "sound": "whoosh",
+      "at": 17.7,
+      "volume": 0.35
     }
   ],
   "fade": {

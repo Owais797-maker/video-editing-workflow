@@ -48,15 +48,15 @@
         {
           "start": 3.34,
           "end": 3.6,
-          "text": "Heavy"
+          "text": "_"
         },
         {
           "start": 3.6,
           "end": 3.88,
-          "text": "Gold"
+          "text": "_"
         }
       ],
-      "text": "Heavy Gold"
+      "text": "_ _"
     },
     {
       "start": 3.88,
@@ -120,10 +120,10 @@
         {
           "start": 5.64,
           "end": 6.08,
-          "text": "[?]"
+          "text": "_"
         }
       ],
-      "text": "Muzammil bhai ne [?]"
+      "text": "Muzammil bhai ne _"
     },
     {
       "start": 6.08,
@@ -205,10 +205,10 @@
         {
           "start": 8.58,
           "end": 8.84,
-          "text": "[?]"
+          "text": "_"
         }
       ],
-      "text": "chahe dairy [?]"
+      "text": "chahe dairy _"
     },
     {
       "start": 8.84,
@@ -481,10 +481,10 @@
         {
           "start": 16.7,
           "end": 16.98,
-          "text": "[?]"
+          "text": "_"
         }
       ],
-      "text": "[?]"
+      "text": "_"
     },
     {
       "start": 17.0,

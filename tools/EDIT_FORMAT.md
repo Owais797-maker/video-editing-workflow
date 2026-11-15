@@ -140,6 +140,9 @@ impact, boom, riser, glitch) or `{"file": "my-sound.wav", "at": ...}` from Raw/<
 
 **music** – loops if shorter than the video. `duck` lowers it while people speak.
 
-**look** – simple colour adjustment (`eq`), and/or a `.cube` LUT file.
+**look** – `brightness`, `contrast`, `saturation`, `gamma` (eq), `warmth` (+ warmer / − cooler),
+`sharpen` (0.3–0.8), `vignette` (angle, ~0.5), `grain` (film grain 3–6), and/or a `.cube` LUT.
+
+**flashes** – `[{"at": 2.23, "alpha": 0.5, "dur": 0.18, "color": "white"}]` quick flash, e.g. on a cut.
 
 **loudness** – target LUFS for the final mix (-14 suits social media). `null` turns it off.

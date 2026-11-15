@@ -385,6 +385,8 @@ def build_graph(edit: dict, work: Path, preview: bool) -> tuple[list[str], str, 
         vf.append(f"colorbalance=rm={wv:.3f}:bm={-wv:.3f}:rh={wv / 2:.3f}:bh={-wv / 2:.3f}")
     if look.get("sharpen"):
         vf.append(f"unsharp=5:5:{float(look['sharpen'])}:5:5:0")
+    if look.get("grain"):  # light film grain for a cinematic touch (applied under text and stickers)
+        vf.append(f"noise=alls={int(look['grain'])}:allf=t")
     if look.get("vignette"):
         vf.append(f"vignette=angle={float(look['vignette']):.3f}")
     if look.get("lut"):
@@ -473,6 +475,7 @@ def build_graph(edit: dict, work: Path, preview: bool) -> tuple[list[str], str, 
     csfx = cap.get("sfx") if cap else None
     if csfx:  # soft sound under every caption line (and optionally under each big word)
         lines = load_json(edit["_dir"] / cap.get("file", "captions.json"))["lines"]
+        lines = [ln for ln in lines if any(w["text"] != "_" for w in ln.get("words") or [{"text": ln["text"]}])]
         for ln in lines:
             if csfx.get("line"):
                 sfx.append({**csfx["line"], "at": ln["start"]})

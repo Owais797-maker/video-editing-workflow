@@ -47,7 +47,7 @@ def apply_style(edit: dict) -> None:
             edit[key] = _merge(st[key], edit.get(key) or {})
     if "type_presets" in st:
         edit["type_presets"] = _merge(st["type_presets"], edit.get("type_presets") or {})
-    for key in ("loudness", "progress_bar"):
+    for key in ("loudness", "progress_bar", "quality"):
         if key in st and key not in edit:
             edit[key] = st[key]
     if edit.get("captions") is not None and edit.get("captions") is not False and "captions" in st:

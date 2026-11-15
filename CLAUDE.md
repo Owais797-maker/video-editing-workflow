@@ -78,6 +78,15 @@ Product photos: `python3 tools/cutout.py "<image>"` makes a clean transparent cu
 Show it when the product is mentioned (`overlays`, not too big, never over a face), and
 use a `backdrop` (blur + dim) behind a big product card at the end.
 
+Icon badges for features/ingredients said in the video (vitamins, minerals, DCP ...):
+`python3 tools/badge.py --project <name> --label VITAMINS --emoji 💊 --color "#8E44AD"`;
+pop them up (upper part of the frame, ~22% width) exactly when the word is spoken.
+
+**Owner's standing preferences** (see styles/bold-clean/style.md): keep the video CLEAN,
+no clutter; captions must be attractive (bold trending fonts: Poppins, Anton), never basic;
+good SFX. Extra effects such as the liquid glass cards (`"glass"`, styles/liquid-glass/)
+only when the owner asks for them by name.
+
 Sound effects: `"sfx"` in edit.json with the built-in synthesised sounds (`tools/sfx.py`:
 whoosh, whoosh_fast, swoosh_up, pop, click, ding, ching, impact, boom, riser, glitch) or
 the owner's own files. Typical reel use: impact on the hook, whoosh on cuts/titles, pop
@@ -85,7 +94,8 @@ when a sticker/cutout appears, ding/ching on key facts. Keep them under the voic
 
 Captions: `python3 tools/captions.py "<edit.json>"`, then
 `python3 tools/caption_text.py export "<edit.json>"`, rewrite `captions.txt`, then
-`python3 tools/caption_text.py apply "<edit.json>"`.
+`python3 tools/caption_text.py apply "<edit.json>"` (keep the same total number of words
+and you can re-break lines freely with exact word timing, e.g. keep a brand name on one line).
 Whisper writes Urdu speech in Urdu script. The owner wants **Roman Urdu** captions by
 default: rewrite every line in natural Roman Urdu (yeh, hai, nahi, kya, mein, aap,
 bohat, acha, kaise, kyun), keeping word-for-word order where possible so the word

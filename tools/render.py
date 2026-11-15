@@ -10,6 +10,7 @@ from __future__ import annotations
 
 import argparse
 import os
+import re
 import shutil
 import time
 from pathlib import Path
@@ -50,7 +51,7 @@ def style_line(name: str, st: dict, H: int, default_size: float, align: int) -> 
     return ("Style: {n},{font},{size},{pc},{sc},{oc},{bc},{bold},{it},0,0,100,100,0,0,{bs},{ol},{sh},{al},60,60,{mv},1"
             .format(n=name, font=st.get("font", "DejaVu Sans"), size=size,
                     pc=ass_color(st.get("color", "white")), sc=ass_color(st.get("color", "white")),
-                    oc=ass_color(st.get("box_color", "black"), 0x40) if box else ass_color(st.get("outline_color", "black")),
+                    oc=ass_color(st.get("box_color", "black"), 0x40) if box else ass_color(st.get("outline_color", "black"), int(st.get("outline_alpha", 0))),
                     bc=ass_color(st.get("shadow_color", "#000000"), int(st.get("shadow_alpha", 0x80))),
                     bold=-1 if st.get("bold", True) else 0, it=-1 if st.get("italic") else 0,
                     bs=3 if box else 1, ol=round(size * outline / 10, 1) if not box else round(size * 0.25),
@@ -153,6 +154,19 @@ def build_ass(edit: dict, path: Path) -> bool:
             body = typewriter(x["text"]) if anim == "typewriter" else ass_text(x["text"])
         events.append(f"Dialogue: 1,{ass_time(x.get('start', 0))},{ass_time(x['end'])},{name},,0,0,0,,{{{fx}}}{body}")
 
+    for k, gl in enumerate(edit.get("glass", [])):
+        if not gl.get("text"):
+            continue
+        x0, y0, bw, bh = glass_box(gl, W, H)
+        st = {"font": gl.get("font", "Poppins SemiBold"), "bold": False, "size": gl.get("size", 3.6),
+              "color": gl.get("color", "white"), "outline": 0, "shadow": 2, "shadow_alpha": 140}
+        styles.append(style_line(f"G{k}", st, H, 3.2, 5))
+        body = ass_text(gl["text"])
+        if gl.get("subtext"):
+            body += "\\N{\\fs" + str(int(H * float(gl.get("size", 3.2)) * 0.55 / 100)) + "\\alpha&H40&}" + ass_text(gl["subtext"])
+        s0, s1 = float(gl.get("start", 0)), float(gl.get("end", edit["_total"]))
+        events.append(f"Dialogue: 4,{ass_time(s0)},{ass_time(s1)},G{k},,0,0,0,,{{\\an5\\pos({x0 + bw // 2},{y0 + bh // 2})\\fad(250,250)}}{body}")
+
     cap = edit.get("captions")
     if cap:
         cfile = edit["_dir"] / cap.get("file", "captions.json")
@@ -167,23 +181,42 @@ def build_ass(edit: dict, path: Path) -> bool:
         case = (lambda v: v.upper()) if upper else (lambda v: v.lower()) if lower else (lambda v: v)
         pos = f"\\an5\\pos({W // 2},{int(H * float(st['y']))})" if "y" in st else ""
         anim = {"pop": "\\fscx70\\fscy70\\t(0,120,\\fscx100\\fscy100)", "fade": "\\fad(120,80)"}.get(st.get("animation"), "")
-        pop = "{" + pos + anim + "}" if pos or anim else ""
-        keep = "{" + pos + "}" if pos else ""
+        glow = f"\\blur{float(st['glow'])}" if st.get("glow") else ""
+        pop = "{" + pos + glow + anim + "}" if pos or anim or glow else ""
+        keep = "{" + pos + glow + "}" if pos or glow else ""
+        kw = {k.lower(): v for k, v in (cap.get("keywords") or {}).items()}
+
+        def styled(word: str) -> str:
+            k = re.sub(r"[^\w]", "", word.lower())
+            if k not in kw:
+                return ass_text(case(word))
+            v = kw[k]
+            tags = ""
+            if v.get("font"):
+                tags += "\\fn" + v["font"]
+            if v.get("size"):
+                tags += f"\\fs{int(H * float(v['size']) / 100)}"
+            if v.get("color"):
+                tags += "\\c" + ass_color(v["color"])
+            if "italic" in v:
+                tags += f"\\i{1 if v['italic'] else 0}"
+            text = word.upper() if v.get("uppercase") else case(word)
+            return "{" + tags + "}" + ass_text(text) + "{\\r" + glow + "}"
         for ln in load_json(cfile)["lines"]:
             text = case(ln["text"])
             words = ln.get("words") or []
             if hi and words and " ".join(w["text"] for w in words) == ln["text"]:
                 # one event per spoken word, with that word highlighted
-                parts = [ass_text(case(w["text"])) for w in words]
+                parts = [styled(w["text"]) for w in words]
                 for k, w in enumerate(words):
                     a = w["start"] if k else ln["start"]
                     b = words[k + 1]["start"] if k + 1 < len(words) else ln["end"]
                     big = f"\\fscx{hscale}\\fscy{hscale}" if hscale != 100 else ""
                     shown = list(parts)
-                    shown[k] = "{\\c" + ass_color(hi) + big + "}" + parts[k] + "{\\r}"
+                    shown[k] = "{\\c" + ass_color(hi) + big + "}" + parts[k] + "{\\r" + glow + "}"
                     events.append(f"Dialogue: 0,{ass_time(a)},{ass_time(b)},Cap,,0,0,0,,{pop if k == 0 else keep}{' '.join(shown)}")
             else:
-                events.append(f"Dialogue: 0,{ass_time(ln['start'])},{ass_time(ln['end'])},Cap,,0,0,0,,{pop}{ass_text(text)}")
+                events.append(f"Dialogue: 0,{ass_time(ln['start'])},{ass_time(ln['end'])},Cap,,0,0,0,,{pop}{' '.join(styled(w) for w in text.split(' '))}")
     if not events:
         return False
     head = ["[Script Info]", "ScriptType: v4.00+", f"PlayResX: {W}", f"PlayResY: {H}", "WrapStyle: 0",
@@ -273,6 +306,8 @@ def build_graph(edit: dict, work: Path, preview: bool) -> tuple[list[str], str, 
         if parts:
             g.append(f"{cv}{','.join(parts)}[bd{len(g)}]")
             cv = f"[bd{len(g) - 1}]"
+    for k, gl in enumerate(edit.get("glass", [])):
+        cv = glass_chain(gl, k, cv, W, H, fps, total, work, inputs, g)
     for j, ov in enumerate(edit.get("overlays", [])):
         idx = inputs.count("-i")
         img = overlay_image(edit, ov)
@@ -394,8 +429,10 @@ def overlay_chain(ov: dict, idx: int, j: int, base: str, W: int, H: int) -> list
     else:
         sc = f"scale={wo}:-2"
     chain = f"[{idx}:v]format=rgba,{sc}"
+    if anim not in ("none", "rise"):
+        chain += f",fade=t=in:st={s0}:d=0.2:alpha=1"
     if anim != "none":
-        chain += f",fade=t=in:st={s0}:d=0.2:alpha=1,fade=t=out:st={max(s0, s1 - 0.25):.3f}:d=0.25:alpha=1"
+        chain += f",fade=t=out:st={max(s0, s1 - 0.25):.3f}:d=0.25:alpha=1"
     m = float(ov.get("margin", 0.06))
     if "x" in ov or "y" in ov:
         cx, cy = f"{W}*{float(ov.get('x', 0.5))}", f"{H}*{float(ov.get('y', 0.5))}"
@@ -404,8 +441,69 @@ def overlay_chain(ov: dict, idx: int, j: int, base: str, W: int, H: int) -> list
         cx = f"({W}*{m}+w/2)" if px == 0 else f"({W}-{W}*{m}-w/2)" if px == 1 else f"{W}/2"
         cy = f"({H}*{m * 1.5}+h/2)" if py == 0 else f"({H}-{H}*{m * 3}-h/2)" if py == 1 else f"{H}/2"
     dy = f"+{H * 0.08:.0f}*(1-clip({u}/0.3,0,1))" if anim == "slide_up" else ""
+    if anim == "rise":  # comes up from the bottom edge with a little overshoot
+        p = f"clip({u}/0.5,0,1)"
+        ease = f"(1+2.4*pow({p}-1,3)+1.4*pow({p}-1,2))"
+        dy = f"+({H}-({cy})+h/2+10)*(1-{ease})"
     return [chain + f"[img{j}]",
             f"{base}[img{j}]overlay=x='{cx}-w/2':y='{cy}-h/2{dy}':enable='between(t,{s0},{s1})':eval=frame[ov{j}]"]
+
+
+def glass_box(gl: dict, W: int, H: int) -> tuple[int, int, int, int]:
+    bw = int(W * float(gl.get("w", 0.6))) // 2 * 2
+    bh = int(H * float(gl.get("h", 0.1))) // 2 * 2
+    x0 = int(W * float(gl.get("x", 0.5)) - bw / 2)
+    y0 = int(H * float(gl.get("y", 0.5)) - bh / 2)
+    return max(0, min(x0, W - bw)), max(0, min(y0, H - bh)), bw, bh
+
+
+def glass_chain(gl: dict, k: int, cv: str, W: int, H: int, fps: int, total: float, work: Path,
+                inputs: list, g: list) -> str:
+    """Liquid-glass card: blurred, brightened video inside a rounded rectangle with a light
+    tint, top highlight, thin white border and soft shadow (PNG layers made with Pillow)."""
+    import numpy as np
+    from PIL import Image, ImageDraw, ImageFilter
+    x0, y0, bw, bh = glass_box(gl, W, H)
+    s0, s1 = float(gl.get("start", 0)), float(gl.get("end", total))
+    rad = int(min(bw, bh) * float(gl.get("radius", 0.28)))
+    ss = 4  # supersampling for smooth corners
+    big = Image.new("L", (bw * ss, bh * ss), 0)
+    ImageDraw.Draw(big).rounded_rectangle((0, 0, bw * ss - 1, bh * ss - 1), rad * ss, fill=255)
+    mask = big.resize((bw, bh), Image.LANCZOS)
+    mask.save(work / f"glass{k}_mask.png")
+    face = Image.new("RGBA", (bw, bh), (255, 255, 255, int(255 * float(gl.get("tint", 0.10)))))
+    hl = Image.new("L", (bw, bh), 0)
+    for y in range(int(bh * 0.5)):
+        ImageDraw.Draw(hl).line((0, y, bw, y), fill=int(70 * (1 - y / (bh * 0.5))))
+    face.putalpha(Image.fromarray(np.minimum(np.array(face.split()[-1]).astype(int) + np.array(hl).astype(int), 255).astype("uint8")))
+    bd = Image.new("RGBA", (bw * ss, bh * ss), (0, 0, 0, 0))
+    ImageDraw.Draw(bd).rounded_rectangle((ss, ss, bw * ss - ss - 1, bh * ss - ss - 1), rad * ss,
+                                         outline=(255, 255, 255, int(255 * float(gl.get("border", 0.55)))), width=2 * ss)
+    face.alpha_composite(bd.resize((bw, bh), Image.LANCZOS))
+    clear = Image.new("RGBA", (bw, bh), (0, 0, 0, 0))
+    face = Image.composite(face, clear, mask)
+    face.save(work / f"glass{k}_face.png")
+    pad = 40
+    sh = Image.new("RGBA", (bw + 2 * pad, bh + 2 * pad), (0, 0, 0, 0))
+    ImageDraw.Draw(sh).rounded_rectangle((pad, pad + 10, pad + bw, pad + bh + 10), rad, fill=(0, 0, 0, 110))
+    sh.filter(ImageFilter.GaussianBlur(18)).save(work / f"glass{k}_shadow.png")
+
+    idx = inputs.count("-i")
+    for name in ("mask", "face", "shadow"):
+        inputs += ["-loop", "1", "-framerate", str(fps), "-t", f"{total:.3f}", "-i", f"glass{k}_{name}.png"]
+    fade = f"fade=t=in:st={s0}:d=0.25:alpha=1,fade=t=out:st={max(s0, s1 - 0.25):.3f}:d=0.25:alpha=1"
+    en = f"enable='between(t,{s0},{s1})'"
+    blur = float(gl.get("blur", 22))
+    g.append(f"{cv}split[ga{k}][gb{k}]")
+    g.append(f"[gb{k}]crop={bw}:{bh}:{x0}:{y0},gblur=sigma={blur},eq=brightness=0.05:saturation=1.3,format=rgba[gbl{k}]")
+    g.append(f"[{idx}:v]format=gray[gm{k}]")
+    g.append(f"[gbl{k}][gm{k}]alphamerge,{fade}[gg{k}]")
+    g.append(f"[{idx + 2}:v]format=rgba,{fade}[gs{k}]")
+    g.append(f"[{idx + 1}:v]format=rgba,{fade}[gf{k}]")
+    g.append(f"[ga{k}][gs{k}]overlay={x0 - pad}:{y0 - pad}:{en}[g1{k}]")
+    g.append(f"[g1{k}][gg{k}]overlay={x0}:{y0}:{en}[g2{k}]")
+    g.append(f"[g2{k}][gf{k}]overlay={x0}:{y0}:{en}[g3{k}]")
+    return f"[g3{k}]"
 
 
 def resolve_music(edit: dict, music: dict) -> Path:

@@ -6,7 +6,7 @@ Shop reel for Heavy Gold 5-in-1 feed supplement: hook on animals not gaining wei
 
 ## Style taken from the reference
 
-Default style italic-kinetic: lowercase italic Roman Urdu captions mid-frame, stacked mixed-font emphasis titles on key lines, fast feel with gentle push-ins and punch-ins.
+Default style bold-clean: clean video, bold Poppins captions with gold active word and Anton gold brand name, product cutout rising from the bottom on 'Heavy Gold', icon badges for vitamins/minerals/calcium/DCP as they are said, product card ending, SFX on key moments.
 
 ![overview](storyboard/overview.jpg)
 
@@ -26,8 +26,8 @@ Default style italic-kinetic: lowercase italic Roman Urdu captions mid-frame, st
 <img src="storyboard/shot_02.jpg" height="320">
 
 - **Clip:** `IMG_5930.mov` 0:02.2–0:04.3
-- **What happens:** The Heavy Gold bag on the counter. Product cutout pops in when 'Heavy Gold' is said.
-- **Captions:** to bhai / yeh Kaleem / bhai Heavy / Gold le / kar ja
+- **What happens:** The bag on the counter. On 'Heavy Gold' the product cutout rises from the bottom on the right.
+- **Captions:** to bhai yeh / Kaleem bhai / Heavy Gold le kar / ja
 - **Then:** hard cut
 
 ### 3. 0:04.3 – 0:06.5 (2.2s)
@@ -36,7 +36,7 @@ Default style italic-kinetic: lowercase italic Roman Urdu captions mid-frame, st
 
 - **Clip:** `IMG_5930.mov` 0:04.3–0:06.5
 - **What happens:** Shop staff.
-- **Captions:** rahe hain / Muzammil bhai / ne [?] / kar diya
+- **Captions:** rahe hain Muzammil / bhai ne [?] / kar diya
 - **Then:** hard cut
 
 ### 4. 0:06.5 – 0:09.3 (2.8s)
@@ -45,7 +45,7 @@ Default style italic-kinetic: lowercase italic Roman Urdu captions mid-frame, st
 
 - **Clip:** `IMG_5930.mov` 0:06.5–0:09.3
 - **What happens:** Bag close-up: for dairy and qurbani animals.
-- **Captions:** is ki / zaroorat hoti / hai bhai / chahe dairy / [?] chahe
+- **Captions:** is ki zaroorat / hoti hai bhai / chahe dairy [?] / chahe
 - **Then:** hard cut
 
 ### 5. 0:09.3 – 0:12.1 (2.8s)
@@ -53,9 +53,8 @@ Default style italic-kinetic: lowercase italic Roman Urdu captions mid-frame, st
 <img src="storyboard/shot_05.jpg" height="320">
 
 - **Clip:** `IMG_5930.mov` 0:09.3–0:12.1
-- **What happens:** Bag: goats, dumbas. Vitamins + minerals title.
-- **On-screen text:** vitamins aur minerals
-- **Captions:** qurbani ke / hon chahe / bakre hon / dumbe hon / kyunke bhai
+- **What happens:** Bag: goats, dumbas. VITAMINS and MINERALS badges pop up as they are said.
+- **Captions:** qurbani ke hon / chahe bakre hon / dumbe hon kyunke / bhai vitamins aur
 - **Then:** hard cut
 
 ### 6. 0:12.1 – 0:17.0 (4.9s)
@@ -63,9 +62,8 @@ Default style italic-kinetic: lowercase italic Roman Urdu captions mid-frame, st
 <img src="storyboard/shot_06.jpg" height="320">
 
 - **Clip:** `IMG_5930.mov` 0:12.1–0:17.0
-- **What happens:** Bag: calcium, DCP from Japan, bone based. Punch-in on 'DCP Japan wala'.
-- **On-screen text:** vitamins aur minerals | DCP japan wala bone based
-- **Captions:** parti hai / calcium ki / bhi need / hoti hai / to is mein
+- **What happens:** Bag: CALCIUM badge, then D.C.P (Japan, bone based) badge with a 'ching'. Punch-in on 'DCP Japan wala'.
+- **Captions:** minerals ki bhi / zaroorat parti hai / calcium ki bhi / need hoti hai / to is mein / DCP — Japan / wala bone based / [?]
 - **Then:** hard cut
 
 ### 7. 0:17.0 – 0:20.0 (3.0s)
@@ -73,9 +71,8 @@ Default style italic-kinetic: lowercase italic Roman Urdu captions mid-frame, st
 <img src="storyboard/shot_07.jpg" height="320">
 
 - **Clip:** `IMG_5930.mov` 0:17.0–0:20.0
-- **What happens:** Ending: 'Bohat zaroori hai bhai'. Background blurs and darkens, product cutout pops up big in the centre.
-- **On-screen text:** DCP japan wala bone based
-- **Captions:** hai, bohat / zaroori hai / bhai yeh / sab cheez / hai
+- **What happens:** Ending: 'Bohat zaroori hai bhai'. Background blurs and darkens, the bag rises up big in the centre.
+- **Captions:** wala dala hai / bohat zaroori hai / bhai yeh sab / cheez hai
 
 ## Audio
 

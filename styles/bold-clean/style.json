@@ -1,0 +1,30 @@
+{
+  "output": { "width": 1080, "height": 1920, "fps": 30, "fit": "crop" },
+  "transition": { "type": "cut" },
+  "motion": { "type": "zoom_in", "amount": 0.06 },
+  "captions": {
+    "words_per_line": 3,
+    "max_gap": 0.45,
+    "style": {
+      "font": "Poppins ExtraBold", "bold": false, "italic": false,
+      "size": 5.4, "color": "white", "y": 0.70,
+      "highlight_color": "#FFD400", "highlight_scale": 1.12,
+      "outline": 0.5, "outline_color": "#000000", "outline_alpha": 80, "glow": 6,
+      "shadow": 0, "animation": "pop"
+    }
+  },
+  "type_presets": {
+    "small": { "font": "Poppins SemiBold", "italic": true, "bold": false, "size": 4.2, "lowercase": true },
+    "serif": { "font": "Playfair Display ExtraBold", "italic": true, "bold": false, "size": 11 },
+    "heavy": { "font": "Anton", "italic": false, "bold": false, "size": 9, "uppercase": true, "color": "#FFD400" }
+  },
+  "text": {
+    "font": "Poppins ExtraBold", "bold": false, "size": 5.5, "color": "white",
+    "outline": 0.4, "shadow": 3, "shadow_alpha": 90, "animation": "pop", "y": 0.5
+  },
+  "lower_third": { "font": "Poppins SemiBold", "color": "#111111" },
+  "overlay": { "animation": "pop", "width": 0.22 },
+  "look": { "contrast": 1.06, "saturation": 1.1 },
+  "music": { "volume": 0.15, "duck": true },
+  "loudness": -14
+}

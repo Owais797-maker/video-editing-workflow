@@ -12,9 +12,10 @@ or English, while keeping the timing.
     python tools/caption_text.py apply "Video Edits/Export/my-reel/edit.json"
         -> puts the new words back into captions.json
 
-Keep the line numbers. If a line keeps the same number of words, each word keeps its
-exact timing (best for word highlighting); otherwise the line's time is shared out
-across the new words by length.
+Keep the line numbers; an empty row drops that caption. If the kept rows have the same
+total number of words as before, lines can be re-broken freely (move words between
+rows) and every word keeps its exact spoken time. Otherwise each row keeps its own time
+span, shared out across its new words by length.
 """
 import argparse
 import re
@@ -69,13 +70,27 @@ def main() -> None:
     if unknown:
         die(f"captions.txt has line numbers that don't exist: {unknown}")
     kept = []
-    for i, ln in enumerate(lines, 1):
-        text = new.get(i, ln["text"])
-        if not text:  # empty row = drop this caption
-            continue
-        ln["words"] = respread(ln, text.split())
-        ln["text"] = " ".join(w["text"] for w in ln["words"])
-        kept.append(ln)
+    texts = {i: new.get(i, ln["text"]) for i, ln in enumerate(lines, 1)}
+    keep_ids = [i for i in texts if texts[i]]  # empty row = drop this caption
+    pool = [w for i in keep_ids for w in (lines[i - 1].get("words") or [])]
+    new_words = [t.split() for t in (texts[i] for i in keep_ids)]
+    if pool and sum(map(len, new_words)) == len(pool):
+        # same number of words overall: lines may be re-broken freely, each word keeps its exact time
+        k = 0
+        for ws in new_words:
+            seg = pool[k:k + len(ws)]
+            k += len(ws)
+            kept.append({"start": seg[0]["start"], "end": seg[-1]["end"] + 0.25,
+                         "words": [{**w, "text": t} for w, t in zip(seg, ws)], "text": " ".join(ws)})
+        for a, b in zip(kept, kept[1:]):
+            a["end"] = round(min(a["end"], b["start"]), 3)
+        print("word timing: exact (lines re-broken)")
+    else:
+        for i in keep_ids:
+            ln = lines[i - 1]
+            ln["words"] = respread(ln, texts[i].split())
+            ln["text"] = " ".join(w["text"] for w in ln["words"])
+            kept.append(ln)
     data["lines"] = kept
     save_json(cfile, data)
     print(f"{len(kept)} lines updated in {cfile.relative_to(REPO)}")

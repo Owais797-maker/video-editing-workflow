@@ -1,0 +1,24 @@
+# Video and audio files are too big for GitHub: keep them on your computer only.
+*.mp4
+*.MP4
+*.mov
+*.MOV
+*.mkv
+*.avi
+*.m4v
+*.webm
+*.mts
+*.MTS
+*.3gp
+*.mp3
+*.wav
+*.m4a
+*.aac
+*.flac
+*.ogg
+
+# Scratch files made by the tools
+Video Edits/Export/*/work/
+__pycache__/
+.DS_Store
+.venv/

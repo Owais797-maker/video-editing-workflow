@@ -7,12 +7,24 @@ Writes to Video Edits/Export/<project>/work/transcripts/:
     <clip>.json   segments + words with start/end times (used by captions.py)
     <clip>.srt    normal subtitle file, easy to read and correct
 
-Models (first run downloads them): tiny, base, small (default), medium, large-v3.
+Models (first run downloads them): tiny, base, small, medium (default), large-v3.
 Bigger = more accurate, slower. For Urdu, use at least 'medium'.
 """
 import argparse
+import subprocess
 
-from common import EDITS, REPO, die, file_key, resolve, save_json
+from common import EDITS, REPO, die, file_key, need, resolve, save_json
+
+
+def load_audio(path):
+    """Decode to 16 kHz mono float32 with FFmpeg (avoids PyAV version problems)."""
+    import numpy as np
+
+    proc = subprocess.run(["ffmpeg", "-nostdin", "-v", "error", "-i", str(path), "-vn", "-ac", "1", "-ar", "16000",
+                           "-f", "f32le", "-"], capture_output=True)
+    if proc.returncode != 0:
+        die(f"could not read audio from {path.name}: {proc.stderr.decode(errors='replace')[-300:]}")
+    return np.frombuffer(proc.stdout, dtype=np.float32)
 
 
 def srt_time(t: float) -> str:
@@ -28,10 +40,11 @@ def main() -> None:
     ap.add_argument("media", nargs="+", help="video or audio files")
     ap.add_argument("--project", required=True)
     ap.add_argument("--language", default=None, help="ur, en, hi ... (default: auto-detect)")
-    ap.add_argument("--model", default="small")
+    ap.add_argument("--model", default="medium")
     ap.add_argument("--force", action="store_true", help="re-transcribe even if a transcript exists")
     args = ap.parse_args()
 
+    need("ffmpeg")
     try:
         from faster_whisper import WhisperModel
     except ImportError:
@@ -51,7 +64,7 @@ def main() -> None:
             print(f"Loading Whisper model '{args.model}' ...")
             model = WhisperModel(args.model, device="auto", compute_type="auto")
         print(f"Transcribing {src.name} ...")
-        segments, info = model.transcribe(str(src), language=args.language, word_timestamps=True, vad_filter=True)
+        segments, info = model.transcribe(load_audio(src), language=args.language, word_timestamps=True, vad_filter=True)
         segs = []
         for s in segments:
             words = [{"start": round(w.start, 3), "end": round(w.end, 3), "text": w.word.strip()}

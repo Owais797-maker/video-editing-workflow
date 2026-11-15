@@ -4,5 +4,8 @@
 # Speech-to-text for automatic captions (Whisper)
 faster-whisper>=1.0
 
-# Download inspiration videos from links (YouTube, Instagram, TikTok ...)
-yt-dlp>=2025.1.1
+# Download videos from links (Instagram, TikTok, Facebook ...)
+yt-dlp[default]>=2025.1.1
+
+# Download shared Google Drive files and folders
+gdown>=5.0

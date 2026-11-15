@@ -10,8 +10,63 @@ from pathlib import Path
 
 from common import EDITS, REPO, die, load_json, probe
 
+STYLES = REPO / "styles"
 FITS = {"crop", "blur", "pad"}
 POSITIONS = {"top": 8, "center": 5, "bottom": 2}
+MOTIONS = {"none", "zoom_in", "zoom_out", "pan_left", "pan_right", "pan_up", "pan_down"}
+TEXT_ANIMS = {"none", "fade", "pop", "slide_up", "slide_left", "typewriter"}
+
+
+def _merge(base: dict, over: dict) -> dict:
+    """Deep merge: values in `over` win."""
+    out = dict(base)
+    for k, v in over.items():
+        out[k] = _merge(out[k], v) if isinstance(v, dict) and isinstance(out.get(k), dict) else v
+    return out
+
+
+def default_style() -> str | None:
+    f = STYLES / "default.txt"
+    if not f.exists():
+        return None
+    return f.read_text(encoding="utf-8").strip() or None
+
+
+def apply_style(edit: dict) -> None:
+    """Fill in everything the edit doesn't set from styles/<name>/style.json."""
+    name = edit.get("style", default_style())
+    if not name:
+        return
+    f = STYLES / name / "style.json"
+    if not f.exists():
+        die(f"style '{name}' not found ({f.relative_to(REPO)})")
+    st = load_json(f)
+    edit["_style"] = name
+    for key in ("output", "look", "fade"):
+        if key in st:
+            edit[key] = _merge(st[key], edit.get(key) or {})
+    for key in ("loudness", "progress_bar"):
+        if key in st and key not in edit:
+            edit[key] = st[key]
+    if edit.get("captions") is not None and edit.get("captions") is not False and "captions" in st:
+        cap = edit["captions"] if isinstance(edit["captions"], dict) else {}
+        edit["captions"] = _merge(st["captions"], cap)
+    if edit.get("music") and "music" in st:
+        edit["music"] = _merge(st["music"], edit["music"])
+    shots = edit.get("shots") or []
+    for i, sh in enumerate(shots):
+        if "transition" in st and "transition" not in sh and i < len(shots) - 1:
+            sh["transition"] = st["transition"]
+        if "motion" in st and "motion" not in sh:
+            sh["motion"] = st["motion"]
+    for x in edit.get("texts", []):
+        kind = x.get("type", "title")
+        defaults = st.get("lower_third" if kind == "lower_third" else "text", {})
+        for k, v in defaults.items():
+            x.setdefault(k, v)
+    for o in edit.get("overlays", []):
+        for k, v in st.get("overlay", {}).items():
+            o.setdefault(k, v)
 
 
 def _src(project: str, name: str) -> Path:
@@ -28,6 +83,11 @@ def load(edit_path: Path) -> dict:
     project = edit.get("project") or edit_path.parent.name
     edit["project"] = project
     edit["_dir"] = EDITS / "Export" / project
+    if edit.get("captions") is True:
+        edit["captions"] = {}
+    apply_style(edit)
+    if not edit.get("captions"):
+        edit["captions"] = None
 
     out = edit.setdefault("output", {})
     out.setdefault("width", 1080)
@@ -57,6 +117,14 @@ def load(edit_path: Path) -> dict:
         if not 0.25 <= s["speed"] <= 4:
             die(f"shot {i + 1}: speed must be between 0.25 and 4")
         s["_len"] = (s["out"] - s["in"]) / s["speed"]
+        m = s.get("motion") or {}
+        if isinstance(m, str):
+            m = {"type": m}
+        m.setdefault("type", "none")
+        if m["type"] not in MOTIONS:
+            die(f"shot {i + 1}: motion must be one of {sorted(MOTIONS)}")
+        m.setdefault("amount", 0.12)
+        s["motion"] = m
         tr = s.get("transition") or {}
         if isinstance(tr, str):
             tr = {"type": tr}
@@ -79,8 +147,50 @@ def load(edit_path: Path) -> dict:
         x.setdefault("position", "center")
         if x["position"] not in POSITIONS:
             die(f"text position must be one of {sorted(POSITIONS)}")
+        if x.get("animation", "fade") not in TEXT_ANIMS:
+            die(f"text animation must be one of {sorted(TEXT_ANIMS)}")
         x["end"] = min(x.get("end", t), t)
+    for o in edit.setdefault("overlays", []):
+        if not (o.get("file") or o.get("emoji")):
+            die("each overlay needs \"file\" or \"emoji\"")
+        o.setdefault("start", 0)
+        o["end"] = min(o.get("end", t), t)
     return edit
+
+
+def motion_filter(edit: dict, shot: dict) -> str:
+    """Per-frame zoom / pan / punch-in / shake on an already framed shot.
+
+    Runs after fps=..., so time = in/fps. Uses the perspective filter (sub-pixel,
+    no frame-size changes), which gives smooth movement."""
+    W, H, fps = edit["output"]["width"], edit["output"]["height"], edit["output"]["fps"]
+    m, L = shot["motion"], shot["_len"]
+    a = float(m["amount"])
+    punches = shot.get("punch") or []
+    shakes = shot.get("shake") or []
+    if m["type"] == "none" and not punches and not shakes:
+        return ""
+    t = f"(in/{fps})"
+    p = f"min({t}/{L:.3f},1)"
+    z = {"zoom_in": f"1+{a}*{p}", "zoom_out": f"1+{a}*(1-{p})"}.get(m["type"], f"1+{a}" if m["type"] != "none" else "1")
+    if shakes and m["type"] == "none":
+        z = "1.06"
+    pz = float(shot.get("punch_zoom", 1.15)) - 1
+    for s0, s1 in punches:
+        z += f"+{pz}*between({t},{s0},{s1})"
+    z = f"({z})"
+    hw, hh = f"({W}/2/{z})", f"({H}/2/{z})"
+    cx = {"pan_left": f"{hw}+({W}-2*{hw})*{p}", "pan_right": f"{W}-{hw}-({W}-2*{hw})*{p}"}.get(m["type"], f"{W}/2")
+    cy = {"pan_up": f"{hh}+({H}-2*{hh})*{p}", "pan_down": f"{H}-{hh}-({H}-2*{hh})*{p}"}.get(m["type"], f"{H}/2")
+    amt = float(shot.get("shake_amount", 14))
+    for s0, s1 in shakes:
+        cx += f"+{amt}*sin({t}*47)*between({t},{s0},{s1})"
+        cy += f"+{amt}*cos({t}*39)*between({t},{s0},{s1})"
+    cx, cy = f"clip({cx},{hw},{W}-{hw})", f"clip({cy},{hh},{H}-{hh})"
+    x0, x1 = f"{cx}-{hw}", f"{cx}+{hw}"
+    y0, y1 = f"{cy}-{hh}", f"{cy}+{hh}"
+    return (f",perspective=x0='{x0}':y0='{y0}':x1='{x1}':y1='{y0}':x2='{x0}':y2='{y1}':x3='{x1}':y3='{y1}'"
+            f":interpolation=cubic:sense=source:eval=frame")
 
 
 def fit_filter(edit: dict, shot: dict, src_label: str, out_label: str, extra_scale: str = "") -> str:

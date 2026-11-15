@@ -3,27 +3,21 @@
 
     python tools/storyboard.py "Video Edits/Export/my-reel/edit.json"
 
-Writes Export/<project>/storyboard.md and storyboard/ (one framed frame per
-shot, with its on-screen text and captions burnt in, plus overview.jpg).
-Frames come from the same framing and text code that render.py uses.
+Writes Export/<project>/storyboard.md and storyboard/ (one frame per shot plus
+overview.jpg). The frames are taken from a quick preview render, so they show
+exactly what the final video will look like (text, captions, stickers, motion).
 """
 import argparse
 import shutil
 
 import edl
 import render
-from common import REPO, font_files, fmt_time, load_json, resolve, run
+from common import REPO, fmt_time, load_json, resolve, run
 
 
-def shot_frame(edit: dict, s: dict, out_t: float, dest, work, has_ass: bool) -> None:
-    src_t = s["in"] + (out_t - s["_start"]) * s["speed"]
-    chain = edl.fit_filter(edit, s, "[0:v]", "[f]")
-    tail = f"[f]setpts=PTS-STARTPTS+{out_t:.3f}/TB"
-    if has_ass:
-        tail += ",ass=overlay.ass:fontsdir=fonts"
-    tail += ",scale=-2:480[o]"
-    run(["ffmpeg", "-hide_banner", "-y", "-ss", f"{src_t:.3f}", "-i", str(s["_src"]),
-         "-filter_complex", f"{chain};{tail}", "-map", "[o]", "-frames:v", "1", "-q:v", "3", str(dest)], cwd=work)
+def frame_at(video, t: float, dest) -> None:
+    run(["ffmpeg", "-hide_banner", "-y", "-ss", f"{t:.3f}", "-i", str(video), "-frames:v", "1",
+         "-vf", "scale=-2:480", "-q:v", "3", str(dest)])
 
 
 def main() -> None:
@@ -35,14 +29,9 @@ def main() -> None:
     shutil.rmtree(sb, ignore_errors=True)
     sb.mkdir(parents=True)
     work = d / "work" / "storyboard"
-    work.mkdir(parents=True, exist_ok=True)
-    has_ass = render.build_ass(edit, work / "overlay.ass")
-    if has_ass:
-        fdir = work / "fonts"
-        shutil.rmtree(fdir, ignore_errors=True)
-        fdir.mkdir()
-        for f in font_files():
-            shutil.copy(f, fdir / f.name)
+    preview = work / "preview.mp4"
+    print("Rendering a quick preview for the storyboard frames ...")
+    render.render_to(edit, preview, True, work)
 
     cap_lines = []
     if edit.get("captions"):
@@ -61,7 +50,7 @@ def main() -> None:
     for s in edit["shots"]:
         a, b = s["_start"], s["_start"] + s["_len"]
         frame = sb / f"shot_{s['_n']:02d}.jpg"
-        shot_frame(edit, s, a + s["_len"] / 2, frame, work, has_ass)
+        frame_at(preview, a + s["_len"] * float(s.get("frame_at", 0.5)), frame)
         extras = []
         if s["speed"] != 1:
             extras.append(f"speed {s['speed']}x")

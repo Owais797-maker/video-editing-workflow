@@ -44,6 +44,12 @@ try:
 except ImportError:
     report(False, "yt-dlp (download videos from links)", "pip install -r requirements.txt")
 
+try:
+    import gdown  # noqa: F401
+    report(True, "gdown (Google Drive links)")
+except ImportError:
+    report(False, "gdown (Google Drive links)", "pip install -r requirements.txt")
+
 fonts = font_files()
 report(bool(fonts), f"fonts in {FONTS.relative_to(REPO)}/: {len(fonts)} found",
        "put .ttf/.otf files in the fonts/ folder (see README)")

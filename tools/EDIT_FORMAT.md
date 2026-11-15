@@ -107,7 +107,18 @@ top-right, left, center, right, bottom-left, bottom, bottom-right (or `x`, `y` f
 **progress_bar** – a bar that fills across the top (or bottom) as the video plays.
 
 **captions.style** – `highlight_scale` enlarges the word being spoken (1.1 = 10%);
-`animation: "pop"` makes each caption line pop in.
+`animation`: `pop` or `fade`. `italic`, `uppercase` / `lowercase`. `y` (0–1) places captions
+at that height in the middle of the frame instead of using `position`. `outline` (0 = none),
+`shadow` (depth in px), `shadow_color`, `shadow_alpha` (0 = solid, 255 = invisible).
+The same `italic`, `outline`, `shadow*` keys work on texts.
+
+**Mixed typography** – a text item can use `segments` instead of `text`: each segment has
+its own `font`, `size`, `italic`, `bold`, `color`, `uppercase`/`lowercase`, or a `preset`
+name from `type_presets` (usually defined by the style). `"newline": true` starts a new line.
+```json
+{"segments": [{"text": "se zyada", "preset": "small"}, {"text": "8cr", "preset": "serif", "newline": true},
+              {"text": "+", "preset": "heavy"}], "start": 0.3, "end": 3.0, "y": 0.5}
+```
 
 **music** – loops if shorter than the video. `duck` lowers it while people speak.
 

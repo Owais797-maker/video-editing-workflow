@@ -47,11 +47,12 @@ def style_line(name: str, st: dict, H: int, default_size: float, align: int) -> 
     size = int(H * float(st.get("size", default_size)) / 100)
     outline = st.get("outline", 0.35)
     box = st.get("box", False)
-    return ("Style: {n},{font},{size},{pc},{sc},{oc},{bc},{bold},0,0,0,100,100,0,0,{bs},{ol},{sh},{al},60,60,{mv},1"
+    return ("Style: {n},{font},{size},{pc},{sc},{oc},{bc},{bold},{it},0,0,100,100,0,0,{bs},{ol},{sh},{al},60,60,{mv},1"
             .format(n=name, font=st.get("font", "DejaVu Sans"), size=size,
                     pc=ass_color(st.get("color", "white")), sc=ass_color(st.get("color", "white")),
                     oc=ass_color(st.get("box_color", "black"), 0x40) if box else ass_color(st.get("outline_color", "black")),
-                    bc=ass_color("#000000", 0x80), bold=-1 if st.get("bold", True) else 0,
+                    bc=ass_color(st.get("shadow_color", "#000000"), int(st.get("shadow_alpha", 0x80))),
+                    bold=-1 if st.get("bold", True) else 0, it=-1 if st.get("italic") else 0,
                     bs=3 if box else 1, ol=round(size * outline / 10, 1) if not box else round(size * 0.25),
                     sh=st.get("shadow", 0), al=align, mv=int(H * float(st.get("margin", 12)) / 100)))
 
@@ -84,6 +85,29 @@ def typewriter(text: str, step_ms: int = 110) -> str:
             j += 1
         out.append(" ".join(words))
     return "\\N".join(out)
+
+
+def segments_text(segs: list, presets: dict, H: int) -> str:
+    """Mixed typography in one block: each segment has its own font/size/colour.
+    {"text": "8cr+", "preset": "serif"} or explicit font/size/italic/bold/color; "newline": true starts a new line."""
+    out = []
+    for i, sg in enumerate(segs):
+        sg = {**presets.get(sg.get("preset", ""), {}), **sg}
+        tags = ""
+        if sg.get("font"):
+            tags += "\\fn" + sg["font"]
+        if sg.get("size"):
+            tags += f"\\fs{int(H * float(sg['size']) / 100)}"
+        if "italic" in sg:
+            tags += f"\\i{1 if sg['italic'] else 0}"
+        if "bold" in sg:
+            tags += f"\\b{1 if sg['bold'] else 0}"
+        if sg.get("color"):
+            tags += "\\c" + ass_color(sg["color"])
+        text = sg["text"].upper() if sg.get("uppercase") else sg["text"].lower() if sg.get("lowercase") else sg["text"]
+        sep = "" if i == 0 else ("\\N" if sg.get("newline") else " ")
+        out.append(f"{sep}{{{tags}}}{ass_text(text)}")
+    return "".join(out)
 
 
 def lower_third(i: int, x: dict, W: int, H: int, styles: list, events: list) -> None:
@@ -123,7 +147,10 @@ def build_ass(edit: dict, path: Path) -> bool:
         x0, y0 = anchor(x, W, H, mv)
         has_pos = "x" in x or "y" in x
         fx = text_fx(anim, x0, y0, W, H, has_pos)
-        body = typewriter(x["text"]) if anim == "typewriter" else ass_text(x["text"])
+        if x.get("segments"):
+            body = segments_text(x["segments"], edit.get("type_presets", {}), H)
+        else:
+            body = typewriter(x["text"]) if anim == "typewriter" else ass_text(x["text"])
         events.append(f"Dialogue: 1,{ass_time(x.get('start', 0))},{ass_time(x['end'])},{name},,0,0,0,,{{{fx}}}{body}")
 
     cap = edit.get("captions")
@@ -136,20 +163,25 @@ def build_ass(edit: dict, path: Path) -> bool:
         hi = st.get("highlight_color")
         hscale = int(float(st.get("highlight_scale", 1.0)) * 100)
         upper = st.get("uppercase", False)
-        pop = "{\\fscx70\\fscy70\\t(0,120,\\fscx100\\fscy100)}" if st.get("animation") == "pop" else ""
+        lower = st.get("lowercase", False)
+        case = (lambda v: v.upper()) if upper else (lambda v: v.lower()) if lower else (lambda v: v)
+        pos = f"\\an5\\pos({W // 2},{int(H * float(st['y']))})" if "y" in st else ""
+        anim = {"pop": "\\fscx70\\fscy70\\t(0,120,\\fscx100\\fscy100)", "fade": "\\fad(120,80)"}.get(st.get("animation"), "")
+        pop = "{" + pos + anim + "}" if pos or anim else ""
+        keep = "{" + pos + "}" if pos else ""
         for ln in load_json(cfile)["lines"]:
-            text = ln["text"].upper() if upper else ln["text"]
+            text = case(ln["text"])
             words = ln.get("words") or []
             if hi and words and " ".join(w["text"] for w in words) == ln["text"]:
                 # one event per spoken word, with that word highlighted
-                parts = [ass_text(w["text"].upper() if upper else w["text"]) for w in words]
+                parts = [ass_text(case(w["text"])) for w in words]
                 for k, w in enumerate(words):
                     a = w["start"] if k else ln["start"]
                     b = words[k + 1]["start"] if k + 1 < len(words) else ln["end"]
                     big = f"\\fscx{hscale}\\fscy{hscale}" if hscale != 100 else ""
                     shown = list(parts)
                     shown[k] = "{\\c" + ass_color(hi) + big + "}" + parts[k] + "{\\r}"
-                    events.append(f"Dialogue: 0,{ass_time(a)},{ass_time(b)},Cap,,0,0,0,,{pop if k == 0 else ''}{' '.join(shown)}")
+                    events.append(f"Dialogue: 0,{ass_time(a)},{ass_time(b)},Cap,,0,0,0,,{pop if k == 0 else keep}{' '.join(shown)}")
             else:
                 events.append(f"Dialogue: 0,{ass_time(ln['start'])},{ass_time(ln['end'])},Cap,,0,0,0,,{pop}{ass_text(text)}")
     if not events:

@@ -11,12 +11,14 @@ In `edit.json`, use the **font name** (left column), not the file name.
 | Noto Nastaliq Urdu | Urdu Fonts | Urdu titles in classic Nastaliq (use a bigger `size`, about 1.5x) |
 | Gulzar | Urdu Fonts | Decorative Nastaliq titles |
 | Noto Naskh Arabic | Urdu Fonts | Clear Urdu captions (Naskh style, easier to read fast) |
-| Poppins, Poppins SemiBold, Poppins ExtraBold | Subtitle Fonts | Roman Urdu / English captions (reels style) |
+| Poppins, Poppins SemiBold, Poppins ExtraBold, Poppins Black | Subtitle Fonts | Roman Urdu / English captions (reels style) |
+| Poppins Medium, Poppins SemiBold (italic files) | Subtitle Fonts | Italic captions: set `"italic": true` |
 | Montserrat (500 Medium, 800 ExtraBold) | Subtitle Fonts | Captions and clean titles |
 | Roboto | Subtitle Fonts | Plain subtitles for long videos |
 | Bebas Neue, Anton, Archivo Black | Bold Display Fonts | Big hook text and titles |
 | Luckiest Guy, Bangers | Social Media Fonts | Fun / comic captions |
 | Cinzel, Playfair Display | Cinematic Fonts | Cinematic, wedding, luxury titles |
+| Playfair Display SemiBold / ExtraBold (italic), DM Serif Display (italic) | Cinematic Fonts | Big elegant italic emphasis words; set `"italic": true` |
 
 For Poppins SemiBold / ExtraBold set `"bold": false` (the weight is already in the font).
 

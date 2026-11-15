@@ -22,3 +22,6 @@ Video Edits/Export/*/work/
 __pycache__/
 .DS_Store
 .venv/
+
+# Emoji images are downloaded on demand
+assets/emoji/

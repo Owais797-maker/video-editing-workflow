@@ -1,0 +1,306 @@
+{
+  "project": "butter-milk",
+  "title": "Buttery Milk",
+  "style": "bold-clean",
+  "summary": "Shop reel: why animals don't gain weight; Buttery Milk (calf milk replacer) going to Sialkot; protein + butter fat for weight, skin shine and a finishing touch.",
+  "reference_notes": "brand-cards look in Buttery Milk's own green/yellow; box-pop captions in yellow; map to Sialkot with route + pin; glass boxes on protein / butter fat; stats card; product end card.",
+  "brand": {
+    "bg1": "#1E8C3A",
+    "bg2": "#0A3A17",
+    "accent": "#F5D312",
+    "ink": "#111111"
+  },
+  "frame": {
+    "margin": 0.03,
+    "top": 0.03,
+    "radius": 40,
+    "border": 7,
+    "color": "#F5D312"
+  },
+  "captions": {
+    "keywords": {
+      "butter": {},
+      "milk": {}
+    },
+    "style": {
+      "mode": "html",
+      "template": "box-pop",
+      "accent": "#F5D312",
+      "y": 0.7
+    }
+  },
+  "shots": [
+    {
+      "src": "clip.mov",
+      "in": 0,
+      "out": 14.5,
+      "description": "Hook to camera, then the Buttery Milk bag.",
+      "motion": {
+        "type": "zoom_in",
+        "amount": 0.07
+      },
+      "punch": [
+        [
+          1.84,
+          2.5
+        ],
+        [
+          3.8,
+          4.4
+        ],
+        [
+          11.34,
+          12.0
+        ]
+      ]
+    }
+  ],
+  "texts": [
+    {
+      "segments": [
+        {
+          "text": "BUTTERY",
+          "preset": "headline",
+          "size": 7.4
+        },
+        {
+          "text": "MILK",
+          "preset": "headline_accent",
+          "size": 7.4,
+          "color": "#F5D312"
+        },
+        {
+          "text": "calf milk replacer",
+          "preset": "accent",
+          "size": 4.6,
+          "color": "#F5D312",
+          "newline": true
+        }
+      ],
+      "start": 6.2,
+      "end": 7.45,
+      "x": 0.7,
+      "y": 0.2,
+      "animation": "slide_up",
+      "outline": 0.3,
+      "shadow": 4,
+      "shadow_alpha": 64
+    },
+    {
+      "segments": [
+        {
+          "text": "1 kg powder = 10 ltr milk",
+          "preset": "label",
+          "size": 3.0
+        },
+        {
+          "text": "BUTTERY",
+          "preset": "headline",
+          "size": 10,
+          "newline": true
+        },
+        {
+          "text": "MILK",
+          "preset": "headline_accent",
+          "size": 10,
+          "color": "#F5D312"
+        },
+        {
+          "text": "calf milk replacer",
+          "preset": "accent",
+          "size": 6,
+          "color": "#F5D312",
+          "newline": true
+        }
+      ],
+      "start": 13.1,
+      "end": 14.5,
+      "y": 0.13,
+      "animation": "slide_up",
+      "outline": 0.3,
+      "shadow": 4,
+      "shadow_alpha": 64
+    }
+  ],
+  "glass": [
+    {
+      "x": 0.28,
+      "y": 0.24,
+      "w": 0.4,
+      "h": 0.095,
+      "text": "PROTEIN",
+      "subtext": "Buttery Milk",
+      "start": 9.18,
+      "end": 10.65,
+      "size": 4.6
+    },
+    {
+      "x": 0.72,
+      "y": 0.24,
+      "w": 0.4,
+      "h": 0.095,
+      "text": "BUTTER FAT",
+      "subtext": "premium quality",
+      "start": 9.72,
+      "end": 10.65,
+      "size": 4.6
+    }
+  ],
+  "overlays": [
+    {
+      "file": "butter-milk-bag-cutout.png",
+      "start": 6.0,
+      "end": 7.45,
+      "x": 0.72,
+      "y": 0.48,
+      "width": 0.34,
+      "animation": "rise"
+    },
+    {
+      "emoji": "✨",
+      "animated": true,
+      "start": 12.45,
+      "end": 13.1,
+      "x": 0.72,
+      "y": 0.3,
+      "width": 0.2
+    },
+    {
+      "file": "butter-milk-bag-cutout.png",
+      "start": 13.0,
+      "end": 14.5,
+      "x": 0.5,
+      "y": 0.47,
+      "width": 0.44,
+      "animation": "rise"
+    }
+  ],
+  "backdrop": [
+    {
+      "start": 13.0,
+      "end": 14.5,
+      "blur": 20,
+      "dim": 0.4
+    }
+  ],
+  "cards": [
+    {
+      "type": "map",
+      "start": 7.45,
+      "end": 9.15,
+      "label": "Buttery Milk",
+      "title": "*Sialkot* ki taraf",
+      "to": "Sialkot",
+      "route_time": 1.05,
+      "stack_top": 0.08,
+      "from": "Karachi",
+      "from_label": "Karachi"
+    },
+    {
+      "type": "stats",
+      "start": 10.7,
+      "end": 12.45,
+      "label": "Buttery Milk",
+      "align": "left",
+      "stack_top": 0.12,
+      "stats": [
+        {
+          "value": "34%",
+          "tag": "Protein"
+        },
+        {
+          "value": "26–28%",
+          "tag": "Milk fat"
+        }
+      ],
+      "product": "butter-milk-bag-cutout.png",
+      "product_size": 0.36,
+      "product_pos": "bottom-right"
+    }
+  ],
+  "sfx": [
+    {
+      "sound": "impact",
+      "at": 0.0,
+      "volume": 0.45
+    },
+    {
+      "sound": "swoosh_up",
+      "at": 5.9,
+      "volume": 0.42
+    },
+    {
+      "sound": "pop",
+      "at": 6.4,
+      "volume": 0.4
+    },
+    {
+      "sound": "whoosh",
+      "at": 7.35,
+      "volume": 0.4
+    },
+    {
+      "sound": "trr",
+      "at": 7.72,
+      "volume": 0.45
+    },
+    {
+      "sound": "click",
+      "at": 8.78,
+      "volume": 0.6
+    },
+    {
+      "sound": "whoosh_fast",
+      "at": 9.1,
+      "volume": 0.3
+    },
+    {
+      "sound": "click",
+      "at": 9.18,
+      "volume": 0.55
+    },
+    {
+      "sound": "click",
+      "at": 9.72,
+      "volume": 0.55
+    },
+    {
+      "sound": "whoosh",
+      "at": 10.62,
+      "volume": 0.38
+    },
+    {
+      "sound": "ching",
+      "at": 10.95,
+      "volume": 0.32
+    },
+    {
+      "sound": "ding",
+      "at": 12.45,
+      "volume": 0.3
+    },
+    {
+      "sound": "swoosh_up",
+      "at": 12.9,
+      "volume": 0.42
+    },
+    {
+      "sound": "impact",
+      "at": 13.12,
+      "volume": 0.3
+    }
+  ],
+  "flashes": [
+    {
+      "at": 7.45,
+      "alpha": 0.3
+    },
+    {
+      "at": 10.7,
+      "alpha": 0.3
+    }
+  ],
+  "fade": {
+    "out": 0.3
+  }
+}

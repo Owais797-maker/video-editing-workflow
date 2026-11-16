@@ -1,0 +1,489 @@
+{
+  "note": "Edit 'text' and the words freely; times are seconds on the final video.",
+  "lines": [
+    {
+      "start": 0.0,
+      "end": 1.08,
+      "words": [
+        {
+          "start": 0.0,
+          "end": 0.56,
+          "text": "Next"
+        },
+        {
+          "start": 0.56,
+          "end": 0.78,
+          "text": "One"
+        },
+        {
+          "start": 0.78,
+          "end": 0.96,
+          "text": "minute",
+          "big": true
+        },
+        {
+          "start": 0.96,
+          "end": 1.08,
+          "text": "mein"
+        }
+      ],
+      "text": "Next One minute mein"
+    },
+    {
+      "start": 1.08,
+      "end": 1.84,
+      "words": [
+        {
+          "start": 1.08,
+          "end": 1.22,
+          "text": "aap"
+        },
+        {
+          "start": 1.22,
+          "end": 1.38,
+          "text": "ko"
+        },
+        {
+          "start": 1.38,
+          "end": 1.76,
+          "text": "janwaron"
+        },
+        {
+          "start": 1.76,
+          "end": 1.84,
+          "text": "ka"
+        }
+      ],
+      "text": "aap ko janwaron ka"
+    },
+    {
+      "start": 1.84,
+      "end": 2.54,
+      "words": [
+        {
+          "start": 1.84,
+          "end": 2.12,
+          "text": "wazan",
+          "big": true
+        },
+        {
+          "start": 2.12,
+          "end": 2.36,
+          "text": "kyun"
+        },
+        {
+          "start": 2.36,
+          "end": 2.54,
+          "text": "nahi"
+        }
+      ],
+      "text": "wazan kyun nahi"
+    },
+    {
+      "start": 2.54,
+      "end": 2.82,
+      "words": [
+        {
+          "start": 2.54,
+          "end": 2.76,
+          "text": "barh"
+        },
+        {
+          "start": 2.76,
+          "end": 2.82,
+          "text": "raha"
+        }
+      ],
+      "text": "barh raha"
+    },
+    {
+      "start": 2.82,
+      "end": 3.6,
+      "words": [
+        {
+          "start": 2.82,
+          "end": 3.12,
+          "text": "pata"
+        },
+        {
+          "start": 3.12,
+          "end": 3.3,
+          "text": "chal"
+        },
+        {
+          "start": 3.3,
+          "end": 3.46,
+          "text": "jaye"
+        },
+        {
+          "start": 3.46,
+          "end": 3.6,
+          "text": "ga"
+        }
+      ],
+      "text": "pata chal jaye ga"
+    },
+    {
+      "start": 3.6,
+      "end": 4.18,
+      "words": [
+        {
+          "start": 3.6,
+          "end": 3.7,
+          "text": "aur"
+        },
+        {
+          "start": 3.7,
+          "end": 3.8,
+          "text": "aap"
+        },
+        {
+          "start": 3.8,
+          "end": 4.18,
+          "text": "barhana",
+          "big": true
+        }
+      ],
+      "text": "aur aap barhana"
+    },
+    {
+      "start": 4.18,
+      "end": 4.9,
+      "words": [
+        {
+          "start": 4.18,
+          "end": 4.24,
+          "text": "bhi"
+        },
+        {
+          "start": 4.24,
+          "end": 4.44,
+          "text": "seekh"
+        },
+        {
+          "start": 4.44,
+          "end": 4.7,
+          "text": "jayen"
+        },
+        {
+          "start": 4.7,
+          "end": 4.9,
+          "text": "ge"
+        }
+      ],
+      "text": "bhi seekh jayen ge"
+    },
+    {
+      "start": 4.9,
+      "end": 5.58,
+      "words": [
+        {
+          "start": 4.9,
+          "end": 5.12,
+          "text": "to"
+        },
+        {
+          "start": 5.12,
+          "end": 5.32,
+          "text": "bhai"
+        },
+        {
+          "start": 5.32,
+          "end": 5.44,
+          "text": "yeh"
+        },
+        {
+          "start": 5.44,
+          "end": 5.58,
+          "text": "hai"
+        }
+      ],
+      "text": "to bhai yeh hai"
+    },
+    {
+      "start": 5.58,
+      "end": 6.06,
+      "words": [
+        {
+          "start": 5.58,
+          "end": 5.92,
+          "text": "Maahid"
+        },
+        {
+          "start": 5.92,
+          "end": 6.06,
+          "text": "Bhai"
+        }
+      ],
+      "text": "Maahid Bhai"
+    },
+    {
+      "start": 6.06,
+      "end": 6.76,
+      "words": [
+        {
+          "start": 6.06,
+          "end": 6.18,
+          "text": "jo"
+        },
+        {
+          "start": 6.18,
+          "end": 6.34,
+          "text": "ke"
+        },
+        {
+          "start": 6.34,
+          "end": 6.6,
+          "text": "Butter"
+        },
+        {
+          "start": 6.6,
+          "end": 6.76,
+          "text": "Milk"
+        }
+      ],
+      "text": "jo ke Butter Milk"
+    },
+    {
+      "start": 6.76,
+      "end": 7.48,
+      "words": [
+        {
+          "start": 6.76,
+          "end": 6.98,
+          "text": "le"
+        },
+        {
+          "start": 6.98,
+          "end": 7.08,
+          "text": "ke"
+        },
+        {
+          "start": 7.08,
+          "end": 7.3,
+          "text": "ja"
+        },
+        {
+          "start": 7.3,
+          "end": 7.38,
+          "text": "raha"
+        },
+        {
+          "start": 7.38,
+          "end": 7.48,
+          "text": "hain"
+        }
+      ],
+      "text": "le ke ja raha hain"
+    },
+    {
+      "start": 7.48,
+      "end": 8.32,
+      "words": [
+        {
+          "start": 7.48,
+          "end": 7.96,
+          "text": "Sialkot",
+          "big": true
+        },
+        {
+          "start": 7.96,
+          "end": 8.08,
+          "text": "ki"
+        },
+        {
+          "start": 8.08,
+          "end": 8.32,
+          "text": "taraf"
+        }
+      ],
+      "text": "Sialkot ki taraf"
+    },
+    {
+      "start": 8.32,
+      "end": 9.2,
+      "words": [
+        {
+          "start": 8.32,
+          "end": 8.54,
+          "text": "aur"
+        },
+        {
+          "start": 8.54,
+          "end": 8.88,
+          "text": "Butter"
+        },
+        {
+          "start": 8.88,
+          "end": 9.06,
+          "text": "Milk"
+        },
+        {
+          "start": 9.06,
+          "end": 9.2,
+          "text": "mein"
+        }
+      ],
+      "text": "aur Butter Milk mein"
+    },
+    {
+      "start": 9.2,
+      "end": 9.74,
+      "words": [
+        {
+          "start": 9.2,
+          "end": 9.62,
+          "text": "protein",
+          "big": true
+        },
+        {
+          "start": 9.62,
+          "end": 9.74,
+          "text": "aur"
+        }
+      ],
+      "text": "protein aur"
+    },
+    {
+      "start": 9.74,
+      "end": 10.7,
+      "words": [
+        {
+          "start": 9.74,
+          "end": 10.1,
+          "text": "butter"
+        },
+        {
+          "start": 10.1,
+          "end": 10.34,
+          "text": "fat",
+          "big": true
+        },
+        {
+          "start": 10.34,
+          "end": 10.64,
+          "text": "hota"
+        },
+        {
+          "start": 10.64,
+          "end": 10.7,
+          "text": "hai"
+        }
+      ],
+      "text": "butter fat hota hai"
+    },
+    {
+      "start": 10.7,
+      "end": 11.34,
+      "words": [
+        {
+          "start": 10.7,
+          "end": 10.92,
+          "text": "taake"
+        },
+        {
+          "start": 10.92,
+          "end": 11.26,
+          "text": "janwaron"
+        },
+        {
+          "start": 11.26,
+          "end": 11.34,
+          "text": "ka"
+        }
+      ],
+      "text": "taake janwaron ka"
+    },
+    {
+      "start": 11.34,
+      "end": 12.0,
+      "words": [
+        {
+          "start": 11.34,
+          "end": 11.64,
+          "text": "wazan",
+          "big": true
+        },
+        {
+          "start": 11.64,
+          "end": 11.76,
+          "text": "bhi"
+        },
+        {
+          "start": 11.76,
+          "end": 12.0,
+          "text": "barhe"
+        }
+      ],
+      "text": "wazan bhi barhe"
+    },
+    {
+      "start": 12.0,
+      "end": 12.5,
+      "words": [
+        {
+          "start": 12.0,
+          "end": 12.286,
+          "text": "Golaai"
+        },
+        {
+          "start": 12.286,
+          "end": 12.5,
+          "text": "Aaye"
+        }
+      ],
+      "text": "Golaai Aaye"
+    },
+    {
+      "start": 12.5,
+      "end": 13.04,
+      "words": [
+        {
+          "start": 12.5,
+          "end": 12.82,
+          "text": "chamak",
+          "big": true
+        },
+        {
+          "start": 12.82,
+          "end": 12.92,
+          "text": "aaye"
+        },
+        {
+          "start": 12.92,
+          "end": 13.04,
+          "text": "ek"
+        }
+      ],
+      "text": "chamak aaye ek"
+    },
+    {
+      "start": 13.04,
+      "end": 14.35,
+      "words": [
+        {
+          "start": 13.04,
+          "end": 13.42,
+          "text": "finishing"
+        },
+        {
+          "start": 13.42,
+          "end": 13.68,
+          "text": "wala"
+        },
+        {
+          "start": 13.68,
+          "end": 13.92,
+          "text": "touch",
+          "big": true
+        },
+        {
+          "start": 13.92,
+          "end": 14.1,
+          "text": "Aaye"
+        }
+      ],
+      "text": "finishing wala touch Aaye"
+    }
+  ]
+}

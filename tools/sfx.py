@@ -15,7 +15,7 @@ from common import REPO
 
 SR = 48000
 DIR = REPO / "assets" / "sfx"
-NAMES = ["whoosh", "whoosh_fast", "swoosh_up", "pop", "click", "tick", "swish", "ding", "ching", "impact", "boom", "riser", "glitch"]
+NAMES = ["whoosh", "whoosh_fast", "swoosh_up", "pop", "click", "tick", "swish", "trr", "ding", "ching", "impact", "boom", "riser", "glitch"]
 
 
 def _np():
@@ -82,6 +82,20 @@ def make(name: str):
         d = 0.22
         s = swept_noise(d, 900, 5000, 1.6, np, 9) * np.sin(np.linspace(0, np.pi, int(d * SR))) ** 2
         return s * 0.6
+    if name == "trr":  # rapid ratchet clicks (map route drawing)
+        d = 1.0
+        n = int(d * SR)
+        s = np.zeros(n)
+        rng = np.random.default_rng(11)
+        t = 0.0
+        while t < d - 0.03:
+            i = int(t * SR)
+            L = int(0.012 * SR)
+            tt = np.arange(L) / SR
+            f = rng.uniform(2200, 3200)
+            s[i:i + L] += (np.sin(2 * np.pi * f * tt) + rng.standard_normal(L) * 0.4) * np.exp(-tt * 380)
+            t += 1 / rng.uniform(26, 34)
+        return s * np.minimum(1, np.linspace(0, 6, n)) * np.minimum(1, np.linspace(6, 0, n))
     if name == "tick":  # very soft, short "tk" for captions
         d = 0.05
         t = np.arange(int(d * SR)) / SR

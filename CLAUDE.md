@@ -26,6 +26,8 @@ typography, composition, real photography and storytelling over decoration and t
   templates box-pop / editorial / minimal / outline-3d / press / glass, accent from the product
   palette). Vary the template between videos; add new CSS templates when a reference shows a
   new look worth having.
+- For product reels the owner likes the **brand-cards** look (styles/brand-cards): framed
+  footage + full-frame brand cards with the product cutout, stats and contact card.
 
 The owner writes in Urdu (sometimes English or Roman Urdu). Reply in the language
 they used. Keep replies short and non-technical; they are a video creator, not a

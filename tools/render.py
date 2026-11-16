@@ -16,7 +16,7 @@ import time
 from pathlib import Path
 
 import edl
-from common import REPO, die, font_files, fmt_time, load_json, need, resolve, run
+from common import REPO, die, encode_layer, font_files, fmt_time, load_json, need, resolve, run
 
 AUDIO_FMT = "aresample=48000,aformat=sample_fmts=fltp:channel_layouts=stereo"
 
@@ -291,6 +291,8 @@ def build_ass(edit: dict, path: Path) -> bool:
             text = word.upper() if v.get("uppercase") else case(word)
             return "{" + tags + "}" + ass_text(text) + "{\\r" + glow + "}"
         all_lines = load_json(cfile)["lines"]
+        spans = [(float(c["start"]), float(c["end"])) for c in edit.get("cards", [])]
+        all_lines = [ln for ln in all_lines if not any(a - 0.05 <= ln["start"] < b for a, b in spans)]
         if st.get("mode") == "html":
             all_lines = []
         elif st.get("mode") == "kinetic":
@@ -409,6 +411,19 @@ def build_graph(edit: dict, work: Path, preview: bool) -> tuple[list[str], str, 
         if parts:
             g.append(f"{cv}{','.join(parts)}[bd{len(g)}]")
             cv = f"[bd{len(g) - 1}]"
+    if edit.get("frame"):  # video inside a rounded, bordered card on the brand background
+        import cards
+        bgp, maskp, bordp, (fm, ftop, fw, fh) = cards.frame_layers(edit, work)
+        i0 = inputs.count("-i")
+        for pth in (bgp, maskp, bordp):
+            inputs += ["-loop", "1", "-framerate", str(fps), "-t", f"{total:.3f}", "-i", str(pth)]
+        g.append(f"{cv}scale={fw}:{fh}:force_original_aspect_ratio=increase,crop={fw}:{fh},format=rgba[fv]")
+        g.append(f"[{i0 + 1}:v]format=gray[fmk]")
+        g.append("[fv][fmk]alphamerge[fva]")
+        g.append(f"[{i0}:v]format=rgba[fbg]")
+        g.append(f"[fbg][fva]overlay={fm}:{ftop}[fr1]")
+        g.append(f"[fr1][{i0 + 2}:v]overlay=0:0,format=yuv420p[framed]")
+        cv = "[framed]"
     for k, fl in enumerate(edit.get("flashes", [])):  # quick white (or any colour) flash, e.g. on cuts
         at, d = float(fl.get("at", fl) if isinstance(fl, dict) else fl), float(fl.get("dur", 0.18) if isinstance(fl, dict) else 0.18)
         a = float(fl.get("alpha", 0.75) if isinstance(fl, dict) else 0.75)
@@ -434,10 +449,19 @@ def build_graph(edit: dict, work: Path, preview: bool) -> tuple[list[str], str, 
         lines = load_json(edit["_dir"] / capc.get("file", "captions.json"))["lines"]
         lst = html_captions.build(edit, capc, lines, plan_kinetic(lines, capc), work / "htmlcaps", fps, total)
         idx = inputs.count("-i")
-        inputs += ["-f", "concat", "-safe", "0", "-i", str(lst)]
+        inputs += ["-i", str(encode_layer(lst, fps, total))]
         g.append(f"[{idx}:v]fps={fps},format=rgba[hcap]")
         g.append(f"{cv}[hcap]overlay=0:0:eof_action=pass:format=auto[hcv]")
         cv = "[hcv]"
+    if edit.get("cards"):  # full-frame brand cards (motion graphics inserts) over the picture
+        import cards
+        import html_captions
+        lst = cards.build(edit, work / "cards", fps, total, html_captions.fonts(), lambda f: edl._src(edit["project"], f))
+        idx = inputs.count("-i")
+        inputs += ["-i", str(encode_layer(lst, fps, total))]
+        g.append(f"[{idx}:v]fps={fps},format=rgba[cardl]")
+        g.append(f"{cv}[cardl]overlay=0:0:eof_action=pass:format=auto[cardv]")
+        cv = "[cardv]"
     pb = edit.get("progress_bar")
     if pb:
         hpx = int(pb.get("height", 10))

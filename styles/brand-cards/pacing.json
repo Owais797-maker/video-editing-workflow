@@ -1,0 +1,16 @@
+{
+  "reference": "facebook-1709232314215029.mp4",
+  "stats": {
+    "shots": 3,
+    "avg_shot": 8.97,
+    "median_shot": 9.68,
+    "min_shot": 5.14,
+    "max_shot": 12.08,
+    "cuts_per_minute": 4.5
+  },
+  "shot_lengths": [
+    12.08,
+    9.68,
+    5.14
+  ]
+}

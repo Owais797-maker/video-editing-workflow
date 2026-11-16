@@ -99,3 +99,11 @@ def load_json(path: Path) -> dict:
 def save_json(path: Path, data) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(json.dumps(data, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+
+
+def encode_layer(ffconcat: Path, fps: int, total: float) -> Path:
+    """Turn an ffconcat list of transparent PNGs into one light alpha video (QuickTime RLE)."""
+    out = ffconcat.with_suffix(".mov")
+    run(["ffmpeg", "-hide_banner", "-y", "-v", "error", "-f", "concat", "-safe", "0", "-i", str(ffconcat),
+         "-vf", f"fps={fps},format=argb", "-t", f"{total:.3f}", "-c:v", "qtrle", str(out)])
+    return out

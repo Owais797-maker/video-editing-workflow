@@ -1,0 +1,25 @@
+/* Brand cards: full-frame motion-graphic inserts (learned from the Buttery Milk reel).
+   Theme variables set per card: --bg1 (centre), --bg2 (edges), --accent, --ink (text on accent). */
+#cap { position: absolute; inset: 0; }
+.card { position: absolute; inset: 0; overflow: hidden; font-family: "Oswald", sans-serif;
+  background: radial-gradient(120% 80% at 50% 38%, var(--bg1) 0%, var(--bg2) 78%); }
+.card .bokeh { position: absolute; border-radius: 50%; background: radial-gradient(circle, rgba(255,255,255,.16), rgba(255,255,255,0) 70%); }
+.card .topline { position: absolute; top: 0; left: 0; height: 9px; background: var(--accent); }
+.card .stack { position: absolute; left: 7%; right: 7%; top: 9%; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 18px; }
+.card.left .stack { align-items: flex-start; text-align: left; }
+.card .pill { font-family: "Poppins SemiBold", sans-serif; font-size: 26px; letter-spacing: .12em; text-transform: uppercase;
+  background: var(--accent); color: var(--ink); padding: 8px 22px 7px; border-radius: 999px; }
+.card .title { font-weight: 700; font-size: 150px; line-height: .98; text-transform: uppercase; color: #fff; letter-spacing: .005em;
+  text-shadow: 0 6px 24px rgba(0,0,0,.28); }
+.card .title .a { color: var(--accent); }
+.card .sub { font-family: "Poppins SemiBold", sans-serif; font-size: 40px; color: rgba(255,255,255,.88); }
+.card .product { position: absolute; left: 50%; bottom: 9%; width: 56%; transform-origin: 50% 90%; filter: drop-shadow(0 40px 40px rgba(0,0,0,.45)); }
+.card .product img { width: 100%; display: block; }
+.card .stat { display: flex; flex-direction: column; align-items: flex-start; gap: 10px; }
+.card .stat .v { font-weight: 700; font-size: 150px; line-height: .95; color: var(--accent); text-shadow: 0 6px 24px rgba(0,0,0,.25); }
+.card .stat .tag { font-family: "Poppins SemiBold", sans-serif; font-size: 34px; letter-spacing: .06em; text-transform: uppercase;
+  background: #0b0b0b; color: #fff; padding: 6px 16px 5px; }
+.card .contact { display: flex; flex-direction: column; align-items: center; gap: 22px; }
+.card .contact .line { font-weight: 700; font-size: 62px; color: var(--accent); text-transform: uppercase; letter-spacing: .01em; }
+.card .contact .phones { background: var(--accent); color: var(--ink); border-radius: 36px; padding: 14px 40px; font-weight: 700; font-size: 64px; line-height: 1.15; }
+.card .contact .small { font-family: "Poppins SemiBold", sans-serif; font-size: 30px; color: rgba(255,255,255,.85); }

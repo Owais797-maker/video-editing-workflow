@@ -28,6 +28,9 @@ typography, composition, real photography and storytelling over decoration and t
   new look worth having.
 - Owner's chosen caption look (2026-11-16): **box-pop** (Montserrat Black caps, spoken word in a
   rounded accent box from the product palette). It is the default in styles/bold-clean.
+- Owner's notes for next videos (2026-11-16): glass boxes (liquid glass) must take the
+  PRODUCT'S colour scheme (tinted glass, accent border/text, product font), not plain white;
+  the map card is loved, keep using it; add a few more SFX than before (current ones are good).
 - For product reels the owner likes the **brand-cards** look (styles/brand-cards): framed
   footage + full-frame brand cards with the product cutout, stats and contact card.
 

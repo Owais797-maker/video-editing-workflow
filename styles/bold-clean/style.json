@@ -22,9 +22,13 @@
       "y": 0.68
     },
     "sfx": {
-      "big": {
+      "line": {
         "sound": "swish",
-        "volume": 0.16
+        "volume": 0.08
+      },
+      "big": {
+        "sound": "whoosh_fast",
+        "volume": 0.11
       }
     }
   },
@@ -102,12 +106,13 @@
     "width": 0.22
   },
   "look": {
-    "contrast": 1.08,
-    "saturation": 1.12,
-    "warmth": 0.04,
-    "sharpen": 0.45,
-    "vignette": 0.5,
-    "grain": 4
+    "cinematic": 1.0,
+    "contrast": 1.04,
+    "saturation": 1.08,
+    "warmth": 0.02,
+    "sharpen": 0.6,
+    "vignette": 0.45,
+    "grain": 2
   },
   "music": {
     "volume": 0.15,

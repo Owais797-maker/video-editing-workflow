@@ -215,15 +215,15 @@ def fit_filter(edit: dict, shot: dict, src_label: str, out_label: str, extra_sca
     fy = float(shot.get("focus_y", 0.5))
     zw, zh = int(W * z) // 2 * 2, int(H * z) // 2 * 2
     if fit == "crop":
-        chain = (f"{src_label}scale={zw}:{zh}:force_original_aspect_ratio=increase,"
+        chain = (f"{src_label}scale={zw}:{zh}:force_original_aspect_ratio=increase:flags=lanczos,"
                  f"crop={W}:{H}:(iw-{W})*{fx}:(ih-{H})*{fy}")
     elif fit == "pad":
-        chain = (f"{src_label}scale={W}:{H}:force_original_aspect_ratio=decrease,"
+        chain = (f"{src_label}scale={W}:{H}:force_original_aspect_ratio=decrease:flags=lanczos,"
                  f"pad={W}:{H}:(ow-iw)/2:(oh-ih)/2:black")
     else:  # blur: blurred, filled copy behind the full frame
         k = out_label.strip("[]")
         chain = (f"{src_label}split[{k}bg][{k}fg];"
-                 f"[{k}bg]scale={W}:{H}:force_original_aspect_ratio=increase,crop={W}:{H},boxblur=25:2[{k}b];"
-                 f"[{k}fg]scale={W}:{H}:force_original_aspect_ratio=decrease[{k}f];"
+                 f"[{k}bg]scale={W}:{H}:force_original_aspect_ratio=increase:flags=lanczos,crop={W}:{H},boxblur=25:2[{k}b];"
+                 f"[{k}fg]scale={W}:{H}:force_original_aspect_ratio=decrease:flags=lanczos[{k}f];"
                  f"[{k}b][{k}f]overlay=(W-w)/2:(H-h)/2")
     return f"{chain},setsar=1{extra_scale}{out_label}"

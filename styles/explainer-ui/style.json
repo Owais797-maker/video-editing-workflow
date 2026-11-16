@@ -1,0 +1,7 @@
+{
+  "output": { "width": 1080, "height": 1920, "fps": 30, "fit": "crop" },
+  "safe": { "top": 0.12, "bottom": 0.25, "left": 0.06, "right": 0.14 },
+  "brand": { "bg1": "#1d1d1d", "bg2": "#070707", "accent": "#F7D33A", "ink": "#111111" },
+  "captions": { "words_per_line": 1, "style": { "mode": "html", "template": "explainer", "accent": "#F7D33A", "y": 0.47 } },
+  "loudness": -14
+}

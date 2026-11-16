@@ -60,3 +60,9 @@
 .t-swiss .w.big, .t-swiss .w.kw { color: var(--accent); }
 .t-swiss .w.active { transform: translateY(calc((1 - var(--p, 1)) * .3em)); opacity: clamp(0, var(--p, 1), 1);
   filter: blur(calc((1 - min(var(--p, 1), 1)) * 8px)); }
+
+/* 8. EXPLAINER — one word at a time, white bold sans; key words in accent serif italic (explainer-UI reels) */
+.t-explainer { font-family: "Poppins SemiBold", sans-serif; font-size: 78px; line-height: 1; color: #fff; letter-spacing: -.01em;
+  text-shadow: 0 3px 16px rgba(0,0,0,.45); }
+.t-explainer .w.big, .t-explainer .w.kw { font-family: "Playfair Display", serif; font-style: italic; font-weight: 800; color: var(--accent); font-size: 1.12em; }
+.t-explainer .w.active { transform: scale(calc(.8 + .2 * var(--p, 1))); opacity: clamp(0, calc(var(--p, 1) * 1.5), 1); }

@@ -15,10 +15,15 @@ const { chromium } = require("playwright");
   </style></head><body><div id="cap"></div></body></html>`;
   const browser = await chromium.launch();
   const page = await browser.newPage({ viewport: { width: job.width, height: job.height }, deviceScaleFactor: 1 });
-  await page.setContent(html, { waitUntil: "load" });
+  // load from a file next to the job so file:// images (product cutouts) are allowed
+  const path = require("path");
+  const pagePath = path.join(path.dirname(path.resolve(process.argv[2])), "page.html");
+  fs.writeFileSync(pagePath, html);
+  await page.goto("file://" + pagePath, { waitUntil: "load" });
   await page.evaluate(() => document.fonts.ready);
   for (const st of job.states) {
     await page.evaluate((h) => { document.getElementById("cap").innerHTML = h; }, st.html);
+    await page.evaluate(() => Promise.all([...document.images].map((i) => i.complete ? 0 : new Promise((r) => { i.onload = i.onerror = r; }))));
     await page.screenshot({ path: st.file, omitBackground: true });
   }
   await browser.close();

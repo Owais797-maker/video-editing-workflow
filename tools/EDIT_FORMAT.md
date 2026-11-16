@@ -123,6 +123,15 @@ Words pop in as spoken; `*big*` marks and keywords apply. Preview all templates 
 **captions.style.glow** – soft blur on the outline (e.g. 6) for a glow look; `outline_alpha`
 makes the outline see-through (0 = solid, 255 = invisible).
 
+**brand / cards / frame** – motion-graphics product inserts (tools/cards.py, style brand-cards):
+`"brand": {"bg1": "#2453C8", "bg2": "#0B1E57", "accent": "#FFD400", "ink": "#0B1E57"}`;
+`"cards"`: full-frame cards over the picture while the voice continues — `type` `headline`
+(`label`, `title` with `*accent*` words and `\n`, `sub`, `product`), `stats` (`stats`:
+[{value, tag}], `align: "left"`), `contact` (`title`, `lines`, `phones`, `small`); options
+`product_size` (0–1 of width), `product_pos` (bottom, bottom-right, top, center), `stack_top`,
+`theme`. `"frame": {"margin": 0.035, "top": 0.035, "radius": 44, "border": 9}` puts the video
+inside a rounded accent-bordered card on the brand background.
+
 **backdrop** – `[{"start": 17.6, "end": 20, "blur": 18, "dim": 0.35}]` blurs and darkens the
 video for that time, e.g. behind a product cutout ("product card") or a big title.
 

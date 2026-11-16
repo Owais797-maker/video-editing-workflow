@@ -7,6 +7,8 @@ Writes Export/<project>/storyboard.md and storyboard/ (one frame per shot plus
 overview.jpg). The frames are taken from a quick preview render, so they show
 exactly what the final video will look like (text, captions, stickers, motion).
 """
+from __future__ import annotations
+
 import argparse
 import shutil
 
@@ -15,9 +17,13 @@ import render
 from common import REPO, fmt_time, load_json, resolve, run
 
 
-def frame_at(video, t: float, dest) -> None:
+def frame_at(video, t: float, dest, safe: dict | None = None) -> None:
+    vf = "scale=-2:480"
+    if safe:  # dashed-looking guide of the TikTok / Reels / Status safe zone
+        l, r, tp, b = (float(safe.get(k, 0)) for k in ("left", "right", "top", "bottom"))
+        vf = (f"drawbox=x=iw*{l}:y=ih*{tp}:w=iw*{1 - l - r}:h=ih*{1 - tp - b}:color=cyan@0.55:t=4," + vf)
     run(["ffmpeg", "-hide_banner", "-y", "-ss", f"{t:.3f}", "-i", str(video), "-frames:v", "1",
-         "-vf", "scale=-2:480", "-q:v", "3", str(dest)])
+         "-vf", vf, "-q:v", "3", str(dest)])
 
 
 def main() -> None:
@@ -50,7 +56,7 @@ def main() -> None:
     for s in edit["shots"]:
         a, b = s["_start"], s["_start"] + s["_len"]
         frame = sb / f"shot_{s['_n']:02d}.jpg"
-        frame_at(preview, a + s["_len"] * float(s.get("frame_at", 0.5)), frame)
+        frame_at(preview, a + s["_len"] * float(s.get("frame_at", 0.5)), frame, edit.get("safe"))
         extras = []
         if s["speed"] != 1:
             extras.append(f"speed {s['speed']}x")

@@ -23,3 +23,17 @@
 .card .contact .line { font-weight: 700; font-size: 62px; color: var(--accent); text-transform: uppercase; letter-spacing: .01em; }
 .card .contact .phones { background: var(--accent); color: var(--ink); border-radius: 36px; padding: 14px 40px; font-weight: 700; font-size: 64px; line-height: 1.15; }
 .card .contact .small { font-family: "Poppins SemiBold", sans-serif; font-size: 30px; color: rgba(255,255,255,.85); }
+
+/* Swiss-editorial section card */
+.card.section { background: none; }
+.card.section .sw { position: absolute; left: 9%; right: 9%; display: flex; flex-direction: column; align-items: flex-start;
+  font-family: "Inter Tight", sans-serif; font-weight: 900; letter-spacing: -.05em; }
+.card.section .kicker { font-size: 190px; line-height: .8; }
+.card.section .num { font-size: 420px; line-height: .82; background: #0b0b0b; color: #fff; padding: 0 .08em .04em; margin-top: .04em; transform-origin: 0 50%; }
+.card.section .tl { font-size: 156px; line-height: .86; }
+.card.section .bar { background: var(--hi); color: #fff; padding: 0 .12em; }
+/* typed tag box over the video */
+.tagbox { position: absolute; border-radius: 22px; background: color-mix(in srgb, var(--c) 82%, transparent);
+  box-shadow: 0 14px 34px rgba(0,0,0,.28), inset 0 1px 0 rgba(255,255,255,.35); display: flex; align-items: center; justify-content: center;
+  font-family: "Bebas Neue", "Oswald", sans-serif; font-size: 92px; letter-spacing: .22em; color: #fff; padding-left: .22em; transform-origin: 50% 50%; }
+.tagbox .ghost { visibility: hidden; }

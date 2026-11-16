@@ -22,6 +22,7 @@ import html
 import json
 import math
 import random
+import re
 
 import shutil
 from pathlib import Path
@@ -60,6 +61,9 @@ def card_frame(c: dict, t: float, dur: float, W: int, H: int, product: str | Non
     th = {**DEFAULT_THEME, **c.get("_theme", {})}
     fade = min(1.0, t / 0.18, max(0.0, (dur - t) / 0.18))
     zoom = 1.04 - 0.04 * ease_out(t / 0.4)
+    kind = c.get("type", "headline")
+    if kind in ("section", "tag"):
+        return swiss_frame(c, t, dur, W, H, th, fade)
     rnd = random.Random(seed)
     bokeh = []
     for _ in range(7):
@@ -104,7 +108,7 @@ def card_frame(c: dict, t: float, dur: float, W: int, H: int, product: str | Non
         scale = (0.55 + 0.45 * p) * (1 + 0.012 * t)
         prod = (f'<div class="product" style="{place}width:{size * 100:.1f}%;opacity:{min(1, p * 1.6):.3f};'
                 f'transform:{tx}{ty} translateY({float_y:.1f}px) scale({scale:.4f})"><img src="file://{product}"></div>')
-    top_off = c.get("stack_top")
+    top_off = c.get("stack_top", c.get("_safe_top"))
     stack_style = f' style="top:{float(top_off) * 100:.1f}%"' if top_off is not None else ""
     align = " left" if c.get("align") == "left" else ""
     style = (f"--bg1:{th['bg1']};--bg2:{th['bg2']};--accent:{th['accent']};--ink:{th['ink']};"
@@ -112,6 +116,37 @@ def card_frame(c: dict, t: float, dur: float, W: int, H: int, product: str | Non
     return (f'<div class="card{align}" style="{style}">{"".join(bokeh)}'
             f'<div class="topline" style="width:{min(1, t / max(dur, .1)) * 100:.1f}%"></div>'
             f'{mapsvg}<div class="stack"{stack_style}>{"".join(items)}</div>{prod}</div>')
+
+
+def swiss_frame(c: dict, t: float, dur: float, W: int, H: int, th: dict, fade: float) -> str:
+    """Swiss-editorial inserts. section: solid colour card ("part / 2", "Framing / and / composition");
+    tag: a translucent rounded colour box over the video whose wide-tracked caps type in letter by letter."""
+    if c.get("type") == "tag":
+        txt = c.get("text", "")
+        n = int(len(txt) * min(1, max(0, (t - 0.15) / float(c.get("type_time", 0.45)))))
+        bw, bh = float(c.get("w", 0.44)), float(c.get("h", 0.075))
+        x, y = float(c.get("x", 0.5)), float(c.get("y", 0.2))
+        pop = ease_back(t / 0.3)
+        col = c.get("color", th["accent"])
+        return (f'<div class="tagbox" style="left:{(x - bw / 2) * 100:.2f}%;top:{(y - bh / 2) * 100:.2f}%;'
+                f'width:{bw * 100:.2f}%;height:{bh * 100:.2f}%;--c:{col};opacity:{fade:.3f};'
+                f'transform:scale({0.7 + 0.3 * pop:.4f})"><span>{html.escape(txt[:n])}</span>'
+                f'<span class="ghost">{html.escape(txt[n:])}</span></div>')
+    bg = c.get("bg", th["accent"])
+    ink = c.get("ink", "#111" if c.get("light") else "#fff")
+    p1 = ease_out((t - 0.05) / 0.35)
+    kicker = f'<div class="kicker" style="opacity:{p1:.3f}">{html.escape(c.get("kicker", ""))}</div>' if c.get("kicker") else ""
+    num = (f'<div class="num" style="transform:scale({0.6 + 0.4 * ease_back((t - .1) / .4):.4f})">{html.escape(str(c["number"]))}</div>'
+           if c.get("number") is not None else "")
+    lines = []
+    for j, ln in enumerate(c.get("title", "").split("\n")):
+        pj = ease_out((t - 0.2 - 0.08 * j) / 0.35)
+        m = re.fullmatch(r"\*(.+)\*", ln.strip())
+        inner = f'<span class="bar">{html.escape(m.group(1))}</span>' if m else html.escape(ln)
+        lines.append(f'<div class="tl" style="opacity:{pj:.3f};transform:translateX({(1 - pj) * -40:.1f}px)">{inner}</div>')
+    top = c.get("stack_top", max(0.3, c.get("_safe_top", 0)))
+    return (f'<div class="card section" style="background:{bg};color:{ink};--hi:{c.get("bar", "#E10600")};opacity:{fade:.3f}">'
+            f'<div class="sw" style="top:{float(top) * 100:.1f}%">{kicker}{num}{"".join(lines)}</div></div>')
 
 
 CITIES = {  # lat, lon
@@ -195,6 +230,8 @@ def build(edit: dict, out_dir: Path, fps: int, total: float, fonts: list, resolv
         if s1 - s0 < 0.3:
             die(f"card {ci + 1} is too short (min 0.3 s)")
         c = dict(c, _theme={**brand, **(c.get("theme") or {})})
+        if edit.get("safe"):
+            c["_safe_top"] = max(0.09, float(edit["safe"].get("top", 0)) + 0.02)
         product = str(resolve_src(c["product"]).resolve()) if c.get("product") else None
         dur = s1 - s0
         k = 0

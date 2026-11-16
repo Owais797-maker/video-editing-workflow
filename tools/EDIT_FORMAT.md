@@ -132,6 +132,20 @@ makes the outline see-through (0 = solid, 255 = invisible).
 `theme`. `"frame": {"margin": 0.035, "top": 0.035, "radius": 44, "border": 9}` puts the video
 inside a rounded accent-bordered card on the brand background.
 
+**safe** – `{"top": 0.12, "bottom": 0.25, "left": 0.06, "right": 0.14}` (default in bold-clean):
+the TikTok / Instagram Reels / WhatsApp Status safe zone. Captions, texts, glass boxes and card
+text are kept inside it; storyboard frames show it as a cyan box.
+
+**effects** – short picture effects: `[{"type": "light_leak", "at": 0.1, "dur": 0.9, "color": "#FF9A3C"},
+{"type": "glitch", "at": 2.4, "dur": 0.2, "amount": 14}, {"type": "blur_whip", "at": 4.5, "dur": 0.15}]`.
+Use them sparingly on hooks, cuts and punchlines.
+
+**cards: section / tag** (Swiss-editorial, styles/swiss-editorial): `{"type": "section", "kicker": "part",
+"number": "2", "bg": "#E10600"}` or `{"type": "section", "title": "Framing\n*and*\ncomposition",
+"bg": "#EAF1FF", "light": true}` (the `*word*` sits on a red bar); `{"type": "tag", "text": "PROTEIN",
+"color": "#5AD32F", "x": 0.46, "y": 0.3, "w": 0.5, "h": 0.075}` types its letters in over the video.
+Caption template `swiss`: big tight lowercase words stacked at the top (`"y": 0.17`, words_per_line 1–2).
+
 **backdrop** – `[{"start": 17.6, "end": 20, "blur": 18, "dim": 0.35}]` blurs and darkens the
 video for that time, e.g. behind a product cutout ("product card") or a big title.
 

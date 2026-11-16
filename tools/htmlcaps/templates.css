@@ -50,3 +50,13 @@
   border-radius: 999px; padding: .22em .7em .28em; box-shadow: 0 10px 30px rgba(0,0,0,.28), inset 0 1px 0 rgba(255,255,255,.6); }
 .t-glass { font-family: "Poppins SemiBold", sans-serif; font-size: 54px; line-height: 1.1; color: #fff; text-shadow: 0 1px 6px rgba(0,0,0,.35); }
 .t-glass .w.big, .t-glass .w.kw, .t-glass .w.active { color: var(--accent); }
+
+/* 7. SWISS — big tight grotesk words at the top, one under the other; the key word bigger in the accent
+   (learned from a Swiss-editorial reel: "talking / HEAD"). Use words_per_line 1-2. */
+.t-swiss { font-family: "Inter Tight", sans-serif; font-weight: 900; font-size: 128px; line-height: .8; color: #fff;
+  letter-spacing: -.055em; text-shadow: 0 3px 18px rgba(0,0,0,.35); }
+.t-swiss .row { margin-top: -.06em; }
+.t-swiss .w.big, .t-swiss .w.kw { color: var(--accent); font-size: 1.3em; letter-spacing: -.06em; }
+.t-swiss .w.active { transform: translateY(calc((1 - var(--p, 1)) * .35em)); opacity: clamp(0, var(--p, 1), 1);
+  filter: blur(calc((1 - min(var(--p, 1), 1)) * 10px)); }
+.t-swiss .w.past { opacity: .92; }

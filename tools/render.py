@@ -397,9 +397,20 @@ def build_graph(edit: dict, work: Path, preview: bool) -> tuple[list[str], str, 
         lut = resolve(look["lut"])
         shutil.copy(lut, work / ("look" + lut.suffix))
         vf.append(f"lut3d=look{lut.suffix}")
+    for fx in edit.get("effects", []):  # short picture effects at moments (before graphics)
+        a, d = float(fx["at"]), float(fx.get("dur", 0.3))
+        en = f"enable='between(t,{a:.3f},{a + d:.3f})'"
+        if fx["type"] == "glitch":  # RGB split + jitter blur
+            amt = int(fx.get("amount", 14))
+            vf.append(f"rgbashift=rh=-{amt}:bh={amt}:gv={amt // 3}:{en}")
+            vf.append(f"gblur=sigma=2:{en}")
+        elif fx["type"] == "blur_whip":  # quick directional blur, e.g. on a cut or a punch-in
+            vf.append(f"gblur=sigma={float(fx.get('amount', 16))}:sigmaV=1:{en}")
     if vf:
         g.append(f"{cv}{','.join(vf)}[look]")
         cv, vf = "[look]", []
+    for k, fx in enumerate(x for x in edit.get("effects", []) if x["type"] == "light_leak"):
+        cv = light_leak(fx, k, cv, W, H, fps, total, work, inputs, g)
     for b in edit.get("backdrop", []):  # blur/dim the video behind a product card or title
         s0, s1 = float(b.get("start", 0)), float(b.get("end", total))
         en = f"enable='between(t,{s0},{s1})'"
@@ -604,6 +615,30 @@ def overlay_chain(ov: dict, idx: int, j: int, base: str, W: int, H: int) -> list
         dy = f"+({H}-({cy})+h/2+10)*(1-{ease})"
     return [chain + f"[img{j}]",
             f"{base}[img{j}]overlay=x='{cx}-w/2':y='{cy}-h/2{dy}':enable='between(t,{s0},{s1})':eval=frame[ov{j}]"]
+
+
+def light_leak(fx: dict, k: int, cv: str, W: int, H: int, fps: int, total: float, work: Path, inputs: list, g: list) -> str:
+    """Warm film light leak sweeping across the frame (screen-blended, fades in and out)."""
+    import numpy as np
+    from PIL import Image
+    col = tuple(int(fx.get("color", "#FF9A3C").lstrip("#")[i:i + 2], 16) for i in (0, 2, 4))
+    w2 = W * 2
+    yy, xx = np.mgrid[0:H, 0:w2]
+    blob = np.zeros((H, w2))
+    for cx, cy, r, a in ((0.35, 0.3, 0.5, 1.0), (0.55, 0.7, 0.4, .8), (0.7, 0.45, 0.3, .6)):
+        blob += a * np.exp(-(((xx / w2 - cx) / (r / 2)) ** 2 + ((yy / H - cy) / r) ** 2))
+    blob = np.clip(blob / blob.max(), 0, 1)
+    alpha = (blob * 255 * float(fx.get("strength", 0.75))).astype("uint8")
+    rgba = np.dstack([np.full((H, w2), c, "uint8") for c in col] + [alpha])
+    path = work / f"leak{k}.png"
+    Image.fromarray(rgba, "RGBA").save(path)
+    a, d = float(fx["at"]), float(fx.get("dur", 0.8))
+    idx = inputs.count("-i")
+    inputs += ["-loop", "1", "-framerate", str(fps), "-t", f"{total:.3f}", "-i", str(path)]
+    g.append(f"[{idx}:v]format=rgba,fade=t=in:st={a}:d={d * .3:.3f}:alpha=1,"
+             f"fade=t=out:st={a + d * .55:.3f}:d={d * .45:.3f}:alpha=1[lk{k}]")
+    g.append(f"{cv}[lk{k}]overlay=x='-{W}*clip((t-{a})/{d},0,1)':y=0:enable='between(t,{a},{a + d})':eval=frame[lo{k}]")
+    return f"[lo{k}]"
 
 
 def glass_box(gl: dict, W: int, H: int) -> tuple[int, int, int, int]:

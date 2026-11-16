@@ -117,5 +117,11 @@
   "quality": {
     "crf": 17,
     "preset": "slow"
+  },
+  "safe": {
+    "top": 0.12,
+    "bottom": 0.25,
+    "left": 0.06,
+    "right": 0.14
   }
 }

@@ -47,7 +47,7 @@ def apply_style(edit: dict) -> None:
             edit[key] = _merge(st[key], edit.get(key) or {})
     if "type_presets" in st:
         edit["type_presets"] = _merge(st["type_presets"], edit.get("type_presets") or {})
-    for key in ("loudness", "progress_bar", "quality"):
+    for key in ("loudness", "progress_bar", "quality", "safe"):
         if key in st and key not in edit:
             edit[key] = st[key]
     if edit.get("captions") is not None and edit.get("captions") is not False and "captions" in st:
@@ -154,6 +154,14 @@ def load(edit_path: Path) -> dict:
         if x.get("animation", "fade") not in TEXT_ANIMS:
             die(f"text animation must be one of {sorted(TEXT_ANIMS)}")
         x["end"] = min(x.get("end", t), t)
+    safe = edit.get("safe") or {}
+    if safe:
+        lo, hi = float(safe.get("top", 0)) + 0.03, 1 - float(safe.get("bottom", 0)) - 0.03
+        for x in edit["texts"]:
+            if "y" in x and x.get("type") != "lower_third":
+                x["y"] = min(max(float(x["y"]), lo), hi)
+        for g in edit.get("glass", []):
+            g["y"] = min(max(float(g.get("y", 0.5)), lo), hi)
     for o in edit.setdefault("overlays", []):
         if not (o.get("file") or o.get("emoji")):
             die("each overlay needs \"file\" or \"emoji\"")

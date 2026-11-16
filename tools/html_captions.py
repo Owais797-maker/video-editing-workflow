@@ -23,7 +23,7 @@ from pathlib import Path
 from common import FONTS, REPO, die, load_json, need, resolve, run
 
 HERE = Path(__file__).resolve().parent / "htmlcaps"
-TEMPLATES = ["box-pop", "editorial", "minimal", "outline-3d", "press", "glass"]
+TEMPLATES = ["box-pop", "editorial", "minimal", "outline-3d", "press", "glass", "swiss"]
 STACKED = {"editorial", "press"}  # templates that put the big word on its own row
 ENTRANCE = [0.0, 0.62, 1.12, 1.0]  # eased progress per frame (overshoot, settle)
 FONT_FILES = [  # (css family, file stem, weight, style)
@@ -33,6 +33,9 @@ FONT_FILES = [  # (css family, file stem, weight, style)
     ("Instrument Serif", "InstrumentSerif-400", 400, "normal"),
     ("Anton", "Anton-400", 400, "normal"),
     ("Oswald", "Oswald-700", 700, "normal"),
+    ("Inter Tight", "InterTight-800", 800, "normal"),
+    ("Inter Tight", "InterTight-900", 900, "normal"),
+    ("Bebas Neue", "BebasNeue-400", 400, "normal"),
 ]
 
 
@@ -63,7 +66,9 @@ def line_html(words: list, k: int, p: float, kw: set, pick, layout: str) -> str:
         return f'<span class="{" ".join(cls)}"{style}>{html.escape(w["text"])}</span>'
 
     idx = list(range(len(words)))
-    if layout == "stack" and pick is not None:
+    if layout == "column":  # every word on its own row (Swiss top captions)
+        groups = [[i] for i in idx]
+    elif layout == "stack" and pick is not None:
         groups = [[i for i in idx if i < pick], [pick], [i for i in idx if i > pick]]
     else:
         groups = [idx]
@@ -78,15 +83,23 @@ def build(edit: dict, cap: dict, lines: list, plan: list, out_dir: Path, fps: in
     tpl = st.get("template", "editorial")
     if tpl not in TEMPLATES:
         die(f"caption template must be one of {TEMPLATES}")
-    layout = st.get("layout", "stack" if tpl in STACKED else "flow")
+    layout = st.get("layout", "column" if tpl == "swiss" else "stack" if tpl in STACKED else "flow")
     accent = st.get("accent", st.get("highlight_color", "#FFD400"))
-    lower = st.get("lowercase", tpl in ("editorial", "minimal", "glass"))
+    lower = st.get("lowercase", tpl in ("editorial", "minimal", "glass", "swiss"))
     upper_kw = {k.lower() for k in (cap.get("keywords") or {})}
     W, H = edit["output"]["width"], edit["output"]["height"]
     shutil.rmtree(out_dir, ignore_errors=True)
     out_dir.mkdir(parents=True)
     css = (HERE / "templates.css").read_text(encoding="utf-8")
-    css += f"\n#cap{{--accent:{accent};--y:{float(st.get('y', 0.68))};}}"
+    y = float(st.get("y", 0.17 if tpl == "swiss" else 0.68))
+    safe = edit.get("safe") or {}
+    if safe:  # keep captions inside the TikTok / Reels / Status safe zone
+        y = min(max(y, float(safe.get("top", 0)) + 0.05), 1 - float(safe.get("bottom", 0)) - 0.04)
+        css += (f"\n#cap{{left:{float(safe.get('left', .06)) * 100:.1f}%;"
+                f"right:{float(safe.get('right', .06)) * 100:.1f}%;}}")
+    css += f"\n#cap{{--accent:{accent};--y:{y};}}"
+    if layout == "column":  # stacked words grow downward from y (keeps the first word in the safe zone)
+        css += "\n#cap{transform:none;}"
     scale = H / 1920
     if scale != 1:
         css += f"\n#cap{{zoom:{scale:.4f};}}"

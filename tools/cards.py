@@ -78,7 +78,7 @@ def card_frame(c: dict, t: float, dur: float, W: int, H: int, product: str | Non
     kind = c.get("type", "headline")
     if c.get("label"):
         items.append(anim(html.escape(c["label"]), "pill"))
-    if kind in ("headline", "contact") and c.get("title"):
+    if kind in ("headline", "contact", "map") and c.get("title"):
         items.append(anim(title_html(c["title"]), "title"))
     if c.get("sub"):
         items.append(anim(html.escape(c["sub"]), "sub"))
@@ -90,6 +90,7 @@ def card_frame(c: dict, t: float, dur: float, W: int, H: int, product: str | Non
         phones = "<br>".join(html.escape(x) for x in c.get("phones", []))
         small = f'<div class="small">{html.escape(c["small"])}</div>' if c.get("small") else ""
         items.append(anim(f'{rows}{"<div class=phones>" + phones + "</div>" if phones else ""}{small}', "contact"))
+    mapsvg = map_svg(c, t, W, H, th) if kind == "map" else ""
     prod = ""
     if product:
         p = ease_back((t - 0.15) / 0.55)
@@ -110,7 +111,75 @@ def card_frame(c: dict, t: float, dur: float, W: int, H: int, product: str | Non
              f"opacity:{fade:.3f};transform:scale({zoom:.4f})")
     return (f'<div class="card{align}" style="{style}">{"".join(bokeh)}'
             f'<div class="topline" style="width:{min(1, t / max(dur, .1)) * 100:.1f}%"></div>'
-            f'<div class="stack"{stack_style}>{"".join(items)}</div>{prod}</div>')
+            f'{mapsvg}<div class="stack"{stack_style}>{"".join(items)}</div>{prod}</div>')
+
+
+CITIES = {  # lat, lon
+    "Sialkot": (32.49, 74.53), "Lahore": (31.55, 74.34), "Karachi": (24.86, 67.01), "Islamabad": (33.68, 73.05),
+    "Faisalabad": (31.42, 73.08), "Multan": (30.20, 71.47), "Peshawar": (34.01, 71.58), "Quetta": (30.18, 66.98),
+    "Gujranwala": (32.16, 74.19), "Hyderabad": (25.40, 68.37), "Rawalpindi": (33.60, 73.04), "Sahiwal": (30.66, 73.11),
+}
+
+
+def map_svg(c: dict, t: float, W: int, H: int, th: dict) -> str:
+    """Pakistan map with a route drawing to the destination, pin drop and a slow camera push."""
+    from common import REPO
+    geo = json.loads((REPO / c.get("geo", "assets/maps/PAK.geo.json")).read_text())
+    geom = geo["features"][0]["geometry"]
+    rings = [geom["coordinates"][0]] if geom["type"] == "Polygon" else [p[0] for p in geom["coordinates"]]
+    lons = [x for r in rings for x, _ in r]
+    lats = [y for r in rings for _, y in r]
+    box = (W * 0.06, H * 0.27, W * 0.88, H * 0.55)  # x, y, w, h
+    k = math.cos(math.radians(30))
+    sx = box[2] / ((max(lons) - min(lons)) * k)
+    sy = box[3] / (max(lats) - min(lats))
+    sc = min(sx, sy)
+    ox = box[0] + (box[2] - (max(lons) - min(lons)) * k * sc) / 2
+    oy = box[1] + (box[3] - (max(lats) - min(lats)) * sc) / 2
+
+    def P(lat, lon):
+        return ox + (lon - min(lons)) * k * sc, oy + (max(lats) - lat) * sc
+    path = " ".join("M" + " L".join(f"{P(y, x)[0]:.1f},{P(y, x)[1]:.1f}" for x, y in r) + "Z" for r in rings)
+    dest = c.get("to", "Sialkot")
+    tx, ty = P(*CITIES[dest]) if isinstance(dest, str) else P(*dest)
+    src = c.get("from")
+    if src:
+        fx, fy = P(*CITIES[src]) if isinstance(src, str) else P(*src)
+    else:  # unlabeled start in the south-west of the map
+        fx, fy = P(28.0, 68.8)
+    cx, cy = (fx + tx) / 2 - (ty - fy) * 0.25, (fy + ty) / 2 + (tx - fx) * 0.12
+    p = ease_out((t - 0.25) / float(c.get("route_time", 1.1)))
+    bx = (1 - p) ** 2 * fx + 2 * (1 - p) * p * cx + p ** 2 * tx
+    by = (1 - p) ** 2 * fy + 2 * (1 - p) * p * cy + p ** 2 * ty
+    pin = ease_back((t - 0.25 - float(c.get("route_time", 1.1))) / 0.35)
+    zoom = 1 + 0.12 * ease_out((t - 0.3) / 2.2)
+    acc = th["accent"]
+    others = "".join(
+        f'<circle cx="{P(*ll)[0]:.1f}" cy="{P(*ll)[1]:.1f}" r="5" fill="rgba(255,255,255,.35)"/>'
+        for name, ll in CITIES.items() if name != dest and name in ("Lahore", "Karachi", "Islamabad", "Faisalabad", "Multan"))
+    label = c.get("pin_label", dest if isinstance(dest, str) else "")
+    src_label = (f'<text x="{fx:.1f}" y="{fy + 46:.1f}" text-anchor="middle" font-family="Poppins SemiBold" font-size="26" '
+                 f'fill="rgba(255,255,255,.75)">{html.escape(c.get("from_label", src or ""))}</text>') if (src or c.get("from_label")) else ""
+    return (f'<svg width="{W}" height="{H}" style="position:absolute;inset:0" viewBox="0 0 {W} {H}">'
+            f'<defs><filter id="gl"><feGaussianBlur stdDeviation="6" result="b"/><feMerge><feMergeNode in="b"/>'
+            f'<feMergeNode in="SourceGraphic"/></feMerge></filter></defs>'
+            f'<g transform="translate({tx:.1f} {ty:.1f}) scale({zoom:.4f}) translate({-tx:.1f} {-ty:.1f})">'
+            f'<path d="{path}" fill="rgba(255,255,255,.07)" stroke="{acc}" stroke-width="3" stroke-linejoin="round" filter="url(#gl)" opacity=".9"/>'
+            f'{others}'
+            f'<circle cx="{fx:.1f}" cy="{fy:.1f}" r="9" fill="#fff"/>{src_label}'
+            f'<path d="M{fx:.1f},{fy:.1f} Q{cx:.1f},{cy:.1f} {tx:.1f},{ty:.1f}" fill="none" stroke="#fff" stroke-width="6" '
+            f'stroke-linecap="round" stroke-dasharray="14 12" pathLength="1000" opacity=".9" '
+            f'style="stroke-dashoffset:0;clip-path:none" mask="url(#rv)"/>'
+            f'<mask id="rv"><path d="M{fx:.1f},{fy:.1f} Q{cx:.1f},{cy:.1f} {tx:.1f},{ty:.1f}" fill="none" stroke="#fff" stroke-width="14" '
+            f'pathLength="1" stroke-dasharray="1" stroke-dashoffset="{1 - p:.4f}"/></mask>'
+            f'<circle cx="{bx:.1f}" cy="{by:.1f}" r="13" fill="{acc}" filter="url(#gl)" opacity="{1 if 0 < p < 1 else 0}"/>'
+            f'<g transform="translate({tx:.1f} {ty:.1f}) scale({max(pin, 0):.3f})">'
+            f'<circle r="34" fill="{acc}" opacity=".25"/>'
+            f'<path d="M0,0 C-26,-30 -30,-58 0,-74 C30,-58 26,-30 0,0Z" fill="{acc}" stroke="#111" stroke-width="3"/>'
+            f'<circle cy="-50" r="10" fill="#111"/></g>'
+            f'<text x="{tx + (46 if tx < W * 0.6 else -46):.1f}" y="{ty - 30:.1f}" text-anchor="{"start" if tx < W * 0.6 else "end"}" font-family="Oswald" font-weight="700" font-size="64" fill="#fff" '
+            f'opacity="{min(1, max(pin, 0)):.2f}" style="text-transform:uppercase">{html.escape(label.upper())}</text>'
+            f'</g></svg>')
 
 
 def build(edit: dict, out_dir: Path, fps: int, total: float, fonts: list, resolve_src) -> Path:

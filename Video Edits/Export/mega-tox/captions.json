@@ -1,0 +1,470 @@
+{
+  "note": "Edit 'text' and the words freely; times are seconds on the final video.",
+  "lines": [
+    {
+      "start": 0.0,
+      "end": 1.82,
+      "words": [
+        {
+          "start": 0.0,
+          "end": 0.9,
+          "text": "Turkey"
+        },
+        {
+          "start": 0.9,
+          "end": 1.22,
+          "text": "ka"
+        },
+        {
+          "start": 1.22,
+          "end": 1.82,
+          "text": "zabardast",
+          "big": true
+        }
+      ],
+      "text": "Turkey ka zabardast"
+    },
+    {
+      "start": 1.82,
+      "end": 2.82,
+      "words": [
+        {
+          "start": 1.82,
+          "end": 2.38,
+          "text": "toxin",
+          "big": true
+        },
+        {
+          "start": 2.38,
+          "end": 2.82,
+          "text": "binder"
+        }
+      ],
+      "text": "toxin binder"
+    },
+    {
+      "start": 2.82,
+      "end": 4.02,
+      "words": [
+        {
+          "start": 2.82,
+          "end": 3.1,
+          "text": "kuch"
+        },
+        {
+          "start": 3.1,
+          "end": 3.68,
+          "text": "vitamins",
+          "big": true
+        },
+        {
+          "start": 3.68,
+          "end": 3.86,
+          "text": "bhi"
+        },
+        {
+          "start": 3.86,
+          "end": 4.02,
+          "text": "hai"
+        }
+      ],
+      "text": "kuch vitamins bhi hai"
+    },
+    {
+      "start": 4.02,
+      "end": 5.1,
+      "words": [
+        {
+          "start": 4.02,
+          "end": 4.52,
+          "text": "yeast",
+          "big": true
+        },
+        {
+          "start": 4.52,
+          "end": 4.86,
+          "text": "wala"
+        },
+        {
+          "start": 4.86,
+          "end": 4.98,
+          "text": "bhi"
+        },
+        {
+          "start": 4.98,
+          "end": 5.1,
+          "text": "hai"
+        }
+      ],
+      "text": "yeast wala bhi hai"
+    },
+    {
+      "start": 5.1,
+      "end": 5.72,
+      "words": [
+        {
+          "start": 5.1,
+          "end": 5.24,
+          "text": "aur"
+        },
+        {
+          "start": 5.24,
+          "end": 5.4,
+          "text": "ek"
+        },
+        {
+          "start": 5.4,
+          "end": 5.64,
+          "text": "tarah"
+        },
+        {
+          "start": 5.64,
+          "end": 5.72,
+          "text": "ka"
+        }
+      ],
+      "text": "aur ek tarah ka"
+    },
+    {
+      "start": 5.72,
+      "end": 6.54,
+      "words": [
+        {
+          "start": 5.72,
+          "end": 5.8,
+          "text": "is"
+        },
+        {
+          "start": 5.8,
+          "end": 5.9,
+          "text": "mein"
+        },
+        {
+          "start": 5.9,
+          "end": 6.34,
+          "text": "tonic",
+          "big": true
+        },
+        {
+          "start": 6.34,
+          "end": 6.46,
+          "text": "bhi"
+        },
+        {
+          "start": 6.46,
+          "end": 6.54,
+          "text": "hai"
+        }
+      ],
+      "text": "is mein tonic bhi hai"
+    },
+    {
+      "start": 6.54,
+      "end": 7.52,
+      "words": [
+        {
+          "start": 6.54,
+          "end": 7.06,
+          "text": "price"
+        },
+        {
+          "start": 7.06,
+          "end": 7.18,
+          "text": "_"
+        },
+        {
+          "start": 7.18,
+          "end": 7.38,
+          "text": "is"
+        },
+        {
+          "start": 7.38,
+          "end": 7.52,
+          "text": "ka"
+        }
+      ],
+      "text": "price _ is ka"
+    },
+    {
+      "start": 7.52,
+      "end": 8.22,
+      "words": [
+        {
+          "start": 7.52,
+          "end": 8.1,
+          "text": "darmiyana",
+          "big": true
+        },
+        {
+          "start": 8.1,
+          "end": 8.22,
+          "text": "hai"
+        }
+      ],
+      "text": "darmiyana hai"
+    },
+    {
+      "start": 8.22,
+      "end": 9.34,
+      "words": [
+        {
+          "start": 8.22,
+          "end": 8.58,
+          "text": "lekin"
+        },
+        {
+          "start": 8.58,
+          "end": 8.94,
+          "text": "cheez"
+        },
+        {
+          "start": 8.94,
+          "end": 9.34,
+          "text": "bohat"
+        }
+      ],
+      "text": "lekin cheez bohat"
+    },
+    {
+      "start": 9.34,
+      "end": 10.12,
+      "words": [
+        {
+          "start": 9.34,
+          "end": 9.64,
+          "text": "level",
+          "big": true
+        },
+        {
+          "start": 9.64,
+          "end": 9.8,
+          "text": "ki"
+        },
+        {
+          "start": 9.8,
+          "end": 9.94,
+          "text": "hai"
+        },
+        {
+          "start": 9.94,
+          "end": 10.12,
+          "text": "bhai"
+        }
+      ],
+      "text": "level ki hai bhai"
+    },
+    {
+      "start": 10.12,
+      "end": 11.24,
+      "words": [
+        {
+          "start": 10.12,
+          "end": 10.42,
+          "text": "aur"
+        },
+        {
+          "start": 10.42,
+          "end": 10.78,
+          "text": "farm"
+        },
+        {
+          "start": 10.78,
+          "end": 11.06,
+          "text": "walon"
+        },
+        {
+          "start": 11.06,
+          "end": 11.24,
+          "text": "ki"
+        }
+      ],
+      "text": "aur farm walon ki"
+    },
+    {
+      "start": 11.24,
+      "end": 12.18,
+      "words": [
+        {
+          "start": 11.24,
+          "end": 11.64,
+          "text": "ashad",
+          "big": true
+        },
+        {
+          "start": 11.64,
+          "end": 12.1,
+          "text": "zaroorat"
+        },
+        {
+          "start": 12.1,
+          "end": 12.18,
+          "text": "hai"
+        }
+      ],
+      "text": "ashad zaroorat hai"
+    },
+    {
+      "start": 12.18,
+      "end": 13.04,
+      "words": [
+        {
+          "start": 12.18,
+          "end": 12.42,
+          "text": "taake"
+        },
+        {
+          "start": 12.42,
+          "end": 12.9,
+          "text": "bimariyon",
+          "big": true
+        },
+        {
+          "start": 12.9,
+          "end": 13.04,
+          "text": "se"
+        }
+      ],
+      "text": "taake bimariyon se"
+    },
+    {
+      "start": 13.04,
+      "end": 13.56,
+      "words": [
+        {
+          "start": 13.04,
+          "end": 13.2,
+          "text": "bhi"
+        },
+        {
+          "start": 13.2,
+          "end": 13.46,
+          "text": "bache"
+        },
+        {
+          "start": 13.46,
+          "end": 13.56,
+          "text": "aur"
+        }
+      ],
+      "text": "bhi bache aur"
+    },
+    {
+      "start": 13.56,
+      "end": 14.44,
+      "words": [
+        {
+          "start": 13.56,
+          "end": 13.84,
+          "text": "janwar"
+        },
+        {
+          "start": 13.84,
+          "end": 14.2,
+          "text": "phale"
+        },
+        {
+          "start": 14.2,
+          "end": 14.44,
+          "text": "phoole",
+          "big": true
+        }
+      ],
+      "text": "janwar phale phoole"
+    },
+    {
+      "start": 14.44,
+      "end": 15.64,
+      "words": [
+        {
+          "start": 14.44,
+          "end": 14.94,
+          "text": "warna"
+        },
+        {
+          "start": 14.94,
+          "end": 15.28,
+          "text": "_"
+        },
+        {
+          "start": 15.28,
+          "end": 15.46,
+          "text": "yaani"
+        },
+        {
+          "start": 15.46,
+          "end": 15.64,
+          "text": "ke"
+        }
+      ],
+      "text": "warna _ yaani ke"
+    },
+    {
+      "start": 15.64,
+      "end": 16.32,
+      "words": [
+        {
+          "start": 15.64,
+          "end": 16.22,
+          "text": "mastitis",
+          "big": true
+        },
+        {
+          "start": 16.22,
+          "end": 16.32,
+          "text": "aur"
+        }
+      ],
+      "text": "mastitis aur"
+    },
+    {
+      "start": 16.32,
+      "end": 17.22,
+      "words": [
+        {
+          "start": 16.32,
+          "end": 16.78,
+          "text": "zehar-baad",
+          "big": true
+        },
+        {
+          "start": 16.78,
+          "end": 17.2,
+          "text": "aajata"
+        },
+        {
+          "start": 17.2,
+          "end": 17.25,
+          "text": "hai"
+        }
+      ],
+      "text": "zehar-baad aajata hai"
+    },
+    {
+      "start": 17.22,
+      "end": 18.29,
+      "words": [
+        {
+          "start": 17.22,
+          "end": 17.34,
+          "text": "na"
+        },
+        {
+          "start": 17.34,
+          "end": 17.68,
+          "text": "_"
+        },
+        {
+          "start": 17.68,
+          "end": 17.96,
+          "text": "hojata"
+        },
+        {
+          "start": 17.96,
+          "end": 18.04,
+          "text": "hai"
+        }
+      ],
+      "text": "na _ hojata hai"
+    }
+  ]
+}

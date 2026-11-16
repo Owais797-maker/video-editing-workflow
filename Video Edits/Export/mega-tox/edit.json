@@ -1,0 +1,272 @@
+{
+  "project": "mega-tox",
+  "title": "Mega-Tox Plus",
+  "style": "bold-clean",
+  "summary": "Shop reel: Mega-Tox Plus (natural yeast toxin binder) – what's in it, price is fair but quality is top level, protects farm animals from disease (mastitis, zehar-baad).",
+  "reference_notes": "Owner's default bold-clean with box-pop captions in the product's orange; brand-cards look (framed footage, navy/orange product card); product cutout rises on the product name with an Oswald title; badges for each ingredient as spoken.",
+  "brand": {
+    "bg1": "#2E4A73",
+    "bg2": "#0D1626",
+    "accent": "#F07C2A",
+    "ink": "#111111"
+  },
+  "frame": {
+    "margin": 0.03,
+    "top": 0.03,
+    "radius": 40,
+    "border": 6,
+    "color": "#F07C2A"
+  },
+  "captions": {
+    "keywords": {},
+    "style": {
+      "mode": "html",
+      "template": "box-pop",
+      "accent": "#F07C2A",
+      "y": 0.7
+    }
+  },
+  "shots": [
+    {
+      "src": "clip.mov",
+      "in": 0,
+      "out": 18.18,
+      "description": "Shopkeeper with the Mega-Tox bag on a motorbike explains the product.",
+      "motion": {
+        "type": "zoom_in",
+        "amount": 0.08
+      },
+      "punch": [
+        [
+          1.2,
+          1.8
+        ],
+        [
+          11.2,
+          12.1
+        ],
+        [
+          15.6,
+          16.25
+        ]
+      ],
+      "shake": [
+        [
+          16.32,
+          16.7
+        ]
+      ]
+    }
+  ],
+  "texts": [
+    {
+      "segments": [
+        {
+          "text": "MEGA-",
+          "preset": "headline",
+          "size": 7.6,
+          "color": "#F07C2A"
+        },
+        {
+          "text": "TOX",
+          "preset": "headline",
+          "size": 7.6,
+          "attach": true
+        },
+        {
+          "text": "plus",
+          "preset": "accent",
+          "size": 5.6,
+          "color": "#F07C2A",
+          "newline": true
+        }
+      ],
+      "start": 1.95,
+      "end": 4.0,
+      "x": 0.7,
+      "y": 0.2,
+      "animation": "slide_up",
+      "outline": 0.3,
+      "shadow": 4,
+      "shadow_alpha": 64
+    },
+    {
+      "segments": [
+        {
+          "text": "natural yeast · powerful protection",
+          "preset": "label",
+          "size": 2.9
+        },
+        {
+          "text": "MEGA-",
+          "preset": "headline",
+          "size": 10.5,
+          "color": "#F07C2A",
+          "newline": true
+        },
+        {
+          "text": "TOX",
+          "preset": "headline",
+          "size": 10.5,
+          "attach": true
+        },
+        {
+          "text": "plus",
+          "preset": "accent",
+          "size": 7,
+          "color": "#F07C2A",
+          "newline": true
+        }
+      ],
+      "start": 17.25,
+      "end": 18.18,
+      "y": 0.13,
+      "animation": "slide_up",
+      "outline": 0.3,
+      "shadow": 4,
+      "shadow_alpha": 64
+    }
+  ],
+  "overlays": [
+    {
+      "file": "mega-tox-bag-cutout.png",
+      "start": 1.85,
+      "end": 4.0,
+      "x": 0.72,
+      "y": 0.47,
+      "width": 0.34,
+      "animation": "rise"
+    },
+    {
+      "file": "badge-vitamins.png",
+      "start": 3.05,
+      "end": 5.8,
+      "x": 0.25,
+      "y": 0.2,
+      "width": 0.22
+    },
+    {
+      "file": "badge-yeast.png",
+      "start": 4.0,
+      "end": 5.8,
+      "x": 0.5,
+      "y": 0.2,
+      "width": 0.22
+    },
+    {
+      "file": "badge-tonic.png",
+      "start": 5.88,
+      "end": 7.4,
+      "x": 0.5,
+      "y": 0.2,
+      "width": 0.24
+    },
+    {
+      "file": "badge-protection.png",
+      "start": 12.4,
+      "end": 14.4,
+      "x": 0.5,
+      "y": 0.2,
+      "width": 0.26
+    },
+    {
+      "file": "mega-tox-bag-cutout.png",
+      "start": 17.2,
+      "end": 18.18,
+      "x": 0.5,
+      "y": 0.45,
+      "width": 0.42,
+      "animation": "rise"
+    }
+  ],
+  "backdrop": [
+    {
+      "start": 17.2,
+      "end": 18.18,
+      "blur": 20,
+      "dim": 0.4
+    }
+  ],
+  "cards": [
+    {
+      "type": "headline",
+      "start": 8.2,
+      "end": 10.05,
+      "label": "Mega-Tox Plus",
+      "title": "Bohat *level*\nki cheez",
+      "sub": "natural yeast animal feed additive",
+      "product": "mega-tox-bag-cutout.png",
+      "product_size": 0.46
+    }
+  ],
+  "sfx": [
+    {
+      "sound": "impact",
+      "at": 0.0,
+      "volume": 0.45
+    },
+    {
+      "sound": "swoosh_up",
+      "at": 1.75,
+      "volume": 0.42
+    },
+    {
+      "sound": "pop",
+      "at": 2.2,
+      "volume": 0.4
+    },
+    {
+      "sound": "pop",
+      "at": 3.05,
+      "volume": 0.45
+    },
+    {
+      "sound": "pop",
+      "at": 4.0,
+      "volume": 0.45
+    },
+    {
+      "sound": "pop",
+      "at": 5.88,
+      "volume": 0.45
+    },
+    {
+      "sound": "whoosh",
+      "at": 8.1,
+      "volume": 0.4
+    },
+    {
+      "sound": "whoosh_fast",
+      "at": 9.95,
+      "volume": 0.32
+    },
+    {
+      "sound": "ching",
+      "at": 12.4,
+      "volume": 0.35
+    },
+    {
+      "sound": "impact",
+      "at": 15.62,
+      "volume": 0.3
+    },
+    {
+      "sound": "swoosh_up",
+      "at": 17.1,
+      "volume": 0.42
+    }
+  ],
+  "flashes": [
+    {
+      "at": 8.2,
+      "alpha": 0.35
+    },
+    {
+      "at": 10.05,
+      "alpha": 0.35
+    }
+  ],
+  "fade": {
+    "out": 0.35
+  }
+}

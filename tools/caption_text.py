@@ -85,8 +85,16 @@ def main() -> None:
     kept = []
     texts = {i: new.get(i, ln["text"]) for i, ln in enumerate(lines, 1)}
     keep_ids = [i for i in texts if texts[i]]  # empty row = drop this caption
-    pool = [w for i in keep_ids for w in (lines[i - 1].get("words") or [])]
-    new_words = [t.split() for t in (texts[i] for i in keep_ids)]
+    # pool: words of every caption not explicitly emptied (rows left out of the file still count,
+    # so the file may re-break the words into fewer or more rows)
+    pool = [w for i, ln in enumerate(lines, 1) if not (i in new and not new[i]) for w in (ln.get("words") or [])]
+    rows_given = [new[i] for i in sorted(new) if new[i]]
+    if pool and sum(len(t.split()) for t in rows_given) == len(pool):
+        keep_ids = None
+        new_words = [t.split() for t in rows_given]
+    else:
+        new_words = [t.split() for t in (texts[i] for i in keep_ids)]
+        pool = [w for i in keep_ids for w in (lines[i - 1].get("words") or [])]
     if pool and sum(map(len, new_words)) == len(pool):
         # same number of words overall: lines may be re-broken freely, each word keeps its exact time
         k = 0

@@ -106,7 +106,7 @@ def segments_text(segs: list, presets: dict, H: int) -> str:
         if sg.get("color"):
             tags += "\\c" + ass_color(sg["color"])
         text = sg["text"].upper() if sg.get("uppercase") else sg["text"].lower() if sg.get("lowercase") else sg["text"]
-        sep = "" if i == 0 else ("\\N" if sg.get("newline") else " ")
+        sep = "" if i == 0 else ("\\N" if sg.get("newline") else "" if sg.get("attach") else " ")
         out.append(f"{sep}{{{tags}}}{ass_text(text)}")
     return "".join(out)
 

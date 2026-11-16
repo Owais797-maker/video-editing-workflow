@@ -23,7 +23,7 @@ from pathlib import Path
 from common import FONTS, REPO, die, load_json, need, resolve, run
 
 HERE = Path(__file__).resolve().parent / "htmlcaps"
-TEMPLATES = ["box-pop", "editorial", "minimal", "outline-3d", "press", "glass", "swiss"]
+TEMPLATES = ["box-pop", "editorial", "minimal", "outline-3d", "press", "glass", "swiss", "explainer"]
 STACKED = {"editorial", "press"}  # templates that put the big word on its own row
 ENTRANCE = [0.0, 0.62, 1.12, 1.0]  # eased progress per frame (overshoot, settle)
 FONT_FILES = [  # (css family, file stem, weight, style)
@@ -36,6 +36,7 @@ FONT_FILES = [  # (css family, file stem, weight, style)
     ("Inter Tight", "InterTight-800", 800, "normal"),
     ("Inter Tight", "InterTight-900", 900, "normal"),
     ("Bebas Neue", "BebasNeue-400", 400, "normal"),
+    ("Playfair Display", "PlayfairDisplay-800i", 800, "italic"),
 ]
 
 

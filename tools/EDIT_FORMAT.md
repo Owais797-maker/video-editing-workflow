@@ -146,6 +146,11 @@ Use them sparingly on hooks, cuts and punchlines.
 "color": "#5AD32F", "x": 0.46, "y": 0.3, "w": 0.5, "h": 0.075}` types its letters in over the video.
 Caption template `swiss`: big tight lowercase words stacked at the top (`"y": 0.17`, words_per_line 1–2).
 
+**Explainer UI** (styles/explainer-ui): `"frame": {"layout": "split", "split": 0.5}` puts the speaker in a
+rounded card in the lower half; card `{"type": "panel", "area": "top-half" | "card", "steps": 5, "step": 2,
+"label": "Tareeka #2", "pill": "Example", "text": "Janwar ka *wazan* kyun nahi barh raha?", "read_time": 2.4,
+"light": false}` — words light up as spoken, `*word*` in accent serif italic. Caption template `explainer`.
+
 **backdrop** – `[{"start": 17.6, "end": 20, "blur": 18, "dim": 0.35}]` blurs and darkens the
 video for that time, e.g. behind a product cutout ("product card") or a big title.
 

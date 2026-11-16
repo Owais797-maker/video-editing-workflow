@@ -38,6 +38,9 @@ typography, composition, real photography and storytelling over decoration and t
   (styles/swiss-editorial), map cards, brand cards, glass boxes in the product colours.
 - Default look is light **cinematic** but crisp (`look.cinematic`, sharpen, grain 2, Lanczos
   scaling): never soften the picture. Captions get a very soft swish per line + whoosh on big words.
+- Saved reference styles to vary with: bold-clean (default, box-pop), brand-cards, swiss-editorial,
+  explainer-ui (split screen + step panels, great for "tareeka/tips" series), italic-kinetic,
+  farm-ki-baat typography, liquid-glass.
 - For voice-over story ideas and scripts use `guides/shop-story-reels.md`.
 - For product reels the owner likes the **brand-cards** look (styles/brand-cards): framed
   footage + full-frame brand cards with the product cutout, stats and contact card.

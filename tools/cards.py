@@ -64,6 +64,8 @@ def card_frame(c: dict, t: float, dur: float, W: int, H: int, product: str | Non
     kind = c.get("type", "headline")
     if kind in ("section", "tag"):
         return swiss_frame(c, t, dur, W, H, th, fade)
+    if kind == "panel":
+        return panel_frame(c, t, dur, W, H, th, fade)
     rnd = random.Random(seed)
     bokeh = []
     for _ in range(7):
@@ -116,6 +118,38 @@ def card_frame(c: dict, t: float, dur: float, W: int, H: int, product: str | Non
     return (f'<div class="card{align}" style="{style}">{"".join(bokeh)}'
             f'<div class="topline" style="width:{min(1, t / max(dur, .1)) * 100:.1f}%"></div>'
             f'{mapsvg}<div class="stack"{stack_style}>{"".join(items)}</div>{prod}</div>')
+
+
+def panel_frame(c: dict, t: float, dur: float, W: int, H: int, th: dict, fade: float) -> str:
+    """Explainer-UI panel (learned from an explainer reel): rounded dark (or light) card at the top with an
+    optional 1..N step tracker, a small accent label, a pill, and text whose words light up over the
+    card's duration; *word* = accent serif italic. "area": "top-half" fills the upper half (split screen)."""
+    light = bool(c.get("light"))
+    acc = th["accent"]
+    steps = ""
+    if c.get("steps"):
+        n, cur = int(c["steps"]), int(c.get("step", 1))
+        dots = []
+        for i in range(1, n + 1):
+            cls = "done" if i < cur else "cur" if i == cur else ""
+            mark = "✓" if i < cur else str(i)
+            dots.append(f'<span class="dot {cls}">{mark}</span>')
+        steps = f'<div class="steps">{"".join(dots)}</div>'
+    label = f'<div class="plabel">{html.escape(c["label"])}</div>' if c.get("label") else ""
+    pill = f'<div class="ppill">{html.escape(c["pill"])}</div>' if c.get("pill") else ""
+    words = c.get("text", "").split()
+    lit = int(len(words) * min(1, max(0, (t - 0.15) / max(0.3, float(c.get("read_time", dur * 0.7))))) + 0.999)
+    out = []
+    for i, w in enumerate(words):
+        star = len(w) > 2 and w.startswith("*") and w.endswith("*")
+        txt = html.escape(w[1:-1] if star else w)
+        out.append(f'<span class="{"em " if star else ""}{"on" if i < lit else "off"}">{txt}</span>')
+    pop = ease_out(t / 0.3)
+    area = c.get("area", "card")
+    style = (f"--accent:{acc};opacity:{fade:.3f};transform:translateY({(1 - pop) * -30:.1f}px)")
+    top = c.get("stack_top", c.get("_safe_top", 0.13))
+    return (f'<div class="panel {"light" if light else ""} {area}" style="{style};top:{float(top) * 100:.1f}%">'
+            f'{steps}{label}{pill}<div class="ptext">{" ".join(out)}</div></div>')
 
 
 def swiss_frame(c: dict, t: float, dur: float, W: int, H: int, th: dict, fade: float) -> str:
@@ -275,6 +309,10 @@ def frame_layers(edit: dict, work: Path) -> tuple[Path, Path, Path, tuple[int, i
     m = int(W * float(fr.get("margin", 0.035)))
     top = int(H * float(fr.get("top", 0.03)))
     iw, ih = W - 2 * m, H - top - m
+    if fr.get("layout") == "split":  # explainer split screen: speaker card in the lower half
+        top = int(H * float(fr.get("split", 0.5)))
+        m = int(W * float(fr.get("margin", 0.08)))
+        iw, ih = W - 2 * m, H - top - int(H * 0.06)
     rad = int(fr.get("radius", 44))
     bw = int(fr.get("border", 9))
 

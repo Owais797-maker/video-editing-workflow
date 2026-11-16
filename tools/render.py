@@ -384,6 +384,10 @@ def build_graph(edit: dict, work: Path, preview: bool) -> tuple[list[str], str, 
     look = edit.get("look") or {}
     if any(k in look for k in ("brightness", "contrast", "saturation", "gamma")):
         vf.append("eq=" + ":".join(f"{k}={look[k]}" for k in ("brightness", "contrast", "saturation", "gamma") if k in look))
+    if look.get("cinematic"):  # light film look that keeps the picture crisp: S-curve, teal shadows / warm highlights
+        c = float(look["cinematic"])
+        vf.append(f"curves=master='0/0 0.22/{0.22 - 0.04 * c:.3f} 0.5/0.5 0.78/{0.78 + 0.04 * c:.3f} 1/1'")
+        vf.append(f"colorbalance=rs={-0.04 * c:.3f}:bs={0.05 * c:.3f}:rh={0.045 * c:.3f}:bh={-0.04 * c:.3f}")
     if look.get("warmth"):  # + warmer, - cooler
         wv = float(look["warmth"])
         vf.append(f"colorbalance=rm={wv:.3f}:bm={-wv:.3f}:rh={wv / 2:.3f}:bh={-wv / 2:.3f}")

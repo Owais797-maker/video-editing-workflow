@@ -192,7 +192,9 @@
       "title": "*Sialkot* ki taraf",
       "to": "Sialkot",
       "route_time": 1.05,
-      "stack_top": 0.08
+      "stack_top": 0.08,
+      "from": "Karachi",
+      "from_label": "Karachi"
     },
     {
       "type": "stats",

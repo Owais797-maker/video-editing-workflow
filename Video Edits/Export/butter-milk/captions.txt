@@ -1,4 +1,4 @@
-1 | agle ek *minute* mein
+1 | Next One *minute* mein
 2 | aap ko janwaron ka
 3 | *wazan* kyun nahi
 4 | barh raha
@@ -6,15 +6,15 @@
 6 | aur aap *barhana*
 7 | bhi seekh jayen ge
 8 | to bhai yeh hai
-9 | _ bhai
+9 | Maahid Bhai
 10 | jo ke Butter Milk
-11 | le ke ja raha hai
+11 | le ke ja raha hain
 12 | *Sialkot* ki taraf
 13 | aur Butter Milk mein
 14 | *protein* aur
 15 | butter *fat* hota hai
 16 | taake janwaron ka
 17 | *wazan* bhi barhe
-18 | _ aati hai
-19 | *chamak* ka ek
-20 | finishing wala *touch* hai
+18 | Golaai Aaye
+19 | *chamak* aaye ek
+20 | finishing wala *touch* Aaye

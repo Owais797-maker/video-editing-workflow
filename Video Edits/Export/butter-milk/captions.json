@@ -8,12 +8,12 @@
         {
           "start": 0.0,
           "end": 0.56,
-          "text": "agle"
+          "text": "Next"
         },
         {
           "start": 0.56,
           "end": 0.78,
-          "text": "ek"
+          "text": "One"
         },
         {
           "start": 0.78,
@@ -27,7 +27,7 @@
           "text": "mein"
         }
       ],
-      "text": "agle ek minute mein"
+      "text": "Next One minute mein"
     },
     {
       "start": 1.08,
@@ -207,15 +207,15 @@
         {
           "start": 5.58,
           "end": 5.92,
-          "text": "_"
+          "text": "Maahid"
         },
         {
           "start": 5.92,
           "end": 6.06,
-          "text": "bhai"
+          "text": "Bhai"
         }
       ],
-      "text": "_ bhai"
+      "text": "Maahid Bhai"
     },
     {
       "start": 6.06,
@@ -271,10 +271,10 @@
         {
           "start": 7.38,
           "end": 7.48,
-          "text": "hai"
+          "text": "hain"
         }
       ],
-      "text": "le ke ja raha hai"
+      "text": "le ke ja raha hain"
     },
     {
       "start": 7.48,
@@ -423,21 +423,16 @@
       "words": [
         {
           "start": 12.0,
-          "end": 12.26,
-          "text": "_"
+          "end": 12.286,
+          "text": "Golaai"
         },
         {
-          "start": 12.26,
-          "end": 12.4,
-          "text": "aati"
-        },
-        {
-          "start": 12.4,
+          "start": 12.286,
           "end": 12.5,
-          "text": "hai"
+          "text": "Aaye"
         }
       ],
-      "text": "_ aati hai"
+      "text": "Golaai Aaye"
     },
     {
       "start": 12.5,
@@ -452,7 +447,7 @@
         {
           "start": 12.82,
           "end": 12.92,
-          "text": "ka"
+          "text": "aaye"
         },
         {
           "start": 12.92,
@@ -460,7 +455,7 @@
           "text": "ek"
         }
       ],
-      "text": "chamak ka ek"
+      "text": "chamak aaye ek"
     },
     {
       "start": 13.04,
@@ -485,10 +480,10 @@
         {
           "start": 13.92,
           "end": 14.1,
-          "text": "hai"
+          "text": "Aaye"
         }
       ],
-      "text": "finishing wala touch hai"
+      "text": "finishing wala touch Aaye"
     }
   ]
 }

@@ -16,50 +16,10 @@
     "words_per_line": 3,
     "max_gap": 0.45,
     "style": {
-      "mode": "kinetic",
-      "font": "Poppins SemiBold",
-      "bold": false,
-      "italic": false,
-      "lowercase": true,
-      "size": 4.0,
-      "color": "white",
-      "y": 0.68,
-      "outline": 0.55,
-      "outline_color": "#000000",
-      "outline_alpha": 40,
-      "glow": 7,
-      "shadow": 0,
-      "kinetic": {
-        "small": {
-          "font": "Poppins SemiBold",
-          "size": 4.8,
-          "color": "white"
-        },
-        "big": [
-          {
-            "font": "Oswald",
-            "bold": true,
-            "size": 8.4,
-            "color": "white",
-            "uppercase": true
-          },
-          {
-            "font": "Instrument Serif",
-            "italic": true,
-            "size": 10.5,
-            "color": "#FFD400"
-          },
-          {
-            "font": "Oswald",
-            "bold": true,
-            "size": 8.4,
-            "color": "#FFD400",
-            "uppercase": true
-          }
-        ],
-        "min_len": 4,
-        "no_big_scale": 1.25
-      }
+      "mode": "html",
+      "template": "box-pop",
+      "accent": "#FFD400",
+      "y": 0.68
     },
     "sfx": {
       "big": {

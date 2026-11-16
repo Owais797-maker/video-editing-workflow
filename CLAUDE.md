@@ -26,6 +26,8 @@ typography, composition, real photography and storytelling over decoration and t
   templates box-pop / editorial / minimal / outline-3d / press / glass, accent from the product
   palette). Vary the template between videos; add new CSS templates when a reference shows a
   new look worth having.
+- Owner's chosen caption look (2026-11-16): **box-pop** (Montserrat Black caps, spoken word in a
+  rounded accent box from the product palette). It is the default in styles/bold-clean.
 - For product reels the owner likes the **brand-cards** look (styles/brand-cards): framed
   footage + full-frame brand cards with the product cutout, stats and contact card.
 

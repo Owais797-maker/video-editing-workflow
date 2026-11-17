@@ -8,16 +8,357 @@
       "in": 0,
       "out": 12.46,
       "description": "Bags -> Mega-VMix -> customer -> Hepta Sef + vaccines",
-      "src": "clip.mov"
+      "src": "clip.mov",
+      "motion": {
+        "type": "zoom_in",
+        "amount": 0.06
+      },
+      "punch": [
+        [
+          4.58,
+          5.4
+        ],
+        [
+          9.74,
+          10.3
+        ]
+      ]
     }
   ],
   "captions": {
     "style": {
       "mode": "html",
       "template": "box-pop",
-      "accent": "#FFD400",
+      "accent": "#FFFFFF",
       "ink": "#111111",
       "y": 0.7
     }
+  },
+  "title": "Dil Murad sahab - Quetta",
+  "look": {
+    "cinematic": 0.6,
+    "brightness": 0.03,
+    "contrast": 1.06,
+    "saturation": 1.22,
+    "warmth": 0.03
+  },
+  "cards": [
+    {
+      "type": "map",
+      "start": 0.0,
+      "end": 1.5,
+      "label": "Order",
+      "title": "*Quetta* ka maal",
+      "from": "Karachi",
+      "from_label": "Karachi",
+      "to": "Quetta",
+      "route_time": 0.95
+    }
+  ],
+  "glass": [
+    {
+      "x": 0.66,
+      "y": 0.46,
+      "w": 0.4074074074074074,
+      "h": 0.22916666666666666,
+      "radius": 0.5,
+      "start": 3.3,
+      "end": 5.3
+    },
+    {
+      "tint_color": "#FFFFFF",
+      "tint": 0.62,
+      "border_color": "#FFFFFF",
+      "border": 0.7,
+      "brightness": 0.05,
+      "saturation": 1.0,
+      "text_color": "#111111",
+      "sub_color": "#4A4A4A",
+      "value_font": "Anton",
+      "x": 0.34,
+      "y": 0.21,
+      "w": 0.52,
+      "h": 0.19,
+      "label": "Premix",
+      "value": "MEGA-VMIX",
+      "sub": "25 kg bag",
+      "dot": "#E32626",
+      "start": 3.4,
+      "end": 5.3,
+      "value_size": 0.46,
+      "pad": 0.12
+    },
+    {
+      "tint_color": "#FFFFFF",
+      "tint": 0.62,
+      "border_color": "#FFFFFF",
+      "border": 0.7,
+      "brightness": 0.05,
+      "saturation": 1.0,
+      "text_color": "#111111",
+      "sub_color": "#4A4A4A",
+      "value_font": "Anton",
+      "x": 0.45,
+      "y": 0.5,
+      "w": 0.78,
+      "h": 0.19,
+      "label": "Customer · Quetta",
+      "value": "DIL MURAD SAHAB",
+      "sub": "Muhammad Dil Murad",
+      "dot": "#1E3FA0",
+      "start": 5.65,
+      "end": 7.9,
+      "value_size": 0.46,
+      "pad": 0.12
+    },
+    {
+      "x": 0.29,
+      "y": 0.43,
+      "w": 0.39814814814814814,
+      "h": 0.22395833333333334,
+      "radius": 0.5,
+      "start": 8.2,
+      "end": 10.25
+    },
+    {
+      "x": 0.71,
+      "y": 0.43,
+      "w": 0.39814814814814814,
+      "h": 0.22395833333333334,
+      "radius": 0.5,
+      "start": 9.1,
+      "end": 10.25
+    },
+    {
+      "tint_color": "#FFFFFF",
+      "tint": 0.62,
+      "border_color": "#FFFFFF",
+      "border": 0.7,
+      "brightness": 0.05,
+      "saturation": 1.0,
+      "text_color": "#111111",
+      "sub_color": "#4A4A4A",
+      "value_font": "Anton",
+      "x": 0.5,
+      "y": 0.2,
+      "w": 0.52,
+      "h": 0.15,
+      "label": "Order mein",
+      "value": "VACCINES",
+      "dot": "#1E88E5",
+      "start": 9.74,
+      "end": 10.28,
+      "value_size": 0.46,
+      "pad": 0.12
+    },
+    {
+      "x": 0.5,
+      "y": 0.45,
+      "w": 0.9,
+      "h": 0.27,
+      "radius": 0.12,
+      "start": 10.3,
+      "end": 12.46
+    },
+    {
+      "tint_color": "#FFFFFF",
+      "tint": 0.62,
+      "border_color": "#FFFFFF",
+      "border": 0.7,
+      "brightness": 0.05,
+      "saturation": 1.0,
+      "text_color": "#111111",
+      "sub_color": "#4A4A4A",
+      "value_font": "Anton",
+      "x": 0.47,
+      "y": 0.2,
+      "w": 0.8,
+      "h": 0.19,
+      "label": "✓ Quetta order",
+      "value": "DIL MURAD SAHAB",
+      "sub": "Heavy Gold · Mega-VMix · Hepta Sef",
+      "dot": "#3BD16F",
+      "start": 10.35,
+      "end": 12.46,
+      "value_size": 0.46,
+      "pad": 0.12
+    }
+  ],
+  "overlays": [
+    {
+      "file": "Video Edits/Raw/mega-vmix/mega-vmix-bag-cutout.png",
+      "start": 3.3,
+      "end": 5.3,
+      "x": 0.66,
+      "y": 0.46,
+      "width": 0.28,
+      "animation": "rise"
+    },
+    {
+      "file": "Video Edits/Raw/heavy-gold/heavy-gold-bag-cutout.png",
+      "start": 8.2,
+      "end": 10.25,
+      "x": 0.29,
+      "y": 0.43,
+      "width": 0.27,
+      "animation": "rise"
+    },
+    {
+      "file": "Video Edits/Raw/three-products/hepta-sef-cutout.png",
+      "start": 9.1,
+      "end": 10.25,
+      "x": 0.71,
+      "y": 0.43,
+      "width": 0.24,
+      "animation": "rise"
+    },
+    {
+      "file": "Video Edits/Raw/heavy-gold/heavy-gold-bag-cutout.png",
+      "start": 10.3,
+      "end": 12.46,
+      "x": 0.21,
+      "y": 0.45,
+      "width": 0.24,
+      "animation": "rise"
+    },
+    {
+      "file": "Video Edits/Raw/mega-vmix/mega-vmix-bag-cutout.png",
+      "start": 10.4,
+      "end": 12.46,
+      "x": 0.5,
+      "y": 0.45,
+      "width": 0.24,
+      "animation": "rise"
+    },
+    {
+      "file": "Video Edits/Raw/three-products/hepta-sef-cutout.png",
+      "start": 10.5,
+      "end": 12.46,
+      "x": 0.79,
+      "y": 0.45,
+      "width": 0.21,
+      "animation": "rise"
+    }
+  ],
+  "backdrop": [
+    {
+      "start": 10.3,
+      "end": 12.46,
+      "blur": 20,
+      "dim": 0.3
+    }
+  ],
+  "effects": [
+    {
+      "type": "blur_whip",
+      "at": 1.45,
+      "dur": 0.12
+    },
+    {
+      "type": "light_leak",
+      "at": 3.25,
+      "dur": 0.8,
+      "color": "#FFE7A0"
+    },
+    {
+      "type": "glitch",
+      "at": 9.74,
+      "dur": 0.14
+    },
+    {
+      "type": "blur_whip",
+      "at": 10.22,
+      "dur": 0.12
+    }
+  ],
+  "sfx": [
+    {
+      "sound": "impact",
+      "at": 0.0,
+      "volume": 0.42
+    },
+    {
+      "sound": "trr",
+      "at": 0.25,
+      "volume": 0.42
+    },
+    {
+      "sound": "click",
+      "at": 1.2,
+      "volume": 0.5
+    },
+    {
+      "sound": "whoosh",
+      "at": 1.42,
+      "volume": 0.4
+    },
+    {
+      "sound": "swoosh_up",
+      "at": 3.2,
+      "volume": 0.4
+    },
+    {
+      "sound": "pop",
+      "at": 3.5,
+      "volume": 0.35
+    },
+    {
+      "sound": "whoosh_fast",
+      "at": 5.6,
+      "volume": 0.32
+    },
+    {
+      "sound": "ding",
+      "at": 5.9,
+      "volume": 0.22
+    },
+    {
+      "sound": "swoosh_up",
+      "at": 8.1,
+      "volume": 0.35
+    },
+    {
+      "sound": "pop",
+      "at": 8.35,
+      "volume": 0.38
+    },
+    {
+      "sound": "pop",
+      "at": 9.22,
+      "volume": 0.38
+    },
+    {
+      "sound": "ching",
+      "at": 9.76,
+      "volume": 0.32
+    },
+    {
+      "sound": "whoosh",
+      "at": 10.2,
+      "volume": 0.4
+    },
+    {
+      "sound": "impact",
+      "at": 10.32,
+      "volume": 0.3
+    },
+    {
+      "sound": "pop",
+      "at": 10.45,
+      "volume": 0.3
+    },
+    {
+      "sound": "pop",
+      "at": 10.6,
+      "volume": 0.3
+    },
+    {
+      "sound": "ding",
+      "at": 11.4,
+      "volume": 0.25
+    }
+  ],
+  "fade": {
+    "out": 0.3
   }
 }

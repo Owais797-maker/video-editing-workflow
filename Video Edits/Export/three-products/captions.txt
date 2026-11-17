@@ -1,13 +1,13 @@
 1 | chaar din pehle
-2 | paise _ _ _
+2 | paise de gaye? _
 3 | aaj *maal* lene aaye
 4 | ji sir,
 5 | logon ka *trust* hai
 6 | *Quetta* se hain
-7 | *Dil Murad* sahab
-8 | Muhammad *Dil Murad* sahab
-9 | woh *Heavy Gold*,
-10 | *Hepta-Sef*,
+7 | *Dil* *Murad* sahab
+8 | Muhammad *Dil* *Murad* sahab
+9 | woh *Heavy* *Gold*
+10 | *Hepta-Sef*
 11 | *Vaccines*
 12 | bhai log bada
 13 | *trust* karte hain

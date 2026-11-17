@@ -35,12 +35,12 @@
         {
           "start": 1.5,
           "end": 1.68,
-          "text": "_"
+          "text": "de"
         },
         {
           "start": 1.68,
           "end": 1.82,
-          "text": "_"
+          "text": "gaye?"
         },
         {
           "start": 1.82,
@@ -48,7 +48,7 @@
           "text": "_"
         }
       ],
-      "text": "paise _ _ _"
+      "text": "paise de gaye? _"
     },
     {
       "start": 1.88,
@@ -153,12 +153,14 @@
         {
           "start": 5.7,
           "end": 6.04,
-          "text": "*Dil"
+          "text": "Dil",
+          "big": true
         },
         {
           "start": 6.04,
           "end": 6.44,
-          "text": "Murad*"
+          "text": "Murad",
+          "big": true
         },
         {
           "start": 6.44,
@@ -180,12 +182,14 @@
         {
           "start": 7.18,
           "end": 7.32,
-          "text": "*Dil"
+          "text": "Dil",
+          "big": true
         },
         {
           "start": 7.32,
           "end": 7.7,
-          "text": "Murad*"
+          "text": "Murad",
+          "big": true
         },
         {
           "start": 7.7,
@@ -207,15 +211,17 @@
         {
           "start": 8.22,
           "end": 8.6,
-          "text": "*Heavy"
+          "text": "Heavy",
+          "big": true
         },
         {
           "start": 8.6,
           "end": 8.92,
-          "text": "Gold*,"
+          "text": "Gold",
+          "big": true
         }
       ],
-      "text": "woh Heavy Gold*,"
+      "text": "woh Heavy Gold"
     },
     {
       "start": 9.1,
@@ -224,10 +230,11 @@
         {
           "start": 9.1,
           "end": 9.54,
-          "text": "*Hepta-Sef*,"
+          "text": "Hepta-Sef",
+          "big": true
         }
       ],
-      "text": "Hepta-Sef*,"
+      "text": "Hepta-Sef"
     },
     {
       "start": 9.74,

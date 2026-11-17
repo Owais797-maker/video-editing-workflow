@@ -245,17 +245,17 @@ def build_ass(edit: dict, path: Path) -> bool:
     for k, gl in enumerate(edit.get("glass", [])):
         if gl.get("value"):  # iOS-style liquid-glass widget: dot + label, big value, small line (left aligned)
             x0, y0, bw, bh = glass_box(gl, W, H)
-            pad = min(int(min(bw, bh) * 0.16), int(W * 0.06))
+            pad = min(int(min(bw, bh) * float(gl.get("pad", 0.16))), int(W * 0.06))
             vs = int(bh * float(gl.get("value_size", 0.34)))
             ls = int(bh * 0.13)
             dot = gl.get("dot", "#E8553B")
             styles.append(style_line(f"GW{k}", {"font": "Inter Tight", "bold": False, "size": 100 * ls / H,
-                                                "color": "white", "outline": 0, "shadow": 0}, H, 2, 7))
+                                                "color": gl.get("text_color", "#FFFFFF"), "outline": 0, "shadow": 0}, H, 2, 7))
             s0, s1 = float(gl.get("start", 0)), float(gl.get("end", edit["_total"]))
             fd = "\\fad(250,250)"
             ev = []
             if gl.get("label"):
-                ev.append((y0 + pad, "{\\c" + ass_color(dot) + "}●{\\c&HFFFFFF&} " + ass_text(gl["label"]), ls, "Inter Tight", 0))
+                ev.append((y0 + pad, "{\\c" + ass_color(dot) + "}●{\\c" + ass_color(gl.get("text_color", "#FFFFFF")) + "} " + ass_text(gl["label"]), ls, "Inter Tight", 0))
             ev.append((y0 + pad + int(ls * 1.5), ass_text(gl["value"]), vs, gl.get("value_font", "Inter Tight"), 1))
             if gl.get("sub"):  # anchored to the box bottom so it never spills out
                 # stylish sub line: own font / size / colour / italic (style glass.widget sub_*)

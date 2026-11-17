@@ -245,7 +245,7 @@ def build_ass(edit: dict, path: Path) -> bool:
     for k, gl in enumerate(edit.get("glass", [])):
         if gl.get("value"):  # iOS-style liquid-glass widget: dot + label, big value, small line (left aligned)
             x0, y0, bw, bh = glass_box(gl, W, H)
-            pad = int(min(bw, bh) * 0.16)
+            pad = min(int(min(bw, bh) * 0.16), int(W * 0.06))
             vs = int(bh * float(gl.get("value_size", 0.34)))
             ls = int(bh * 0.13)
             dot = gl.get("dot", "#E8553B")
@@ -257,11 +257,18 @@ def build_ass(edit: dict, path: Path) -> bool:
             if gl.get("label"):
                 ev.append((y0 + pad, "{\\c" + ass_color(dot) + "}●{\\c&HFFFFFF&} " + ass_text(gl["label"]), ls, "Inter Tight", 0))
             ev.append((y0 + pad + int(ls * 1.5), ass_text(gl["value"]), vs, gl.get("value_font", "Inter Tight"), 1))
-            if gl.get("sub"):
-                ev.append((y0 + pad + int(ls * 1.5) + int(vs * 1.08), ass_text(gl["sub"]), ls, "Inter Tight", 0))
-            for yy, txt, size, fn, bold in ev:
+            if gl.get("sub"):  # anchored to the box bottom so it never spills out
+                ev.append((y0 + bh - int(pad * 0.8), ass_text(gl["sub"]), ls, "Inter Tight", 0))
+            # shrink the value if label + value lines + sub would not fit inside the box
+            nl = str(gl["value"]).count("\n") + 1
+            room = bh - 2 * pad - (int(ls * 1.5) if gl.get("label") else 0) - (int(ls * 1.3) if gl.get("sub") else 0)
+            if vs * (nl - 0.1) > room:
+                vs = max(int(room / (nl - 0.1)), ls)
+                ev = [(y, t, vs if b else s, f, b) for y, t, s, f, b in ev]
+            for i, (yy, txt, size, fn, bold) in enumerate(ev):
+                an = 1 if (gl.get("sub") and i == len(ev) - 1) else 7
                 events.append(f"Dialogue: 4,{ass_time(s0)},{ass_time(s1)},GW{k},,0,0,0,,"
-                              f"{{\\an7\\pos({x0 + pad},{yy})\\fn{fn}\\fs{size}\\b{bold}{fd}}}{txt}")
+                              f"{{\\an{an}\\pos({x0 + pad},{yy})\\fn{fn}\\fs{size}\\b{bold}{fd}}}{txt}")
             continue
         if not gl.get("text"):
             continue

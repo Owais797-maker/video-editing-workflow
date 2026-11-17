@@ -18,7 +18,6 @@ Heavy Gold palette (gold + royal blue); map Karachi to Khanpur; big headings 'An
 
 - **Clip:** `clip.mov` 0:00.0–0:18.8
 - **What happens:** Heavy Gold bags packed for dispatch.
-- **On-screen text:** DISPATCH · KARACHI → KHANPUR ANAS BHAI KA MAAL | HEAVY GOLD 2 bags · 5 in 1 | ✓ DISPATCHED ANAS BHAI KHANPUR
 - **Captions:** Khanpur ki taraf / Anas bhai ko / ja rahe hain / do bag / Heavy Gold ke / VIP _ _ / cattle farming ke / hawale se / log bade shauqeen hain bhai / minerals ka powder / bhi le rahe hain / to woh powder / jo koi top-notch _ / chalta hai naam se / ke agar variety _ / of customers ke / hawale se dekha jaye / to bhai yeh / top powder hai / result hai na
 
 ## Audio

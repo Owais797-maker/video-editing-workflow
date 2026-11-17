@@ -189,3 +189,6 @@ impact, boom, riser, glitch) or `{"file": "my-sound.wav", "at": ...}` from Raw/<
 **flashes** – `[{"at": 2.23, "alpha": 0.5, "dur": 0.18, "color": "white"}]` quick flash, e.g. on a cut.
 
 **loudness** – target LUFS for the final mix (-14 suits social media). `null` turns it off.
+
+
+Glass widget sub line styling: `sub_font` (default Inter Tight), `sub_italic`, `sub_size` (× label size), `sub_color`, `sub_spacing` (letter spacing px). Defaults come from the style's `glass.widget`.

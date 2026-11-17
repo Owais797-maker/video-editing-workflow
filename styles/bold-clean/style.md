@@ -44,6 +44,9 @@ Every new video uses this without the owner explaining it again. Reference proje
    sub line. Just write `{"label","value","sub","dot","x","y","start","end"}`: the rest comes from
    `glass.widget` in style.json. Two-line value: `h` ≈ 0.3, `w` 0.72, `value_size` 0.24.
    Dot colours: product accent first, then blue #2F6BFF / green #3BD16F ("✓ Dispatched") / red #E8553B.
+   Sub line (owner 2026-11-17: "stylish"): Instrument Serif italic, warm off-white #EDE6D6,
+   1.5× label size (`sub_font/sub_italic/sub_size/sub_color`, default in style.json;
+   preview styles/liquid-glass/widget-sub-style.jpg).
    Keep labels short (≤ 20 chars) so they stay inside the box. 1 widget at a time, upper third.
 4. **Product**: BiRefNet cutout rising in (`rise`) on a grey round liquid-glass disc
    (`glass` with only x/y/w/h → `glass.plain`, radius 0.5) when the product is named;

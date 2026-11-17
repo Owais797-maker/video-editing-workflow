@@ -143,7 +143,11 @@
       "value_font": "Inter Tight Black",
       "w": 0.5,
       "h": 0.15,
-      "value_size": 0.38
+      "value_size": 0.38,
+      "sub_font": "Instrument Serif",
+      "sub_italic": true,
+      "sub_size": 1.5,
+      "sub_color": "#EDE6D6"
     },
     "plain": {
       "radius": 0.5,

@@ -1,0 +1,227 @@
+{
+  "project": "danish-goat-farm",
+  "title": "Danish Goat Farm",
+  "style": "bold-clean",
+  "summary": "Shop reel: why Danish bhai is folding his hands and why his full look was filmed; he raised heavy VIP goats before anyone cared; still buying Korean injections; his Danish Goat Farm.",
+  "reference_notes": "bold-clean box-pop captions; palette from the footage (Danish bhai's pink striped shirt + warm wood): rose accent on deep maroon; name strip, typed tag boxes, brand end card, light leak / glitch / blur whip, crisp cinematic look.",
+  "brand": {
+    "bg1": "#6A2038",
+    "bg2": "#17070D",
+    "accent": "#FF5C8A",
+    "ink": "#17070D"
+  },
+  "captions": {
+    "keywords": {},
+    "style": {
+      "mode": "html",
+      "template": "box-pop",
+      "accent": "#FF5C8A",
+      "y": 0.7
+    }
+  },
+  "shots": [
+    {
+      "src": "clip.mov",
+      "in": 0,
+      "out": 17.73,
+      "description": "Danish bhai at the shop, then the injections on the counter.",
+      "motion": {
+        "type": "zoom_in",
+        "amount": 0.06
+      },
+      "punch": [
+        [
+          2.3,
+          3.1
+        ],
+        [
+          7.1,
+          7.9
+        ],
+        [
+          9.66,
+          10.4
+        ],
+        [
+          16.5,
+          17.3
+        ]
+      ]
+    }
+  ],
+  "texts": [
+    {
+      "segments": [
+        {
+          "text": "Danish bhai ki",
+          "preset": "label",
+          "size": 3.8
+        },
+        {
+          "text": "REEL",
+          "preset": "headline",
+          "size": 12,
+          "color": "#FFFFFF",
+          "newline": true
+        }
+      ],
+      "start": 0.1,
+      "end": 2.1,
+      "y": 0.45,
+      "animation": "pop",
+      "outline": 0.3,
+      "shadow": 4,
+      "shadow_alpha": 64,
+      "box": true,
+      "box_color": "#E0457A"
+    },
+    {
+      "type": "lower_third",
+      "text": "Danish bhai",
+      "subtext": "Danish Goat Farm",
+      "start": 2.2,
+      "end": 5.7,
+      "color": "#E0457A",
+      "font": "Montserrat",
+      "x": 0.06,
+      "y": 0.56
+    }
+  ],
+  "cards": [
+    {
+      "type": "tag",
+      "text": "VIP BAKRE",
+      "color": "#E0457A",
+      "x": 0.46,
+      "y": 0.2,
+      "w": 0.56,
+      "h": 0.075,
+      "start": 7.1,
+      "end": 8.95
+    },
+    {
+      "type": "tag",
+      "text": "KOREA INJECTION",
+      "color": "#E0457A",
+      "x": 0.46,
+      "y": 0.2,
+      "w": 0.74,
+      "h": 0.075,
+      "start": 11.7,
+      "end": 13.65
+    },
+    {
+      "type": "headline",
+      "start": 15.4,
+      "end": 17.73,
+      "label": "Gulshan-e-Maymar",
+      "title": "Danish\n*Goat* *Farm*",
+      "sub": "zabardast farm",
+      "stack_top": 0.3
+    }
+  ],
+  "effects": [
+    {
+      "type": "light_leak",
+      "at": 0.05,
+      "dur": 0.9,
+      "color": "#FF7A9E"
+    },
+    {
+      "type": "glitch",
+      "at": 5.75,
+      "dur": 0.16
+    },
+    {
+      "type": "blur_whip",
+      "at": 10.95,
+      "dur": 0.14
+    }
+  ],
+  "sfx": [
+    {
+      "sound": "impact",
+      "at": 0.0,
+      "volume": 0.45
+    },
+    {
+      "sound": "pop",
+      "at": 0.15,
+      "volume": 0.4
+    },
+    {
+      "sound": "whoosh_fast",
+      "at": 2.15,
+      "volume": 0.32
+    },
+    {
+      "sound": "swoosh_up",
+      "at": 2.2,
+      "volume": 0.3
+    },
+    {
+      "sound": "glitch",
+      "at": 5.75,
+      "volume": 0.3
+    },
+    {
+      "sound": "click",
+      "at": 7.1,
+      "volume": 0.5
+    },
+    {
+      "sound": "ding",
+      "at": 7.3,
+      "volume": 0.25
+    },
+    {
+      "sound": "impact",
+      "at": 9.66,
+      "volume": 0.28
+    },
+    {
+      "sound": "whoosh",
+      "at": 10.9,
+      "volume": 0.36
+    },
+    {
+      "sound": "click",
+      "at": 11.7,
+      "volume": 0.5
+    },
+    {
+      "sound": "ching",
+      "at": 12.5,
+      "volume": 0.3
+    },
+    {
+      "sound": "riser",
+      "at": 13.9,
+      "volume": 0.22
+    },
+    {
+      "sound": "whoosh",
+      "at": 15.3,
+      "volume": 0.4
+    },
+    {
+      "sound": "impact",
+      "at": 15.45,
+      "volume": 0.32
+    },
+    {
+      "sound": "ding",
+      "at": 16.5,
+      "volume": 0.25
+    }
+  ],
+  "flashes": [
+    {
+      "at": 15.4,
+      "alpha": 0.3
+    }
+  ],
+  "fade": {
+    "out": 0.3
+  }
+}

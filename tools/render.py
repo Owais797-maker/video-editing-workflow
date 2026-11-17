@@ -667,14 +667,16 @@ def glass_chain(gl: dict, k: int, cv: str, W: int, H: int, fps: int, total: floa
     ImageDraw.Draw(big).rounded_rectangle((0, 0, bw * ss - 1, bh * ss - 1), rad * ss, fill=255)
     mask = big.resize((bw, bh), Image.LANCZOS)
     mask.save(work / f"glass{k}_mask.png")
-    face = Image.new("RGBA", (bw, bh), (255, 255, 255, int(255 * float(gl.get("tint", 0.10)))))
+    tc = tuple(int(gl.get("tint_color", "#FFFFFF").lstrip("#")[i:i + 2], 16) for i in (0, 2, 4))
+    bc = tuple(int(gl.get("border_color", "#FFFFFF").lstrip("#")[i:i + 2], 16) for i in (0, 2, 4))
+    face = Image.new("RGBA", (bw, bh), tc + (int(255 * float(gl.get("tint", 0.10))),))
     hl = Image.new("L", (bw, bh), 0)
     for y in range(int(bh * 0.5)):
         ImageDraw.Draw(hl).line((0, y, bw, y), fill=int(70 * (1 - y / (bh * 0.5))))
     face.putalpha(Image.fromarray(np.minimum(np.array(face.split()[-1]).astype(int) + np.array(hl).astype(int), 255).astype("uint8")))
     bd = Image.new("RGBA", (bw * ss, bh * ss), (0, 0, 0, 0))
     ImageDraw.Draw(bd).rounded_rectangle((ss, ss, bw * ss - ss - 1, bh * ss - ss - 1), rad * ss,
-                                         outline=(255, 255, 255, int(255 * float(gl.get("border", 0.55)))), width=2 * ss)
+                                         outline=bc + (int(255 * float(gl.get("border", 0.55))),), width=int(gl.get("border_width", 2)) * ss)
     face.alpha_composite(bd.resize((bw, bh), Image.LANCZOS))
     clear = Image.new("RGBA", (bw, bh), (0, 0, 0, 0))
     face = Image.composite(face, clear, mask)

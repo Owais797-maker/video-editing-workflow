@@ -1,0 +1,314 @@
+{
+  "project": "mega-vmix",
+  "title": "Mega-VMix",
+  "style": "bold-clean",
+  "summary": "Shop reel: Mega-VMix, a strong vitamin premix with yeast; being sent to Rawalpindi; essential for qurbani and dairy animals.",
+  "reference_notes": "Butter-Milk-style box-pop captions in the bag's blue (white text); product-coloured blue glass boxes for key points; map Karachi (Denso Hall) to Rawalpindi; minimal graphics so the footage stays visible; product end card.",
+  "brand": {
+    "bg1": "#2E62CF",
+    "bg2": "#0B1F4D",
+    "accent": "#FFFFFF",
+    "ink": "#2457C5"
+  },
+  "captions": {
+    "keywords": {},
+    "style": {
+      "mode": "html",
+      "template": "box-pop",
+      "accent": "#2457C5",
+      "ink": "#FFFFFF",
+      "y": 0.7
+    }
+  },
+  "shots": [
+    {
+      "src": "clip.mov",
+      "in": 0,
+      "out": 12.8,
+      "description": "Bag, then the shop boy, then bags on the bike.",
+      "motion": {
+        "type": "zoom_in",
+        "amount": 0.05
+      },
+      "punch": [
+        [
+          1.12,
+          2.0
+        ],
+        [
+          7.48,
+          8.4
+        ]
+      ]
+    }
+  ],
+  "glass": [
+    {
+      "x": 0.29,
+      "y": 0.2,
+      "w": 0.4,
+      "h": 0.075,
+      "text": "VITAMINS",
+      "subtext": "tagra powder",
+      "start": 0.3,
+      "end": 3.9,
+      "size": 3.6,
+      "tint_color": "#2457C5",
+      "tint": 0.55,
+      "border_color": "#9DB8F5",
+      "border_width": 3,
+      "border": 0.9,
+      "font": "Montserrat Black"
+    },
+    {
+      "x": 0.71,
+      "y": 0.2,
+      "w": 0.4,
+      "h": 0.075,
+      "text": "YEAST",
+      "subtext": "is mein bhi",
+      "start": 2.2,
+      "end": 3.9,
+      "size": 3.6,
+      "tint_color": "#2457C5",
+      "tint": 0.55,
+      "border_color": "#9DB8F5",
+      "border_width": 3,
+      "border": 0.9,
+      "font": "Montserrat Black"
+    },
+    {
+      "x": 0.46,
+      "y": 0.2,
+      "w": 0.72,
+      "h": 0.075,
+      "text": "QURBANI & DOODH",
+      "subtext": "ke janwaron ke liye",
+      "start": 5.85,
+      "end": 7.45,
+      "size": 3.6,
+      "tint_color": "#2457C5",
+      "tint": 0.55,
+      "border_color": "#9DB8F5",
+      "border_width": 3,
+      "border": 0.9,
+      "font": "Montserrat Black"
+    },
+    {
+      "x": 0.74,
+      "y": 0.52,
+      "w": 0.46296296296296297,
+      "h": 0.2604166666666667,
+      "radius": 0.5,
+      "start": 1.15,
+      "end": 3.9,
+      "tint_color": "#A7ADB4",
+      "tint": 0.22,
+      "border_color": "#FFFFFF",
+      "border": 0.55,
+      "border_width": 2,
+      "blur": 26
+    },
+    {
+      "x": 0.46,
+      "y": 0.46,
+      "w": 0.6111111111111112,
+      "h": 0.34375,
+      "radius": 0.5,
+      "start": 9.05,
+      "end": 12.8,
+      "tint_color": "#A7ADB4",
+      "tint": 0.22,
+      "border_color": "#FFFFFF",
+      "border": 0.55,
+      "border_width": 2,
+      "blur": 26
+    }
+  ],
+  "overlays": [
+    {
+      "file": "mega-vmix-bag-cutout.png",
+      "start": 1.1,
+      "end": 3.9,
+      "x": 0.74,
+      "y": 0.52,
+      "width": 0.28,
+      "animation": "rise"
+    },
+    {
+      "file": "mega-vmix-bag-cutout.png",
+      "start": 9.0,
+      "end": 12.8,
+      "x": 0.46,
+      "y": 0.46,
+      "width": 0.42,
+      "animation": "rise"
+    }
+  ],
+  "backdrop": [
+    {
+      "start": 9.0,
+      "end": 12.8,
+      "blur": 20,
+      "dim": 0.42
+    }
+  ],
+  "texts": [
+    {
+      "segments": [
+        {
+          "text": "PREMIX",
+          "preset": "label",
+          "size": 2.8,
+          "color": "#E2343C"
+        },
+        {
+          "text": "· 25 KG",
+          "preset": "label",
+          "size": 2.8
+        },
+        {
+          "text": "MEGA-",
+          "preset": "headline",
+          "size": 10,
+          "color": "#FFFFFF",
+          "newline": true
+        },
+        {
+          "text": "VMIX",
+          "preset": "headline",
+          "size": 10,
+          "color": "#E2343C",
+          "attach": true
+        },
+        {
+          "text": "vitamins · yeast",
+          "preset": "accent",
+          "size": 5.6,
+          "color": "#FFFFFF",
+          "newline": true
+        }
+      ],
+      "start": 9.15,
+      "end": 12.8,
+      "y": 0.15,
+      "animation": "slide_up",
+      "outline": 0.3,
+      "shadow": 4,
+      "shadow_alpha": 64
+    }
+  ],
+  "cards": [
+    {
+      "type": "map",
+      "start": 3.95,
+      "end": 5.75,
+      "label": "Mega-VMix",
+      "title": "*Rawalpindi* ki taraf",
+      "from": "Karachi",
+      "from_label": "Denso Hall, Karachi",
+      "to": "Rawalpindi",
+      "route_time": 1.05,
+      "theme": {
+        "bg1": "#2E62CF",
+        "bg2": "#0B1F4D",
+        "accent": "#FFFFFF",
+        "ink": "#2457C5"
+      }
+    }
+  ],
+  "effects": [
+    {
+      "type": "light_leak",
+      "at": 0.0,
+      "dur": 0.8,
+      "color": "#7FA6FF"
+    },
+    {
+      "type": "blur_whip",
+      "at": 3.85,
+      "dur": 0.12
+    },
+    {
+      "type": "glitch",
+      "at": 7.48,
+      "dur": 0.14
+    }
+  ],
+  "sfx": [
+    {
+      "sound": "impact",
+      "at": 0.0,
+      "volume": 0.42
+    },
+    {
+      "sound": "pop",
+      "at": 0.3,
+      "volume": 0.4
+    },
+    {
+      "sound": "swoosh_up",
+      "at": 1.0,
+      "volume": 0.38
+    },
+    {
+      "sound": "pop",
+      "at": 2.2,
+      "volume": 0.4
+    },
+    {
+      "sound": "whoosh",
+      "at": 3.85,
+      "volume": 0.4
+    },
+    {
+      "sound": "trr",
+      "at": 4.22,
+      "volume": 0.42
+    },
+    {
+      "sound": "click",
+      "at": 5.27,
+      "volume": 0.55
+    },
+    {
+      "sound": "whoosh_fast",
+      "at": 5.72,
+      "volume": 0.3
+    },
+    {
+      "sound": "pop",
+      "at": 5.85,
+      "volume": 0.4
+    },
+    {
+      "sound": "impact",
+      "at": 7.48,
+      "volume": 0.3
+    },
+    {
+      "sound": "swoosh_up",
+      "at": 8.9,
+      "volume": 0.4
+    },
+    {
+      "sound": "ching",
+      "at": 9.3,
+      "volume": 0.3
+    },
+    {
+      "sound": "ding",
+      "at": 11.6,
+      "volume": 0.2
+    }
+  ],
+  "flashes": [
+    {
+      "at": 3.95,
+      "alpha": 0.25
+    }
+  ],
+  "fade": {
+    "out": 0.35
+  }
+}

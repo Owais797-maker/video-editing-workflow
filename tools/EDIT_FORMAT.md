@@ -108,7 +108,8 @@ top-right, left, center, right, bottom-left, bottom, bottom-right (or `x`, `y` f
 **glass** – liquid-glass cards (frosted, blurred video behind, white border, rounded):
 `[{"x": 0.5, "y": 0.2, "w": 0.72, "h": 0.09, "text": "Heavy Gold", "subtext": "5 in 1",
 "start": 1, "end": 3.5, "radius": 0.28, "blur": 22, "tint": 0.10, "border": 0.55, "size": 3.6}]`.
-Only on request.
+Product-coloured glass: `"tint_color": "#2457C5", "tint": 0.35, "border_color": "#7FA6FF", "border_width": 3`.
+Only on request (or in the product palette when the owner asks for boxes).
 
 **captions.style.mode: "html"** – designer captions rendered with HTML/CSS in headless Chromium
 (`tools/html_captions.py`, templates in `tools/htmlcaps/templates.css`): `"template"`: `box-pop`

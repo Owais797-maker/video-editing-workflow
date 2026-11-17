@@ -69,6 +69,11 @@ def apply_style(edit: dict) -> None:
     for o in edit.get("overlays", []):
         for k, v in st.get("overlay", {}).items():
             o.setdefault(k, v)
+    # glass: widgets (label/value) and plain discs/boxes get the locked house look
+    for gl in edit.get("glass", []):
+        kind = "widget" if gl.get("value") else "plain"
+        for k, v in (st.get("glass", {}).get(kind) or {}).items():
+            gl.setdefault(k, v)
 
 
 def _src(project: str, name: str) -> Path:

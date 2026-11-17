@@ -245,17 +245,17 @@ def build_ass(edit: dict, path: Path) -> bool:
     for k, gl in enumerate(edit.get("glass", [])):
         if gl.get("value"):  # iOS-style liquid-glass widget: dot + label, big value, small line (left aligned)
             x0, y0, bw, bh = glass_box(gl, W, H)
-            pad = min(int(min(bw, bh) * 0.16), int(W * 0.06))
+            pad = min(int(min(bw, bh) * float(gl.get("pad", 0.16))), int(W * 0.06))
             vs = int(bh * float(gl.get("value_size", 0.34)))
             ls = int(bh * 0.13)
             dot = gl.get("dot", "#E8553B")
             styles.append(style_line(f"GW{k}", {"font": "Inter Tight", "bold": False, "size": 100 * ls / H,
-                                                "color": "white", "outline": 0, "shadow": 0}, H, 2, 7))
+                                                "color": gl.get("text_color", "#FFFFFF"), "outline": 0, "shadow": 0}, H, 2, 7))
             s0, s1 = float(gl.get("start", 0)), float(gl.get("end", edit["_total"]))
             fd = "\\fad(250,250)"
             ev = []
             if gl.get("label"):
-                ev.append((y0 + pad, "{\\c" + ass_color(dot) + "}●{\\c&HFFFFFF&} " + ass_text(gl["label"]), ls, "Inter Tight", 0))
+                ev.append((y0 + pad, "{\\c" + ass_color(dot) + "}●{\\c" + ass_color(gl.get("text_color", "#FFFFFF")) + "} " + ass_text(gl["label"]), ls, "Inter Tight", 0))
             ev.append((y0 + pad + int(ls * 1.5), ass_text(gl["value"]), vs, gl.get("value_font", "Inter Tight"), 1))
             if gl.get("sub"):  # anchored to the box bottom so it never spills out
                 # stylish sub line: own font / size / colour / italic (style glass.widget sub_*)
@@ -713,7 +713,7 @@ def glass_chain(gl: dict, k: int, cv: str, W: int, H: int, fps: int, total: floa
     face.putalpha(Image.fromarray(np.minimum(np.array(face.split()[-1]).astype(int) + np.array(hl).astype(int), 255).astype("uint8")))
     bd = Image.new("RGBA", (bw * ss, bh * ss), (0, 0, 0, 0))
     ImageDraw.Draw(bd).rounded_rectangle((ss, ss, bw * ss - ss - 1, bh * ss - ss - 1), rad * ss,
-                                         outline=bc + (int(255 * float(gl.get("border", 0.55))),), width=int(gl.get("border_width", 2)) * ss)
+                                         outline=bc + (int(255 * float(gl.get("border", 0.55))),), width=max(1, round(float(gl.get("border_width", 2)) * W / 1080)) * ss)
     face.alpha_composite(bd.resize((bw, bh), Image.LANCZOS))
     clear = Image.new("RGBA", (bw, bh), (0, 0, 0, 0))
     face = Image.composite(face, clear, mask)
@@ -728,7 +728,7 @@ def glass_chain(gl: dict, k: int, cv: str, W: int, H: int, fps: int, total: floa
         inputs += ["-loop", "1", "-framerate", str(fps), "-t", f"{total:.3f}", "-i", f"glass{k}_{name}.png"]
     fade = f"fade=t=in:st={s0}:d=0.25:alpha=1,fade=t=out:st={max(s0, s1 - 0.25):.3f}:d=0.25:alpha=1"
     en = f"enable='between(t,{s0},{s1})'"
-    blur = float(gl.get("blur", 22))
+    blur = float(gl.get("blur", 22)) * W / 1080  # same look at 1080p and 4K
     g.append(f"{cv}split[ga{k}][gb{k}]")
     g.append(f"[gb{k}]crop={bw}:{bh}:{x0}:{y0},gblur=sigma={blur},eq=brightness={float(gl.get("brightness", 0.05))}:saturation={float(gl.get("saturation", 1.3))},format=rgba[gbl{k}]")
     g.append(f"[{idx}:v]format=gray[gm{k}]")

@@ -254,7 +254,9 @@ def map_svg(c: dict, t: float, W: int, H: int, th: dict) -> str:
 
 def build(edit: dict, out_dir: Path, fps: int, total: float, fonts: list, resolve_src) -> Path:
     need("node")
-    W, H = edit["output"]["width"], edit["output"]["height"]
+    OW, OH = edit["output"]["width"], edit["output"]["height"]
+    sc = OW / 1080 if OW > 1080 else 1  # 4K: lay out at 1080 wide, rasterise at device scale (sharp, same design)
+    W, H = round(OW / sc), round(OH / sc)
     brand = {**DEFAULT_THEME, **(edit.get("brand") or {})}
     shutil.rmtree(out_dir, ignore_errors=True)
     out_dir.mkdir(parents=True)
@@ -279,11 +281,11 @@ def build(edit: dict, out_dir: Path, fps: int, total: float, fonts: list, resolv
             k += 1
     css = (HERE / "cards.css").read_text(encoding="utf-8")
     job = out_dir / "job.json"
-    job.write_text(json.dumps({"width": W, "height": H, "css": css, "fonts": fonts, "states": states}), encoding="utf-8")
+    job.write_text(json.dumps({"width": W, "height": H, "scale": sc, "css": css, "fonts": fonts, "states": states}), encoding="utf-8")
     run(["node", str(HERE / "render.js"), str(job)])
     from PIL import Image
     blank = out_dir / "blank.png"
-    Image.new("RGBA", (W, H), (0, 0, 0, 0)).save(blank)
+    Image.new("RGBA", (OW, OH), (0, 0, 0, 0)).save(blank)
     entries, t = [], 0.0
     for a, b, f in timeline:
         if a > t + 1e-3:

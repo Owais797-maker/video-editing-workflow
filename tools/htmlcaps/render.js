@@ -14,7 +14,7 @@ const { chromium } = require("playwright");
     ${job.css}
   </style></head><body><div id="cap"></div></body></html>`;
   const browser = await chromium.launch();
-  const page = await browser.newPage({ viewport: { width: job.width, height: job.height }, deviceScaleFactor: 1 });
+  const page = await browser.newPage({ viewport: { width: job.width, height: job.height }, deviceScaleFactor: job.scale || 1 });
   // load from a file next to the job so file:// images (product cutouts) are allowed
   const path = require("path");
   const pagePath = path.join(path.dirname(path.resolve(process.argv[2])), "page.html");

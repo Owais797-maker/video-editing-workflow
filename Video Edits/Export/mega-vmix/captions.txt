@@ -1,7 +1,7 @@
 1 | bhai *vitamins* _
 2 | ka *tagra* powder hai
 3 | *yeast* bhi
-4 | is mein _ bhi hai
+4 | is mein *Biotin* bhi hai
 5 | *Rawalpindi* _
 6 | ki taraf yeh
 7 | bhijwa-rahe hain

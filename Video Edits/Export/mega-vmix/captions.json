@@ -87,7 +87,8 @@
         {
           "start": 3.14,
           "end": 3.74,
-          "text": "_"
+          "text": "Biotin",
+          "big": true
         },
         {
           "start": 3.74,
@@ -100,7 +101,7 @@
           "text": "hai"
         }
       ],
-      "text": "is mein _ bhi hai"
+      "text": "is mein Biotin bhi hai"
     },
     {
       "start": 3.98,

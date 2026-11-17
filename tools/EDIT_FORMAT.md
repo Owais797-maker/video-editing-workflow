@@ -119,6 +119,12 @@ extrusion), `press` (vintage letterpress ink), `glass` (frosted pill); `"accent"
 Words pop in as spoken; `*big*` marks and keywords apply. Preview all templates on a frame:
 `python tools/html_captions.py --showcase "<edit.json>" --at 12.4`. New looks = new CSS classes.
 
+**glass widget** (owner's standard box, see styles/liquid-glass/widget-ref.jpg): a glass item with
+`"label"`, `"value"`, `"sub"`, `"dot"` becomes an iOS-style liquid-glass widget (dot + small label,
+big value, small line, left aligned). Standard look: `"tint_color": "#1C1C1E", "tint": 0.38,
+"border_color": "#FFFFFF", "border": 0.38, "border_width": 2, "radius": 0.22, "blur": 24,
+"brightness": -0.04, "saturation": 1.1, "value_font": "Inter Tight Black", "value_size": 0.4`.
+
 **captions.keywords** – words styled differently whenever they appear in captions:
 `{"heavy": {"font": "Anton", "color": "#FFD400", "size": 6.6, "uppercase": true}}`.
 **captions.style.glow** – soft blur on the outline (e.g. 6) for a glow look; `outline_alpha`

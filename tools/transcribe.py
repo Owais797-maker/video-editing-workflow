@@ -42,6 +42,8 @@ def main() -> None:
     ap.add_argument("--language", default=None, help="ur, en, hi ... (default: auto-detect)")
     ap.add_argument("--model", default="medium")
     ap.add_argument("--force", action="store_true", help="re-transcribe even if a transcript exists")
+    ap.add_argument("--prompt", default=None,
+                    help="names / product words likely in the speech, to help Whisper spell them (e.g. 'Anas bhai, Khanpur, Heavy Gold')")
     args = ap.parse_args()
 
     need("ffmpeg")
@@ -64,7 +66,8 @@ def main() -> None:
             print(f"Loading Whisper model '{args.model}' ...")
             model = WhisperModel(args.model, device="auto", compute_type="auto")
         print(f"Transcribing {src.name} ...")
-        segments, info = model.transcribe(load_audio(src), language=args.language, word_timestamps=True, vad_filter=True)
+        segments, info = model.transcribe(load_audio(src), language=args.language, word_timestamps=True, vad_filter=True,
+                                          initial_prompt=args.prompt)
         segs = []
         for s in segments:
             words = [{"start": round(w.start, 3), "end": round(w.end, 3), "text": w.word.strip()}

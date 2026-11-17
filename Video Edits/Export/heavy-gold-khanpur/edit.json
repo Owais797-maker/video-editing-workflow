@@ -1,0 +1,368 @@
+{
+  "project": "heavy-gold-khanpur",
+  "title": "Anas bhai – Khanpur",
+  "style": "bold-clean",
+  "summary": "Dispatch reel: two bags of Heavy Gold going from Karachi to Anas bhai in Khanpur; Khanpur folks are big cattle-farming enthusiasts; also taking minerals powder; top-notch product, result hai.",
+  "reference_notes": "Heavy Gold palette (gold + royal blue); map Karachi to Khanpur; big headings 'Anas bhai ka maal' / 'Anas bhai · Khanpur'; elegant cutout mockup on a grey glass disc; 'BADE SHAUQEEN' sticker; dispatch look; crisp cinematic grade.",
+  "brand": {
+    "bg1": "#2453C8",
+    "bg2": "#0B1E57",
+    "accent": "#FFD400",
+    "ink": "#0B1E57"
+  },
+  "captions": {
+    "keywords": {
+      "heavy": {},
+      "gold": {}
+    },
+    "style": {
+      "mode": "html",
+      "template": "box-pop",
+      "accent": "#FFD400",
+      "ink": "#0B1E57",
+      "y": 0.7
+    }
+  },
+  "shots": [
+    {
+      "src": "clip.mov",
+      "in": 0,
+      "out": 18.83,
+      "description": "Heavy Gold bags packed for dispatch.",
+      "motion": {
+        "type": "zoom_in",
+        "amount": 0.06
+      },
+      "punch": [
+        [
+          6.1,
+          7.4
+        ],
+        [
+          16.5,
+          17.4
+        ]
+      ]
+    }
+  ],
+  "cards": [
+    {
+      "type": "map",
+      "start": 0.0,
+      "end": 1.55,
+      "label": "Dispatch",
+      "title": "*Khanpur* ki taraf",
+      "from": "Karachi",
+      "from_label": "Karachi",
+      "to": "Khanpur",
+      "route_time": 0.95
+    }
+  ],
+  "texts": [],
+  "glass": [
+    {
+      "x": 0.62,
+      "y": 0.5,
+      "w": 0.6481481481481481,
+      "h": 0.3645833333333333,
+      "radius": 0.5,
+      "start": 3.35,
+      "end": 6.0,
+      "tint_color": "#A7ADB4",
+      "tint": 0.22,
+      "border_color": "#FFFFFF",
+      "border": 0.55,
+      "border_width": 2,
+      "blur": 26
+    },
+    {
+      "x": 0.5,
+      "y": 0.52,
+      "w": 0.5925925925925926,
+      "h": 0.3333333333333333,
+      "radius": 0.5,
+      "start": 16.3,
+      "end": 18.83,
+      "tint_color": "#A7ADB4",
+      "tint": 0.22,
+      "border_color": "#FFFFFF",
+      "border": 0.55,
+      "border_width": 2,
+      "blur": 26
+    },
+    {
+      "tint_color": "#1C1C1E",
+      "tint": 0.38,
+      "border_color": "#FFFFFF",
+      "border": 0.38,
+      "border_width": 2,
+      "radius": 0.22,
+      "blur": 24,
+      "brightness": -0.04,
+      "saturation": 1.1,
+      "x": 0.3,
+      "y": 0.26,
+      "w": 0.5,
+      "h": 0.15,
+      "label": "Khanpur",
+      "value": "SHAUQEEN",
+      "sub": "VIP cattle farming",
+      "start": 6.1,
+      "end": 7.9,
+      "dot": "#FFD400",
+      "value_size": 0.4,
+      "value_font": "Inter Tight Black"
+    },
+    {
+      "tint_color": "#1C1C1E",
+      "tint": 0.38,
+      "border_color": "#FFFFFF",
+      "border": 0.38,
+      "border_width": 2,
+      "radius": 0.22,
+      "blur": 24,
+      "brightness": -0.04,
+      "saturation": 1.1,
+      "x": 0.3,
+      "y": 0.26,
+      "w": 0.5,
+      "h": 0.15,
+      "label": "Heavy Gold",
+      "value": "TOP NOTCH",
+      "sub": "minerals powder bhi",
+      "start": 10.5,
+      "end": 12.9,
+      "dot": "#E8553B",
+      "value_size": 0.4,
+      "value_font": "Inter Tight Black"
+    },
+    {
+      "tint_color": "#1C1C1E",
+      "tint": 0.34,
+      "border_color": "#FFFFFF",
+      "border": 0.42,
+      "border_width": 2,
+      "radius": 0.2,
+      "blur": 26,
+      "brightness": -0.05,
+      "saturation": 1.1,
+      "value_font": "Inter Tight Black",
+      "x": 0.42,
+      "y": 0.282,
+      "w": 0.72,
+      "h": 0.3,
+      "label": "Karachi → Khanpur",
+      "value": "ANAS BHAI\nKA MAAL",
+      "sub": "Heavy Gold · 2 bags",
+      "start": 1.6,
+      "end": 3.3,
+      "dot": "#FFD400",
+      "value_size": 0.24
+    },
+    {
+      "tint_color": "#1C1C1E",
+      "tint": 0.34,
+      "border_color": "#FFFFFF",
+      "border": 0.42,
+      "border_width": 2,
+      "radius": 0.2,
+      "blur": 26,
+      "brightness": -0.05,
+      "saturation": 1.1,
+      "value_font": "Inter Tight Black",
+      "x": 0.3,
+      "y": 0.2,
+      "w": 0.48,
+      "h": 0.13,
+      "label": "Customer",
+      "value": "Anas Bhai",
+      "sub": "Khanpur · VIP cattle farming",
+      "start": 3.4,
+      "end": 6.0,
+      "dot": "#2F6BFF",
+      "value_size": 0.36
+    },
+    {
+      "tint_color": "#1C1C1E",
+      "tint": 0.34,
+      "border_color": "#FFFFFF",
+      "border": 0.42,
+      "border_width": 2,
+      "radius": 0.2,
+      "blur": 26,
+      "brightness": -0.05,
+      "saturation": 1.1,
+      "value_font": "Inter Tight Black",
+      "x": 0.5,
+      "y": 0.2,
+      "w": 0.72,
+      "h": 0.17,
+      "label": "✓ Dispatched",
+      "value": "ANAS BHAI · KHANPUR",
+      "sub": "Heavy Gold · result hai",
+      "start": 16.35,
+      "end": 18.83,
+      "dot": "#3BD16F",
+      "value_size": 0.26
+    }
+  ],
+  "overlays": [
+    {
+      "file": "Video Edits/Raw/heavy-gold/heavy-gold-bag-cutout.png",
+      "start": 3.35,
+      "end": 6.0,
+      "x": 0.62,
+      "y": 0.5,
+      "width": 0.42,
+      "animation": "rise"
+    },
+    {
+      "emoji": "🔥",
+      "animated": true,
+      "start": 6.4,
+      "end": 7.9,
+      "x": 0.62,
+      "y": 0.21,
+      "width": 0.12
+    },
+    {
+      "file": "Video Edits/Raw/heavy-gold/badge-minerals.png",
+      "start": 8.06,
+      "end": 10.5,
+      "x": 0.5,
+      "y": 0.22,
+      "width": 0.24
+    },
+    {
+      "file": "Video Edits/Raw/heavy-gold/heavy-gold-bag-cutout.png",
+      "start": 16.3,
+      "end": 18.83,
+      "x": 0.5,
+      "y": 0.52,
+      "width": 0.4,
+      "animation": "rise"
+    }
+  ],
+  "backdrop": [
+    {
+      "start": 16.3,
+      "end": 18.83,
+      "blur": 20,
+      "dim": 0.42
+    }
+  ],
+  "effects": [
+    {
+      "type": "blur_whip",
+      "at": 1.5,
+      "dur": 0.12
+    },
+    {
+      "type": "light_leak",
+      "at": 3.3,
+      "dur": 0.8,
+      "color": "#FFD86B"
+    },
+    {
+      "type": "glitch",
+      "at": 6.1,
+      "dur": 0.14
+    },
+    {
+      "type": "blur_whip",
+      "at": 16.25,
+      "dur": 0.12
+    }
+  ],
+  "sfx": [
+    {
+      "sound": "impact",
+      "at": 0.0,
+      "volume": 0.42
+    },
+    {
+      "sound": "trr",
+      "at": 0.25,
+      "volume": 0.42
+    },
+    {
+      "sound": "click",
+      "at": 1.22,
+      "volume": 0.55
+    },
+    {
+      "sound": "whoosh",
+      "at": 1.5,
+      "volume": 0.4
+    },
+    {
+      "sound": "impact",
+      "at": 1.65,
+      "volume": 0.3
+    },
+    {
+      "sound": "swoosh_up",
+      "at": 3.25,
+      "volume": 0.4
+    },
+    {
+      "sound": "pop",
+      "at": 3.6,
+      "volume": 0.35
+    },
+    {
+      "sound": "whoosh_fast",
+      "at": 4.1,
+      "volume": 0.3
+    },
+    {
+      "sound": "click",
+      "at": 6.1,
+      "volume": 0.5
+    },
+    {
+      "sound": "glitch",
+      "at": 6.12,
+      "volume": 0.25
+    },
+    {
+      "sound": "pop",
+      "at": 8.06,
+      "volume": 0.4
+    },
+    {
+      "sound": "ching",
+      "at": 10.6,
+      "volume": 0.32
+    },
+    {
+      "sound": "riser",
+      "at": 15.1,
+      "volume": 0.2
+    },
+    {
+      "sound": "whoosh",
+      "at": 16.2,
+      "volume": 0.4
+    },
+    {
+      "sound": "impact",
+      "at": 16.35,
+      "volume": 0.3
+    },
+    {
+      "sound": "ding",
+      "at": 17.82,
+      "volume": 0.25
+    }
+  ],
+  "flashes": [
+    {
+      "at": 1.55,
+      "alpha": 0.3
+    }
+  ],
+  "fade": {
+    "out": 0.35
+  }
+}

@@ -1,0 +1,479 @@
+{
+  "note": "Edit 'text' and the words freely; times are seconds on the final video.",
+  "lines": [
+    {
+      "start": 0.0,
+      "end": 1.52,
+      "words": [
+        {
+          "start": 0.0,
+          "end": 0.86,
+          "text": "Khanpur",
+          "big": true
+        },
+        {
+          "start": 0.86,
+          "end": 1.06,
+          "text": "ki"
+        },
+        {
+          "start": 1.06,
+          "end": 1.52,
+          "text": "taraf"
+        }
+      ],
+      "text": "Khanpur ki taraf"
+    },
+    {
+      "start": 1.52,
+      "end": 2.36,
+      "words": [
+        {
+          "start": 1.52,
+          "end": 2.0,
+          "text": "Anas",
+          "big": true
+        },
+        {
+          "start": 2.0,
+          "end": 2.24,
+          "text": "bhai"
+        },
+        {
+          "start": 2.24,
+          "end": 2.36,
+          "text": "ko"
+        }
+      ],
+      "text": "Anas bhai ko"
+    },
+    {
+      "start": 2.36,
+      "end": 3.02,
+      "words": [
+        {
+          "start": 2.36,
+          "end": 2.58,
+          "text": "ja"
+        },
+        {
+          "start": 2.58,
+          "end": 2.76,
+          "text": "rahe"
+        },
+        {
+          "start": 2.76,
+          "end": 3.02,
+          "text": "hain"
+        }
+      ],
+      "text": "ja rahe hain"
+    },
+    {
+      "start": 3.02,
+      "end": 3.32,
+      "words": [
+        {
+          "start": 3.02,
+          "end": 3.12,
+          "text": "do"
+        },
+        {
+          "start": 3.12,
+          "end": 3.32,
+          "text": "bag"
+        }
+      ],
+      "text": "do bag"
+    },
+    {
+      "start": 3.32,
+      "end": 4.08,
+      "words": [
+        {
+          "start": 3.32,
+          "end": 3.62,
+          "text": "Heavy"
+        },
+        {
+          "start": 3.62,
+          "end": 3.94,
+          "text": "Gold"
+        },
+        {
+          "start": 3.94,
+          "end": 4.08,
+          "text": "ke"
+        }
+      ],
+      "text": "Heavy Gold ke"
+    },
+    {
+      "start": 4.08,
+      "end": 4.72,
+      "words": [
+        {
+          "start": 4.08,
+          "end": 4.4,
+          "text": "VIP",
+          "big": true
+        },
+        {
+          "start": 4.4,
+          "end": 4.62,
+          "text": "_"
+        },
+        {
+          "start": 4.62,
+          "end": 4.72,
+          "text": "_"
+        }
+      ],
+      "text": "VIP _ _"
+    },
+    {
+      "start": 4.72,
+      "end": 5.64,
+      "words": [
+        {
+          "start": 4.72,
+          "end": 5.08,
+          "text": "cattle"
+        },
+        {
+          "start": 5.08,
+          "end": 5.5,
+          "text": "farming"
+        },
+        {
+          "start": 5.5,
+          "end": 5.64,
+          "text": "ke"
+        }
+      ],
+      "text": "cattle farming ke"
+    },
+    {
+      "start": 5.64,
+      "end": 6.1,
+      "words": [
+        {
+          "start": 5.64,
+          "end": 5.9,
+          "text": "hawale"
+        },
+        {
+          "start": 5.9,
+          "end": 6.1,
+          "text": "se"
+        }
+      ],
+      "text": "hawale se"
+    },
+    {
+      "start": 6.1,
+      "end": 8.06,
+      "words": [
+        {
+          "start": 6.1,
+          "end": 6.58,
+          "text": "log"
+        },
+        {
+          "start": 6.58,
+          "end": 7.14,
+          "text": "bade"
+        },
+        {
+          "start": 7.14,
+          "end": 7.46,
+          "text": "shauqeen",
+          "big": true
+        },
+        {
+          "start": 7.46,
+          "end": 7.62,
+          "text": "hain"
+        },
+        {
+          "start": 7.62,
+          "end": 8.06,
+          "text": "bhai"
+        }
+      ],
+      "text": "log bade shauqeen hain bhai"
+    },
+    {
+      "start": 8.06,
+      "end": 9.02,
+      "words": [
+        {
+          "start": 8.06,
+          "end": 8.44,
+          "text": "minerals",
+          "big": true
+        },
+        {
+          "start": 8.44,
+          "end": 8.64,
+          "text": "ka"
+        },
+        {
+          "start": 8.64,
+          "end": 9.02,
+          "text": "powder"
+        }
+      ],
+      "text": "minerals ka powder"
+    },
+    {
+      "start": 9.02,
+      "end": 9.58,
+      "words": [
+        {
+          "start": 9.02,
+          "end": 9.16,
+          "text": "bhi"
+        },
+        {
+          "start": 9.16,
+          "end": 9.4,
+          "text": "le"
+        },
+        {
+          "start": 9.4,
+          "end": 9.52,
+          "text": "rahe"
+        },
+        {
+          "start": 9.52,
+          "end": 9.58,
+          "text": "hain"
+        }
+      ],
+      "text": "bhi le rahe hain"
+    },
+    {
+      "start": 9.58,
+      "end": 10.48,
+      "words": [
+        {
+          "start": 9.58,
+          "end": 9.76,
+          "text": "to"
+        },
+        {
+          "start": 9.76,
+          "end": 10.0,
+          "text": "woh"
+        },
+        {
+          "start": 10.0,
+          "end": 10.48,
+          "text": "powder"
+        }
+      ],
+      "text": "to woh powder"
+    },
+    {
+      "start": 10.48,
+      "end": 11.72,
+      "words": [
+        {
+          "start": 10.48,
+          "end": 10.62,
+          "text": "jo"
+        },
+        {
+          "start": 10.62,
+          "end": 11.02,
+          "text": "koi"
+        },
+        {
+          "start": 11.02,
+          "end": 11.38,
+          "text": "top-notch",
+          "big": true
+        },
+        {
+          "start": 11.38,
+          "end": 11.72,
+          "text": "_"
+        }
+      ],
+      "text": "jo koi top-notch _"
+    },
+    {
+      "start": 11.72,
+      "end": 13.06,
+      "words": [
+        {
+          "start": 11.72,
+          "end": 12.22,
+          "text": "chalta"
+        },
+        {
+          "start": 12.22,
+          "end": 12.4,
+          "text": "hai"
+        },
+        {
+          "start": 12.4,
+          "end": 12.8,
+          "text": "naam"
+        },
+        {
+          "start": 12.8,
+          "end": 13.06,
+          "text": "se"
+        }
+      ],
+      "text": "chalta hai naam se"
+    },
+    {
+      "start": 13.06,
+      "end": 14.04,
+      "words": [
+        {
+          "start": 13.06,
+          "end": 13.28,
+          "text": "ke"
+        },
+        {
+          "start": 13.28,
+          "end": 13.52,
+          "text": "agar"
+        },
+        {
+          "start": 13.52,
+          "end": 13.76,
+          "text": "variety",
+          "big": true
+        },
+        {
+          "start": 13.76,
+          "end": 14.04,
+          "text": "_"
+        }
+      ],
+      "text": "ke agar variety _"
+    },
+    {
+      "start": 14.04,
+      "end": 14.82,
+      "words": [
+        {
+          "start": 14.04,
+          "end": 14.18,
+          "text": "of"
+        },
+        {
+          "start": 14.18,
+          "end": 14.72,
+          "text": "customers"
+        },
+        {
+          "start": 14.72,
+          "end": 14.82,
+          "text": "ke"
+        }
+      ],
+      "text": "of customers ke"
+    },
+    {
+      "start": 14.82,
+      "end": 15.76,
+      "words": [
+        {
+          "start": 14.82,
+          "end": 15.08,
+          "text": "hawale"
+        },
+        {
+          "start": 15.08,
+          "end": 15.24,
+          "text": "se"
+        },
+        {
+          "start": 15.24,
+          "end": 15.58,
+          "text": "dekha"
+        },
+        {
+          "start": 15.58,
+          "end": 15.76,
+          "text": "jaye"
+        }
+      ],
+      "text": "hawale se dekha jaye"
+    },
+    {
+      "start": 15.76,
+      "end": 16.54,
+      "words": [
+        {
+          "start": 15.76,
+          "end": 15.92,
+          "text": "to"
+        },
+        {
+          "start": 15.92,
+          "end": 16.26,
+          "text": "bhai"
+        },
+        {
+          "start": 16.26,
+          "end": 16.54,
+          "text": "yeh"
+        }
+      ],
+      "text": "to bhai yeh"
+    },
+    {
+      "start": 16.54,
+      "end": 17.82,
+      "words": [
+        {
+          "start": 16.54,
+          "end": 16.88,
+          "text": "top",
+          "big": true
+        },
+        {
+          "start": 16.88,
+          "end": 17.4,
+          "text": "powder"
+        },
+        {
+          "start": 17.4,
+          "end": 17.82,
+          "text": "hai"
+        }
+      ],
+      "text": "top powder hai"
+    },
+    {
+      "start": 17.82,
+      "end": 19.03,
+      "words": [
+        {
+          "start": 17.82,
+          "end": 18.24,
+          "text": "result",
+          "big": true
+        },
+        {
+          "start": 18.24,
+          "end": 18.36,
+          "text": "hai"
+        },
+        {
+          "start": 18.36,
+          "end": 18.78,
+          "text": "na"
+        }
+      ],
+      "text": "result hai na"
+    }
+  ]
+}

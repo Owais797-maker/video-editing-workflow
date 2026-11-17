@@ -198,7 +198,8 @@ def map_svg(c: dict, t: float, W: int, H: int, th: dict) -> str:
     rings = [geom["coordinates"][0]] if geom["type"] == "Polygon" else [p[0] for p in geom["coordinates"]]
     lons = [x for r in rings for x, _ in r]
     lats = [y for r in rings for _, y in r]
-    box = (W * 0.06, H * 0.27, W * 0.88, H * 0.55)  # x, y, w, h
+    mt = float(c.get("map_top", 0.36 if c.get("title") else 0.27))
+    box = (W * 0.08, H * mt, W * 0.8, H * (0.86 - mt))  # x, y, w, h (below the title)
     k = math.cos(math.radians(30))
     sx = box[2] / ((max(lons) - min(lons)) * k)
     sy = box[3] / (max(lats) - min(lats))

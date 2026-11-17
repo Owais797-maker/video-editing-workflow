@@ -98,7 +98,7 @@ def build(edit: dict, cap: dict, lines: list, plan: list, out_dir: Path, fps: in
         y = min(max(y, float(safe.get("top", 0)) + 0.05), 1 - float(safe.get("bottom", 0)) - 0.04)
         css += (f"\n#cap{{left:{float(safe.get('left', .06)) * 100:.1f}%;"
                 f"right:{float(safe.get('right', .06)) * 100:.1f}%;}}")
-    css += f"\n#cap{{--accent:{accent};--y:{y};}}"
+    css += f"\n#cap{{--accent:{accent};--y:{y};--ink:{st.get('ink', '#111')};}}"
     if layout == "column":  # stacked words grow downward from y (keeps the first word in the safe zone)
         css += "\n#cap{transform:none;}"
     scale = H / 1920

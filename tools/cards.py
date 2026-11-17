@@ -186,7 +186,7 @@ def swiss_frame(c: dict, t: float, dur: float, W: int, H: int, th: dict, fade: f
 CITIES = {  # lat, lon
     "Sialkot": (32.49, 74.53), "Lahore": (31.55, 74.34), "Karachi": (24.86, 67.01), "Islamabad": (33.68, 73.05),
     "Faisalabad": (31.42, 73.08), "Multan": (30.20, 71.47), "Peshawar": (34.01, 71.58), "Quetta": (30.18, 66.98),
-    "Gujranwala": (32.16, 74.19), "Hyderabad": (25.40, 68.37), "Rawalpindi": (33.60, 73.04), "Sahiwal": (30.66, 73.11),
+    "Gujranwala": (32.16, 74.19), "Khanpur": (28.65, 70.66), "Rahim Yar Khan": (28.42, 70.30), "Hyderabad": (25.40, 68.37), "Rawalpindi": (33.60, 73.04), "Sahiwal": (30.66, 73.11),
 }
 
 

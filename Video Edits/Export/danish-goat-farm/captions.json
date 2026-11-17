@@ -1,0 +1,543 @@
+{
+  "note": "Edit 'text' and the words freely; times are seconds on the final video.",
+  "lines": [
+    {
+      "start": 0.0,
+      "end": 0.88,
+      "words": [
+        {
+          "start": 0.0,
+          "end": 0.64,
+          "text": "Danish",
+          "big": true
+        },
+        {
+          "start": 0.64,
+          "end": 0.88,
+          "text": "bhai"
+        }
+      ],
+      "text": "Danish bhai"
+    },
+    {
+      "start": 0.88,
+      "end": 2.12,
+      "words": [
+        {
+          "start": 0.88,
+          "end": 1.24,
+          "text": "_"
+        },
+        {
+          "start": 1.24,
+          "end": 1.6,
+          "text": "_"
+        },
+        {
+          "start": 1.6,
+          "end": 1.96,
+          "text": "karte"
+        },
+        {
+          "start": 1.96,
+          "end": 2.12,
+          "text": "hue"
+        }
+      ],
+      "text": "_ _ karte hue"
+    },
+    {
+      "start": 2.12,
+      "end": 2.84,
+      "words": [
+        {
+          "start": 2.12,
+          "end": 2.3,
+          "text": "kyun"
+        },
+        {
+          "start": 2.3,
+          "end": 2.6,
+          "text": "haath",
+          "big": true
+        },
+        {
+          "start": 2.6,
+          "end": 2.84,
+          "text": "jor"
+        }
+      ],
+      "text": "kyun haath jor"
+    },
+    {
+      "start": 2.84,
+      "end": 3.18,
+      "words": [
+        {
+          "start": 2.84,
+          "end": 3.06,
+          "text": "rahe"
+        },
+        {
+          "start": 3.06,
+          "end": 3.18,
+          "text": "hain"
+        }
+      ],
+      "text": "rahe hain"
+    },
+    {
+      "start": 3.18,
+      "end": 4.1,
+      "words": [
+        {
+          "start": 3.18,
+          "end": 3.4,
+          "text": "aur"
+        },
+        {
+          "start": 3.4,
+          "end": 3.78,
+          "text": "Muzammil",
+          "big": true
+        },
+        {
+          "start": 3.78,
+          "end": 4.0,
+          "text": "bhai"
+        },
+        {
+          "start": 4.0,
+          "end": 4.1,
+          "text": "ne"
+        }
+      ],
+      "text": "aur Muzammil bhai ne"
+    },
+    {
+      "start": 4.1,
+      "end": 4.52,
+      "words": [
+        {
+          "start": 4.1,
+          "end": 4.24,
+          "text": "mujhe"
+        },
+        {
+          "start": 4.24,
+          "end": 4.34,
+          "text": "in"
+        },
+        {
+          "start": 4.34,
+          "end": 4.52,
+          "text": "ka"
+        }
+      ],
+      "text": "mujhe in ka"
+    },
+    {
+      "start": 4.52,
+      "end": 5.4,
+      "words": [
+        {
+          "start": 4.52,
+          "end": 4.74,
+          "text": "full"
+        },
+        {
+          "start": 4.74,
+          "end": 4.92,
+          "text": "look",
+          "big": true
+        },
+        {
+          "start": 4.92,
+          "end": 5.3,
+          "text": "lene"
+        },
+        {
+          "start": 5.3,
+          "end": 5.4,
+          "text": "ka"
+        }
+      ],
+      "text": "full look lene ka"
+    },
+    {
+      "start": 5.4,
+      "end": 5.84,
+      "words": [
+        {
+          "start": 5.4,
+          "end": 5.64,
+          "text": "kyun"
+        },
+        {
+          "start": 5.64,
+          "end": 5.84,
+          "text": "kaha"
+        }
+      ],
+      "text": "kyun kaha"
+    },
+    {
+      "start": 5.84,
+      "end": 6.68,
+      "words": [
+        {
+          "start": 5.84,
+          "end": 6.02,
+          "text": "to"
+        },
+        {
+          "start": 6.02,
+          "end": 6.28,
+          "text": "bhai"
+        },
+        {
+          "start": 6.28,
+          "end": 6.54,
+          "text": "jis"
+        },
+        {
+          "start": 6.54,
+          "end": 6.68,
+          "text": "waqt"
+        }
+      ],
+      "text": "to bhai jis waqt"
+    },
+    {
+      "start": 6.68,
+      "end": 7.58,
+      "words": [
+        {
+          "start": 6.68,
+          "end": 7.02,
+          "text": "logon"
+        },
+        {
+          "start": 7.02,
+          "end": 7.12,
+          "text": "ko"
+        },
+        {
+          "start": 7.12,
+          "end": 7.4,
+          "text": "VIP",
+          "big": true
+        },
+        {
+          "start": 7.4,
+          "end": 7.46,
+          "text": "_"
+        },
+        {
+          "start": 7.46,
+          "end": 7.58,
+          "text": "_"
+        }
+      ],
+      "text": "logon ko VIP _ _"
+    },
+    {
+      "start": 7.58,
+      "end": 8.42,
+      "words": [
+        {
+          "start": 7.58,
+          "end": 7.92,
+          "text": "bakron"
+        },
+        {
+          "start": 7.92,
+          "end": 8.1,
+          "text": "ko"
+        },
+        {
+          "start": 8.1,
+          "end": 8.42,
+          "text": "hosh"
+        }
+      ],
+      "text": "bakron ko hosh"
+    },
+    {
+      "start": 8.42,
+      "end": 9.02,
+      "words": [
+        {
+          "start": 8.42,
+          "end": 8.6,
+          "text": "bhi"
+        },
+        {
+          "start": 8.6,
+          "end": 8.74,
+          "text": "nahi"
+        },
+        {
+          "start": 8.74,
+          "end": 8.88,
+          "text": "tha"
+        },
+        {
+          "start": 8.88,
+          "end": 9.02,
+          "text": "na"
+        }
+      ],
+      "text": "bhi nahi tha na"
+    },
+    {
+      "start": 9.02,
+      "end": 9.66,
+      "words": [
+        {
+          "start": 9.02,
+          "end": 9.26,
+          "text": "us"
+        },
+        {
+          "start": 9.26,
+          "end": 9.5,
+          "text": "waqt"
+        },
+        {
+          "start": 9.5,
+          "end": 9.66,
+          "text": "hi"
+        }
+      ],
+      "text": "us waqt hi"
+    },
+    {
+      "start": 9.66,
+      "end": 10.46,
+      "words": [
+        {
+          "start": 9.66,
+          "end": 10.06,
+          "text": "bhaari",
+          "big": true
+        },
+        {
+          "start": 10.06,
+          "end": 10.16,
+          "text": "bhaari"
+        },
+        {
+          "start": 10.16,
+          "end": 10.46,
+          "text": "bakre"
+        }
+      ],
+      "text": "bhaari bhaari bakre"
+    },
+    {
+      "start": 10.46,
+      "end": 11.02,
+      "words": [
+        {
+          "start": 10.46,
+          "end": 10.84,
+          "text": "paalte"
+        },
+        {
+          "start": 10.84,
+          "end": 11.02,
+          "text": "the"
+        }
+      ],
+      "text": "paalte the"
+    },
+    {
+      "start": 11.02,
+      "end": 11.76,
+      "words": [
+        {
+          "start": 11.02,
+          "end": 11.4,
+          "text": "abhi"
+        },
+        {
+          "start": 11.4,
+          "end": 11.54,
+          "text": "bhi"
+        },
+        {
+          "start": 11.54,
+          "end": 11.76,
+          "text": "dekhein"
+        }
+      ],
+      "text": "abhi bhi dekhein"
+    },
+    {
+      "start": 11.76,
+      "end": 12.86,
+      "words": [
+        {
+          "start": 11.76,
+          "end": 12.28,
+          "text": "Korea",
+          "big": true
+        },
+        {
+          "start": 12.28,
+          "end": 12.54,
+          "text": "wale"
+        },
+        {
+          "start": 12.54,
+          "end": 12.86,
+          "text": "injection"
+        }
+      ],
+      "text": "Korea wale injection"
+    },
+    {
+      "start": 12.86,
+      "end": 13.68,
+      "words": [
+        {
+          "start": 12.86,
+          "end": 13.06,
+          "text": "le"
+        },
+        {
+          "start": 13.06,
+          "end": 13.26,
+          "text": "ke"
+        },
+        {
+          "start": 13.26,
+          "end": 13.46,
+          "text": "ja"
+        },
+        {
+          "start": 13.46,
+          "end": 13.6,
+          "text": "rahe"
+        },
+        {
+          "start": 13.6,
+          "end": 13.68,
+          "text": "hain"
+        }
+      ],
+      "text": "le ke ja rahe hain"
+    },
+    {
+      "start": 13.68,
+      "end": 14.46,
+      "words": [
+        {
+          "start": 13.68,
+          "end": 13.86,
+          "text": "aur"
+        },
+        {
+          "start": 13.86,
+          "end": 14.08,
+          "text": "bhai"
+        },
+        {
+          "start": 14.08,
+          "end": 14.46,
+          "text": "Danish"
+        }
+      ],
+      "text": "aur bhai Danish"
+    },
+    {
+      "start": 14.46,
+      "end": 15.36,
+      "words": [
+        {
+          "start": 14.46,
+          "end": 14.7,
+          "text": "Goat",
+          "big": true
+        },
+        {
+          "start": 14.7,
+          "end": 14.9,
+          "text": "Farm"
+        },
+        {
+          "start": 14.9,
+          "end": 15.06,
+          "text": "ke"
+        },
+        {
+          "start": 15.06,
+          "end": 15.2,
+          "text": "naam"
+        },
+        {
+          "start": 15.2,
+          "end": 15.36,
+          "text": "se"
+        }
+      ],
+      "text": "Goat Farm ke naam se"
+    },
+    {
+      "start": 15.36,
+      "end": 16.5,
+      "words": [
+        {
+          "start": 15.36,
+          "end": 15.48,
+          "text": "in"
+        },
+        {
+          "start": 15.48,
+          "end": 15.62,
+          "text": "ka"
+        },
+        {
+          "start": 15.62,
+          "end": 16.0,
+          "text": "Gulshan-e"
+        },
+        {
+          "start": 16.0,
+          "end": 16.36,
+          "text": "Maymar"
+        },
+        {
+          "start": 16.36,
+          "end": 16.5,
+          "text": "mein"
+        }
+      ],
+      "text": "in ka Gulshan-e Maymar mein"
+    },
+    {
+      "start": 16.5,
+      "end": 17.75,
+      "words": [
+        {
+          "start": 16.5,
+          "end": 17.06,
+          "text": "zabardast",
+          "big": true
+        },
+        {
+          "start": 17.06,
+          "end": 17.4,
+          "text": "farm"
+        },
+        {
+          "start": 17.4,
+          "end": 17.5,
+          "text": "hai"
+        }
+      ],
+      "text": "zabardast farm hai"
+    }
+  ]
+}

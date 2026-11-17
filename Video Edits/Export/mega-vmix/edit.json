@@ -93,6 +93,36 @@
       "border_width": 3,
       "border": 0.9,
       "font": "Montserrat Black"
+    },
+    {
+      "x": 0.74,
+      "y": 0.52,
+      "w": 0.46296296296296297,
+      "h": 0.2604166666666667,
+      "radius": 0.5,
+      "start": 1.15,
+      "end": 3.9,
+      "tint_color": "#A7ADB4",
+      "tint": 0.22,
+      "border_color": "#FFFFFF",
+      "border": 0.55,
+      "border_width": 2,
+      "blur": 26
+    },
+    {
+      "x": 0.46,
+      "y": 0.46,
+      "w": 0.6111111111111112,
+      "h": 0.34375,
+      "radius": 0.5,
+      "start": 9.05,
+      "end": 12.8,
+      "tint_color": "#A7ADB4",
+      "tint": 0.22,
+      "border_color": "#FFFFFF",
+      "border": 0.55,
+      "border_width": 2,
+      "blur": 26
     }
   ],
   "overlays": [
@@ -127,9 +157,15 @@
     {
       "segments": [
         {
-          "text": "PREMIX · 25 KG",
+          "text": "PREMIX",
           "preset": "label",
-          "size": 3.0
+          "size": 2.8,
+          "color": "#E2343C"
+        },
+        {
+          "text": "· 25 KG",
+          "preset": "label",
+          "size": 2.8
         },
         {
           "text": "MEGA-",
@@ -142,7 +178,7 @@
           "text": "VMIX",
           "preset": "headline",
           "size": 10,
-          "color": "#7FA6FF",
+          "color": "#E2343C",
           "attach": true
         },
         {

@@ -713,7 +713,7 @@ def glass_chain(gl: dict, k: int, cv: str, W: int, H: int, fps: int, total: floa
     face.putalpha(Image.fromarray(np.minimum(np.array(face.split()[-1]).astype(int) + np.array(hl).astype(int), 255).astype("uint8")))
     bd = Image.new("RGBA", (bw * ss, bh * ss), (0, 0, 0, 0))
     ImageDraw.Draw(bd).rounded_rectangle((ss, ss, bw * ss - ss - 1, bh * ss - ss - 1), rad * ss,
-                                         outline=bc + (int(255 * float(gl.get("border", 0.55))),), width=int(gl.get("border_width", 2)) * ss)
+                                         outline=bc + (int(255 * float(gl.get("border", 0.55))),), width=max(1, round(float(gl.get("border_width", 2)) * W / 1080)) * ss)
     face.alpha_composite(bd.resize((bw, bh), Image.LANCZOS))
     clear = Image.new("RGBA", (bw, bh), (0, 0, 0, 0))
     face = Image.composite(face, clear, mask)
@@ -728,7 +728,7 @@ def glass_chain(gl: dict, k: int, cv: str, W: int, H: int, fps: int, total: floa
         inputs += ["-loop", "1", "-framerate", str(fps), "-t", f"{total:.3f}", "-i", f"glass{k}_{name}.png"]
     fade = f"fade=t=in:st={s0}:d=0.25:alpha=1,fade=t=out:st={max(s0, s1 - 0.25):.3f}:d=0.25:alpha=1"
     en = f"enable='between(t,{s0},{s1})'"
-    blur = float(gl.get("blur", 22))
+    blur = float(gl.get("blur", 22)) * W / 1080  # same look at 1080p and 4K
     g.append(f"{cv}split[ga{k}][gb{k}]")
     g.append(f"[gb{k}]crop={bw}:{bh}:{x0}:{y0},gblur=sigma={blur},eq=brightness={float(gl.get("brightness", 0.05))}:saturation={float(gl.get("saturation", 1.3))},format=rgba[gbl{k}]")
     g.append(f"[{idx}:v]format=gray[gm{k}]")

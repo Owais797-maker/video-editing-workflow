@@ -7,7 +7,7 @@
     {
       "in": 0,
       "out": 12.46,
-      "description": "Bags -> Mega-VMix -> customer -> Hepta Sef + vaccines",
+      "description": "Bags -> Mega-VMix -> Muzammil Shaikh (our team, dispatched it) -> Hepta Sef + vaccines",
       "src": "clip.mov",
       "motion": {
         "type": "zoom_in",
@@ -102,10 +102,10 @@
       "y": 0.5,
       "w": 0.78,
       "h": 0.19,
-      "label": "Customer · Quetta",
-      "value": "DIL MURAD SAHAB",
-      "sub": "Muhammad Dil Murad",
-      "dot": "#1E3FA0",
+      "label": "Dispatch by",
+      "value": "MUZAMMIL SHAIKH",
+      "sub": "Karachi → Quetta",
+      "dot": "#FFD400",
       "start": 5.65,
       "end": 7.9,
       "value_size": 0.46,
@@ -360,5 +360,9 @@
   ],
   "fade": {
     "out": 0.3
+  },
+  "output": {
+    "width": 2160,
+    "height": 3840
   }
 }

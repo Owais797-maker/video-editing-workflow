@@ -258,7 +258,17 @@ def build_ass(edit: dict, path: Path) -> bool:
                 ev.append((y0 + pad, "{\\c" + ass_color(dot) + "}●{\\c&HFFFFFF&} " + ass_text(gl["label"]), ls, "Inter Tight", 0))
             ev.append((y0 + pad + int(ls * 1.5), ass_text(gl["value"]), vs, gl.get("value_font", "Inter Tight"), 1))
             if gl.get("sub"):  # anchored to the box bottom so it never spills out
-                ev.append((y0 + bh - int(pad * 0.8), ass_text(gl["sub"]), ls, "Inter Tight", 0))
+                # stylish sub line: own font / size / colour / italic (style glass.widget sub_*)
+                sub_tags = ""
+                if gl.get("sub_color"):
+                    sub_tags += "\\c" + ass_color(gl["sub_color"])
+                if gl.get("sub_italic"):
+                    sub_tags += "\\i1"
+                if gl.get("sub_spacing"):
+                    sub_tags += f"\\fsp{gl['sub_spacing']}"
+                sub_txt = ("{" + sub_tags + "}" if sub_tags else "") + ass_text(gl["sub"])
+                ev.append((y0 + bh - int(pad * 0.8), sub_txt, int(ls * float(gl.get("sub_size", 1))),
+                           gl.get("sub_font", "Inter Tight"), 0))
             # shrink the value if label + value lines + sub would not fit inside the box
             nl = str(gl["value"]).count("\n") + 1
             room = bh - 2 * pad - (int(ls * 1.5) if gl.get("label") else 0) - (int(ls * 1.3) if gl.get("sub") else 0)

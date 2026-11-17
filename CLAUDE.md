@@ -31,6 +31,10 @@ typography, composition, real photography and storytelling over decoration and t
 - Owner's notes for next videos (2026-11-16): glass boxes (liquid glass) must take the
   PRODUCT'S colour scheme (tinted glass, accent border/text, product font), not plain white;
   the map card is loved, keep using it; add a few more SFX than before (current ones are good).
+- BOXES = liquid-glass WIDGETS like the owner's reference photo (styles/liquid-glass/widget-ref.jpg):
+  dark smoky frosted glass, thin light border, rounded, background blurred behind; inside a
+  coloured dot + small label, a big bold value (Inter Tight Black), a small line. Use the
+  `glass` widget fields (`label/value/sub/dot`, see EDIT_FORMAT). Accent dot in the product colour.
 - ALWAYS keep every text inside the TikTok / Reels / Status **safe zone** (`"safe"` in the style:
   top 12%, bottom 25%, left 6%, right 14%) and check the cyan guide in the storyboard.
 - Effects library to use tastefully in every video (vary them): `effects` light_leak, glitch,

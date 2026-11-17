@@ -56,18 +56,6 @@
       "from_label": "Karachi",
       "to": "Khanpur",
       "route_time": 0.95
-    },
-    {
-      "type": "tag",
-      "text": "BADE SHAUQEEN",
-      "color": "#2453C8",
-      "x": 0.44,
-      "y": 0.22,
-      "w": 0.7,
-      "h": 0.08,
-      "start": 6.1,
-      "end": 7.9,
-      "type_time": 0.4
     }
   ],
   "texts": [
@@ -180,23 +168,6 @@
       "blur": 26
     },
     {
-      "x": 0.46,
-      "y": 0.22,
-      "w": 0.66,
-      "h": 0.08,
-      "text": "TOP NOTCH",
-      "subtext": "minerals powder",
-      "start": 10.6,
-      "end": 12.9,
-      "size": 3.8,
-      "tint_color": "#2453C8",
-      "tint": 0.55,
-      "border_color": "#FFD400",
-      "border": 0.9,
-      "border_width": 3,
-      "color": "#FFFFFF"
-    },
-    {
       "x": 0.5,
       "y": 0.48,
       "w": 0.5925925925925926,
@@ -210,6 +181,52 @@
       "border": 0.55,
       "border_width": 2,
       "blur": 26
+    },
+    {
+      "tint_color": "#1C1C1E",
+      "tint": 0.38,
+      "border_color": "#FFFFFF",
+      "border": 0.38,
+      "border_width": 2,
+      "radius": 0.22,
+      "blur": 24,
+      "brightness": -0.04,
+      "saturation": 1.1,
+      "x": 0.3,
+      "y": 0.26,
+      "w": 0.5,
+      "h": 0.15,
+      "label": "Khanpur",
+      "value": "SHAUQEEN",
+      "sub": "VIP cattle farming",
+      "start": 6.1,
+      "end": 7.9,
+      "dot": "#FFD400",
+      "value_size": 0.4,
+      "value_font": "Inter Tight Black"
+    },
+    {
+      "tint_color": "#1C1C1E",
+      "tint": 0.38,
+      "border_color": "#FFFFFF",
+      "border": 0.38,
+      "border_width": 2,
+      "radius": 0.22,
+      "blur": 24,
+      "brightness": -0.04,
+      "saturation": 1.1,
+      "x": 0.3,
+      "y": 0.26,
+      "w": 0.5,
+      "h": 0.15,
+      "label": "Heavy Gold",
+      "value": "TOP NOTCH",
+      "sub": "minerals powder bhi",
+      "start": 10.5,
+      "end": 12.9,
+      "dot": "#E8553B",
+      "value_size": 0.4,
+      "value_font": "Inter Tight Black"
     }
   ],
   "overlays": [
@@ -227,9 +244,9 @@
       "animated": true,
       "start": 6.4,
       "end": 7.9,
-      "x": 0.78,
-      "y": 0.31,
-      "width": 0.14
+      "x": 0.62,
+      "y": 0.21,
+      "width": 0.12
     },
     {
       "file": "Video Edits/Raw/heavy-gold/badge-minerals.png",

@@ -31,3 +31,9 @@ Use 1–3 small cards at a time, near the edges, never over faces; fade in/out.
 - Glowing green outline around an object, red circle drawn around a button, comment / follow
   button pop-ups at the end → stickers via `overlays` (PNG) on request.
 - Very fast pacing: 33 shots in 54 s (avg 1.6 s).
+
+## Owner's box standard (2026-11-17)
+![widget reference](widget-ref.jpg)
+Every info box is a liquid-glass widget like this photo: smoky dark glass over the blurred
+video, thin light border, big radius; coloured dot + small label, big bold number/word, small
+caption. Use `glass` with `label`, `value`, `sub`, `dot` (tools/EDIT_FORMAT.md).

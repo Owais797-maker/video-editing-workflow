@@ -243,6 +243,26 @@ def build_ass(edit: dict, path: Path) -> bool:
         events.append(f"Dialogue: 1,{ass_time(x.get('start', 0))},{ass_time(x['end'])},{name},,0,0,0,,{{{fx}}}{body}")
 
     for k, gl in enumerate(edit.get("glass", [])):
+        if gl.get("value"):  # iOS-style liquid-glass widget: dot + label, big value, small line (left aligned)
+            x0, y0, bw, bh = glass_box(gl, W, H)
+            pad = int(min(bw, bh) * 0.16)
+            vs = int(bh * float(gl.get("value_size", 0.34)))
+            ls = int(bh * 0.13)
+            dot = gl.get("dot", "#E8553B")
+            styles.append(style_line(f"GW{k}", {"font": "Inter Tight", "bold": False, "size": 100 * ls / H,
+                                                "color": "white", "outline": 0, "shadow": 0}, H, 2, 7))
+            s0, s1 = float(gl.get("start", 0)), float(gl.get("end", edit["_total"]))
+            fd = "\\fad(250,250)"
+            ev = []
+            if gl.get("label"):
+                ev.append((y0 + pad, "{\\c" + ass_color(dot) + "}●{\\c&HFFFFFF&} " + ass_text(gl["label"]), ls, "Inter Tight", 0))
+            ev.append((y0 + pad + int(ls * 1.5), ass_text(gl["value"]), vs, gl.get("value_font", "Inter Tight"), 1))
+            if gl.get("sub"):
+                ev.append((y0 + pad + int(ls * 1.5) + int(vs * 1.08), ass_text(gl["sub"]), ls, "Inter Tight", 0))
+            for yy, txt, size, fn, bold in ev:
+                events.append(f"Dialogue: 4,{ass_time(s0)},{ass_time(s1)},GW{k},,0,0,0,,"
+                              f"{{\\an7\\pos({x0 + pad},{yy})\\fn{fn}\\fs{size}\\b{bold}{fd}}}{txt}")
+            continue
         if not gl.get("text"):
             continue
         x0, y0, bw, bh = glass_box(gl, W, H)
@@ -693,7 +713,7 @@ def glass_chain(gl: dict, k: int, cv: str, W: int, H: int, fps: int, total: floa
     en = f"enable='between(t,{s0},{s1})'"
     blur = float(gl.get("blur", 22))
     g.append(f"{cv}split[ga{k}][gb{k}]")
-    g.append(f"[gb{k}]crop={bw}:{bh}:{x0}:{y0},gblur=sigma={blur},eq=brightness=0.05:saturation=1.3,format=rgba[gbl{k}]")
+    g.append(f"[gb{k}]crop={bw}:{bh}:{x0}:{y0},gblur=sigma={blur},eq=brightness={float(gl.get("brightness", 0.05))}:saturation={float(gl.get("saturation", 1.3))},format=rgba[gbl{k}]")
     g.append(f"[{idx}:v]format=gray[gm{k}]")
     g.append(f"[gbl{k}][gm{k}]alphamerge,{fade}[gg{k}]")
     g.append(f"[{idx + 2}:v]format=rgba,{fade}[gs{k}]")

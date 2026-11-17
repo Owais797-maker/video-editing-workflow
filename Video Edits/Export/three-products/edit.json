@@ -1,0 +1,23 @@
+{
+  "project": "three-products",
+  "style": "bold-clean",
+  "summary": "Quetta customer Dil Murad sahab ka maal: Heavy Gold, Mega-VMix, Hepta Sef, vaccines. Trust story.",
+  "reference_notes": "Locked house look; brighter colourful grade; light glass widgets (white glass, black text).",
+  "shots": [
+    {
+      "in": 0,
+      "out": 12.46,
+      "description": "Bags -> Mega-VMix -> customer -> Hepta Sef + vaccines",
+      "src": "clip.mov"
+    }
+  ],
+  "captions": {
+    "style": {
+      "mode": "html",
+      "template": "box-pop",
+      "accent": "#FFD400",
+      "ink": "#111111",
+      "y": 0.7
+    }
+  }
+}

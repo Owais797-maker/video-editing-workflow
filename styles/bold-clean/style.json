@@ -1,7 +1,7 @@
 {
   "output": {
-    "width": 1080,
-    "height": 1920,
+    "width": 2160,
+    "height": 3840,
     "fps": 30,
     "fit": "crop"
   },
@@ -18,8 +18,9 @@
     "style": {
       "mode": "html",
       "template": "box-pop",
-      "accent": "#FFD400",
-      "y": 0.7
+      "accent": "#FFFFFF",
+      "y": 0.7,
+      "ink": "#111111"
     },
     "sfx": {
       "line": {
@@ -106,13 +107,14 @@
     "width": 0.22
   },
   "look": {
-    "cinematic": 1.0,
-    "contrast": 1.04,
-    "saturation": 1.08,
-    "warmth": 0.02,
+    "cinematic": 0.6,
+    "contrast": 1.06,
+    "saturation": 1.22,
+    "warmth": 0.03,
     "sharpen": 0.6,
     "vignette": 0.45,
-    "grain": 2
+    "grain": 2,
+    "brightness": 0.03
   },
   "music": {
     "volume": 0.15,
@@ -131,6 +133,27 @@
   },
   "glass": {
     "widget": {
+      "tint_color": "#FFFFFF",
+      "tint": 0.62,
+      "border_color": "#FFFFFF",
+      "border": 0.7,
+      "border_width": 2,
+      "radius": 0.2,
+      "blur": 26,
+      "brightness": 0.05,
+      "saturation": 1.0,
+      "text_color": "#111111",
+      "value_font": "Anton",
+      "w": 0.5,
+      "h": 0.19,
+      "value_size": 0.46,
+      "pad": 0.12,
+      "sub_font": "Instrument Serif",
+      "sub_italic": true,
+      "sub_size": 1.5,
+      "sub_color": "#4A4A4A"
+    },
+    "widget_dark": {
       "tint_color": "#1C1C1E",
       "tint": 0.34,
       "border_color": "#FFFFFF",

@@ -16,9 +16,11 @@ treatment) while staying inside the owner's style.
 plan, create and critique like an elite international creative agency (authenticity,
 typography, composition, real photography and storytelling over decoration and templates).
 
-**LOCKED HOUSE STYLE (2026-11-17):** unless the owner asks for something else, every video
-follows `styles/bold-clean/style.md` → "LOCKED HOUSE LOOK" (box-pop captions, map card,
-liquid-glass widgets, cutout on glass disc, SFX recipe). The owner should never have to explain it again.
+**LOCKED HOUSE STYLE v2 (2026-11-18, owner: "maza aa gaya, isi mizaaj ka banana"):** unless the
+owner asks for something else, every video follows `styles/bold-clean/style.md` → "LOCKED HOUSE
+LOOK v2" (4K, bright colourful grade, white-box captions, light glass widgets with black Anton text,
+map card, product mockups on glass discs, product line-up ending, SFX recipe). Master example:
+`Video Edits/Export/three-products/`. The owner should never have to explain it again.
 
 **Owner's working rules (learned the hard way):**
 - Confirm caption WORDING with the owner first (Caption Review page), then do the rest.

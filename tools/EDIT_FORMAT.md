@@ -194,3 +194,7 @@ impact, boom, riser, glitch) or `{"file": "my-sound.wav", "at": ...}` from Raw/<
 Glass widget sub line styling: `sub_font` (default Inter Tight), `sub_italic`, `sub_size` (× label size), `sub_color`, `sub_spacing` (letter spacing px). Defaults come from the style's `glass.widget`.
 
 **Icon tiles** (`tools/tile.py --project P --name vitamins --emoji 💊 --color "#1E4FA8"`): glossy app-icon tiles; pop them in a row (width ~0.135, x step 0.13) as each feature is spoken, with a typed `tag` card above and the `keys` SFX.
+
+**frames** (timed semi-frame): `[{"start": 3.6, "end": 8.1, "scale": 0.84, "top": 0.09, "radius": 0.05, "bg": "lines" | "grid" | "hlines" | "blur", "bg_color": "#0B2560", "line_alpha": 0.07, "line_step": 0.045}]`: the video sits in a rounded white-bordered card over a plain colour background with soft lines (default; blur only on request).
+
+**route card**: `{"type": "route", "from": "Karachi", "to": "Rawalpindi", "label": "Dispatch · Live", "title": "Karachi → Rawalpindi", "x": 0.46, "y": 0.3, "w": 0.76, "h": 0.3, "route_time": 0.75, "color": "#FF3B3B", "vehicle": "🚚"}`: floating live-tracking panel, truck drives along the route.

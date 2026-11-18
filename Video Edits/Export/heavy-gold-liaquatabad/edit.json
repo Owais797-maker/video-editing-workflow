@@ -1,0 +1,101 @@
+{
+  "project": "heavy-gold-liaquatabad",
+  "style": "bold-clean",
+  "summary": "Heavy Gold 2 bags to Ali bhai, Liaquatabad Karachi. Repeat purchase. Simple cinematic, owner's subtitles.",
+  "reference_notes": "Owner: simple cinematic, light bottom masking, stylish Poppins captions at the top, colours from the Heavy Gold bag.",
+  "shots": [
+    {
+      "src": "clip.mov",
+      "in": 0,
+      "out": 17.66,
+      "description": "Ali bhai with Heavy Gold bags on a bike",
+      "motion": {
+        "type": "zoom_in",
+        "amount": 0.05
+      }
+    }
+  ],
+  "look": {
+    "cinematic": 1.1,
+    "contrast": 1.07,
+    "saturation": 1.12,
+    "brightness": 0.01,
+    "warmth": 0.03,
+    "denoise": 0.8,
+    "sharpen": 0.75,
+    "vignette": 0.5,
+    "grain": 2
+  },
+  "captions": {
+    "keywords": {
+      "liaquatabad": {},
+      "ali": {},
+      "bhai": {},
+      "heavy": {},
+      "gold": {},
+      "minerals": {},
+      "vitamins": {},
+      "zabardast": {},
+      "repeat": {},
+      "purchase": {},
+      "asal": {},
+      "pehchan": {},
+      "mashhoor": {},
+      "karachi": {}
+    },
+    "style": {
+      "mode": "html",
+      "template": "minimal",
+      "accent": "#9BE15D",
+      "y": 0.2,
+      "lowercase": false
+    },
+    "sfx": {
+      "line": {
+        "sound": "swish",
+        "volume": 0.07
+      },
+      "big": {
+        "sound": "whoosh_fast",
+        "volume": 0.09
+      }
+    }
+  },
+  "overlays": [
+    {
+      "file": "Video Edits/Raw/heavy-gold-liaquatabad/mask-grad.png",
+      "start": 0,
+      "end": 17.66,
+      "x": 0.5,
+      "y": 0.5,
+      "width": 1.0,
+      "animation": "none"
+    }
+  ],
+  "sfx": [
+    {
+      "sound": "swoosh_up",
+      "at": 0.0,
+      "volume": 0.3
+    },
+    {
+      "sound": "pop",
+      "at": 3.9,
+      "volume": 0.25
+    },
+    {
+      "sound": "ching",
+      "at": 5.6,
+      "volume": 0.22
+    },
+    {
+      "sound": "ding",
+      "at": 10.9,
+      "volume": 0.22
+    }
+  ],
+  "fade": {
+    "in": 0.3,
+    "out": 0.6
+  }
+}

@@ -1,0 +1,317 @@
+{
+ "note": "Owner's own subtitles (no speech in the clip audio); times from the owner's timestamps.",
+ "lines": [
+  {
+   "start": 0.05,
+   "end": 1.0,
+   "words": [
+    {
+     "start": 0.05,
+     "end": 0.604,
+     "text": "Liaquatabad,"
+    },
+    {
+     "start": 0.604,
+     "end": 1.0,
+     "text": "Karachi",
+     "big": true
+    }
+   ],
+   "text": "Liaquatabad, Karachi"
+  },
+  {
+   "start": 1.0,
+   "end": 1.95,
+   "words": [
+    {
+     "start": 1.0,
+     "end": 1.198,
+     "text": "ka"
+    },
+    {
+     "start": 1.198,
+     "end": 1.633,
+     "text": "mashhoor",
+     "big": true
+    },
+    {
+     "start": 1.633,
+     "end": 1.95,
+     "text": "ilaqa."
+    }
+   ],
+   "text": "ka mashhoor ilaqa."
+  },
+  {
+   "start": 2.05,
+   "end": 3.093,
+   "words": [
+    {
+     "start": 2.05,
+     "end": 2.311,
+     "text": "Wahan"
+    },
+    {
+     "start": 2.311,
+     "end": 2.506,
+     "text": "par"
+    },
+    {
+     "start": 2.506,
+     "end": 2.702,
+     "text": "Ali",
+     "big": true
+    },
+    {
+     "start": 2.702,
+     "end": 2.93,
+     "text": "bhai",
+     "big": true
+    },
+    {
+     "start": 2.93,
+     "end": 3.093,
+     "text": "ko"
+    }
+   ],
+   "text": "Wahan par Ali bhai ko"
+  },
+  {
+   "start": 3.093,
+   "end": 4.298,
+   "words": [
+    {
+     "start": 3.093,
+     "end": 3.256,
+     "text": "do"
+    },
+    {
+     "start": 3.256,
+     "end": 3.451,
+     "text": "bag"
+    },
+    {
+     "start": 3.451,
+     "end": 3.614,
+     "text": "ja"
+    },
+    {
+     "start": 3.614,
+     "end": 3.842,
+     "text": "rahe"
+    },
+    {
+     "start": 3.842,
+     "end": 4.07,
+     "text": "hain,"
+    },
+    {
+     "start": 4.07,
+     "end": 4.298,
+     "text": "bhai,"
+    }
+   ],
+   "text": "do bag ja rahe hain, bhai,"
+  },
+  {
+   "start": 4.298,
+   "end": 4.95,
+   "words": [
+    {
+     "start": 4.298,
+     "end": 4.559,
+     "text": "Heavy",
+     "big": true
+    },
+    {
+     "start": 4.559,
+     "end": 4.787,
+     "text": "Gold",
+     "big": true
+    },
+    {
+     "start": 4.787,
+     "end": 4.95,
+     "text": "ke."
+    }
+   ],
+   "text": "Heavy Gold ke."
+  },
+  {
+   "start": 5.05,
+   "end": 6.334,
+   "words": [
+    {
+     "start": 5.05,
+     "end": 5.573,
+     "text": "Minerals,",
+     "big": true
+    },
+    {
+     "start": 5.573,
+     "end": 6.096,
+     "text": "vitamins",
+     "big": true
+    },
+    {
+     "start": 6.096,
+     "end": 6.334,
+     "text": "ka"
+    }
+   ],
+   "text": "Minerals, vitamins ka"
+  },
+  {
+   "start": 6.334,
+   "end": 7.95,
+   "words": [
+    {
+     "start": 6.334,
+     "end": 6.904,
+     "text": "zabardast",
+     "big": true
+    },
+    {
+     "start": 6.904,
+     "end": 7.332,
+     "text": "powder"
+    },
+    {
+     "start": 7.332,
+     "end": 7.617,
+     "text": "hai,"
+    },
+    {
+     "start": 7.617,
+     "end": 7.95,
+     "text": "bhai."
+    }
+   ],
+   "text": "zabardast powder hai, bhai."
+  },
+  {
+   "start": 8.05,
+   "end": 8.914,
+   "words": [
+    {
+     "start": 8.05,
+     "end": 8.361,
+     "text": "Repeat",
+     "big": true
+    },
+    {
+     "start": 8.361,
+     "end": 8.741,
+     "text": "purchase",
+     "big": true
+    },
+    {
+     "start": 8.741,
+     "end": 8.914,
+     "text": "pe"
+    }
+   ],
+   "text": "Repeat purchase pe"
+  },
+  {
+   "start": 8.914,
+   "end": 9.95,
+   "words": [
+    {
+     "start": 8.914,
+     "end": 9.086,
+     "text": "ja"
+    },
+    {
+     "start": 9.086,
+     "end": 9.328,
+     "text": "raha"
+    },
+    {
+     "start": 9.328,
+     "end": 9.535,
+     "text": "hai,"
+    },
+    {
+     "start": 9.535,
+     "end": 9.777,
+     "text": "bhai,"
+    },
+    {
+     "start": 9.777,
+     "end": 9.95,
+     "text": "ye."
+    }
+   ],
+   "text": "ja raha hai, bhai, ye."
+  },
+  {
+   "start": 10.05,
+   "end": 11.076,
+   "words": [
+    {
+     "start": 10.05,
+     "end": 10.407,
+     "text": "Acchi"
+    },
+    {
+     "start": 10.407,
+     "end": 10.853,
+     "text": "product"
+    },
+    {
+     "start": 10.853,
+     "end": 11.076,
+     "text": "ki"
+    }
+   ],
+   "text": "Acchi product ki"
+  },
+  {
+   "start": 11.076,
+   "end": 12.058,
+   "words": [
+    {
+     "start": 11.076,
+     "end": 11.388,
+     "text": "asal",
+     "big": true
+    },
+    {
+     "start": 11.388,
+     "end": 11.835,
+     "text": "pehchan",
+     "big": true
+    },
+    {
+     "start": 11.835,
+     "end": 12.058,
+     "text": "hi"
+    }
+   ],
+   "text": "asal pehchan hi"
+  },
+  {
+   "start": 12.058,
+   "end": 12.95,
+   "words": [
+    {
+     "start": 12.058,
+     "end": 12.37,
+     "text": "yahi"
+    },
+    {
+     "start": 12.37,
+     "end": 12.682,
+     "text": "hoti"
+    },
+    {
+     "start": 12.682,
+     "end": 12.95,
+     "text": "hai."
+    }
+   ],
+   "text": "yahi hoti hai."
+  }
+ ]
+}

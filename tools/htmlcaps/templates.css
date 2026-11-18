@@ -81,3 +81,13 @@
 .t-script-mix .w.big.active, .t-script-mix .w.kw.active { transform: translateY(.32em) rotate(-5deg); }
 .t-script-mix .w.active::after { content: ""; position: absolute; top: 5%; bottom: 5%; width: 6px; background: #fff; border-radius: 3px;
   left: calc(min(var(--p, 1), 1) * 100%); opacity: calc(1 - min(var(--p, 1), 1) * min(var(--p, 1), 1) * min(var(--p, 1), 1)); box-shadow: 0 0 8px rgba(0,0,0,.4); }
+
+/* 10. PILL — Poppins on a frosted brand-colour pill (Heavy Gold royal blue); the line is visible dim and
+   spoken words light up; keywords in the accent. Colours: --pill (bg) and --accent. Stylish, readable anywhere. */
+.t-pill { font-family: "Poppins SemiBold", sans-serif; font-size: 66px; line-height: 1.12; color: #fff; letter-spacing: -.005em; }
+.t-pill .row { background: linear-gradient(180deg, color-mix(in srgb, var(--pill, #1E3FA0) 82%, transparent), color-mix(in srgb, var(--pill, #1E3FA0) 66%, transparent));
+  border: 2px solid color-mix(in srgb, var(--accent) 60%, transparent); border-radius: 999px; padding: .2em .75em .26em;
+  box-shadow: 0 14px 34px rgba(0,0,0,.30), inset 0 1px 0 rgba(255,255,255,.35); }
+.t-pill .w.future { visibility: visible; opacity: .42; }
+.t-pill .w.active { transform: translateY(calc((1 - var(--p, 1)) * -.08em)); opacity: 1; }
+.t-pill .w.big, .t-pill .w.kw { color: var(--accent); }

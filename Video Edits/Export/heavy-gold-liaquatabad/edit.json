@@ -5,9 +5,9 @@
   "reference_notes": "Owner: simple cinematic, light bottom masking, stylish Poppins captions at the top, colours from the Heavy Gold bag.",
   "shots": [
     {
-      "src": "clip.mov",
+      "src": "clip2.mov",
       "in": 0,
-      "out": 17.66,
+      "out": 12.9,
       "description": "Ali bhai with Heavy Gold bags on a bike",
       "motion": {
         "type": "zoom_in",
@@ -45,9 +45,10 @@
     },
     "style": {
       "mode": "html",
-      "template": "minimal",
-      "accent": "#9BE15D",
-      "y": 0.2,
+      "template": "pill",
+      "accent": "#8FD8FF",
+      "pill": "#1E3FA0",
+      "y": 0.14,
       "lowercase": false
     },
     "sfx": {
@@ -65,7 +66,7 @@
     {
       "file": "Video Edits/Raw/heavy-gold-liaquatabad/mask-grad.png",
       "start": 0,
-      "end": 17.66,
+      "end": 12.9,
       "x": 0.5,
       "y": 0.5,
       "width": 1.0,
@@ -80,17 +81,17 @@
     },
     {
       "sound": "pop",
-      "at": 3.9,
+      "at": 4.8,
       "volume": 0.25
     },
     {
       "sound": "ching",
-      "at": 5.6,
+      "at": 5.56,
       "volume": 0.22
     },
     {
       "sound": "ding",
-      "at": 10.9,
+      "at": 11.4,
       "volume": 0.22
     }
   ],

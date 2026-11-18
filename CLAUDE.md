@@ -56,6 +56,7 @@ caption style of styles/plain-captions (from their Facebook reference; see
   explainer-ui (split screen + step panels, great for "tareeka/tips" series), italic-kinetic,
   farm-ki-baat typography, liquid-glass.
 - For voice-over story ideas and scripts use `guides/shop-story-reels.md`.
+- When the owner sends a viral reel and asks why it worked / what to make: `guides/viral-breakdown.md`.
 - For product reels the owner likes the **brand-cards** look (styles/brand-cards): framed
   footage + full-frame brand cards with the product cutout, stats and contact card.
 

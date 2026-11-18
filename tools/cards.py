@@ -66,6 +66,8 @@ def card_frame(c: dict, t: float, dur: float, W: int, H: int, product: str | Non
         return swiss_frame(c, t, dur, W, H, th, fade)
     if kind == "panel":
         return panel_frame(c, t, dur, W, H, th, fade)
+    if kind == "route":
+        return route_frame(c, t, dur, W, H, th, fade)
     rnd = random.Random(seed)
     bokeh = []
     for _ in range(7):
@@ -188,6 +190,70 @@ CITIES = {  # lat, lon
     "Faisalabad": (31.42, 73.08), "Multan": (30.20, 71.47), "Peshawar": (34.01, 71.58), "Quetta": (30.18, 66.98),
     "Gujranwala": (32.16, 74.19), "Khanpur": (28.65, 70.66), "Rahim Yar Khan": (28.42, 70.30), "Hyderabad": (25.40, 68.37), "Rawalpindi": (33.60, 73.04), "Sahiwal": (30.66, 73.11),
 }
+
+
+def route_frame(c: dict, t: float, dur: float, W: int, H: int, th: dict, fade: float) -> str:
+    """Live-tracking widget (delivery-app look): a floating frosted panel over the video with a small
+    Pakistan map, a dashed route that draws from `from` to `to`, a truck emoji driving along it, pins
+    and a header "<label> / FROM -> TO". The rest of the frame stays transparent (video visible)."""
+    from common import REPO
+    geo = json.loads((REPO / "assets/maps/PAK.geo.json").read_text())
+    geom = geo["features"][0]["geometry"]
+    rings = [geom["coordinates"][0]] if geom["type"] == "Polygon" else [p[0] for p in geom["coordinates"]]
+    lons = [x for r in rings for x, _ in r]
+    lats = [y for r in rings for _, y in r]
+    x0, y0, bw, bh = float(c.get("x", 0.46)), float(c.get("y", 0.3)), float(c.get("w", 0.76)), float(c.get("h", 0.3))
+    PW, PH = W * bw, H * bh
+    head = PH * 0.24
+    k = math.cos(math.radians(30))
+    mb = (PW * 0.06, head, PW * 0.88, PH - head - PH * 0.05)
+    sc = min(mb[2] / ((max(lons) - min(lons)) * k), mb[3] / (max(lats) - min(lats)))
+    ox = mb[0] + (mb[2] - (max(lons) - min(lons)) * k * sc) / 2
+    oy = mb[1] + (mb[3] - (max(lats) - min(lats)) * sc) / 2
+
+    def P(lat, lon):
+        return ox + (lon - min(lons)) * k * sc, oy + (max(lats) - lat) * sc
+    path = " ".join("M" + " L".join(f"{P(y, x)[0]:.1f},{P(y, x)[1]:.1f}" for x, y in r) + "Z" for r in rings)
+    src, dst = c.get("from", "Karachi"), c.get("to", "Lahore")
+    fx, fy = P(*CITIES[src])
+    tx, ty = P(*CITIES[dst])
+    cx, cy = (fx + tx) / 2 + (ty - fy) * 0.18, (fy + ty) / 2 - (tx - fx) * 0.05
+    rt = float(c.get("route_time", 1.0))
+    p = ease_out((t - 0.3) / rt)
+    bx = (1 - p) ** 2 * fx + 2 * (1 - p) * p * cx + p ** 2 * tx
+    by = (1 - p) ** 2 * fy + 2 * (1 - p) * p * cy + p ** 2 * ty
+    pin = ease_back((t - 0.3 - rt) / 0.35)
+    acc = c.get("color", th["accent"])
+    pop = ease_back(t / 0.35)
+    blink = 0.35 + 0.65 * (0.5 + 0.5 * math.cos(t * 9))
+    truck = ""
+    if c.get("vehicle", "🚚"):
+        cps = "_".join(f"{ord(ch):x}" for ch in c.get("vehicle", "🚚") if ord(ch) != 0xFE0F)
+        img = REPO / "assets" / "emoji" / f"{cps}.png"
+        if img.exists():
+            ts = PW * 0.13
+            flip = -1 if tx > fx else 1  # emoji truck faces left: mirror it when driving right
+            bounce = math.sin(t * 22) * 2
+            truck = (f'<g transform="translate({bx:.1f} {by - ts * 0.55 + bounce:.1f}) scale({flip} 1)" opacity="{1 if p < 1 else max(0, 1 - (t - 0.3 - rt) / 0.3):.2f}">'
+                     f'<image href="file://{img}" x="{-ts / 2:.1f}" y="{-ts / 2:.1f}" width="{ts:.1f}" height="{ts:.1f}"/></g>')
+    fs = PH * 0.075
+    svg = (f'<svg width="{PW:.0f}" height="{PH:.0f}" viewBox="0 0 {PW:.0f} {PH:.0f}" style="position:absolute;inset:0">'
+           f'<defs><filter id="rg"><feGaussianBlur stdDeviation="5" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>'
+           f'<mask id="rm"><path d="M{fx:.1f},{fy:.1f} Q{cx:.1f},{cy:.1f} {tx:.1f},{ty:.1f}" fill="none" stroke="#fff" stroke-width="16" pathLength="1" stroke-dasharray="1" stroke-dashoffset="{1 - p:.4f}"/></mask></defs>'
+           f'<path d="{path}" fill="rgba(255,255,255,.10)" stroke="rgba(255,255,255,.55)" stroke-width="2.5" stroke-linejoin="round"/>'
+           f'<path d="M{fx:.1f},{fy:.1f} Q{cx:.1f},{cy:.1f} {tx:.1f},{ty:.1f}" fill="none" stroke="{acc}" stroke-width="7" stroke-linecap="round" '
+           f'stroke-dasharray="2 16" mask="url(#rm)" filter="url(#rg)"/>'
+           f'<circle cx="{fx:.1f}" cy="{fy:.1f}" r="11" fill="#fff"/><circle cx="{fx:.1f}" cy="{fy:.1f}" r="22" fill="none" stroke="#fff" stroke-opacity=".5" stroke-width="3"/>'
+           f'<text x="{fx + 30:.1f}" y="{fy + 10:.1f}" font-family="Inter Tight" font-weight="800" font-size="{fs * 0.62:.0f}" fill="#fff">{html.escape(src.upper())}</text>'
+           f'<g transform="translate({tx:.1f} {ty:.1f}) scale({max(pin, 0):.3f})"><circle r="30" fill="{acc}" opacity=".3"/>'
+           f'<path d="M0,0 C-22,-26 -26,-50 0,-64 C26,-50 22,-26 0,0Z" fill="{acc}" stroke="#fff" stroke-width="3"/><circle cy="-43" r="9" fill="#fff"/></g>'
+           f'<text x="{tx - 40:.1f}" y="{ty - 72:.1f}" text-anchor="end" font-family="Inter Tight" font-weight="900" font-size="{fs * 0.8:.0f}" fill="#fff" opacity="{min(1, max(pin, 0)):.2f}">{html.escape(dst.upper())}</text>'
+           f'{truck}</svg>')
+    header = (f'<div class="rt-head" style="height:{head:.0f}px;padding:0 {PW * 0.06:.0f}px">'
+              f'<div class="rt-label" style="font-size:{fs * 0.62:.0f}px"><span class="rt-dot" style="background:{acc};opacity:{blink:.2f}"></span>{html.escape(c.get("label", "On the way"))}</div>'
+              f'<div class="rt-title" style="font-size:{fs * 1.15:.0f}px">{html.escape(c.get("title", src + " → " + dst))}</div></div>')
+    return (f'<div class="routebox" style="left:{(x0 - bw / 2) * 100:.2f}%;top:{(y0 - bh / 2) * 100:.2f}%;width:{PW:.0f}px;height:{PH:.0f}px;'
+            f'opacity:{fade:.3f};transform:scale({0.8 + 0.2 * pop:.4f})">{header}{svg}</div>')
 
 
 def map_svg(c: dict, t: float, W: int, H: int, th: dict) -> str:

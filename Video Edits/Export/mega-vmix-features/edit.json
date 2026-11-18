@@ -1,0 +1,510 @@
+{
+  "project": "mega-vmix-features",
+  "style": "bold-clean",
+  "summary": "Mega-VMix: 2 bags for Zeeshan bhai (BEFS farm, Rawalpindi). Ingredients typed in with iPhone keyboard sound.",
+  "reference_notes": "IG reel: before/after motion graphics, full-screen brand card with big number, glossy icon tiles popping in a row, digit counters. Plus locked house look v2.",
+  "shots": [
+    {
+      "src": "clip.mov",
+      "in": 0,
+      "out": 14.9,
+      "description": "Mega-VMix bags -> Zeeshan bhai",
+      "motion": {
+        "type": "zoom_in",
+        "amount": 0.07
+      },
+      "punch": [
+        [
+          0.0,
+          0.35
+        ],
+        [
+          8.2,
+          8.9
+        ],
+        [
+          13.94,
+          14.9
+        ]
+      ]
+    }
+  ],
+  "captions": {
+    "style": {
+      "mode": "html",
+      "template": "box-pop",
+      "accent": "#FFFFFF",
+      "ink": "#1E4FA8",
+      "y": 0.7
+    }
+  },
+  "brand": {
+    "bg1": "#2A63D1",
+    "bg2": "#0B2560",
+    "accent": "#FF3B3B",
+    "ink": "#0B2560"
+  },
+  "cards": [
+    {
+      "type": "headline",
+      "start": 0.0,
+      "end": 1.45,
+      "label": "Qurbani special",
+      "title": "*ZABARDAST*\nQUALITY",
+      "sub": "Mega-VMix · Cattle feed premix",
+      "product": "Video Edits/Raw/mega-vmix/mega-vmix-bag-cutout.png",
+      "product_size": 0.5,
+      "product_pos": "bottom"
+    },
+    {
+      "type": "tag",
+      "text": "MINERALS",
+      "start": 4.42,
+      "end": 5.14,
+      "color": "#1E4FA8",
+      "x": 0.46,
+      "y": 0.22,
+      "w": 0.5,
+      "h": 0.07,
+      "type_time": 0.4
+    },
+    {
+      "type": "tag",
+      "text": "VITAMINS",
+      "start": 5.16,
+      "end": 5.84,
+      "color": "#1E4FA8",
+      "x": 0.46,
+      "y": 0.22,
+      "w": 0.5,
+      "h": 0.07,
+      "type_time": 0.4
+    },
+    {
+      "type": "tag",
+      "text": "BIOTIN",
+      "start": 5.86,
+      "end": 6.64,
+      "color": "#1E4FA8",
+      "x": 0.46,
+      "y": 0.22,
+      "w": 0.5,
+      "h": 0.07,
+      "type_time": 0.4
+    },
+    {
+      "type": "tag",
+      "text": "YEAST",
+      "start": 6.66,
+      "end": 7.0,
+      "color": "#1E4FA8",
+      "x": 0.46,
+      "y": 0.22,
+      "w": 0.5,
+      "h": 0.07,
+      "type_time": 0.4
+    },
+    {
+      "type": "tag",
+      "text": "TOXIN BINDER",
+      "start": 7.0,
+      "end": 8.15,
+      "color": "#1E4FA8",
+      "x": 0.46,
+      "y": 0.22,
+      "w": 0.66,
+      "h": 0.07,
+      "type_time": 0.4
+    },
+    {
+      "type": "route",
+      "start": 8.6,
+      "end": 10.35,
+      "label": "Dispatch · Live",
+      "title": "Karachi → Rawalpindi",
+      "from": "Karachi",
+      "to": "Rawalpindi",
+      "x": 0.46,
+      "y": 0.3,
+      "w": 0.76,
+      "h": 0.3,
+      "route_time": 0.75,
+      "color": "#FF3B3B"
+    },
+    {
+      "type": "map",
+      "start": 12.2,
+      "end": 13.75,
+      "label": "Order",
+      "title": "*Rawalpindi* ja raha hai",
+      "from": "Karachi",
+      "from_label": "Karachi",
+      "to": "Rawalpindi",
+      "route_time": 0.9
+    }
+  ],
+  "overlays": [
+    {
+      "file": "Video Edits/Raw/mega-vmix-features/tile-turkey.png",
+      "start": 3.62,
+      "end": 4.4,
+      "x": 0.46,
+      "y": 0.22,
+      "width": 0.16,
+      "animation": "pop"
+    },
+    {
+      "file": "Video Edits/Raw/mega-vmix-features/tile-minerals.png",
+      "start": 4.42,
+      "end": 8.15,
+      "x": 0.2,
+      "y": 0.58,
+      "width": 0.135,
+      "animation": "pop"
+    },
+    {
+      "file": "Video Edits/Raw/mega-vmix-features/tile-vitamins.png",
+      "start": 5.16,
+      "end": 8.15,
+      "x": 0.33,
+      "y": 0.58,
+      "width": 0.135,
+      "animation": "pop"
+    },
+    {
+      "file": "Video Edits/Raw/mega-vmix-features/tile-biotin.png",
+      "start": 5.86,
+      "end": 8.15,
+      "x": 0.46,
+      "y": 0.58,
+      "width": 0.135,
+      "animation": "pop"
+    },
+    {
+      "file": "Video Edits/Raw/mega-vmix-features/tile-yeast.png",
+      "start": 6.66,
+      "end": 8.15,
+      "x": 0.59,
+      "y": 0.58,
+      "width": 0.135,
+      "animation": "pop"
+    },
+    {
+      "file": "Video Edits/Raw/mega-vmix-features/tile-binder.png",
+      "start": 6.96,
+      "end": 8.15,
+      "x": 0.72,
+      "y": 0.58,
+      "width": 0.135,
+      "animation": "pop"
+    },
+    {
+      "file": "Video Edits/Raw/mega-vmix/mega-vmix-bag-cutout.png",
+      "start": 13.75,
+      "end": 14.9,
+      "x": 0.5,
+      "y": 0.47,
+      "width": 0.36,
+      "animation": "rise"
+    }
+  ],
+  "glass": [
+    {
+      "tint_color": "#FFFFFF",
+      "tint": 0.26,
+      "border": 0.75,
+      "brightness": 0.12,
+      "saturation": 1.0,
+      "text_color": "#0B2560",
+      "sub_color": "#26324D",
+      "blur": 30,
+      "x": 0.3,
+      "y": 0.55,
+      "w": 0.44,
+      "h": 0.17,
+      "label": "Mega-VMix",
+      "value": "2 BAGS",
+      "sub": "ja rahe hain",
+      "dot": "#E32626",
+      "start": 8.2,
+      "end": 10.3
+    },
+    {
+      "tint_color": "#FFFFFF",
+      "tint": 0.26,
+      "border": 0.75,
+      "brightness": 0.12,
+      "saturation": 1.0,
+      "text_color": "#0B2560",
+      "sub_color": "#26324D",
+      "blur": 30,
+      "x": 0.45,
+      "y": 0.58,
+      "w": 0.72,
+      "h": 0.17,
+      "label": "VEFS Farm · Rooh-e-rawaan",
+      "value": "ZEESHAN BHAI",
+      "sub": "Rawalpindi",
+      "dot": "#1E4FA8",
+      "start": 10.3,
+      "end": 12.15
+    },
+    {
+      "x": 0.5,
+      "y": 0.47,
+      "w": 0.52,
+      "h": 0.29250000000000004,
+      "radius": 0.5,
+      "start": 13.75,
+      "end": 14.9,
+      "tint": 0.12,
+      "brightness": 0.08
+    },
+    {
+      "tint_color": "#FFFFFF",
+      "tint": 0.26,
+      "border": 0.75,
+      "brightness": 0.12,
+      "saturation": 1.0,
+      "text_color": "#0B2560",
+      "sub_color": "#26324D",
+      "blur": 30,
+      "x": 0.47,
+      "y": 0.2,
+      "w": 0.8,
+      "h": 0.15,
+      "label": "✓ Rawalpindi",
+      "value": "QUALITY HAI NA",
+      "sub": "Mega-VMix · VEFS Farm",
+      "dot": "#E32626",
+      "start": 13.8,
+      "end": 14.9
+    }
+  ],
+  "backdrop": [
+    {
+      "start": 13.75,
+      "end": 14.9,
+      "blur": 20,
+      "dim": 0.25
+    }
+  ],
+  "effects": [
+    {
+      "type": "glitch",
+      "at": 1.42,
+      "dur": 0.14
+    },
+    {
+      "type": "light_leak",
+      "at": 3.55,
+      "dur": 0.8,
+      "color": "#FFFFFF"
+    },
+    {
+      "type": "blur_whip",
+      "at": 8.15,
+      "dur": 0.12
+    },
+    {
+      "type": "blur_whip",
+      "at": 12.15,
+      "dur": 0.12
+    },
+    {
+      "type": "blur_whip",
+      "at": 13.72,
+      "dur": 0.12
+    }
+  ],
+  "sfx": [
+    {
+      "sound": "boom",
+      "at": 0.0,
+      "volume": 0.45
+    },
+    {
+      "sound": "swoosh_up",
+      "at": 0.05,
+      "volume": 0.35
+    },
+    {
+      "sound": "whoosh_fast",
+      "at": 1.4,
+      "volume": 0.4
+    },
+    {
+      "sound": "glitch",
+      "at": 1.42,
+      "volume": 0.22
+    },
+    {
+      "sound": "pop",
+      "at": 3.66,
+      "volume": 0.35
+    },
+    {
+      "sound": "keys",
+      "at": 4.54,
+      "volume": 0.55
+    },
+    {
+      "sound": "pop",
+      "at": 4.4399999999999995,
+      "volume": 0.3
+    },
+    {
+      "sound": "keys",
+      "at": 5.28,
+      "volume": 0.55
+    },
+    {
+      "sound": "pop",
+      "at": 5.18,
+      "volume": 0.3
+    },
+    {
+      "sound": "keys",
+      "at": 5.98,
+      "volume": 0.55
+    },
+    {
+      "sound": "pop",
+      "at": 5.88,
+      "volume": 0.3
+    },
+    {
+      "sound": "keys",
+      "at": 6.78,
+      "volume": 0.55
+    },
+    {
+      "sound": "pop",
+      "at": 6.68,
+      "volume": 0.3
+    },
+    {
+      "sound": "keys",
+      "at": 7.08,
+      "volume": 0.55
+    },
+    {
+      "sound": "pop",
+      "at": 6.9799999999999995,
+      "volume": 0.3
+    },
+    {
+      "sound": "ching",
+      "at": 8.0,
+      "volume": 0.28
+    },
+    {
+      "sound": "whoosh",
+      "at": 8.12,
+      "volume": 0.4
+    },
+    {
+      "sound": "impact",
+      "at": 8.25,
+      "volume": 0.32
+    },
+    {
+      "sound": "whoosh_fast",
+      "at": 10.25,
+      "volume": 0.32
+    },
+    {
+      "sound": "ding",
+      "at": 10.45,
+      "volume": 0.2
+    },
+    {
+      "sound": "riser",
+      "at": 10.7,
+      "volume": 0.18
+    },
+    {
+      "sound": "whoosh",
+      "at": 12.12,
+      "volume": 0.4
+    },
+    {
+      "sound": "trr",
+      "at": 12.45,
+      "volume": 0.42
+    },
+    {
+      "sound": "click",
+      "at": 13.35,
+      "volume": 0.5
+    },
+    {
+      "sound": "whoosh",
+      "at": 13.7,
+      "volume": 0.4
+    },
+    {
+      "sound": "impact",
+      "at": 13.78,
+      "volume": 0.32
+    },
+    {
+      "sound": "pop",
+      "at": 13.9,
+      "volume": 0.3
+    },
+    {
+      "sound": "ding",
+      "at": 14.3,
+      "volume": 0.25
+    },
+    {
+      "sound": "whoosh_fast",
+      "at": 3.55,
+      "volume": 0.35
+    },
+    {
+      "sound": "whoosh_fast",
+      "at": 8.12,
+      "volume": 0.3
+    },
+    {
+      "sound": "swoosh_up",
+      "at": 8.55,
+      "volume": 0.35
+    },
+    {
+      "sound": "trr",
+      "at": 8.9,
+      "volume": 0.45
+    },
+    {
+      "sound": "click",
+      "at": 9.68,
+      "volume": 0.5
+    }
+  ],
+  "fade": {
+    "out": 0.25
+  },
+  "look": {
+    "cinematic": 1.0,
+    "contrast": 1.08,
+    "saturation": 1.18,
+    "brightness": 0.02,
+    "warmth": 0.025,
+    "denoise": 1.0,
+    "sharpen": 0.8,
+    "vignette": 0.5,
+    "grain": 2
+  },
+  "frames": [
+    {
+      "start": 3.6,
+      "end": 8.15,
+      "scale": 0.84,
+      "top": 0.09,
+      "radius": 0.05
+    }
+  ]
+}

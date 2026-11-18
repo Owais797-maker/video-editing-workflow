@@ -117,6 +117,21 @@
       "type_time": 0.4
     },
     {
+      "type": "route",
+      "start": 8.6,
+      "end": 10.35,
+      "label": "Dispatch · Live",
+      "title": "Karachi → Rawalpindi",
+      "from": "Karachi",
+      "to": "Rawalpindi",
+      "x": 0.46,
+      "y": 0.3,
+      "w": 0.76,
+      "h": 0.3,
+      "route_time": 0.75,
+      "color": "#FF3B3B"
+    },
+    {
       "type": "map",
       "start": 12.2,
       "end": 13.75,
@@ -185,15 +200,6 @@
     },
     {
       "file": "Video Edits/Raw/mega-vmix/mega-vmix-bag-cutout.png",
-      "start": 8.2,
-      "end": 9.6,
-      "x": 0.66,
-      "y": 0.44,
-      "width": 0.3,
-      "animation": "rise"
-    },
-    {
-      "file": "Video Edits/Raw/mega-vmix/mega-vmix-bag-cutout.png",
       "start": 13.75,
       "end": 14.9,
       "x": 0.5,
@@ -204,17 +210,6 @@
   ],
   "glass": [
     {
-      "x": 0.66,
-      "y": 0.44,
-      "w": 0.44,
-      "h": 0.2475,
-      "radius": 0.5,
-      "start": 8.2,
-      "end": 9.6,
-      "tint": 0.12,
-      "brightness": 0.08
-    },
-    {
       "tint_color": "#FFFFFF",
       "tint": 0.26,
       "border": 0.75,
@@ -224,15 +219,15 @@
       "sub_color": "#26324D",
       "blur": 30,
       "x": 0.3,
-      "y": 0.25,
+      "y": 0.55,
       "w": 0.44,
       "h": 0.17,
       "label": "Mega-VMix",
       "value": "2 BAGS",
       "sub": "ja rahe hain",
       "dot": "#E32626",
-      "start": 8.25,
-      "end": 9.6
+      "start": 8.2,
+      "end": 10.3
     },
     {
       "tint_color": "#FFFFFF",
@@ -251,7 +246,7 @@
       "value": "ZEESHAN BHAI",
       "sub": "Rawalpindi",
       "dot": "#1E4FA8",
-      "start": 9.7,
+      "start": 10.3,
       "end": 12.15
     },
     {
@@ -414,18 +409,13 @@
       "volume": 0.32
     },
     {
-      "sound": "swoosh_up",
-      "at": 8.2,
-      "volume": 0.3
-    },
-    {
       "sound": "whoosh_fast",
-      "at": 9.65,
+      "at": 10.25,
       "volume": 0.32
     },
     {
       "sound": "ding",
-      "at": 9.95,
+      "at": 10.45,
       "volume": 0.2
     },
     {
@@ -467,9 +457,54 @@
       "sound": "ding",
       "at": 14.3,
       "volume": 0.25
+    },
+    {
+      "sound": "whoosh_fast",
+      "at": 3.55,
+      "volume": 0.35
+    },
+    {
+      "sound": "whoosh_fast",
+      "at": 8.12,
+      "volume": 0.3
+    },
+    {
+      "sound": "swoosh_up",
+      "at": 8.55,
+      "volume": 0.35
+    },
+    {
+      "sound": "trr",
+      "at": 8.9,
+      "volume": 0.45
+    },
+    {
+      "sound": "click",
+      "at": 9.68,
+      "volume": 0.5
     }
   ],
   "fade": {
     "out": 0.25
-  }
+  },
+  "look": {
+    "cinematic": 1.0,
+    "contrast": 1.08,
+    "saturation": 1.18,
+    "brightness": 0.02,
+    "warmth": 0.025,
+    "denoise": 1.0,
+    "sharpen": 0.8,
+    "vignette": 0.5,
+    "grain": 2
+  },
+  "frames": [
+    {
+      "start": 3.6,
+      "end": 8.15,
+      "scale": 0.84,
+      "top": 0.09,
+      "radius": 0.05
+    }
+  ]
 }

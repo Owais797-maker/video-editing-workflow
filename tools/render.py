@@ -428,6 +428,9 @@ def build_graph(edit: dict, work: Path, preview: bool) -> tuple[list[str], str, 
     if look.get("warmth"):  # + warmer, - cooler
         wv = float(look["warmth"])
         vf.append(f"colorbalance=rm={wv:.3f}:bm={-wv:.3f}:rh={wv / 2:.3f}:bh={-wv / 2:.3f}")
+    if look.get("denoise"):  # clean phone-video noise / compression blocks before sharpening (keeps edges)
+        dn = float(look["denoise"])
+        vf.append(f"hqdn3d={1.2 * dn:.2f}:{1.0 * dn:.2f}:{3 * dn:.2f}:{2.5 * dn:.2f}")
     if look.get("sharpen"):
         vf.append(f"unsharp=5:5:{float(look['sharpen'])}:5:5:0")
     if look.get("grain"):  # light film grain for a cinematic touch (applied under text and stickers)
@@ -476,6 +479,37 @@ def build_graph(edit: dict, work: Path, preview: bool) -> tuple[list[str], str, 
         g.append(f"[fbg][fva]overlay={fm}:{ftop}[fr1]")
         g.append(f"[fr1][{i0 + 2}:v]overlay=0:0,format=yuv420p[framed]")
         cv = "[framed]"
+    for k, fr in enumerate(edit.get("frames", [])):  # timed "semi-frame": video shrinks into a rounded card over its own blurred copy
+        from PIL import Image, ImageDraw
+        s0, s1 = float(fr["start"]), float(fr["end"])
+        sc = float(fr.get("scale", 0.84))
+        fw, fh = int(W * sc) // 2 * 2, int(H * sc) // 2 * 2
+        fx, fy = (W - fw) // 2, int(H * float(fr.get("top", (1 - sc) / 2)))
+        rad = int(W * float(fr.get("radius", 0.05)))
+        bwid = max(2, int(W * float(fr.get("border", 0.004))))
+        mk = Image.new("L", (fw, fh), 0)
+        ImageDraw.Draw(mk).rounded_rectangle([0, 0, fw - 1, fh - 1], rad, fill=255)
+        mk.save(work / f"frm{k}_mask.png")
+        bd = Image.new("RGBA", (fw + 2 * bwid, fh + 2 * bwid), (0, 0, 0, 0))
+        bc = tuple(int(str(fr.get("border_color", "#FFFFFF")).lstrip("#")[i:i + 2], 16) for i in (0, 2, 4))
+        ImageDraw.Draw(bd).rounded_rectangle([0, 0, fw + 2 * bwid - 1, fh + 2 * bwid - 1], rad + bwid,
+                                             outline=bc + (int(255 * float(fr.get("border_alpha", 0.85))),), width=bwid)
+        bd.save(work / f"frm{k}_border.png")
+        i0 = inputs.count("-i")
+        for pth in (work / f"frm{k}_mask.png", work / f"frm{k}_border.png"):
+            inputs += ["-loop", "1", "-framerate", str(fps), "-t", f"{total:.3f}", "-i", str(pth)]
+        blur = float(fr.get("blur", 34)) * W / 1080
+        en = f"enable='between(t,{s0:.3f},{s1:.3f})'"
+        g.append(f"{cv}split=3[frA{k}][frB{k}][frC{k}]")
+        g.append(f"[frB{k}]scale={int(W * 1.15)}:-2,crop={W}:{H},gblur=sigma={blur:.1f},"
+                 f"eq=brightness={float(fr.get('bg_brightness', -0.1))}:saturation=1.15[frbg{k}]")
+        g.append(f"[frC{k}]scale={fw}:{fh}:flags=lanczos,format=rgba[frfg{k}]")
+        g.append(f"[{i0}:v]format=gray[frm{k}]")
+        g.append(f"[frfg{k}][frm{k}]alphamerge[frfa{k}]")
+        g.append(f"[frbg{k}][frfa{k}]overlay={fx}:{fy}[frc{k}]")
+        g.append(f"[frc{k}][{i0 + 1}:v]overlay={fx - bwid}:{fy - bwid},format=yuv420p[frd{k}]")
+        g.append(f"[frA{k}][frd{k}]overlay=0:0:{en}[fro{k}]")
+        cv = f"[fro{k}]"
     for k, fl in enumerate(edit.get("flashes", [])):  # quick white (or any colour) flash, e.g. on cuts
         at, d = float(fl.get("at", fl) if isinstance(fl, dict) else fl), float(fl.get("dur", 0.18) if isinstance(fl, dict) else 0.18)
         a = float(fl.get("alpha", 0.75) if isinstance(fl, dict) else 0.75)

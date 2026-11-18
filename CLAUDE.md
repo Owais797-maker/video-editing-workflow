@@ -22,6 +22,10 @@ LOOK v2" (4K, bright colourful grade, white-box captions, light glass widgets wi
 map card, product mockups on glass discs, product line-up ending, SFX recipe). Master example:
 `Video Edits/Export/three-products/`. The owner should never have to explain it again.
 
+**"PLAIN VIDEO" (owner 2026-11-18):** when the owner says plain video, make it captions-only in the
+caption style of styles/plain-captions (from their Facebook reference; see
+`Video Edits/Reference/fb-caption-style/brief.md` if the style is not saved yet), with good SFX, in ultra 4K.
+
 **Owner's working rules (learned the hard way):**
 - Confirm caption WORDING with the owner first (Caption Review page), then do the rest.
   Never guess unclear words; mark them `_` with a note and ask.
@@ -52,6 +56,7 @@ map card, product mockups on glass discs, product line-up ending, SFX recipe). M
   explainer-ui (split screen + step panels, great for "tareeka/tips" series), italic-kinetic,
   farm-ki-baat typography, liquid-glass.
 - For voice-over story ideas and scripts use `guides/shop-story-reels.md`.
+- When the owner sends a viral reel and asks why it worked / what to make: `guides/viral-breakdown.md`.
 - For product reels the owner likes the **brand-cards** look (styles/brand-cards): framed
   footage + full-frame brand cards with the product cutout, stats and contact card.
 

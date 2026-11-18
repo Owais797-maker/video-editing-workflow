@@ -178,7 +178,7 @@ name from `type_presets` (usually defined by the style). `"newline": true` start
 ```
 
 **sfx** – sound effects at exact times: `[{"sound": "whoosh", "at": 3.2, "volume": 0.5}]` with the
-built-in sounds from `tools/sfx.py` (whoosh, whoosh_fast, swoosh_up, pop, click, ding, ching,
+built-in sounds from `tools/sfx.py` (whoosh, whoosh_fast, swoosh_up, pop, click, keys = iPhone typing, ding, ching,
 impact, boom, riser, glitch) or `{"file": "my-sound.wav", "at": ...}` from Raw/<project>/.
 
 **music** – loops if shorter than the video. `duck` lowers it while people speak.
@@ -192,3 +192,5 @@ impact, boom, riser, glitch) or `{"file": "my-sound.wav", "at": ...}` from Raw/<
 
 
 Glass widget sub line styling: `sub_font` (default Inter Tight), `sub_italic`, `sub_size` (× label size), `sub_color`, `sub_spacing` (letter spacing px). Defaults come from the style's `glass.widget`.
+
+**Icon tiles** (`tools/tile.py --project P --name vitamins --emoji 💊 --color "#1E4FA8"`): glossy app-icon tiles; pop them in a row (width ~0.135, x step 0.13) as each feature is spoken, with a typed `tag` card above and the `keys` SFX.

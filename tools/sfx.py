@@ -101,6 +101,21 @@ def make(name: str):
         t = np.arange(int(d * SR)) / SR
         s = np.sin(2 * np.pi * 1800 * t) * np.exp(-t * 160) + np.random.default_rng(7).standard_normal(len(t)) * np.exp(-t * 300) * 0.3
         return s
+    if name == "keys":  # iPhone keyboard typing: a burst of soft "tock" taps (~0.5 s, 6-7 keys)
+        d = 0.55
+        n = int(d * SR)
+        s = np.zeros(n)
+        rng = np.random.default_rng(21)
+        t = 0.0
+        while t < d - 0.05:
+            i = int(t * SR)
+            L = int(0.03 * SR)
+            tt = np.arange(L) / SR
+            f = rng.uniform(1500, 2100)
+            tap = (np.sin(2 * np.pi * f * tt) * 0.7 + rng.standard_normal(L) * 0.35) * np.exp(-tt * 260)
+            s[i:i + L] += tap * rng.uniform(0.75, 1.0)
+            t += rng.uniform(0.065, 0.095)
+        return s * 0.8
     if name == "ding":
         return tone(1318.5, 1.4, np, 4.0, ((1, 1), (2.0, 0.35), (3.01, 0.2), (4.2, 0.08))) * 0.6
     if name == "ching":

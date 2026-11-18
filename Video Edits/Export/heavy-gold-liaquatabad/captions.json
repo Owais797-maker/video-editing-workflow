@@ -13,8 +13,7 @@
     {
      "start": 1.06,
      "end": 1.56,
-     "text": "Karachi",
-     "big": true
+     "text": "Karachi"
     }
    ],
    "text": "Liaquatabad, Karachi"
@@ -31,8 +30,7 @@
     {
      "start": 1.66,
      "end": 2.02,
-     "text": "mashhoor",
-     "big": true
+     "text": "mashhoor"
     },
     {
      "start": 2.02,
@@ -59,14 +57,12 @@
     {
      "start": 2.98,
      "end": 3.3,
-     "text": "Ali",
-     "big": true
+     "text": "Ali"
     },
     {
      "start": 3.3,
      "end": 3.54,
-     "text": "bhai",
-     "big": true
+     "text": "bhai"
     },
     {
      "start": 3.54,
@@ -74,8 +70,7 @@
      "text": "ko"
     }
    ],
-   "text": "Wahan par Ali bhai ko",
-   "y": 0.34
+   "text": "Wahan par Ali bhai ko"
   },
   {
    "start": 3.64,
@@ -107,8 +102,7 @@
      "text": "hain,"
     }
    ],
-   "text": "do bag ja rahe hain,",
-   "y": 0.34
+   "text": "do bag ja rahe hain,"
   },
   {
    "start": 4.72,
@@ -122,14 +116,12 @@
     {
      "start": 4.8,
      "end": 5.08,
-     "text": "Heavy",
-     "big": true
+     "text": "Heavy"
     },
     {
      "start": 5.08,
      "end": 5.36,
-     "text": "Gold",
-     "big": true
+     "text": "Gold"
     },
     {
      "start": 5.36,
@@ -137,8 +129,7 @@
      "text": "ke."
     }
    ],
-   "text": "bhai, Heavy Gold ke.",
-   "y": 0.34
+   "text": "bhai, Heavy Gold ke."
   },
   {
    "start": 5.56,
@@ -147,14 +138,12 @@
     {
      "start": 5.56,
      "end": 6.2,
-     "text": "Minerals,",
-     "big": true
+     "text": "Minerals,"
     },
     {
      "start": 6.2,
      "end": 6.66,
-     "text": "vitamins",
-     "big": true
+     "text": "vitamins"
     },
     {
      "start": 6.66,
@@ -171,8 +160,7 @@
     {
      "start": 6.8,
      "end": 7.42,
-     "text": "zabardast",
-     "big": true
+     "text": "zabardast"
     },
     {
      "start": 7.42,
@@ -201,33 +189,30 @@
   },
   {
    "start": 8.34,
-   "end": 9.48,
+   "end": 9.34,
    "words": [
     {
      "start": 8.34,
      "end": 8.9,
-     "text": "Repeat",
-     "big": true
+     "text": "Repeat"
     },
     {
      "start": 8.9,
      "end": 9.34,
-     "text": "purchase",
-     "big": true
-    },
+     "text": "purchase"
+    }
+   ],
+   "text": "Repeat purchase"
+  },
+  {
+   "start": 9.34,
+   "end": 9.92,
+   "words": [
     {
      "start": 9.34,
      "end": 9.48,
      "text": "pe"
-    }
-   ],
-   "text": "Repeat purchase pe",
-   "y": 0.34
-  },
-  {
-   "start": 9.48,
-   "end": 10.38,
-   "words": [
+    },
     {
      "start": 9.48,
      "end": 9.7,
@@ -242,7 +227,14 @@
      "start": 9.82,
      "end": 9.92,
      "text": "hai,"
-    },
+    }
+   ],
+   "text": "pe ja raha hai,"
+  },
+  {
+   "start": 9.92,
+   "end": 10.38,
+   "words": [
     {
      "start": 9.92,
      "end": 10.15,
@@ -254,8 +246,7 @@
      "text": "ye."
     }
    ],
-   "text": "ja raha hai, bhai, ye.",
-   "y": 0.34
+   "text": "bhai, ye."
   },
   {
    "start": 10.38,
@@ -286,14 +277,12 @@
     {
      "start": 11.4,
      "end": 11.62,
-     "text": "asal",
-     "big": true
+     "text": "asal"
     },
     {
      "start": 11.62,
      "end": 12.2,
-     "text": "pehchan",
-     "big": true
+     "text": "pehchan"
     },
     {
      "start": 12.2,

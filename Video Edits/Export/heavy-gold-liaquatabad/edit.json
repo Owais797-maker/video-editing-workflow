@@ -29,26 +29,20 @@
   "captions": {
     "keywords": {
       "liaquatabad": {},
-      "ali": {},
-      "bhai": {},
       "heavy": {},
       "gold": {},
       "minerals": {},
       "vitamins": {},
-      "zabardast": {},
       "repeat": {},
       "purchase": {},
       "asal": {},
-      "pehchan": {},
-      "mashhoor": {},
-      "karachi": {}
+      "pehchan": {}
     },
     "style": {
       "mode": "html",
-      "template": "pill",
-      "accent": "#8FD8FF",
-      "pill": "#1E3FA0",
-      "y": 0.14,
+      "template": "clean",
+      "accent": "#FFD400",
+      "y": 0.72,
       "lowercase": false
     },
     "sfx": {

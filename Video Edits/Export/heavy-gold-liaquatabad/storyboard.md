@@ -18,7 +18,7 @@ Owner: simple cinematic, light bottom masking, stylish Poppins captions at the t
 
 - **Clip:** `clip2.mov` 0:00.0–0:12.9
 - **What happens:** Ali bhai with Heavy Gold bags on a bike
-- **Captions:** Liaquatabad, Karachi / ka mashhoor ilaqa. / Wahan par Ali bhai ko / do bag ja rahe hain, / bhai, Heavy Gold ke. / Minerals, vitamins ka / zabardast powder / hai, bhai. / Repeat purchase pe / ja raha hai, bhai, ye. / Acchi product ki / asal pehchan hi / yahi hoti hai.
+- **Captions:** Liaquatabad, Karachi / ka mashhoor ilaqa. / Wahan par Ali bhai ko / do bag ja rahe hain, / bhai, Heavy Gold ke. / Minerals, vitamins ka / zabardast powder / hai, bhai. / Repeat purchase / pe ja raha hai, / bhai, ye. / Acchi product ki / asal pehchan hi / yahi hoti hai.
 
 ## Audio
 

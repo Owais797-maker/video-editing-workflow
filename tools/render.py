@@ -500,9 +500,18 @@ def build_graph(edit: dict, work: Path, preview: bool) -> tuple[list[str], str, 
             inputs += ["-loop", "1", "-framerate", str(fps), "-t", f"{total:.3f}", "-i", str(pth)]
         blur = float(fr.get("blur", 34)) * W / 1080
         en = f"enable='between(t,{s0:.3f},{s1:.3f})'"
-        g.append(f"{cv}split=3[frA{k}][frB{k}][frC{k}]")
-        g.append(f"[frB{k}]scale={int(W * 1.15)}:-2,crop={W}:{H},gblur=sigma={blur:.1f},"
-                 f"eq=brightness={float(fr.get('bg_brightness', -0.1))}:saturation=1.15[frbg{k}]")
+        bgmode = fr.get("bg", "lines")  # owner 2026-11-18: plain colour with soft lines, NOT blur
+        if bgmode == "blur":
+            g.append(f"{cv}split=3[frA{k}][frB{k}][frC{k}]")
+            g.append(f"[frB{k}]scale={int(W * 1.15)}:-2,crop={W}:{H},gblur=sigma={blur:.1f},"
+                     f"eq=brightness={float(fr.get('bg_brightness', -0.1))}:saturation=1.15[frbg{k}]")
+        else:
+            bgp = work / f"frm{k}_bg.png"
+            frame_bg(fr, W, H, edit).save(bgp)
+            ib = inputs.count("-i")
+            inputs += ["-loop", "1", "-framerate", str(fps), "-t", f"{total:.3f}", "-i", str(bgp)]
+            g.append(f"{cv}split=2[frA{k}][frC{k}]")
+            g.append(f"[{ib}:v]format=rgba[frbg{k}]")
         g.append(f"[frC{k}]scale={fw}:{fh}:flags=lanczos,format=rgba[frfg{k}]")
         g.append(f"[{i0}:v]format=gray[frm{k}]")
         g.append(f"[frfg{k}][frm{k}]alphamerge[frfa{k}]")
@@ -714,6 +723,42 @@ def light_leak(fx: dict, k: int, cv: str, W: int, H: int, fps: int, total: float
              f"fade=t=out:st={a + d * .55:.3f}:d={d * .45:.3f}:alpha=1[lk{k}]")
     g.append(f"{cv}[lk{k}]overlay=x='-{W}*clip((t-{a})/{d},0,1)':y=0:enable='between(t,{a},{a + d})':eval=frame[lo{k}]")
     return f"[lo{k}]"
+
+
+def frame_bg(fr: dict, W: int, H: int, edit: dict):
+    """Plain-colour background with soft lines for timed semi-frames: "lines" (diagonal pinstripes),
+    "grid" (fine square grid) or "hlines" (horizontal ruled lines). Colour: bg_color (default brand bg2)."""
+    from PIL import Image, ImageDraw
+    col = fr.get("bg_color") or (edit.get("brand") or {}).get("bg2") or "#0B2560"
+    rgb = tuple(int(str(col).lstrip("#")[i:i + 2], 16) for i in (0, 2, 4))
+    lum = sum(rgb) / 3
+    line = (255, 255, 255) if lum < 140 else (0, 0, 0)
+    a = int(255 * float(fr.get("line_alpha", 0.07 if lum < 140 else 0.06)))
+    im = Image.new("RGBA", (W, H), rgb + (255,))
+    ov = Image.new("RGBA", (W, H), (0, 0, 0, 0))
+    d = ImageDraw.Draw(ov)
+    step = int(W * float(fr.get("line_step", 0.045)))
+    lw = max(1, round(W / 1080 * float(fr.get("line_width", 2))))
+    style = fr.get("bg", "lines")
+    if style == "grid":
+        for x in range(0, W, step):
+            d.line([(x, 0), (x, H)], fill=line + (a,), width=lw)
+        for y in range(0, H, step):
+            d.line([(0, y), (W, y)], fill=line + (a,), width=lw)
+    elif style == "hlines":
+        for y in range(0, H, step):
+            d.line([(0, y), (W, y)], fill=line + (a,), width=lw)
+    else:  # diagonal pinstripes
+        for x in range(-H, W, step):
+            d.line([(x, H), (x + H, 0)], fill=line + (a,), width=lw)
+    im = Image.alpha_composite(im, ov)
+    # very soft radial light from the top so it isn't flat
+    glow = Image.new("L", (W, H), 0)
+    ImageDraw.Draw(glow).ellipse([-W * 0.4, -H * 0.5, W * 1.4, H * 0.4], fill=26)
+    from PIL import ImageFilter
+    glow = glow.filter(ImageFilter.GaussianBlur(W * 0.3))
+    im.paste(Image.new("RGBA", (W, H), (255, 255, 255, 255)), (0, 0), glow)
+    return im.convert("RGB")
 
 
 def glass_box(gl: dict, W: int, H: int) -> tuple[int, int, int, int]:

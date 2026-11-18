@@ -66,3 +66,10 @@ heavy-gold-khanpur (widgets with `"theme": "dark"`).
    swoosh_up + pop per product, ching on a key word, whoosh + impact into the end, ding last.
 10. **Effects** lightly: blur_whip into the hook and the end, one light_leak, one glitch on a punch word.
 11. Always: caption review page → storyboard frames → OK → 4K final → offer TikTok + Facebook copy.
+12. **Semi-frame** (`"frames"`: video shrinks into a rounded card, from the owner's IG reference):
+    background = PLAIN product colour with soft thin lines (`"bg": "lines"` diagonal pinstripes
+    (default), `"grid"`, `"hlines"`; `bg_color` from the product palette), NEVER a blurred copy of
+    the video (owner 2026-11-18: blur looks unprofessional). Preview: styles/bold-clean/semi-frame-bg.jpg.
+13. **New tools to vary videos**: `keys` SFX (iPhone typing) under typed `tag` cards, glossy icon
+    tiles (`tools/tile.py`) popping in a row, `route` live-tracking widget (truck drives the route) on
+    "ja rahe hain", full-screen map on the city name. Don't repeat the same hook/animations as the last video.

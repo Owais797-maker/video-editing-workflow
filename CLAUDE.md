@@ -23,8 +23,8 @@ map card, product mockups on glass discs, product line-up ending, SFX recipe). M
 `Video Edits/Export/three-products/`. The owner should never have to explain it again.
 
 **"PLAIN VIDEO" (owner 2026-11-18):** when the owner says plain video, make it captions-only in the
-caption style of styles/plain-captions (from their Facebook reference; see
-`Video Edits/Reference/fb-caption-style/brief.md` if the style is not saved yet), with good SFX, in ultra 4K.
+`"style": "plain-captions"` (styles/plain-captions/style.md: white caps + red script word typing in,
+from the owner's viral CapCut reel), with good SFX, in ultra 4K.
 
 **Owner's working rules (learned the hard way):**
 - Confirm caption WORDING with the owner first (Caption Review page), then do the rest.

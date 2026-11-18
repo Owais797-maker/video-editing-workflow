@@ -198,3 +198,6 @@ Glass widget sub line styling: `sub_font` (default Inter Tight), `sub_italic`, `
 **frames** (timed semi-frame): `[{"start": 3.6, "end": 8.1, "scale": 0.84, "top": 0.09, "radius": 0.05, "bg": "lines" | "grid" | "hlines" | "blur", "bg_color": "#0B2560", "line_alpha": 0.07, "line_step": 0.045}]`: the video sits in a rounded white-bordered card over a plain colour background with soft lines (default; blur only on request).
 
 **route card**: `{"type": "route", "from": "Karachi", "to": "Rawalpindi", "label": "Dispatch · Live", "title": "Karachi → Rawalpindi", "x": 0.46, "y": 0.3, "w": 0.76, "h": 0.3, "route_time": 0.75, "color": "#FF3B3B", "vehicle": "🚚"}`: floating live-tracking panel, truck drives along the route.
+
+Caption lines in captions.json can carry `"y"` (0–1) to move just that line (e.g. off a face).
+Caption template `pill`: Poppins on a frosted brand-colour pill (`"pill": "#1E3FA0"`, keywords in `accent`).

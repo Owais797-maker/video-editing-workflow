@@ -23,7 +23,7 @@ from pathlib import Path
 from common import FONTS, REPO, die, load_json, need, resolve, run
 
 HERE = Path(__file__).resolve().parent / "htmlcaps"
-TEMPLATES = ["box-pop", "editorial", "minimal", "outline-3d", "press", "glass", "swiss", "explainer", "script-mix"]
+TEMPLATES = ["box-pop", "editorial", "minimal", "outline-3d", "press", "glass", "swiss", "explainer", "script-mix", "pill", "clean"]
 STACKED = {"editorial", "press"}  # templates that put the big word on its own row
 ENTRANCE = [0.0, 0.62, 1.12, 1.0]  # eased progress per frame (overshoot, settle)
 ENTRANCE_BY_TPL = {"script-mix": [i / 9 for i in range(10)]}  # letters type in over ~0.3 s
@@ -39,6 +39,8 @@ FONT_FILES = [  # (css family, file stem, weight, style)
     ("Bebas Neue", "BebasNeue-400", 400, "normal"),
     ("Playfair Display", "PlayfairDisplay-800i", 800, "italic"),
     ("Yellowtail", "Yellowtail-400", 400, "normal"),
+    ("Poppins", "Poppins-700", 700, "normal"),
+    ("Poppins", "Poppins-800", 800, "normal"),
 ]
 
 
@@ -100,7 +102,7 @@ def build(edit: dict, cap: dict, lines: list, plan: list, out_dir: Path, fps: in
         y = min(max(y, float(safe.get("top", 0)) + 0.05), 1 - float(safe.get("bottom", 0)) - 0.04)
         css += (f"\n#cap{{left:{float(safe.get('left', .06)) * 100:.1f}%;"
                 f"right:{float(safe.get('right', .06)) * 100:.1f}%;}}")
-    css += f"\n#cap{{--accent:{accent};--y:{y};--ink:{st.get('ink', '#111')};}}"
+    css += f"\n#cap{{--accent:{accent};--y:{y};--ink:{st.get('ink', '#111')};--pill:{st.get('pill', '#1E3FA0')};}}"
     if layout == "column":  # stacked words grow downward from y (keeps the first word in the safe zone)
         css += "\n#cap{transform:none;}"
     scale = H / 1920
@@ -126,7 +128,10 @@ def build(edit: dict, cap: dict, lines: list, plan: list, out_dir: Path, fps: in
                 end = b if last else t + fdur
                 file = out_dir / f"c{n:05d}.png"
                 n += 1
-                states.append({"file": str(file), "html": line_html(words, k, p, upper_kw, pick, layout)})
+                body = line_html(words, k, p, upper_kw, pick, layout)
+                if ln.get("y") is not None:  # per-line position (e.g. move off a face): shift from the style's y
+                    body = f'<div style="position:relative;top:{(float(ln["y"]) - y) * 1920:.0f}px">{body}</div>'
+                states.append({"file": str(file), "html": body})
                 timeline.append((t, end, file))
                 t = end
                 if last:

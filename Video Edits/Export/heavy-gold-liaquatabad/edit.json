@@ -1,0 +1,96 @@
+{
+  "project": "heavy-gold-liaquatabad",
+  "style": "bold-clean",
+  "summary": "Heavy Gold 2 bags to Ali bhai, Liaquatabad Karachi. Repeat purchase. Simple cinematic, owner's subtitles.",
+  "reference_notes": "Owner: simple cinematic, light bottom masking, stylish Poppins captions at the top, colours from the Heavy Gold bag.",
+  "shots": [
+    {
+      "src": "clip2.mov",
+      "in": 0,
+      "out": 12.9,
+      "description": "Ali bhai with Heavy Gold bags on a bike",
+      "motion": {
+        "type": "zoom_in",
+        "amount": 0.05
+      }
+    }
+  ],
+  "look": {
+    "cinematic": 1.1,
+    "contrast": 1.07,
+    "saturation": 1.12,
+    "brightness": 0.01,
+    "warmth": 0.03,
+    "denoise": 0.8,
+    "sharpen": 0.75,
+    "vignette": 0.5,
+    "grain": 2
+  },
+  "captions": {
+    "keywords": {
+      "liaquatabad": {},
+      "heavy": {},
+      "gold": {},
+      "minerals": {},
+      "vitamins": {},
+      "repeat": {},
+      "purchase": {},
+      "asal": {},
+      "pehchan": {}
+    },
+    "style": {
+      "mode": "html",
+      "template": "clean",
+      "accent": "#FFD400",
+      "y": 0.72,
+      "lowercase": false
+    },
+    "sfx": {
+      "line": {
+        "sound": "swish",
+        "volume": 0.07
+      },
+      "big": {
+        "sound": "whoosh_fast",
+        "volume": 0.09
+      }
+    }
+  },
+  "overlays": [
+    {
+      "file": "Video Edits/Raw/heavy-gold-liaquatabad/mask-grad.png",
+      "start": 0,
+      "end": 12.9,
+      "x": 0.5,
+      "y": 0.5,
+      "width": 1.0,
+      "animation": "none"
+    }
+  ],
+  "sfx": [
+    {
+      "sound": "swoosh_up",
+      "at": 0.0,
+      "volume": 0.3
+    },
+    {
+      "sound": "pop",
+      "at": 4.8,
+      "volume": 0.25
+    },
+    {
+      "sound": "ching",
+      "at": 5.56,
+      "volume": 0.22
+    },
+    {
+      "sound": "ding",
+      "at": 11.4,
+      "volume": 0.22
+    }
+  ],
+  "fade": {
+    "in": 0.3,
+    "out": 0.6
+  }
+}

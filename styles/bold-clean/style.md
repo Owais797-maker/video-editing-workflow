@@ -31,31 +31,38 @@ ExtraBold italic), `heavy` (Anton, gold, caps).
 Keep the speaker's natural rhythm, cut pauses and mistakes; gentle push-in on every shot,
 punch-in on key words.
 
-## LOCKED HOUSE LOOK (owner, 2026-11-17: "is style ko lock kar do")
-Every new video uses this without the owner explaining it again. Reference project:
-`Video Edits/Export/heavy-gold-khanpur/edit.json` (copy its structure).
+## LOCKED HOUSE LOOK v2 (owner, 2026-11-18: "maza aa gaya, yeh pattern lock kar do")
+Every new video is made in THIS mood without the owner explaining it again. Master reference:
+`Video Edits/Export/three-products/edit.json` (copy its structure; preview
+`Video Edits/Export/three-products/storyboard/frames.jpg`). Older dark-glass version:
+heavy-gold-khanpur (widgets with `"theme": "dark"`).
 
-1. **Captions**: box-pop (Montserrat Black caps, spoken word in a rounded box in the product
-   accent, `ink` = product dark colour), y 0.70, Roman Urdu, soft swish per line, whoosh on big words.
-2. **Hook (0–1.5 s)**: map card Karachi → destination city whenever a city is said
-   (`trr` SFX while the line draws + `click` on the pin), else a big glass widget.
-3. **Boxes / headings = liquid-glass widgets** (styles/liquid-glass/widget-ref.jpg): smoky dark
-   glass, thin light border, coloured dot + small label, big white Inter Tight Black value, small
-   sub line. Just write `{"label","value","sub","dot","x","y","start","end"}`: the rest comes from
-   `glass.widget` in style.json. Two-line value: `h` ≈ 0.3, `w` 0.72, `value_size` 0.24.
-   Dot colours: product accent first, then blue #2F6BFF / green #3BD16F ("✓ Dispatched") / red #E8553B.
-   Sub line (owner 2026-11-17: "stylish"): Instrument Serif italic, warm off-white #EDE6D6,
-   1.5× label size (`sub_font/sub_italic/sub_size/sub_color`, default in style.json;
-   preview styles/liquid-glass/widget-sub-style.jpg).
-   Keep labels short (≤ 20 chars) so they stay inside the box. 1 widget at a time, upper third.
-4. **Product**: BiRefNet cutout rising in (`rise`) on a grey round liquid-glass disc
-   (`glass` with only x/y/w/h → `glass.plain`, radius 0.5) when the product is named;
-   icon badges for features as spoken; END = backdrop blur + disc + cutout + final widget.
-5. **Customer / dispatch reels**: widgets "<NAME> KA MAAL" (label "Karachi → City", sub
-   "Product · N bags"), "<Name>" (label Customer), the customer's own words as a widget
-   (e.g. SHAUQEEN), end "<NAME> · <CITY>" (label "✓ Dispatched").
-6. **SFX** (under the voice, 0.25–0.5): impact on hook, trr + click on map, whoosh on each
-   widget, swoosh_up + pop on cutout, pop on badges, ching/ding on key facts, riser before the end.
-7. **Effects**, lightly: blur_whip on the cut into the product, one light_leak, one glitch on a punch word.
-8. **Look**: crisp light cinematic, zoom_in + punch-ins, everything in the safe zone, CRF 17.
-9. Always: caption review page → storyboard → OK → Full HD final → TikTok + Facebook copy.
+1. **4K output** (2160×3840, style default): all graphics are drawn at 4K, razor sharp. Tell the
+   owner to shoot in 4K for the sharpest footage. CRF 17 slow. If the file is too big to send, CRF 20.
+2. **Grade**: bright, colourful, clean (cinematic 0.6, saturation 1.22, brightness +0.03,
+   contrast 1.06, sharpen, grain 2). The VIDEO is colourful; the boxes stay calm.
+3. **Captions**: box-pop, spoken word in a **white box with black text** (accent #FFFFFF,
+   ink #111), Montserrat Black caps, y 0.70, Roman Urdu, soft swish per line, whoosh on big words.
+   Mark every word of a name separately (`*Dil* *Murad*`), no punctuation glued to `*word*`.
+4. **Hook (0–1.5 s)**: map card Karachi → city whenever a city is said ("*City* ka maal",
+   `trr` + `click`), else a big widget.
+5. **Boxes = light liquid-glass widgets**: frosted WHITE glass, thin white border, coloured dot
+   + small label (Inter Tight), big black **Anton** value, sub line in Instrument Serif italic grey.
+   Just write `{"label","value","sub","dot","x","y","w","start","end"}`; the rest comes from
+   `glass.widget`. `w` 0.5 for one word, 0.72–0.8 for a name. No sub → `h` 0.15.
+   Dot = that product's colour (Heavy Gold blue #1E3FA0, Mega-VMix red #E32626, Hepta Sef purple
+   #8E2A9B, vaccines blue #1E88E5, gold #FFD400 for our team, green #3BD16F for "✓ done").
+   Never over a face (put it on the chest / upper third). Labels ≤ 20 chars.
+6. **Products**: when a product is SAID (or clearly shown if it isn't said) its mockup cutout
+   rises in on a round clear glass disc (`glass` with only x/y/w/h, radius 0.5) + `pop` SFX.
+   Several products named quickly → side by side discs (x .29 / .71). Cutouts live in
+   `Video Edits/Raw/<product>/…-cutout.png` (Heavy Gold, Mega-VMix, Mega-Tox, Butter Milk,
+   Hepta Sef in three-products/).
+7. **People**: ASK who each person is before naming them (customer vs our team). Our team →
+   widget label "Dispatch by", sub "Karachi → City". Customer → label "Customer · City".
+8. **Ending (last ~2 s)**: backdrop blur, a wide clear glass panel (w .9 h .27 radius .12) with
+   all products in a row, widget on top "<CUSTOMER> SAHAB" label "✓ <City> order", sub products.
+9. **SFX** (0.25–0.5, under the voice): impact on hook, trr + click on map, whoosh into widgets,
+   swoosh_up + pop per product, ching on a key word, whoosh + impact into the end, ding last.
+10. **Effects** lightly: blur_whip into the hook and the end, one light_leak, one glitch on a punch word.
+11. Always: caption review page → storyboard frames → OK → 4K final → offer TikTok + Facebook copy.

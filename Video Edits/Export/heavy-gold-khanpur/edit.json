@@ -111,7 +111,8 @@
       "end": 7.9,
       "dot": "#FFD400",
       "value_size": 0.4,
-      "value_font": "Inter Tight Black"
+      "value_font": "Inter Tight Black",
+      "theme": "dark"
     },
     {
       "tint_color": "#1C1C1E",
@@ -134,7 +135,8 @@
       "end": 12.9,
       "dot": "#E8553B",
       "value_size": 0.4,
-      "value_font": "Inter Tight Black"
+      "value_font": "Inter Tight Black",
+      "theme": "dark"
     },
     {
       "tint_color": "#1C1C1E",
@@ -157,7 +159,8 @@
       "start": 1.6,
       "end": 3.3,
       "dot": "#FFD400",
-      "value_size": 0.24
+      "value_size": 0.24,
+      "theme": "dark"
     },
     {
       "tint_color": "#1C1C1E",
@@ -180,7 +183,8 @@
       "start": 3.4,
       "end": 6.0,
       "dot": "#2F6BFF",
-      "value_size": 0.36
+      "value_size": 0.36,
+      "theme": "dark"
     },
     {
       "tint_color": "#1C1C1E",
@@ -203,7 +207,8 @@
       "start": 16.35,
       "end": 18.83,
       "dot": "#3BD16F",
-      "value_size": 0.26
+      "value_size": 0.26,
+      "theme": "dark"
     }
   ],
   "overlays": [
@@ -364,5 +369,9 @@
   ],
   "fade": {
     "out": 0.35
+  },
+  "output": {
+    "width": 1080,
+    "height": 1920
   }
 }

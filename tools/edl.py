@@ -71,7 +71,7 @@ def apply_style(edit: dict) -> None:
             o.setdefault(k, v)
     # glass: widgets (label/value) and plain discs/boxes get the locked house look
     for gl in edit.get("glass", []):
-        kind = "widget" if gl.get("value") else "plain"
+        kind = ("widget_dark" if gl.get("theme") == "dark" else "widget") if gl.get("value") else "plain"
         for k, v in (st.get("glass", {}).get(kind) or {}).items():
             gl.setdefault(k, v)
 

@@ -36,3 +36,7 @@ Append the winning patterns to the "Learned patterns" list below and commit, so 
 ## Learned patterns
 - (owner, 2026-11-18) Owner's fast CapCut edits are doing better: start with the strongest visual / number
   in frame 1, cut faster, more SFX, louder energy in the first second.
+- (viral-1, Buttery Milk "Anda More") A known AREA / CITY name typed big in frame 1 + the benefit in 3 s
+  + raw real dispatch footage + customer's name + 11 s loop ending on a punch line ("brand hai brand").
+  Captions only (style plain-captions) and a small persistent product strip. Full notes:
+  Video Edits/Reference/viral-1/breakdown.md

@@ -23,9 +23,10 @@ from pathlib import Path
 from common import FONTS, REPO, die, load_json, need, resolve, run
 
 HERE = Path(__file__).resolve().parent / "htmlcaps"
-TEMPLATES = ["box-pop", "editorial", "minimal", "outline-3d", "press", "glass", "swiss", "explainer"]
+TEMPLATES = ["box-pop", "editorial", "minimal", "outline-3d", "press", "glass", "swiss", "explainer", "script-mix"]
 STACKED = {"editorial", "press"}  # templates that put the big word on its own row
 ENTRANCE = [0.0, 0.62, 1.12, 1.0]  # eased progress per frame (overshoot, settle)
+ENTRANCE_BY_TPL = {"script-mix": [i / 9 for i in range(10)]}  # letters type in over ~0.3 s
 FONT_FILES = [  # (css family, file stem, weight, style)
     ("Montserrat Black", "Montserrat-900", 400, "normal"),
     ("Poppins SemiBold", "Poppins-600", 400, "normal"),
@@ -37,6 +38,7 @@ FONT_FILES = [  # (css family, file stem, weight, style)
     ("Inter Tight", "InterTight-900", 900, "normal"),
     ("Bebas Neue", "BebasNeue-400", 400, "normal"),
     ("Playfair Display", "PlayfairDisplay-800i", 800, "italic"),
+    ("Yellowtail", "Yellowtail-400", 400, "normal"),
 ]
 
 
@@ -118,7 +120,7 @@ def build(edit: dict, cap: dict, lines: list, plan: list, out_dir: Path, fps: in
             if b - a < fdur / 2:
                 continue
             t = a
-            frames = ENTRANCE if w["text"] != "_" else [1.0]
+            frames = ENTRANCE_BY_TPL.get(tpl, ENTRANCE) if w["text"] != "_" else [1.0]
             for j, p in enumerate(frames):
                 last = j == len(frames) - 1 or t + fdur >= b
                 end = b if last else t + fdur

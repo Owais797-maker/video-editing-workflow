@@ -1,0 +1,8 @@
+{
+  "project": "mega-vmix-features",
+  "style": "bold-clean",
+  "summary": "Mega-VMix: 2 bags for Zeeshan bhai (BEFS farm, Rawalpindi). Ingredients typed in with iPhone keyboard sound.",
+  "reference_notes": "IG reel: before/after motion graphics, full-screen brand card with big number, glossy icon tiles popping in a row, digit counters. Plus locked house look v2.",
+  "shots": [{"src": "clip.mov", "in": 0, "out": 14.9, "description": "Mega-VMix bags -> Zeeshan bhai"}],
+  "captions": {"style": {"mode": "html", "template": "box-pop", "accent": "#FFFFFF", "ink": "#1E3FA0", "y": 0.7}}
+}

@@ -1,0 +1,352 @@
+{
+  "note": "Edit 'text' and the words freely; times are seconds on the final video.",
+  "lines": [
+    {
+      "start": 0.0,
+      "end": 1.48,
+      "words": [
+        {
+          "start": 0.0,
+          "end": 0.72,
+          "text": "qurbani"
+        },
+        {
+          "start": 0.72,
+          "end": 0.94,
+          "text": "wale"
+        },
+        {
+          "start": 0.94,
+          "end": 1.48,
+          "text": "janwaron"
+        }
+      ],
+      "text": "qurbani wale janwaron"
+    },
+    {
+      "start": 1.48,
+      "end": 2.72,
+      "words": [
+        {
+          "start": 1.48,
+          "end": 1.68,
+          "text": "ke"
+        },
+        {
+          "start": 1.68,
+          "end": 2.0,
+          "text": "liye"
+        },
+        {
+          "start": 2.0,
+          "end": 2.72,
+          "text": "zabardast",
+          "big": true
+        }
+      ],
+      "text": "ke liye zabardast"
+    },
+    {
+      "start": 2.72,
+      "end": 3.62,
+      "words": [
+        {
+          "start": 2.72,
+          "end": 3.38,
+          "text": "quality",
+          "big": true
+        },
+        {
+          "start": 3.38,
+          "end": 3.62,
+          "text": "ka"
+        }
+      ],
+      "text": "quality ka"
+    },
+    {
+      "start": 3.62,
+      "end": 4.42,
+      "words": [
+        {
+          "start": 3.62,
+          "end": 4.18,
+          "text": "Turkey",
+          "big": true
+        },
+        {
+          "start": 4.18,
+          "end": 4.42,
+          "text": "ka"
+        }
+      ],
+      "text": "Turkey ka"
+    },
+    {
+      "start": 4.42,
+      "end": 5.16,
+      "words": [
+        {
+          "start": 4.42,
+          "end": 5.16,
+          "text": "minerals",
+          "big": true
+        }
+      ],
+      "text": "minerals"
+    },
+    {
+      "start": 5.16,
+      "end": 5.86,
+      "words": [
+        {
+          "start": 5.16,
+          "end": 5.86,
+          "text": "vitamin",
+          "big": true
+        }
+      ],
+      "text": "vitamin"
+    },
+    {
+      "start": 5.86,
+      "end": 6.66,
+      "words": [
+        {
+          "start": 5.86,
+          "end": 6.66,
+          "text": "biotin",
+          "big": true
+        }
+      ],
+      "text": "biotin"
+    },
+    {
+      "start": 6.66,
+      "end": 6.96,
+      "words": [
+        {
+          "start": 6.66,
+          "end": 6.84,
+          "text": "yeast",
+          "big": true
+        },
+        {
+          "start": 6.84,
+          "end": 6.96,
+          "text": "aur"
+        }
+      ],
+      "text": "yeast aur"
+    },
+    {
+      "start": 6.96,
+      "end": 8.2,
+      "words": [
+        {
+          "start": 6.96,
+          "end": 7.42,
+          "text": "toxin",
+          "big": true
+        },
+        {
+          "start": 7.42,
+          "end": 7.84,
+          "text": "binder",
+          "big": true
+        },
+        {
+          "start": 7.84,
+          "end": 8.2,
+          "text": "wale"
+        }
+      ],
+      "text": "toxin binder wale"
+    },
+    {
+      "start": 8.2,
+      "end": 9.35,
+      "words": [
+        {
+          "start": 8.2,
+          "end": 8.42,
+          "text": "do",
+          "big": true
+        },
+        {
+          "start": 8.42,
+          "end": 8.64,
+          "text": "bag",
+          "big": true
+        },
+        {
+          "start": 8.64,
+          "end": 8.9,
+          "text": "ja"
+        },
+        {
+          "start": 8.9,
+          "end": 9.0,
+          "text": "rahe"
+        },
+        {
+          "start": 9.0,
+          "end": 9.1,
+          "text": "hain"
+        }
+      ],
+      "text": "do bag ja rahe hain"
+    },
+    {
+      "start": 9.62,
+      "end": 10.7,
+      "words": [
+        {
+          "start": 9.62,
+          "end": 10.12,
+          "text": "BEFS",
+          "big": true
+        },
+        {
+          "start": 10.12,
+          "end": 10.54,
+          "text": "farm"
+        },
+        {
+          "start": 10.54,
+          "end": 10.7,
+          "text": "ke"
+        }
+      ],
+      "text": "BEFS farm ke"
+    },
+    {
+      "start": 10.7,
+      "end": 11.26,
+      "words": [
+        {
+          "start": 10.7,
+          "end": 11.06,
+          "text": "rooh-e"
+        },
+        {
+          "start": 11.06,
+          "end": 11.26,
+          "text": "rawaan"
+        }
+      ],
+      "text": "rooh-e rawaan"
+    },
+    {
+      "start": 11.26,
+      "end": 12.24,
+      "words": [
+        {
+          "start": 11.26,
+          "end": 11.62,
+          "text": "hamare"
+        },
+        {
+          "start": 11.62,
+          "end": 12.1,
+          "text": "Zeeshan",
+          "big": true
+        },
+        {
+          "start": 12.1,
+          "end": 12.24,
+          "text": "bhai"
+        }
+      ],
+      "text": "hamare Zeeshan bhai"
+    },
+    {
+      "start": 12.24,
+      "end": 13.04,
+      "words": [
+        {
+          "start": 12.24,
+          "end": 12.54,
+          "text": "Rawal",
+          "big": true
+        },
+        {
+          "start": 12.54,
+          "end": 12.82,
+          "text": "Pindi",
+          "big": true
+        },
+        {
+          "start": 12.82,
+          "end": 13.04,
+          "text": "wale"
+        }
+      ],
+      "text": "Rawal Pindi wale"
+    },
+    {
+      "start": 13.04,
+      "end": 13.94,
+      "words": [
+        {
+          "start": 13.04,
+          "end": 13.18,
+          "text": "un"
+        },
+        {
+          "start": 13.18,
+          "end": 13.34,
+          "text": "ko"
+        },
+        {
+          "start": 13.34,
+          "end": 13.56,
+          "text": "ja"
+        },
+        {
+          "start": 13.56,
+          "end": 13.72,
+          "text": "rahe"
+        },
+        {
+          "start": 13.72,
+          "end": 13.78,
+          "text": "hain"
+        },
+        {
+          "start": 13.78,
+          "end": 13.94,
+          "text": "bhai"
+        }
+      ],
+      "text": "un ko ja rahe hain bhai"
+    },
+    {
+      "start": 13.94,
+      "end": 15.11,
+      "words": [
+        {
+          "start": 13.94,
+          "end": 14.22,
+          "text": "_"
+        },
+        {
+          "start": 14.22,
+          "end": 14.42,
+          "text": "_"
+        },
+        {
+          "start": 14.42,
+          "end": 14.6,
+          "text": "na"
+        },
+        {
+          "start": 14.6,
+          "end": 14.86,
+          "text": "bhai"
+        }
+      ],
+      "text": "_ _ na bhai"
+    }
+  ]
+}

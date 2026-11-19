@@ -40,3 +40,10 @@ Append the winning patterns to the "Learned patterns" list below and commit, so 
   + raw real dispatch footage + customer's name + 11 s loop ending on a punch line ("brand hai brand").
   Captions only (style plain-captions) and a small persistent product strip. Full notes:
   Video Edits/Reference/viral-1/breakdown.md
+- (TikTok @ktvet1 audit, 2026-11-19, last 250 posts) Weekly median views ~1,000 until late Oct, then 765 → 687
+  → 412. ALL top posts (42.7k, 37k, 21k, 15k, 13k, 11.7k, 10.6k) are short (11–26 s) ANIMAL clips (bachra /
+  bakra) with only hashtags, no sales caption. Recent posts are product/dispatch ads with long captions,
+  keyword lists ("Veterinary products Pakistan, wholesale veterinary pharmacy…"), medicine names
+  (Ivermectin, vaccines), "order ke liye inbox", 4–6 posts a day. TikTok rules: lead with the ANIMAL, keep the
+  product secondary, caption = 1 line + 3–5 hashtags, no medicine/drug promotion, no keyword stuffing,
+  max 1–2 posts/day. Facebook can keep the full sales copy.

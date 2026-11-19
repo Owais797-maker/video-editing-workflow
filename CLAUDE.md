@@ -12,6 +12,9 @@ mood, and keep the frame clean: every graphic must earn its place. Each video sh
 little different from the last (vary hook design, badge layout, transitions, accent colour
 treatment) while staying inside the owner's style.
 
+**Typography skill (MANDATORY):** read `guides/typography-design.md` before putting any text or graphic on a
+video, and run its critique checklist on a full-res frame before showing the owner.
+
 **Creative standard:** read `guides/creative-director.md` before designing anything: think,
 plan, create and critique like an elite international creative agency (authenticity,
 typography, composition, real photography and storytelling over decoration and templates).

@@ -105,6 +105,11 @@ def segments_text(segs: list, presets: dict, H: int) -> str:
             tags += f"\\b{1 if sg['bold'] else 0}"
         if sg.get("color"):
             tags += "\\c" + ass_color(sg["color"])
+        if sg.get("hollow"):  # outline-only letters (stroke in `color`, transparent fill)
+            tags += f"\\1a&HFF&\\3c{ass_color(sg.get('color', '#FFFFFF'))}\\bord{float(sg.get('stroke', 2.2)) * H / 1920:.1f}\\shad0"
+        else:  # reset after a hollow segment
+            tags += f"\\1a&H00&\\bord{float(sg.get('stroke', 0)) * H / 1920:.1f}" if any(x.get("hollow") for x in segs) else (
+                f"\\bord{float(sg['stroke']) * H / 1920:.1f}" if "stroke" in sg else "")
         if sg.get("spacing") is not None:  # letter spacing in px at 1080 wide
             tags += f"\\fsp{float(sg['spacing']) * H / 1920:.1f}"
         text = sg["text"].upper() if sg.get("uppercase") else sg["text"].lower() if sg.get("lowercase") else sg["text"]
@@ -258,7 +263,7 @@ def build_ass(edit: dict, path: Path) -> bool:
             fd = "\\fad(250,250)"
             ev = []
             if gl.get("label"):
-                ev.append((y0 + pad, "{\\c" + ass_color(dot) + "}●{\\c" + ass_color(gl.get("text_color", "#FFFFFF")) + "} " + ass_text(gl["label"]), ls, "Inter Tight", 0))
+                ev.append((y0 + pad, "{\\c" + ass_color(dot) + "}●{\\c" + ass_color(gl.get("text_color", "#FFFFFF")) + "} " + ass_text(gl["label"]), ls, gl.get("label_font", "Inter Tight"), 0))
             ev.append((y0 + pad + int(ls * 1.5), ass_text(gl["value"]), vs, gl.get("value_font", "Inter Tight"), 1))
             if gl.get("sub"):  # anchored to the box bottom so it never spills out
                 # stylish sub line: own font / size / colour / italic (style glass.widget sub_*)
@@ -797,6 +802,27 @@ def glass_chain(gl: dict, k: int, cv: str, W: int, H: int, fps: int, total: floa
     ImageDraw.Draw(bd).rounded_rectangle((ss, ss, bw * ss - ss - 1, bh * ss - ss - 1), rad * ss,
                                          outline=bc + (int(255 * float(gl.get("border", 0.55))),), width=max(1, round(float(gl.get("border_width", 2)) * W / 1080)) * ss)
     face.alpha_composite(bd.resize((bw, bh), Image.LANCZOS))
+    if gl.get("crystal"):  # crystal-clear glass: no frost, specular sheen, bright rim + dark outer edge
+        cr = Image.new("RGBA", (bw * ss, bh * ss), (0, 0, 0, 0))
+        dr = ImageDraw.Draw(cr)
+        lw = max(1, round(W / 1080 * 1.5)) * ss
+        dr.rounded_rectangle((0, 0, bw * ss - 1, bh * ss - 1), rad * ss, outline=(0, 0, 0, 70), width=lw)  # edge definition
+        ins = int(lw * 3.2)
+        dr.rounded_rectangle((ins, ins, bw * ss - ins - 1, bh * ss - ins - 1), max(1, rad * ss - ins), outline=(255, 255, 255, 95), width=lw)
+        cr = cr.resize((bw, bh), Image.LANCZOS)
+        sheen = Image.new("L", (bw, bh), 0)
+        sd = ImageDraw.Draw(sheen)
+        sd.polygon([(bw * 0.08, 0), (bw * 0.30, 0), (bw * 0.12, bh), (-bw * 0.10, bh)], fill=55)  # diagonal streak
+        sd.polygon([(bw * 0.36, 0), (bw * 0.42, 0), (bw * 0.24, bh), (bw * 0.18, bh)], fill=35)
+        sheen = sheen.filter(ImageFilter.GaussianBlur(max(2, bw * 0.012)))
+        top = Image.new("L", (bw, bh), 0)
+        for y in range(int(bh * 0.18)):
+            ImageDraw.Draw(top).line((0, y, bw, y), fill=int(90 * (1 - y / (bh * 0.18)) ** 2))
+        lum = Image.fromarray(np.minimum(np.array(sheen).astype(int) + np.array(top).astype(int), 255).astype("uint8"))
+        spec = Image.new("RGBA", (bw, bh), (255, 255, 255, 0))
+        spec.putalpha(lum)
+        face.alpha_composite(spec)
+        face.alpha_composite(cr)
     clear = Image.new("RGBA", (bw, bh), (0, 0, 0, 0))
     face = Image.composite(face, clear, mask)
     face.save(work / f"glass{k}_face.png")
@@ -811,8 +837,16 @@ def glass_chain(gl: dict, k: int, cv: str, W: int, H: int, fps: int, total: floa
     fade = f"fade=t=in:st={s0}:d=0.25:alpha=1,fade=t=out:st={max(s0, s1 - 0.25):.3f}:d=0.25:alpha=1"
     en = f"enable='between(t,{s0},{s1})'"
     blur = float(gl.get("blur", 22)) * W / 1080  # same look at 1080p and 4K
-    g.append(f"{cv}split[ga{k}][gb{k}]")
-    g.append(f"[gb{k}]crop={bw}:{bh}:{x0}:{y0},gblur=sigma={blur},eq=brightness={float(gl.get("brightness", 0.05))}:saturation={float(gl.get("saturation", 1.3))},format=rgba[gbl{k}]")
+    if gl.get("crystal"):  # clear lens: tiny magnification (refraction), almost no blur
+        mg = float(gl.get("magnify", 1.06))
+        cw, ch = int(bw / mg) // 2 * 2, int(bh / mg) // 2 * 2
+        cx0, cy0 = x0 + (bw - cw) // 2, y0 + (bh - ch) // 2
+        g.append(f"{cv}split[ga{k}][gb{k}]")
+        g.append(f"[gb{k}]crop={cw}:{ch}:{cx0}:{cy0},scale={bw}:{bh}:flags=lanczos,gblur=sigma={float(gl.get('blur', 0.8)) * W / 1080:.2f},"
+                 f"eq=brightness={float(gl.get('brightness', 0.03))}:saturation={float(gl.get('saturation', 1.05))},format=rgba[gbl{k}]")
+    else:
+        g.append(f"{cv}split[ga{k}][gb{k}]")
+        g.append(f"[gb{k}]crop={bw}:{bh}:{x0}:{y0},gblur=sigma={blur},eq=brightness={float(gl.get("brightness", 0.05))}:saturation={float(gl.get("saturation", 1.3))},format=rgba[gbl{k}]")
     g.append(f"[{idx}:v]format=gray[gm{k}]")
     g.append(f"[gbl{k}][gm{k}]alphamerge,{fade}[gg{k}]")
     g.append(f"[{idx + 2}:v]format=rgba,{fade}[gs{k}]")

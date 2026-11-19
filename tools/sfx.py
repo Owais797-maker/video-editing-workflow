@@ -162,7 +162,32 @@ def write(path: Path, s) -> None:
         w.writeframes((s * 32767).astype("<i2").tobytes())
 
 
-def get(name: str) -> Path:
+# earshot (github.com/Leonxlnx/earshot, MIT): a bank of 252 pro-grade sound effects rendered from code.
+# Use any bank id directly ("whoosh_fast/crisp", "pro_pop/bloop" ...: `earshot sfx list`), or set the style /
+# edit option "sfx_bank": "pro" to upgrade our classic names to these.
+PRO = {"whoosh": "pro_whoosh_big/swell", "whoosh_fast": "whoosh_fast/crisp", "swoosh_up": "pro_riser/air_gate",
+       "pop": "pro_pop_in/round", "click": "pro_click/soft", "ding": "pro_notify/ding_2045", "ching": "notify/mid_tine",
+       "impact": "pro_impact/short", "boom": "sub_drop/punch", "riser": "pro_riser/roll", "glitch": "pro_glitch/standard",
+       "keys": "pro_typing_run/soft", "swish": "swish/soft", "tick": "hover_tick/mid"}
+
+
+def earshot_render(sid: str) -> Path:
+    import shutil
+    import subprocess
+    path = DIR / "earshot" / (sid.replace("/", "__") + ".wav")
+    if not path.exists():
+        if not shutil.which("earshot"):
+            raise SystemExit("earshot is not installed: pip install git+https://github.com/Leonxlnx/earshot")
+        path.parent.mkdir(parents=True, exist_ok=True)
+        subprocess.run(["earshot", "sfx", "render", sid, "-o", str(path), "--sr", "48000"], check=True, capture_output=True)
+    return path
+
+
+def get(name: str, bank: str = "") -> Path:
+    if "/" in name:  # an earshot bank id
+        return earshot_render(name)
+    if bank == "pro" and name in PRO:
+        return earshot_render(PRO[name])
     path = DIR / f"{name}.wav"
     if not path.exists():
         write(path, make(name))

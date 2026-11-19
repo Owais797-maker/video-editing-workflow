@@ -1,0 +1,194 @@
+{
+  "project": "gym-comeback",
+  "style": "bold-clean",
+  "summary": "Owais Turabi back in the gym after 1.5 months (One Generation Gym, SMCHS). Cinematic 'Day One' story built on the gym wall sign 'One day or day one - it's your decision'.",
+  "reference_notes": "Personal, not business. Film-title typography (Anton + Poppins + Instrument Serif italic), letterbox, moody teal/orange grade, no gimmicks so it doesn't look AI-made.",
+  "shots": [
+    {
+      "src": "clip.mov",
+      "in": 0,
+      "out": 13.83,
+      "description": "Overhead cable triceps extensions, camera orbits slowly",
+      "motion": {
+        "type": "zoom_in",
+        "amount": 0.05
+      },
+      "punch": [
+        [
+          2.2,
+          2.9
+        ],
+        [
+          9.3,
+          10.0
+        ]
+      ],
+      "punch_zoom": 1.06
+    }
+  ],
+  "look": {
+    "cinematic": 1.4,
+    "contrast": 1.12,
+    "saturation": 0.92,
+    "brightness": -0.02,
+    "warmth": 0.04,
+    "denoise": 1.2,
+    "sharpen": 0.9,
+    "vignette": 0.62,
+    "grain": 4
+  },
+  "captions": false,
+  "texts": [
+    {
+      "segments": [
+        {
+          "text": "after 1.5 months",
+          "font": "Poppins SemiBold",
+          "size": 3.0,
+          "color": "#E8E2D6",
+          "spacing": 2
+        },
+        {
+          "text": "DAY ONE.",
+          "font": "Anton",
+          "size": 15.0,
+          "color": "#FFFFFF",
+          "newline": true
+        }
+      ],
+      "start": 0.35,
+      "end": 2.6,
+      "x": 0.08,
+      "y": 0.17,
+      "align": "left",
+      "animation": "slide_up",
+      "position": "top"
+    },
+    {
+      "segments": [
+        {
+          "text": "OWAIS TURABI",
+          "font": "Anton",
+          "size": 6.4,
+          "color": "#FFFFFF",
+          "spacing": 6
+        },
+        {
+          "text": "One Generation Gym  ·  SMCHS",
+          "font": "Poppins SemiBold",
+          "size": 2.6,
+          "color": "#D9D2C3",
+          "newline": true,
+          "spacing": 2
+        }
+      ],
+      "start": 3.2,
+      "end": 6.4,
+      "x": 0.08,
+      "y": 0.7,
+      "align": "left",
+      "animation": "slide_up",
+      "position": "top"
+    },
+    {
+      "segments": [
+        {
+          "text": "one day",
+          "font": "Instrument Serif",
+          "italic": true,
+          "size": 6.0,
+          "color": "#E8E2D6"
+        },
+        {
+          "text": "or",
+          "font": "Poppins SemiBold",
+          "size": 3.2,
+          "color": "#BFB8AA",
+          "spacing": 2
+        },
+        {
+          "text": "DAY ONE.",
+          "font": "Anton",
+          "size": 12.5,
+          "color": "#FFFFFF",
+          "newline": true
+        }
+      ],
+      "start": 10.2,
+      "end": 13.6,
+      "x": 0.08,
+      "y": 0.125,
+      "align": "left",
+      "animation": "slide_up",
+      "position": "top"
+    },
+    {
+      "segments": [
+        {
+          "text": "it's your decision.",
+          "font": "Instrument Serif",
+          "italic": true,
+          "size": 3.9,
+          "color": "#E3B26B"
+        }
+      ],
+      "start": 11.4,
+      "end": 13.6,
+      "x": 0.08,
+      "y": 0.33,
+      "align": "left",
+      "animation": "fade",
+      "position": "top"
+    }
+  ],
+  "overlays": [
+    {
+      "file": "Video Edits/Raw/gym-comeback/letterbox.png",
+      "start": 0,
+      "end": 13.83,
+      "x": 0.5,
+      "y": 0.5,
+      "width": 1.0,
+      "animation": "none"
+    }
+  ],
+  "effects": [
+    {
+      "type": "light_leak",
+      "at": 0.0,
+      "dur": 1.0,
+      "color": "#FFB36B"
+    },
+    {
+      "type": "blur_whip",
+      "at": 10.1,
+      "dur": 0.12
+    }
+  ],
+  "sfx": [
+    {
+      "sound": "boom",
+      "at": 0.32,
+      "volume": 0.32
+    },
+    {
+      "sound": "whoosh",
+      "at": 3.15,
+      "volume": 0.25
+    },
+    {
+      "sound": "riser",
+      "at": 8.7,
+      "volume": 0.18
+    },
+    {
+      "sound": "impact",
+      "at": 10.18,
+      "volume": 0.32
+    }
+  ],
+  "fade": {
+    "in": 0.4,
+    "out": 0.8
+  }
+}

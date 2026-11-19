@@ -105,6 +105,8 @@ def segments_text(segs: list, presets: dict, H: int) -> str:
             tags += f"\\b{1 if sg['bold'] else 0}"
         if sg.get("color"):
             tags += "\\c" + ass_color(sg["color"])
+        if sg.get("spacing") is not None:  # letter spacing in px at 1080 wide
+            tags += f"\\fsp{float(sg['spacing']) * H / 1920:.1f}"
         text = sg["text"].upper() if sg.get("uppercase") else sg["text"].lower() if sg.get("lowercase") else sg["text"]
         sep = "" if i == 0 else ("\\N" if sg.get("newline") else "" if sg.get("attach") else " ")
         out.append(f"{sep}{{{tags}}}{ass_text(text)}")
@@ -230,7 +232,8 @@ def build_ass(edit: dict, path: Path) -> bool:
             lower_third(i, x, W, H, styles, events)
             continue
         name = f"T{i}"
-        styles.append(style_line(name, x, H, 5.0, edl.POSITIONS[x["position"]]))
+        al = {"left": 7, "right": 9}.get(x.get("align"), edl.POSITIONS[x.get("position", "top")])
+        styles.append(style_line(name, x, H, 5.0, al))
         anim = x.get("animation", "fade")
         mv = int(H * float(x.get("margin", 12)) / 100)
         x0, y0 = anchor(x, W, H, mv)

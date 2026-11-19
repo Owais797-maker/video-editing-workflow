@@ -42,3 +42,7 @@
 Owner 2026-11-19: make a 13–15 s Power Vimix (5 kg premix, Khyber Traders) video like his TikTok reference
 (https://vt.tiktok.com/ZSpTYD8sP/ – download blocked "video not available": asked for a screen recording).
 Hook: "Aap ka janwar bhi kamzor reh jata hai?" Formulation still to come. Mockup: Raw/power-vimix/power-vimix-mockup.png.
+Name is spoken "POWER VEE-MIX" (پاور وی مکس), never "Vy-mix". Composition per 1 kg (photo Raw/power-vimix/power-vimix-composition.jpg):
+vanilla flavour; vitamins A, D3, E, H/biotin, niacin; iodine, zinc (oxide + amino-acid chelate), manganese, copper
+(sulphate + amino-acid chelate), selenium (sodium selenite + organic), cobalt, phosphorus (DCP 18%), magnesium,
+calcium, iron, sodium (bicarbonate); yeast; toxin binder (bentonite montmorillonite); antioxidant (BHT). Best before 01-12-2027.

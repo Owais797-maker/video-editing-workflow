@@ -47,3 +47,9 @@ Append the winning patterns to the "Learned patterns" list below and commit, so 
   (Ivermectin, vaccines), "order ke liye inbox", 4–6 posts a day. TikTok rules: lead with the ANIMAL, keep the
   product secondary, caption = 1 line + 3–5 hashtags, no medicine/drug promotion, no keyword stuffing,
   max 1–2 posts/day. Facebook can keep the full sales copy.
+- (TikTok analytics, "Uncle / Mega-VMix" 10 s, 2026-11-19) 96% of views came from For You, so it was NOT
+  ineligible, but avg watch 5.1 s, 15% watched full, "most viewers stopped at 0:01". Cause: frame 1 was a
+  blurry whip-pan and the first caption was still typing in, so nothing readable/interesting at 0:00-0:01.
+  RULE for TikTok: frame 1 = the clearest, most interesting shot (a face, an animal, the reveal) moved to the
+  front (cold open), and the hook text is FULLY on screen at 0.0 s (no typing / no fade on the first line).
+  Cut the shaky/blurry first seconds.

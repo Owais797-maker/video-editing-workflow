@@ -1,0 +1,314 @@
+{
+  "project": "power-vimix",
+  "style": "bold-clean",
+  "summary": "Power V-Mix 15 s TikTok/FB ad: Urdu red-plate hook on frame 1 (goat kid), product reveal, ingredients as icon tiles over cattle eating, all-animals line, Khyber Traders end. Urdu voice-over (TTS, ur-PK male).",
+  "reference_notes": "Owner's TikTok formula (styles/urdu-hook): animals in frame, white Urdu on red plate at 0.0 s, 15 s, loud attractive voice-over.",
+  "shots": [
+    {
+      "src": "clip3.mp4",
+      "in": 0.6,
+      "out": 3.6,
+      "mute": true,
+      "description": "Goat kid nursing (hook)",
+      "motion": {
+        "type": "zoom_in",
+        "amount": 0.06
+      }
+    },
+    {
+      "src": "clip1.mp4",
+      "in": 0.3,
+      "out": 2.9,
+      "mute": true,
+      "description": "Cow and calf in golden light (product reveal)",
+      "motion": {
+        "type": "zoom_in",
+        "amount": 0.05
+      }
+    },
+    {
+      "src": "clip2.mp4",
+      "in": 0.5,
+      "out": 4.7,
+      "mute": true,
+      "description": "Herd eating at the feed trough (ingredients)",
+      "motion": {
+        "type": "zoom_in",
+        "amount": 0.05
+      }
+    },
+    {
+      "src": "clip1.mp4",
+      "in": 3.0,
+      "out": 5.6,
+      "mute": true,
+      "description": "Cow and calf (all animals)",
+      "motion": {
+        "type": "zoom_out",
+        "amount": 0.05
+      }
+    },
+    {
+      "src": "clip3.mp4",
+      "in": 6.0,
+      "out": 8.6,
+      "mute": true,
+      "description": "Goat kid (end card behind)",
+      "motion": {
+        "type": "zoom_in",
+        "amount": 0.04
+      }
+    }
+  ],
+  "captions": false,
+  "look": {
+    "cinematic": 0.7,
+    "contrast": 1.06,
+    "saturation": 1.15,
+    "brightness": 0.02,
+    "warmth": 0.03,
+    "denoise": 0.8,
+    "sharpen": 0.8,
+    "vignette": 0.45,
+    "grain": 2
+  },
+  "overlays": [
+    {
+      "file": "Video Edits/Raw/power-vimix/urdu-hook.png",
+      "start": 0.0,
+      "end": 3.0,
+      "x": 0.5,
+      "y": 0.64,
+      "width": 0.8,
+      "animation": "none"
+    },
+    {
+      "file": "Video Edits/Raw/power-vimix/urdu-brand.png",
+      "start": 3.05,
+      "end": 5.6,
+      "x": 0.5,
+      "y": 0.17,
+      "width": 0.62,
+      "animation": "pop"
+    },
+    {
+      "file": "Video Edits/Raw/power-vimix/power-vimix-mockup-cutout.png",
+      "start": 3.1,
+      "end": 5.6,
+      "x": 0.5,
+      "y": 0.47,
+      "width": 0.46,
+      "animation": "rise"
+    },
+    {
+      "file": "Video Edits/Raw/power-vimix/urdu-allinone.png",
+      "start": 5.65,
+      "end": 9.8,
+      "x": 0.5,
+      "y": 0.17,
+      "width": 0.66,
+      "animation": "pop"
+    },
+    {
+      "file": "Video Edits/Raw/mega-vmix-features/tile-vitamins.png",
+      "start": 5.85,
+      "end": 9.8,
+      "x": 0.26,
+      "y": 0.6,
+      "width": 0.15,
+      "animation": "pop"
+    },
+    {
+      "file": "Video Edits/Raw/mega-vmix-features/tile-minerals.png",
+      "start": 6.45,
+      "end": 9.8,
+      "x": 0.42,
+      "y": 0.6,
+      "width": 0.15,
+      "animation": "pop"
+    },
+    {
+      "file": "Video Edits/Raw/mega-vmix-features/tile-yeast.png",
+      "start": 7.05,
+      "end": 9.8,
+      "x": 0.58,
+      "y": 0.6,
+      "width": 0.15,
+      "animation": "pop"
+    },
+    {
+      "file": "Video Edits/Raw/mega-vmix-features/tile-binder.png",
+      "start": 7.55,
+      "end": 9.8,
+      "x": 0.74,
+      "y": 0.6,
+      "width": 0.15,
+      "animation": "pop"
+    },
+    {
+      "file": "Video Edits/Raw/power-vimix/power-vimix-mockup-cutout.png",
+      "start": 12.3,
+      "end": 15.0,
+      "x": 0.5,
+      "y": 0.46,
+      "width": 0.42,
+      "animation": "rise"
+    },
+    {
+      "file": "Video Edits/Raw/power-vimix/urdu-end.png",
+      "start": 12.35,
+      "end": 15.0,
+      "x": 0.5,
+      "y": 0.75,
+      "width": 0.62,
+      "animation": "pop"
+    }
+  ],
+  "glass": [
+    {
+      "crystal": true,
+      "x": 0.5,
+      "y": 0.47,
+      "w": 0.7,
+      "h": 0.39375,
+      "radius": 0.5,
+      "start": 3.1,
+      "end": 5.6,
+      "tint": 0.05,
+      "border": 0.9,
+      "border_width": 2.5,
+      "magnify": 1.05
+    },
+    {
+      "crystal": true,
+      "x": 0.5,
+      "y": 0.46,
+      "w": 0.64,
+      "h": 0.36000000000000004,
+      "radius": 0.5,
+      "start": 12.3,
+      "end": 15.0,
+      "tint": 0.05,
+      "border": 0.9,
+      "border_width": 2.5,
+      "magnify": 1.05
+    }
+  ],
+  "backdrop": [
+    {
+      "start": 3.05,
+      "end": 5.6,
+      "blur": 14,
+      "dim": 0.25
+    },
+    {
+      "start": 12.3,
+      "end": 15.0,
+      "blur": 18,
+      "dim": 0.3
+    }
+  ],
+  "effects": [
+    {
+      "type": "blur_whip",
+      "at": 2.95,
+      "dur": 0.12
+    },
+    {
+      "type": "blur_whip",
+      "at": 5.55,
+      "dur": 0.12
+    },
+    {
+      "type": "light_leak",
+      "at": 9.8,
+      "dur": 0.8,
+      "color": "#FFD27A"
+    },
+    {
+      "type": "blur_whip",
+      "at": 12.25,
+      "dur": 0.12
+    }
+  ],
+  "sfx": [
+    {
+      "file": "vo1.wav",
+      "at": 0.15,
+      "volume": 1.0
+    },
+    {
+      "file": "vo2.wav",
+      "at": 3.1,
+      "volume": 1.0
+    },
+    {
+      "file": "vo3.wav",
+      "at": 5.8,
+      "volume": 1.0
+    },
+    {
+      "file": "vo4.wav",
+      "at": 10.0,
+      "volume": 1.0
+    },
+    {
+      "file": "vo5.wav",
+      "at": 12.6,
+      "volume": 1.0
+    },
+    {
+      "sound": "impact",
+      "at": 0.0,
+      "volume": 0.35
+    },
+    {
+      "sound": "whoosh",
+      "at": 2.9,
+      "volume": 0.3
+    },
+    {
+      "sound": "swoosh_up",
+      "at": 3.1,
+      "volume": 0.25
+    },
+    {
+      "sound": "pop",
+      "at": 5.85,
+      "volume": 0.25
+    },
+    {
+      "sound": "pop",
+      "at": 6.45,
+      "volume": 0.25
+    },
+    {
+      "sound": "pop",
+      "at": 7.05,
+      "volume": 0.25
+    },
+    {
+      "sound": "pop",
+      "at": 7.55,
+      "volume": 0.25
+    },
+    {
+      "sound": "whoosh_fast",
+      "at": 9.75,
+      "volume": 0.25
+    },
+    {
+      "sound": "whoosh",
+      "at": 12.2,
+      "volume": 0.3
+    },
+    {
+      "sound": "ding",
+      "at": 13.6,
+      "volume": 0.2
+    }
+  ],
+  "fade": {
+    "out": 0.3
+  }
+}

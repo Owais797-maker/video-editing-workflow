@@ -201,3 +201,7 @@ Glass widget sub line styling: `sub_font` (default Inter Tight), `sub_italic`, `
 
 Caption lines in captions.json can carry `"y"` (0–1) to move just that line (e.g. off a face).
 Caption template `pill`: Poppins on a frosted brand-colour pill (`"pill": "#1E3FA0"`, keywords in `accent`).
+
+Texts: `"align": "left"|"right"` anchors the text block at x/y from its top-left/right corner; segments take `"spacing"` (letter spacing, px at 1080 wide).
+
+Glass `"crystal": true`: crystal-clear lens glass (no frost, sheen + rim, slight magnify); `label_font` for widgets. Text segments: `"hollow": true, "stroke": 2.4` = outline letters.

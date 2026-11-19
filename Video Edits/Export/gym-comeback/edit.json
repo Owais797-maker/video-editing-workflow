@@ -1,0 +1,244 @@
+{
+  "project": "gym-comeback",
+  "style": "bold-clean",
+  "summary": "Owais Turabi back in the gym after 1.5 months (One Generation Gym, SMCHS). Cinematic 'Day One' story built on the gym wall sign 'One day or day one - it's your decision'.",
+  "reference_notes": "Personal, not business. Film-title typography (Anton + Poppins + Instrument Serif italic), letterbox, moody teal/orange grade, no gimmicks so it doesn't look AI-made.",
+  "shots": [
+    {
+      "src": "clip.mov",
+      "in": 0,
+      "out": 13.83,
+      "description": "Overhead cable triceps extensions, camera orbits slowly",
+      "motion": {
+        "type": "zoom_in",
+        "amount": 0.05
+      },
+      "punch": [
+        [
+          2.2,
+          2.9
+        ],
+        [
+          9.3,
+          10.0
+        ]
+      ],
+      "punch_zoom": 1.06
+    }
+  ],
+  "look": {
+    "cinematic": 1.4,
+    "contrast": 1.12,
+    "saturation": 0.92,
+    "brightness": -0.02,
+    "warmth": 0.04,
+    "denoise": 1.2,
+    "sharpen": 0.9,
+    "vignette": 0.62,
+    "grain": 4
+  },
+  "captions": false,
+  "texts": [
+    {
+      "segments": [
+        {
+          "text": "AFTER 1.5 MONTHS",
+          "font": "Barlow Condensed SemiBold",
+          "italic": true,
+          "size": 2.7,
+          "spacing": 7,
+          "color": "#EDE9E0"
+        },
+        {
+          "text": "DAY",
+          "font": "Big Shoulders Display Black",
+          "size": 17,
+          "hollow": true,
+          "stroke": 2.6,
+          "color": "#FFFFFF",
+          "newline": true
+        },
+        {
+          "text": "ONE.",
+          "font": "Big Shoulders Display Black",
+          "size": 17,
+          "color": "#FFFFFF"
+        }
+      ],
+      "start": 0.35,
+      "end": 2.7,
+      "x": 0.08,
+      "y": 0.135,
+      "align": "left",
+      "position": "top",
+      "animation": "slide_up"
+    },
+    {
+      "segments": [
+        {
+          "text": "ONE DAY",
+          "font": "Big Shoulders Display Black",
+          "size": 8.5,
+          "hollow": true,
+          "stroke": 2.0,
+          "color": "#EDE9E0"
+        },
+        {
+          "text": "or",
+          "font": "Barlow Condensed SemiBold",
+          "italic": true,
+          "size": 4.2,
+          "color": "#EDE9E0"
+        },
+        {
+          "text": "DAY ONE.",
+          "font": "Big Shoulders Display Black",
+          "size": 15,
+          "color": "#FFFFFF",
+          "newline": true
+        }
+      ],
+      "start": 10.2,
+      "end": 13.6,
+      "x": 0.08,
+      "y": 0.125,
+      "align": "left",
+      "position": "top",
+      "animation": "slide_up"
+    },
+    {
+      "segments": [
+        {
+          "text": "IT'S YOUR DECISION.",
+          "font": "Barlow Condensed ExtraBold",
+          "italic": true,
+          "size": 3.3,
+          "spacing": 5,
+          "color": "#86A9F0"
+        }
+      ],
+      "start": 11.3,
+      "end": 13.6,
+      "x": 0.085,
+      "y": 0.36,
+      "align": "left",
+      "position": "top",
+      "animation": "fade"
+    }
+  ],
+  "overlays": [
+    {
+      "file": "Video Edits/Raw/gym-comeback/letterbox.png",
+      "start": 0,
+      "end": 13.83,
+      "x": 0.5,
+      "y": 0.5,
+      "width": 1.0,
+      "animation": "none"
+    },
+    {
+      "file": "Video Edits/Raw/gym-comeback/stripes.png",
+      "start": 0.75,
+      "end": 2.7,
+      "x": 0.21,
+      "y": 0.345,
+      "width": 0.24,
+      "animation": "slide_up"
+    },
+    {
+      "file": "Video Edits/Raw/gym-comeback/stripes.png",
+      "start": 10.5,
+      "end": 13.6,
+      "x": 0.8,
+      "y": 0.215,
+      "width": 0.17,
+      "animation": "pop"
+    }
+  ],
+  "effects": [
+    {
+      "type": "light_leak",
+      "at": 0.0,
+      "dur": 1.0,
+      "color": "#FFB36B"
+    },
+    {
+      "type": "blur_whip",
+      "at": 10.1,
+      "dur": 0.12
+    }
+  ],
+  "sfx": [
+    {
+      "sound": "boom",
+      "at": 0.32,
+      "volume": 0.32
+    },
+    {
+      "sound": "whoosh_fast",
+      "at": 0.72,
+      "volume": 0.2
+    },
+    {
+      "sound": "whoosh",
+      "at": 3.12,
+      "volume": 0.25
+    },
+    {
+      "sound": "ding",
+      "at": 3.4,
+      "volume": 0.12
+    },
+    {
+      "sound": "riser",
+      "at": 8.7,
+      "volume": 0.18
+    },
+    {
+      "sound": "impact",
+      "at": 10.18,
+      "volume": 0.32
+    },
+    {
+      "sound": "pop",
+      "at": 10.5,
+      "volume": 0.18
+    }
+  ],
+  "fade": {
+    "in": 0.4,
+    "out": 0.8
+  },
+  "glass": [
+    {
+      "crystal": true,
+      "x": 0.38,
+      "y": 0.685,
+      "w": 0.62,
+      "h": 0.155,
+      "radius": 0.3,
+      "tint_color": "#FFFFFF",
+      "tint": 0.05,
+      "border_color": "#FFFFFF",
+      "border": 0.9,
+      "border_width": 2.5,
+      "magnify": 1.07,
+      "label": "ONE GENERATION GYM",
+      "value": "OWAIS TURABI",
+      "sub": "SMCHS",
+      "label_font": "Barlow Condensed SemiBold",
+      "value_font": "Big Shoulders Display Black",
+      "sub_font": "Barlow Condensed SemiBold",
+      "sub_italic": true,
+      "sub_color": "#EDE9E0",
+      "sub_size": 1.15,
+      "sub_spacing": 6,
+      "text_color": "#FFFFFF",
+      "dot": "#2F56A6",
+      "value_size": 0.44,
+      "pad": 0.13,
+      "start": 3.2,
+      "end": 6.5
+    }
+  ]
+}

@@ -30,6 +30,12 @@ of up to 3 people, see `remotion-license`), Remocn (`remocn*`: ready-made Remoti
 `ig-reel/hookscore.py` (it is English-biased: judge Roman Urdu hooks with its five checks by hand too), run
 captions/post copy through `ig-human`. Never post anything for the owner.
 
+**Sound (2026-11-19):** earshot is installed (github Leonxlnx/earshot, MIT; skills `earshot` + `real-sound`): 252 pro
+sound effects by id (`earshot sfx list`), `"sfx_bank": "pro"` upgrades our classic SFX names, and `earshot critique
+<video>` / `describe` / `match` let you check sync, loudness and fit before delivering (its models download ~1.1 GB on
+first use). Real recordings: Openverse (CC0 / CC-BY, credit them) per the real-sound skill. A/B sample for the owner:
+assets/sfx/sfx-ab-test.mp4.
+
 **Creative standard:** read `guides/creative-director.md` before designing anything: think,
 plan, create and critique like an elite international creative agency (authenticity,
 typography, composition, real photography and storytelling over decoration and templates).

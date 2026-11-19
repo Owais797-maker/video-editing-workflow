@@ -629,7 +629,7 @@ def build_graph(edit: dict, work: Path, preview: bool) -> tuple[list[str], str, 
             at = float(fx.get("at", 0))
             if at >= total:
                 continue
-            path = edl._src(edit["project"], fx["file"]) if fx.get("file") else sfxlib.get(fx.get("sound", "whoosh"))
+            path = edl._src(edit["project"], fx["file"]) if fx.get("file") else sfxlib.get(fx.get("sound", "whoosh"), edit.get("sfx_bank", ""))
             idx = inputs.count("-i")
             inputs += ["-i", str(path)]
             ms = int(at * 1000)

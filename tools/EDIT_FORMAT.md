@@ -207,3 +207,5 @@ Texts: `"align": "left"|"right"` anchors the text block at x/y from its top-left
 Glass `"crystal": true`: crystal-clear lens glass (no frost, sheen + rim, slight magnify); `label_font` for widgets. Text segments: `"hollow": true, "stroke": 2.4` = outline letters.
 
 Caption template `glow-stack` (layout `tier`): small white caps line + big glowing hero words; mark the first hero word with *word*.
+
+**sfx** extras: any earshot bank id works as a sound name (`"sound": "whoosh_fast/crisp"`, `"pro_pop/bloop"`, list: `earshot sfx list`); `"sfx_bank": "pro"` (edit or style) upgrades the classic names (whoosh, pop, ding, keys, impact …) to earshot pro sounds.

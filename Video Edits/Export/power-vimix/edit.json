@@ -29,12 +29,23 @@
     {
       "src": "clip2.mp4",
       "in": 0.5,
-      "out": 4.7,
+      "out": 2.4,
       "mute": true,
       "description": "Herd eating at the feed trough (ingredients)",
       "motion": {
         "type": "zoom_in",
         "amount": 0.05
+      }
+    },
+    {
+      "src": "clip2.mp4",
+      "in": 5.0,
+      "out": 7.3,
+      "mute": true,
+      "description": "Herd eating, second angle",
+      "motion": {
+        "type": "zoom_out",
+        "amount": 0.06
       }
     },
     {
@@ -83,15 +94,6 @@
       "animation": "none"
     },
     {
-      "file": "Video Edits/Raw/power-vimix/urdu-brand.png",
-      "start": 3.05,
-      "end": 5.6,
-      "x": 0.5,
-      "y": 0.17,
-      "width": 0.62,
-      "animation": "pop"
-    },
-    {
       "file": "Video Edits/Raw/power-vimix/power-vimix-mockup-cutout.png",
       "start": 3.1,
       "end": 5.6,
@@ -101,17 +103,8 @@
       "animation": "rise"
     },
     {
-      "file": "Video Edits/Raw/power-vimix/urdu-allinone.png",
-      "start": 5.65,
-      "end": 9.8,
-      "x": 0.5,
-      "y": 0.17,
-      "width": 0.66,
-      "animation": "pop"
-    },
-    {
       "file": "Video Edits/Raw/mega-vmix-features/tile-vitamins.png",
-      "start": 5.85,
+      "start": 5.8,
       "end": 9.8,
       "x": 0.26,
       "y": 0.6,
@@ -120,7 +113,7 @@
     },
     {
       "file": "Video Edits/Raw/mega-vmix-features/tile-minerals.png",
-      "start": 6.45,
+      "start": 6.4,
       "end": 9.8,
       "x": 0.42,
       "y": 0.6,
@@ -129,7 +122,7 @@
     },
     {
       "file": "Video Edits/Raw/mega-vmix-features/tile-yeast.png",
-      "start": 7.05,
+      "start": 6.72,
       "end": 9.8,
       "x": 0.58,
       "y": 0.6,
@@ -138,7 +131,7 @@
     },
     {
       "file": "Video Edits/Raw/mega-vmix-features/tile-binder.png",
-      "start": 7.55,
+      "start": 7.14,
       "end": 9.8,
       "x": 0.74,
       "y": 0.6,
@@ -161,6 +154,114 @@
       "x": 0.5,
       "y": 0.75,
       "width": 0.62,
+      "animation": "pop"
+    },
+    {
+      "file": "Video Edits/Raw/power-vimix/urdu-k-bhai.png",
+      "start": 3.62,
+      "end": 4.18,
+      "x": 0.5,
+      "y": 0.77,
+      "width": 0.367,
+      "animation": "pop"
+    },
+    {
+      "file": "Video Edits/Raw/power-vimix/urdu-k-pvm.png",
+      "start": 4.18,
+      "end": 4.86,
+      "x": 0.5,
+      "y": 0.77,
+      "width": 0.843,
+      "animation": "pop"
+    },
+    {
+      "file": "Video Edits/Raw/power-vimix/urdu-k-istemal.png",
+      "start": 4.86,
+      "end": 5.6,
+      "x": 0.5,
+      "y": 0.77,
+      "width": 0.704,
+      "animation": "pop"
+    },
+    {
+      "file": "Video Edits/Raw/power-vimix/urdu-k-vit.png",
+      "start": 5.8,
+      "end": 6.4,
+      "x": 0.5,
+      "y": 0.22,
+      "width": 0.379,
+      "animation": "pop"
+    },
+    {
+      "file": "Video Edits/Raw/power-vimix/urdu-k-min.png",
+      "start": 6.4,
+      "end": 6.72,
+      "x": 0.5,
+      "y": 0.22,
+      "width": 0.327,
+      "animation": "pop"
+    },
+    {
+      "file": "Video Edits/Raw/power-vimix/urdu-k-yeast.png",
+      "start": 6.72,
+      "end": 7.14,
+      "x": 0.5,
+      "y": 0.22,
+      "width": 0.42,
+      "animation": "pop"
+    },
+    {
+      "file": "Video Edits/Raw/power-vimix/urdu-k-binder.png",
+      "start": 7.14,
+      "end": 7.92,
+      "x": 0.5,
+      "y": 0.22,
+      "width": 0.667,
+      "animation": "pop"
+    },
+    {
+      "file": "Video Edits/Raw/power-vimix/urdu-k-sab.png",
+      "start": 7.92,
+      "end": 9.8,
+      "x": 0.5,
+      "y": 0.22,
+      "width": 0.86,
+      "animation": "pop"
+    },
+    {
+      "file": "Video Edits/Raw/power-vimix/urdu-k-gaye.png",
+      "start": 10.0,
+      "end": 10.42,
+      "x": 0.5,
+      "y": 0.24,
+      "width": 0.557,
+      "animation": "pop"
+    },
+    {
+      "file": "Video Edits/Raw/power-vimix/urdu-k-bhens.png",
+      "start": 10.42,
+      "end": 10.82,
+      "x": 0.5,
+      "y": 0.24,
+      "width": 0.581,
+      "animation": "pop"
+    },
+    {
+      "file": "Video Edits/Raw/power-vimix/urdu-k-bakri.png",
+      "start": 10.82,
+      "end": 11.2,
+      "x": 0.5,
+      "y": 0.24,
+      "width": 0.406,
+      "animation": "pop"
+    },
+    {
+      "file": "Video Edits/Raw/power-vimix/urdu-k-pvm2.png",
+      "start": 11.2,
+      "end": 12.25,
+      "x": 0.5,
+      "y": 0.24,
+      "width": 0.843,
       "animation": "pop"
     }
   ],
@@ -229,6 +330,11 @@
       "type": "blur_whip",
       "at": 12.25,
       "dur": 0.12
+    },
+    {
+      "type": "blur_whip",
+      "at": 7.45,
+      "dur": 0.1
     }
   ],
   "sfx": [
@@ -273,26 +379,6 @@
       "volume": 0.25
     },
     {
-      "sound": "pop",
-      "at": 5.85,
-      "volume": 0.25
-    },
-    {
-      "sound": "pop",
-      "at": 6.45,
-      "volume": 0.25
-    },
-    {
-      "sound": "pop",
-      "at": 7.05,
-      "volume": 0.25
-    },
-    {
-      "sound": "pop",
-      "at": 7.55,
-      "volume": 0.25
-    },
-    {
       "sound": "whoosh_fast",
       "at": 9.75,
       "volume": 0.25
@@ -305,6 +391,71 @@
     {
       "sound": "ding",
       "at": 13.6,
+      "volume": 0.2
+    },
+    {
+      "sound": "pop",
+      "at": 3.62,
+      "volume": 0.18
+    },
+    {
+      "sound": "pop",
+      "at": 4.18,
+      "volume": 0.18
+    },
+    {
+      "sound": "pop",
+      "at": 4.86,
+      "volume": 0.18
+    },
+    {
+      "sound": "pop",
+      "at": 5.8,
+      "volume": 0.18
+    },
+    {
+      "sound": "pop",
+      "at": 6.4,
+      "volume": 0.18
+    },
+    {
+      "sound": "pop",
+      "at": 6.72,
+      "volume": 0.18
+    },
+    {
+      "sound": "pop",
+      "at": 7.14,
+      "volume": 0.18
+    },
+    {
+      "sound": "pop",
+      "at": 7.92,
+      "volume": 0.18
+    },
+    {
+      "sound": "pop",
+      "at": 10.0,
+      "volume": 0.18
+    },
+    {
+      "sound": "pop",
+      "at": 10.42,
+      "volume": 0.18
+    },
+    {
+      "sound": "pop",
+      "at": 10.82,
+      "volume": 0.18
+    },
+    {
+      "sound": "pop",
+      "at": 11.2,
+      "volume": 0.18
+    },
+    {
+      "sound": "whoosh_fast",
+      "at": 7.5,
       "volume": 0.2
     }
   ],

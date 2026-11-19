@@ -1,6 +1,6 @@
 # Storyboard: power-vimix
 
-**Output:** 2160x3840, 30 fps, **0:15.0** long, 5 shots, framing: crop
+**Output:** 2160x3840, 30 fps, **0:15.0** long, 6 shots, framing: crop
 
 Power V-Mix 15 s TikTok/FB ad: Urdu red-plate hook on frame 1 (goat kid), product reveal, ingredients as icon tiles over cattle eating, all-animals line, Khyber Traders end. Urdu voice-over (TTS, ur-PK male).
 
@@ -28,25 +28,33 @@ Owner's TikTok formula (styles/urdu-hook): animals in frame, white Urdu on red p
 - **What happens:** Cow and calf in golden light (product reveal)
 - **Then:** hard cut
 
-### 3. 0:05.6 – 0:09.8 (4.2s)
+### 3. 0:05.6 – 0:07.5 (1.9s)
 
 <img src="storyboard/shot_03.jpg" height="320">
 
-- **Clip:** `clip2.mp4` 0:00.5–0:04.7 (muted)
+- **Clip:** `clip2.mp4` 0:00.5–0:02.4 (muted)
 - **What happens:** Herd eating at the feed trough (ingredients)
 - **Then:** hard cut
 
-### 4. 0:09.8 – 0:12.4 (2.6s)
+### 4. 0:07.5 – 0:09.8 (2.3s)
 
 <img src="storyboard/shot_04.jpg" height="320">
+
+- **Clip:** `clip2.mp4` 0:05.0–0:07.3 (muted)
+- **What happens:** Herd eating, second angle
+- **Then:** hard cut
+
+### 5. 0:09.8 – 0:12.4 (2.6s)
+
+<img src="storyboard/shot_05.jpg" height="320">
 
 - **Clip:** `clip1.mp4` 0:03.0–0:05.6 (muted)
 - **What happens:** Cow and calf (all animals)
 - **Then:** hard cut
 
-### 5. 0:12.4 – 0:15.0 (2.6s)
+### 6. 0:12.4 – 0:15.0 (2.6s)
 
-<img src="storyboard/shot_05.jpg" height="320">
+<img src="storyboard/shot_06.jpg" height="320">
 
 - **Clip:** `clip3.mp4` 0:06.0–0:08.6 (muted)
 - **What happens:** Goat kid (end card behind)

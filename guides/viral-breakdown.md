@@ -40,3 +40,27 @@ Append the winning patterns to the "Learned patterns" list below and commit, so 
   + raw real dispatch footage + customer's name + 11 s loop ending on a punch line ("brand hai brand").
   Captions only (style plain-captions) and a small persistent product strip. Full notes:
   Video Edits/Reference/viral-1/breakdown.md
+- (TikTok @ktvet1 audit, 2026-11-19, last 250 posts) Weekly median views ~1,000 until late Oct, then 765 → 687
+  → 412. ALL top posts (42.7k, 37k, 21k, 15k, 13k, 11.7k, 10.6k) are short (11–26 s) ANIMAL clips (bachra /
+  bakra) with only hashtags, no sales caption. Recent posts are product/dispatch ads with long captions,
+  keyword lists ("Veterinary products Pakistan, wholesale veterinary pharmacy…"), medicine names
+  (Ivermectin, vaccines), "order ke liye inbox", 4–6 posts a day. TikTok rules: lead with the ANIMAL, keep the
+  product secondary, caption = 1 line + 3–5 hashtags, no medicine/drug promotion, no keyword stuffing,
+  max 1–2 posts/day. Facebook can keep the full sales copy.
+- (TikTok analytics, "Uncle / Mega-VMix" 10 s, 2026-11-19) 96% of views came from For You, so it was NOT
+  ineligible, but avg watch 5.1 s, 15% watched full, "most viewers stopped at 0:01". Cause: frame 1 was a
+  blurry whip-pan and the first caption was still typing in, so nothing readable/interesting at 0:00-0:01.
+  RULE for TikTok: frame 1 = the clearest, most interesting shot (a face, an animal, the reveal) moved to the
+  front (cold open), and the hook text is FULLY on screen at 0.0 s (no typing / no fade on the first line).
+  Cut the shaky/blurry first seconds.
+- (FULL TikTok history @ktvet1, 1,298 posts Jan 2025 → Nov 2026; supersedes the "animal-only" guess above)
+  Best week 2025-W04 (352k). Top videos: 205k, 114k, 102k, 90k, 76k, 70k, 69k, 64k. What they share:
+  1) a BIG URDU-SCRIPT hook on frame 1 that names a farmer's PAIN or WANT + the solution
+     ("Munh khur ki zabardast vaccine", "Janwaron ka wazan tezi se barhane wala Butter Fat Milk",
+     "Qurbani ke maal ke liye zabardast imported skin injection", "…wazan TURBO mode par laane ke liye"),
+     white/yellow/red text, product close-up; 2) QURBANI season (Jan–May 2025, Jun 2026 peaks);
+     3) description = hashtags only, local cattle-colony tags (#jameelmemonsociety #cattlecolony #gadap
+     #bhenscolony #bachra #bakra #qurbani); 4) 5–18 s. Medicine/vaccine hooks did well in 2025 (so not banned).
+  Decline: posts/month went 30–40 → 80–100 while median views fell 1.9–2.9k → ~0.8–1k; recent videos use
+  Roman-Urdu/English design text and long sales/SEO descriptions. Next reels for TikTok: Urdu-script pain/benefit
+  hook on frame 1, 8–15 s, hashtags-only description with local tags, 1–2 posts/day, push hard Jan–May (Qurbani 2027).

@@ -1,0 +1,209 @@
+{
+ "note": "Owner's story as on-screen captions (not spoken).",
+ "lines": [
+  {
+   "start": 0.3,
+   "end": 1.15,
+   "words": [
+    {
+     "start": 0.3,
+     "end": 0.725,
+     "text": "Yeh"
+    },
+    {
+     "start": 0.725,
+     "end": 1.15,
+     "text": "Uncle",
+     "big": true
+    }
+   ],
+   "text": "Yeh Uncle"
+  },
+  {
+   "start": 1.15,
+   "end": 1.85,
+   "words": [
+    {
+     "start": 1.15,
+     "end": 1.5,
+     "text": "aaye"
+    },
+    {
+     "start": 1.5,
+     "end": 1.85,
+     "text": "hain"
+    }
+   ],
+   "text": "aaye hain"
+  },
+  {
+   "start": 1.85,
+   "end": 2.75,
+   "words": [
+    {
+     "start": 1.85,
+     "end": 2.75,
+     "text": "Mega-VMix",
+     "big": true
+    }
+   ],
+   "text": "Mega-VMix"
+  },
+  {
+   "start": 2.75,
+   "end": 3.4,
+   "words": [
+    {
+     "start": 2.75,
+     "end": 2.967,
+     "text": "ka"
+    },
+    {
+     "start": 2.967,
+     "end": 3.183,
+     "text": "bag"
+    },
+    {
+     "start": 3.183,
+     "end": 3.4,
+     "text": "lene"
+    }
+   ],
+   "text": "ka bag lene"
+  },
+  {
+   "start": 3.45,
+   "end": 4.4,
+   "words": [
+    {
+     "start": 3.45,
+     "end": 3.767,
+     "text": "jinhon"
+    },
+    {
+     "start": 3.767,
+     "end": 4.083,
+     "text": "ne"
+    },
+    {
+     "start": 4.083,
+     "end": 4.4,
+     "text": "bheja",
+     "big": true
+    }
+   ],
+   "text": "jinhon ne bheja"
+  },
+  {
+   "start": 4.4,
+   "end": 5.05,
+   "words": [
+    {
+     "start": 4.4,
+     "end": 4.7,
+     "text": "pehle"
+    },
+    {
+     "start": 4.7,
+     "end": 5.05,
+     "text": "tasveer",
+     "big": true
+    }
+   ],
+   "text": "pehle tasveer"
+  },
+  {
+   "start": 5.05,
+   "end": 5.5,
+   "words": [
+    {
+     "start": 5.05,
+     "end": 5.5,
+     "text": "bheji"
+    }
+   ],
+   "text": "bheji"
+  },
+  {
+   "start": 5.5,
+   "end": 6.45,
+   "words": [
+    {
+     "start": 5.5,
+     "end": 5.817,
+     "text": "phir"
+    },
+    {
+     "start": 5.817,
+     "end": 6.133,
+     "text": "Uncle",
+     "big": true
+    },
+    {
+     "start": 6.133,
+     "end": 6.45,
+     "text": "ko"
+    }
+   ],
+   "text": "phir Uncle ko"
+  },
+  {
+   "start": 6.5,
+   "end": 7.3,
+   "words": [
+    {
+     "start": 6.5,
+     "end": 6.767,
+     "text": "aate"
+    },
+    {
+     "start": 6.767,
+     "end": 7.033,
+     "text": "hi"
+    },
+    {
+     "start": 7.033,
+     "end": 7.3,
+     "text": "hum"
+    }
+   ],
+   "text": "aate hi hum"
+  },
+  {
+   "start": 7.3,
+   "end": 8.6,
+   "words": [
+    {
+     "start": 7.3,
+     "end": 7.95,
+     "text": "pehchan",
+     "big": true
+    },
+    {
+     "start": 7.95,
+     "end": 8.6,
+     "text": "gaye"
+    }
+   ],
+   "text": "pehchan gaye"
+  },
+  {
+   "start": 8.75,
+   "end": 10.1,
+   "words": [
+    {
+     "start": 8.75,
+     "end": 9.425,
+     "text": "shukriya"
+    },
+    {
+     "start": 9.425,
+     "end": 10.1,
+     "text": "Uncle",
+     "big": true
+    }
+   ],
+   "text": "shukriya Uncle"
+  }
+ ]
+}

@@ -1,0 +1,112 @@
+{
+  "project": "uncle-megavmix",
+  "style": "plain-captions",
+  "summary": "Sample: an uncle comes for a Mega-VMix bag; the customer who sent him had sent his photo first, so we recognised him the moment he walked in.",
+  "reference_notes": "Owner's viral plain-captions look (white caps + red script word typing in, keys SFX), 4K source, owais-voice story.",
+  "shots": [
+    {
+      "src": "clip.mov",
+      "in": 0,
+      "out": 10.24,
+      "description": "Uncle at the counter, selfie greeting, Mega-VMix bag, uncle waves and hugs the bag",
+      "motion": {
+        "type": "zoom_in",
+        "amount": 0.04
+      }
+    }
+  ],
+  "captions": {
+    "style": {
+      "mode": "html",
+      "template": "script-mix",
+      "accent": "#E32626",
+      "y": 0.64
+    },
+    "sfx": {
+      "line": {
+        "sound": "keys",
+        "volume": 0.16
+      },
+      "big": {
+        "sound": "whoosh_fast",
+        "volume": 0.12
+      }
+    }
+  },
+  "overlays": [
+    {
+      "emoji": "😄",
+      "start": 7.3,
+      "end": 8.6,
+      "x": 0.75,
+      "y": 0.56,
+      "width": 0.13,
+      "animation": "pop"
+    },
+    {
+      "file": "Video Edits/Raw/mega-vmix/mega-vmix-bag-cutout.png",
+      "start": 8.75,
+      "end": 10.24,
+      "x": 0.5,
+      "y": 0.42,
+      "width": 0.34,
+      "animation": "rise"
+    }
+  ],
+  "glass": [
+    {
+      "crystal": true,
+      "x": 0.5,
+      "y": 0.42,
+      "w": 0.5,
+      "h": 0.28125,
+      "radius": 0.5,
+      "start": 8.75,
+      "end": 10.24,
+      "tint": 0.05,
+      "border": 0.9,
+      "border_width": 2.5,
+      "magnify": 1.06
+    }
+  ],
+  "backdrop": [
+    {
+      "start": 8.75,
+      "end": 10.24,
+      "blur": 18,
+      "dim": 0.25
+    }
+  ],
+  "effects": [
+    {
+      "type": "blur_whip",
+      "at": 8.7,
+      "dur": 0.12
+    }
+  ],
+  "sfx": [
+    {
+      "sound": "impact",
+      "at": 0.25,
+      "volume": 0.28
+    },
+    {
+      "sound": "ding",
+      "at": 7.35,
+      "volume": 0.22
+    },
+    {
+      "sound": "whoosh",
+      "at": 8.65,
+      "volume": 0.3
+    },
+    {
+      "sound": "pop",
+      "at": 8.85,
+      "volume": 0.28
+    }
+  ],
+  "fade": {
+    "out": 0.3
+  }
+}

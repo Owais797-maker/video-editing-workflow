@@ -70,7 +70,7 @@
 /* 9. SCRIPT MIX — owner's viral CapCut look ("ANDA More", "WEIGHT Gainer"): heavy white caps + the *big* word
    in a red brush script with a white outline; every word types in left to right behind a thin cursor bar.
    Mark the script word(s) with *word* in captions.txt. 1–2 words per line. */
-.t-script-mix { font-family: "Montserrat Black", sans-serif; font-size: 104px; line-height: 1.0; text-transform: uppercase; color: #fff;
+.t-script-mix { font-family: "Montserrat Black", sans-serif; font-size: 90px; line-height: 1.0; text-transform: uppercase; color: #fff;
   letter-spacing: -.01em; text-shadow: 0 5px 0 rgba(0,0,0,.28), 0 10px 26px rgba(0,0,0,.5); }
 .t-script-mix .row { column-gap: .18em; align-items: flex-end; }
 .t-script-mix .w.big, .t-script-mix .w.kw { font-family: "Yellowtail", cursive; text-transform: none; font-size: 1.55em; color: var(--accent); margin-left: -.12em;

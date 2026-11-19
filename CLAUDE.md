@@ -40,6 +40,9 @@ LOOK v2" (4K, bright colourful grade, white-box captions, light glass widgets wi
 map card, product mockups on glass discs, product line-up ending, SFX recipe). Master example:
 `Video Edits/Export/three-products/`. The owner should never have to explain it again.
 
+**NEXT VIDEO CAPTIONS (owner 2026-11-19):** use `"style": "glow-stack"` (small white caps line + big glowing
+yellow Bebas hero words, words clearing from blur), styles/glow-stack/style.md.
+
 **"PLAIN VIDEO" (owner 2026-11-18):** when the owner says plain video, make it captions-only in the
 `"style": "plain-captions"` (styles/plain-captions/style.md: white caps + red script word typing in,
 from the owner's viral CapCut reel), with good SFX, in ultra 4K.

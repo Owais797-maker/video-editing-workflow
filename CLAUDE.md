@@ -12,6 +12,9 @@ mood, and keep the frame clean: every graphic must earn its place. Each video sh
 little different from the last (vary hook design, badge layout, transitions, accent colour
 treatment) while staying inside the owner's style.
 
+**TikTok formula (owner, 2026-11-19, styles/urdu-hook):** 2 videos a day, animals in frame instead of motion
+graphics, big Urdu heading WHITE on a RED plate on frame 1. Before EVERY video give the owner 3 heading options first.
+
 **Urdu hooks (TikTok):** big Urdu-script pain/benefit hook on frame 1 with `tools/urdu_text.py` (Gulzar Nastaliq,
 Lalezar, Aref Ruqaa…), see `guides/urdu-typography.md`; it is what made the owner's biggest TikTok hits.
 

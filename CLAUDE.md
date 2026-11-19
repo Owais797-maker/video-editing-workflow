@@ -20,7 +20,7 @@ formulas + `hookscore.py`, `ig-caption`, `ig-viral`, `ig-human` = remove AI-soun
 marketing (copywriting, copy-editing, social, marketing-video, ad-creative, marketing-psychology, offers …),
 Remotion (`remotion-*`: videos/motion graphics in React code; free licence only for individuals / companies
 of up to 3 people, see `remotion-license`), Remocn (`remocn*`: ready-made Remotion animations), and
-`skill-creator` (build the owner's own voice skill from their 3 best posts). Use them: score every hook with
+`skill-creator`, and **`owais-voice`** (the owner's own voice, from his best posts: use it for EVERY hook, script, caption and post text). Use them: score every hook with
 `ig-reel/hookscore.py` (it is English-biased: judge Roman Urdu hooks with its five checks by hand too), run
 captions/post copy through `ig-human`. Never post anything for the owner.
 

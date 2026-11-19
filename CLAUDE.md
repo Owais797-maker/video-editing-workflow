@@ -15,6 +15,15 @@ treatment) while staying inside the owner's style.
 **Typography skill (MANDATORY):** read `guides/typography-design.md` before putting any text or graphic on a
 video, and run its critique checklist on a full-res frame before showing the owner.
 
+**Installed skills (.claude/skills, 2026-11-19, from GitHub, MIT/Apache):** Instagram agent (`ig-reel` hook
+formulas + `hookscore.py`, `ig-caption`, `ig-viral`, `ig-human` = remove AI-sounding lines, `ig-plan` …),
+marketing (copywriting, copy-editing, social, marketing-video, ad-creative, marketing-psychology, offers …),
+Remotion (`remotion-*`: videos/motion graphics in React code; free licence only for individuals / companies
+of up to 3 people, see `remotion-license`), Remocn (`remocn*`: ready-made Remotion animations), and
+`skill-creator` (build the owner's own voice skill from their 3 best posts). Use them: score every hook with
+`ig-reel/hookscore.py` (it is English-biased: judge Roman Urdu hooks with its five checks by hand too), run
+captions/post copy through `ig-human`. Never post anything for the owner.
+
 **Creative standard:** read `guides/creative-director.md` before designing anything: think,
 plan, create and critique like an elite international creative agency (authenticity,
 typography, composition, real photography and storytelling over decoration and templates).

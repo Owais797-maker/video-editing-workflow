@@ -98,3 +98,16 @@
   text-shadow: 0 2px 4px rgba(0,0,0,.55), 0 6px 22px rgba(0,0,0,.45); }
 .t-clean .w.big, .t-clean .w.kw { color: var(--accent); font-weight: 800; }
 .t-clean .w.active { transform: translateY(calc((1 - var(--p, 1)) * .3em)); opacity: clamp(0, var(--p, 1), 1); }
+
+/* 12. GLOW STACK — creator-reel look (IG reference 2026-11-19): a small white wide-tracked caps line on top
+   (Montserrat Black), the hero words below in big condensed caps (Bebas Neue) in the accent with a soft glow.
+   Upcoming words wait dimmed and blurred; each word clears in as it is spoken. Mark the first hero word with
+   *word* (or the last 2 words become the hero row). */
+.t-glow-stack { font-family: "Montserrat Black", sans-serif; font-size: 40px; line-height: 1.0; text-transform: uppercase;
+  letter-spacing: .06em; color: #fff; text-shadow: 0 2px 10px rgba(0,0,0,.5); gap: .1em; }
+.t-glow-stack .row { column-gap: .3em; }
+.t-glow-stack .w.hero { font-family: "Bebas Neue", sans-serif; font-size: 2.85em; letter-spacing: .01em; line-height: .9; color: var(--accent);
+  text-shadow: 0 0 18px color-mix(in srgb, var(--accent) 70%, transparent), 0 0 42px color-mix(in srgb, var(--accent) 35%, transparent), 0 4px 10px rgba(0,0,0,.45); }
+.t-glow-stack .row:has(.hero) { column-gap: .3em; }
+.t-glow-stack .w.future { visibility: visible; opacity: .28; filter: blur(5px); }
+.t-glow-stack .w.active { transform: none; opacity: clamp(.28, var(--p, 1), 1); filter: blur(calc((1 - min(var(--p, 1), 1)) * 6px)); }

@@ -23,10 +23,10 @@ from pathlib import Path
 from common import FONTS, REPO, die, load_json, need, resolve, run
 
 HERE = Path(__file__).resolve().parent / "htmlcaps"
-TEMPLATES = ["box-pop", "editorial", "minimal", "outline-3d", "press", "glass", "swiss", "explainer", "script-mix", "pill", "clean"]
+TEMPLATES = ["box-pop", "editorial", "minimal", "outline-3d", "press", "glass", "swiss", "explainer", "script-mix", "pill", "clean", "glow-stack"]
 STACKED = {"editorial", "press"}  # templates that put the big word on its own row
 ENTRANCE = [0.0, 0.62, 1.12, 1.0]  # eased progress per frame (overshoot, settle)
-ENTRANCE_BY_TPL = {"script-mix": [i / 9 for i in range(10)]}  # letters type in over ~0.3 s
+ENTRANCE_BY_TPL = {"script-mix": [i / 9 for i in range(10)], "glow-stack": [i / 6 for i in range(7)]}  # letters type in over ~0.3 s
 FONT_FILES = [  # (css family, file stem, weight, style)
     ("Montserrat Black", "Montserrat-900", 400, "normal"),
     ("Poppins SemiBold", "Poppins-600", 400, "normal"),
@@ -55,6 +55,8 @@ def fonts() -> list:
 
 def line_html(words: list, k: int, p: float, kw: set, pick, layout: str) -> str:
     """HTML for one moment: words[0..k-1] past, words[k] active at progress p, the rest future."""
+    tier_b = (pick if pick is not None else max(0, len(words) - 2)) if layout == "tier" else None
+
     def span(i: int) -> str:
         w = words[i]
         if w["text"] == "_":
@@ -67,12 +69,16 @@ def line_html(words: list, k: int, p: float, kw: set, pick, layout: str) -> str:
             cls.append("kw")
         else:
             cls.append("small")
+        if tier_b is not None and i >= tier_b:
+            cls.append("hero")
         style = f' style="--p:{p:.3f}"' if i == k else ""
         return f'<span class="{" ".join(cls)}"{style}>{html.escape(w["text"])}</span>'
 
     idx = list(range(len(words)))
     if layout == "column":  # every word on its own row (Swiss top captions)
         groups = [[i] for i in idx]
+    elif layout == "tier":  # small line on top, the hero words (from the big word to the end) big below
+        groups = [idx[:tier_b], idx[tier_b:]]
     elif layout == "stack" and pick is not None:
         groups = [[i for i in idx if i < pick], [pick], [i for i in idx if i > pick]]
     else:
@@ -88,7 +94,7 @@ def build(edit: dict, cap: dict, lines: list, plan: list, out_dir: Path, fps: in
     tpl = st.get("template", "editorial")
     if tpl not in TEMPLATES:
         die(f"caption template must be one of {TEMPLATES}")
-    layout = st.get("layout", "column" if tpl == "swiss" else "stack" if tpl in STACKED else "flow")
+    layout = st.get("layout", "column" if tpl == "swiss" else "tier" if tpl == "glow-stack" else "stack" if tpl in STACKED else "flow")
     accent = st.get("accent", st.get("highlight_color", "#FFD400"))
     lower = st.get("lowercase", tpl in ("editorial", "minimal", "glass", "swiss"))
     upper_kw = {k.lower() for k in (cap.get("keywords") or {})}

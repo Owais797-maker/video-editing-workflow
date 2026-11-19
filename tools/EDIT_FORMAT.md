@@ -205,3 +205,5 @@ Caption template `pill`: Poppins on a frosted brand-colour pill (`"pill": "#1E3F
 Texts: `"align": "left"|"right"` anchors the text block at x/y from its top-left/right corner; segments take `"spacing"` (letter spacing, px at 1080 wide).
 
 Glass `"crystal": true`: crystal-clear lens glass (no frost, sheen + rim, slight magnify); `label_font` for widgets. Text segments: `"hollow": true, "stroke": 2.4` = outline letters.
+
+Caption template `glow-stack` (layout `tier`): small white caps line + big glowing hero words; mark the first hero word with *word*.

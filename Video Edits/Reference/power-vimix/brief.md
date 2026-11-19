@@ -46,3 +46,5 @@ Name is spoken "POWER VEE-MIX" (پاور وی مکس), never "Vy-mix". Compositi
 vanilla flavour; vitamins A, D3, E, H/biotin, niacin; iodine, zinc (oxide + amino-acid chelate), manganese, copper
 (sulphate + amino-acid chelate), selenium (sodium selenite + organic), cobalt, phosphorus (DCP 18%), magnesium,
 calcium, iron, sodium (bicarbonate); yeast; toxin binder (bentonite montmorillonite); antioxidant (BHT). Best before 01-12-2027.
+
+Owner 2026-11-19: PAUSED ("is video mein bohat naqis cheezein hain, rok do"). Do not render the final; ask what to fix before resuming.

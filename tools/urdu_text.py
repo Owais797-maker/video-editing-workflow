@@ -6,6 +6,10 @@ for the owner's TikTok hooks ("جانوروں کا وزن تیزی سے بڑھا
         --line "جانوروں کا وزن:nastaliq" --line "تیزی سے بڑھانے والا:bold-yellow" --line "BUTTER FAT MILK:latin"
 
 Each --line is "text:preset". Presets (see guides/urdu-typography.md):
+  noori / noori-gold / noori-red   Jameel Noori Nastaleeq (owner's font, real Noori look)
+  mehr            Mehr Nastaliq (ITU), elegant Nastaliq
+  aslam           Aslam display Urdu
+  mushaf          Al Mushaf (Arabic / Quranic naskh: Arabic text only)
   nastaliq        Noori-style Nastaliq (Gulzar), white, soft dark shadow  - the classic
   nastaliq-gold   same, gold #FFD400 with a thin dark stroke
   nastaliq-red    same, red #FF2A2A with a white stroke (like the owner's 114k hit)
@@ -29,13 +33,20 @@ from pathlib import Path
 from common import EDITS, FONTS, die
 
 HERE = Path(__file__).resolve().parent
-FONT_FILES = [("Gulzar", "Gulzar-400", 400), ("Noto Nastaliq Urdu", "NotoNastaliqUrdu-700", 700),
+FONT_FILES = [("Gulzar", "Gulzar-400", 400), ("Jameel Noori Nastaleeq", "JameelNooriNastaleeq-400", 400),
+              ("Mehr Nastaliq", "MehrNastaliq-400", 400), ("Aslam", "Aslam-400", 400), ("Al Mushaf", "AlMushaf-400", 400), ("Noto Nastaliq Urdu", "NotoNastaliqUrdu-700", 700),
               ("Lalezar", "Lalezar-400", 400), ("Aref Ruqaa", "ArefRuqaa-700", 700), ("Reem Kufi", "ReemKufi-700", 700),
               ("Noto Naskh Arabic", "NotoNaskhArabic-700", 700), ("Montserrat Black", "Montserrat-900", 400)]
 PRESETS = {
     "nastaliq": dict(font="Gulzar", color="#FFFFFF", stroke=0, stroke_color="#000", shadow=True, lh=1.55, k=1.15),
     "nastaliq-gold": dict(font="Gulzar", color="#FFD400", stroke=5, stroke_color="#1a1200", shadow=True, lh=1.55, k=1.15),
     "nastaliq-red": dict(font="Gulzar", color="#FF2A2A", stroke=7, stroke_color="#FFFFFF", shadow=True, lh=1.55, k=1.15),
+    "noori": dict(font="Jameel Noori Nastaleeq", color="#FFFFFF", stroke=0, stroke_color="#000", shadow=True, lh=1.7, k=1.25),
+    "noori-gold": dict(font="Jameel Noori Nastaleeq", color="#FFD400", stroke=5, stroke_color="#1a1200", shadow=True, lh=1.7, k=1.25),
+    "noori-red": dict(font="Jameel Noori Nastaleeq", color="#FF2A2A", stroke=7, stroke_color="#FFFFFF", shadow=True, lh=1.7, k=1.25),
+    "mehr": dict(font="Mehr Nastaliq", color="#FFFFFF", stroke=0, stroke_color="#000", shadow=True, lh=1.8, k=1.15),
+    "aslam": dict(font="Aslam", color="#FFFFFF", stroke=0, stroke_color="#000", shadow=True, lh=1.5, k=1.2),
+    "mushaf": dict(font="Al Mushaf", color="#FFFFFF", stroke=0, stroke_color="#000", shadow=True, lh=1.6, k=1.1),
     "bold": dict(font="Lalezar", color="#FFFFFF", stroke=9, stroke_color="#000000", shadow=True, lh=1.25, k=1.05),
     "bold-yellow": dict(font="Lalezar", color="#FFD400", stroke=9, stroke_color="#000000", shadow=True, lh=1.25, k=1.05),
     "bold-red": dict(font="Lalezar", color="#FF2A2A", stroke=9, stroke_color="#FFFFFF", shadow=True, lh=1.25, k=1.05),

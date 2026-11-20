@@ -107,8 +107,9 @@ def main() -> None:
                if plate else "")
         rows.append(f'<div dir="{"ltr" if p.get("ltr") else "rtl"}" style="white-space:nowrap;font-family:\'{p["font"]}\';font-size:{size:.0f}px;'
                     f'line-height:{p["lh"]};color:{p["color"]};{stroke}{shadow}{box}">{inline(text, args.accent, size)}</div>')
-    W = 1080
-    css = (f"#cap{{position:absolute;left:{(1 - args.width) / 2 * 100:.1f}%;right:{(1 - args.width) / 2 * 100:.1f}%;top:40px;"
+    W = 1800  # wide canvas so a long nowrap line is never clipped (the PNG is trimmed afterwards)
+    side = (W - 1080 * args.width) / 2
+    css = (f"#cap{{position:absolute;left:{side:.0f}px;right:{side:.0f}px;top:40px;"
            "display:flex;flex-direction:column;align-items:center;text-align:center;gap:6px;}")
     out = EDITS / "Raw" / args.project / f"urdu-{args.name}.png"
     out.parent.mkdir(parents=True, exist_ok=True)

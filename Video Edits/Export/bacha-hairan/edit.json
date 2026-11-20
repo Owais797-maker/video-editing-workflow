@@ -1,0 +1,203 @@
+{
+  "project": "bacha-hairan",
+  "style": "bold-clean",
+  "summary": "A young boy from a goat farm surprises us: buys Power V-Mix, Hepta Sef and Gripe Water and says their animals stay healthy. Urdu subtitles in Jameel Noori Nastaleeq with Aslam key words.",
+  "reference_notes": "Owner: stylish Urdu subtitles (Noori + Aslam combo), big heading 'bache ne hairan kar diya', colours from the video (warm yellow), light motion graphics, SFX, 4K, not over-designed.",
+  "shots": [
+    {
+      "src": "clip.mov",
+      "in": 0,
+      "out": 21.5,
+      "description": "Boy at the counter, owner reacts, products on the counter",
+      "motion": {
+        "type": "zoom_in",
+        "amount": 0.04
+      },
+      "punch": [
+        [
+          6.04,
+          6.9
+        ]
+      ],
+      "punch_zoom": 1.08
+    }
+  ],
+  "captions": false,
+  "look": {
+    "cinematic": 0.8,
+    "contrast": 1.05,
+    "saturation": 1.08,
+    "warmth": 0.03,
+    "denoise": 0.6,
+    "sharpen": 0.7,
+    "vignette": 0.45,
+    "grain": 2
+  },
+  "overlays": [
+    {
+      "file": "Video Edits/Raw/bacha-hairan/urdu-heading.png",
+      "start": 0.0,
+      "end": 3.0,
+      "x": 0.5,
+      "y": 0.17,
+      "width": 0.84,
+      "animation": "none"
+    },
+    {
+      "file": "Video Edits/Raw/bacha-hairan/urdu-sub1.png",
+      "start": 0.05,
+      "end": 0.96,
+      "x": 0.5,
+      "y": 0.775,
+      "width": 0.717,
+      "animation": "fade"
+    },
+    {
+      "file": "Video Edits/Raw/bacha-hairan/urdu-sub2.png",
+      "start": 0.96,
+      "end": 3.88,
+      "x": 0.5,
+      "y": 0.775,
+      "width": 0.86,
+      "animation": "fade"
+    },
+    {
+      "file": "Video Edits/Raw/bacha-hairan/urdu-sub3.png",
+      "start": 3.88,
+      "end": 6.04,
+      "x": 0.5,
+      "y": 0.775,
+      "width": 0.86,
+      "animation": "fade"
+    },
+    {
+      "file": "Video Edits/Raw/bacha-hairan/urdu-sub4.png",
+      "start": 6.04,
+      "end": 6.68,
+      "x": 0.5,
+      "y": 0.775,
+      "width": 0.535,
+      "animation": "fade"
+    },
+    {
+      "file": "Video Edits/Raw/bacha-hairan/urdu-sub5.png",
+      "start": 6.68,
+      "end": 8.1,
+      "x": 0.5,
+      "y": 0.775,
+      "width": 0.569,
+      "animation": "fade"
+    },
+    {
+      "file": "Video Edits/Raw/bacha-hairan/urdu-sub6.png",
+      "start": 8.1,
+      "end": 10.02,
+      "x": 0.5,
+      "y": 0.775,
+      "width": 0.86,
+      "animation": "fade"
+    },
+    {
+      "file": "Video Edits/Raw/bacha-hairan/urdu-sub7.png",
+      "start": 10.02,
+      "end": 12.2,
+      "x": 0.5,
+      "y": 0.775,
+      "width": 0.86,
+      "animation": "fade"
+    },
+    {
+      "file": "Video Edits/Raw/bacha-hairan/urdu-sub8.png",
+      "start": 12.2,
+      "end": 14.14,
+      "x": 0.5,
+      "y": 0.775,
+      "width": 0.796,
+      "animation": "fade"
+    },
+    {
+      "file": "Video Edits/Raw/bacha-hairan/urdu-sub9.png",
+      "start": 14.14,
+      "end": 15.68,
+      "x": 0.5,
+      "y": 0.775,
+      "width": 0.86,
+      "animation": "fade"
+    },
+    {
+      "file": "Video Edits/Raw/bacha-hairan/urdu-sub10.png",
+      "start": 15.68,
+      "end": 17.76,
+      "x": 0.5,
+      "y": 0.775,
+      "width": 0.86,
+      "animation": "fade"
+    },
+    {
+      "file": "Video Edits/Raw/bacha-hairan/urdu-sub11.png",
+      "start": 17.76,
+      "end": 19.48,
+      "x": 0.5,
+      "y": 0.775,
+      "width": 0.86,
+      "animation": "fade"
+    },
+    {
+      "file": "Video Edits/Raw/bacha-hairan/urdu-sub12.png",
+      "start": 19.48,
+      "end": 21.45,
+      "x": 0.5,
+      "y": 0.775,
+      "width": 0.689,
+      "animation": "fade"
+    },
+    {
+      "emoji": "😲",
+      "animated": true,
+      "start": 6.04,
+      "end": 7.4,
+      "x": 0.78,
+      "y": 0.3,
+      "width": 0.14,
+      "animation": "pop"
+    }
+  ],
+  "effects": [
+    {
+      "type": "light_leak",
+      "at": 0.0,
+      "dur": 0.9,
+      "color": "#FFC93C"
+    }
+  ],
+  "sfx": [
+    {
+      "sound": "impact",
+      "at": 0.0,
+      "volume": 0.32
+    },
+    {
+      "sound": "whoosh_fast",
+      "at": 0.05,
+      "volume": 0.22
+    },
+    {
+      "sound": "ding",
+      "at": 6.08,
+      "volume": 0.25
+    },
+    {
+      "sound": "ching",
+      "at": 15.7,
+      "volume": 0.2
+    },
+    {
+      "sound": "pop",
+      "at": 6.1,
+      "volume": 0.22
+    }
+  ],
+  "fade": {
+    "out": 0.3
+  }
+}

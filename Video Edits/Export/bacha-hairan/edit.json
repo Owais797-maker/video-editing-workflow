@@ -160,6 +160,33 @@
       "y": 0.3,
       "width": 0.14,
       "animation": "pop"
+    },
+    {
+      "file": "Video Edits/Raw/power-vimix/power-vimix-mockup-cutout.png",
+      "start": 9.28,
+      "end": 13.2,
+      "x": 0.28,
+      "y": 0.275,
+      "width": 0.165,
+      "animation": "rise"
+    },
+    {
+      "file": "Video Edits/Raw/three-products/hepta-sef-cutout.png",
+      "start": 10.76,
+      "end": 13.2,
+      "x": 0.5,
+      "y": 0.275,
+      "width": 0.142,
+      "animation": "rise"
+    },
+    {
+      "file": "Video Edits/Raw/bacha-hairan/gripe-water-mockup-cutout.png",
+      "start": 11.6,
+      "end": 13.2,
+      "x": 0.72,
+      "y": 0.275,
+      "width": 0.15,
+      "animation": "rise"
     }
   ],
   "effects": [
@@ -195,9 +222,45 @@
       "sound": "pop",
       "at": 6.1,
       "volume": 0.22
+    },
+    {
+      "sound": "whoosh",
+      "at": 9.05,
+      "volume": 0.22
+    },
+    {
+      "sound": "pop",
+      "at": 9.3,
+      "volume": 0.25
+    },
+    {
+      "sound": "pop",
+      "at": 10.78,
+      "volume": 0.25
+    },
+    {
+      "sound": "pop",
+      "at": 11.62,
+      "volume": 0.25
     }
   ],
   "fade": {
     "out": 0.3
-  }
+  },
+  "glass": [
+    {
+      "crystal": true,
+      "x": 0.5,
+      "y": 0.275,
+      "w": 0.84,
+      "h": 0.2,
+      "radius": 0.14,
+      "start": 9.1,
+      "end": 13.2,
+      "tint": 0.06,
+      "border": 0.9,
+      "border_width": 2.5,
+      "magnify": 1.04
+    }
+  ]
 }

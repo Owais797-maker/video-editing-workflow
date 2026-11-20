@@ -21,6 +21,16 @@ Preview of the styles: guides/urdu-styles.jpg.
 Also installed: Noto Nastaliq Urdu (400/700), Mirza, Lateef, Markazi Text, Vazirmatn (Persian, check Urdu letters).
 Jameel Noori Nastaleeq itself is not on Google Fonts (licence unclear): Gulzar is the free look-alike.
 
+## Owner's own fonts (installed 2026-11-20 from his fonts.zip, preview guides/urdu-fonts-owner.jpg)
+| Preset | Font | Note |
+|---|---|---|
+| noori / noori-gold / noori-red | **Jameel Noori Nastaleeq** | the real Noori look; "free of charge for Urdu lovers"; first choice for Urdu hooks now |
+| mehr | Mehr Nastaliq Web (ITU Punjab / CSaLT) | elegant, airy Nastaliq |
+| aslam | Aslam | bold display Urdu, good for names/brands (خیبر ٹریڈرز) |
+| mushaf | Al Mushaf | Arabic/Quranic naskh: Arabic text only (ayat, duas) |
+| — | Al Qalam Quran Majeed (otf) | Quranic Arabic only; in fonts/Urdu Fonts, add a preset if needed |
+Most of them lack the rare letter ۓ: write ئے instead.
+
 ## Recipes that match the hits
 1. **Pain → product** (2 lines): `"جانور کا وزن نہیں بڑھ رہا؟:nastaliq"` + `"ہیوی گولڈ:bold-yellow:1.3"`, `--plate dark`.
 2. **Season + promise**: `"قربانی کے مال کے لیے:nastaliq-gold"` + `"زبردست امپورٹڈ:bold:1.2"`, `--plate black`.

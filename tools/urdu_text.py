@@ -44,6 +44,8 @@ PRESETS = {
     "noori": dict(font="Jameel Noori Nastaleeq", color="#FFFFFF", stroke=0, stroke_color="#000", shadow=True, lh=1.7, k=1.25),
     "noori-gold": dict(font="Jameel Noori Nastaleeq", color="#FFD400", stroke=5, stroke_color="#1a1200", shadow=True, lh=1.7, k=1.25),
     "noori-red": dict(font="Jameel Noori Nastaleeq", color="#FF2A2A", stroke=7, stroke_color="#FFFFFF", shadow=True, lh=1.7, k=1.25),
+    "aslam-yellow": dict(font="Aslam", color="#FFC93C", stroke=0, stroke_color="#000", shadow=True, lh=1.5, k=1.3),
+    "aslam-red": dict(font="Aslam", color="#FF3B30", stroke=0, stroke_color="#000", shadow=True, lh=1.5, k=1.3),
     "mehr": dict(font="Mehr Nastaliq", color="#FFFFFF", stroke=0, stroke_color="#000", shadow=True, lh=1.8, k=1.15),
     "aslam": dict(font="Aslam", color="#FFFFFF", stroke=0, stroke_color="#000", shadow=True, lh=1.5, k=1.2),
     "mushaf": dict(font="Al Mushaf", color="#FFFFFF", stroke=0, stroke_color="#000", shadow=True, lh=1.6, k=1.1),
@@ -57,6 +59,21 @@ PRESETS = {
 }
 
 
+def inline(text: str, accent: str, size: float) -> str:
+    """'*word*' inside a line is set in the accent preset (e.g. Aslam yellow inside a Noori line)."""
+    import re
+    a = PRESETS[accent]
+    out = []
+    for i, part in enumerate(re.split(r"\*([^*]+)\*", text)):
+        if i % 2 == 0:
+            out.append(html.escape(part))
+        else:
+            st = f"-webkit-text-stroke:{a['stroke']}px {a['stroke_color']};paint-order:stroke fill;" if a["stroke"] else ""
+            out.append(f'<span style="font-family:\'{a["font"]}\';color:{a["color"]};font-size:{a["k"] / 1.25:.2f}em;{st}">'
+                       f'{html.escape(part)}</span>')
+    return "".join(out)
+
+
 def main() -> None:
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--project", required=True)
@@ -64,6 +81,7 @@ def main() -> None:
     ap.add_argument("--line", action="append", required=True, help='"text:preset[:scale]"')
     ap.add_argument("--size", type=float, default=96)
     ap.add_argument("--width", type=float, default=0.86)
+    ap.add_argument("--accent", default="aslam-yellow", help="preset for *marked* words inside a line (mixed-font combo)")
     ap.add_argument("--plate", default="", help="backing behind each line: dark | black | red | blue | yellow | #RRGGBB (default none)")
     args = ap.parse_args()
     fonts = []
@@ -88,9 +106,10 @@ def main() -> None:
         box = (f"background:{plate};padding:.02em .45em .12em;border-radius:.22em;box-shadow:0 10px 30px rgba(0,0,0,.35);"
                if plate else "")
         rows.append(f'<div dir="{"ltr" if p.get("ltr") else "rtl"}" style="white-space:nowrap;font-family:\'{p["font"]}\';font-size:{size:.0f}px;'
-                    f'line-height:{p["lh"]};color:{p["color"]};{stroke}{shadow}{box}">{html.escape(text)}</div>')
-    W = 1080
-    css = (f"#cap{{position:absolute;left:{(1 - args.width) / 2 * 100:.1f}%;right:{(1 - args.width) / 2 * 100:.1f}%;top:40px;"
+                    f'line-height:{p["lh"]};color:{p["color"]};{stroke}{shadow}{box}">{inline(text, args.accent, size)}</div>')
+    W = 1800  # wide canvas so a long nowrap line is never clipped (the PNG is trimmed afterwards)
+    side = (W - 1080 * args.width) / 2
+    css = (f"#cap{{position:absolute;left:{side:.0f}px;right:{side:.0f}px;top:40px;"
            "display:flex;flex-direction:column;align-items:center;text-align:center;gap:6px;}")
     out = EDITS / "Raw" / args.project / f"urdu-{args.name}.png"
     out.parent.mkdir(parents=True, exist_ok=True)

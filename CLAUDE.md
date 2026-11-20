@@ -46,6 +46,9 @@ LOOK v2" (4K, bright colourful grade, white-box captions, light glass widgets wi
 map card, product mockups on glass discs, product line-up ending, SFX recipe). Master example:
 `Video Edits/Export/three-products/`. The owner should never have to explain it again.
 
+**NEXT VIDEO LAYOUT (owner 2026-11-20):** `styles/window-canvas/style.md`: illustration on a light canvas, the
+edited video inside rounded window(s) with label pills (from his IG reference).
+
 **NEXT VIDEO CAPTIONS (owner 2026-11-19):** use `"style": "glow-stack"` (small white caps line + big glowing
 yellow Bebas hero words, words clearing from blur), styles/glow-stack/style.md.
 

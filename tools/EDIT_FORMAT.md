@@ -209,3 +209,5 @@ Glass `"crystal": true`: crystal-clear lens glass (no frost, sheen + rim, slight
 Caption template `glow-stack` (layout `tier`): small white caps line + big glowing hero words; mark the first hero word with *word*.
 
 **sfx** extras: any earshot bank id works as a sound name (`"sound": "whoosh_fast/crisp"`, `"pro_pop/bloop"`, list: `earshot sfx list`); `"sfx_bank": "pro"` (edit or style) upgrades the classic names (whoosh, pop, ding, keys, impact …) to earshot pro sounds.
+
+**frames** extras: `"bg": "image", "bg_file": "pic.png"` (illustration canvas, cover-fit) or `"bg": "gradient", "bg_color": "#EAF7FD", "bg_color2": "#9FDDF2"`; `"left"` (0-1) places the window horizontally.

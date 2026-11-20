@@ -492,7 +492,8 @@ def build_graph(edit: dict, work: Path, preview: bool) -> tuple[list[str], str, 
         s0, s1 = float(fr["start"]), float(fr["end"])
         sc = float(fr.get("scale", 0.84))
         fw, fh = int(W * sc) // 2 * 2, int(H * sc) // 2 * 2
-        fx, fy = (W - fw) // 2, int(H * float(fr.get("top", (1 - sc) / 2)))
+        fx = int(W * float(fr["left"])) if "left" in fr else (W - fw) // 2
+        fy = int(H * float(fr.get("top", (1 - sc) / 2)))
         rad = int(W * float(fr.get("radius", 0.05)))
         bwid = max(2, int(W * float(fr.get("border", 0.004))))
         mk = Image.new("L", (fw, fh), 0)
@@ -737,6 +738,21 @@ def frame_bg(fr: dict, W: int, H: int, edit: dict):
     """Plain-colour background with soft lines for timed semi-frames: "lines" (diagonal pinstripes),
     "grid" (fine square grid) or "hlines" (horizontal ruled lines). Colour: bg_color (default brand bg2)."""
     from PIL import Image, ImageDraw
+    if fr.get("bg") == "image":  # illustration / designed canvas behind the video window (cover-fit)
+        im = Image.open(edl._src(edit["project"], fr["bg_file"])).convert("RGB")
+        k = max(W / im.width, H / im.height)
+        im = im.resize((round(im.width * k), round(im.height * k)), Image.LANCZOS)
+        l, t = (im.width - W) // 2, (im.height - H) // 2
+        return im.crop((l, t, l + W, t + H))
+    if fr.get("bg") == "gradient":  # soft two-colour vertical gradient (e.g. the light-blue creator canvas)
+        c1 = tuple(int(str(fr.get("bg_color", "#EAF7FD")).lstrip("#")[i:i + 2], 16) for i in (0, 2, 4))
+        c2 = tuple(int(str(fr.get("bg_color2", "#9FDDF2")).lstrip("#")[i:i + 2], 16) for i in (0, 2, 4))
+        im = Image.new("RGB", (W, H))
+        d = ImageDraw.Draw(im)
+        for y in range(H):
+            u = y / H
+            d.line([(0, y), (W, y)], fill=tuple(int(c1[i] + (c2[i] - c1[i]) * u) for i in range(3)))
+        return im
     col = fr.get("bg_color") or (edit.get("brand") or {}).get("bg2") or "#0B2560"
     rgb = tuple(int(str(col).lstrip("#")[i:i + 2], 16) for i in (0, 2, 4))
     lum = sum(rgb) / 3

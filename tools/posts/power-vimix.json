@@ -1,1 +1,37 @@
-{"name": "power-vimix-post", "P": "#1B2F8F", "P2": "#2A47C2", "PD": "#0F1B5C", "A": "#F2B705", "AT": "#1B2F8F", "top": "<b>POWER <i>VIMIX</i></b> &nbsp;·&nbsp; ANIMAL FEED PREMIX", "l1": "<span>قربانی</span> والے جانوروں کے لیے<br>منرلز، وائٹامنز اور ییسٹ والا", "hero": "زبردست پاؤڈر", "hero_size": 158, "en": "POWER <i>VIMIX</i>", "en_size": 96, "img": "SCRATCH/power2x.png", "bag_top": 760, "bag_h": 770, "c1": ["VITAMIN A · D3 · E", "+ BIOTIN"], "c2": ["ORGANIC ZINC", "COPPER · SELENIUM"], "c1x": 80, "c1y": 920, "c2x": 36, "c2y": 800, "l4": "With <i>Yeast</i> &amp; <i>Toxin Binder</i>", "l5": "<span>گائے</span>، بیل اور بکروں کے لیے", "ft": "VANILLA FLAVOUR · 5 KG", "en_top": 604, "l1_top": 180, "l1_size": 62, "hero_top": 372}
+{
+ "name": "power-vimix-post",
+ "P": "#1B2F8F",
+ "P2": "#2A47C2",
+ "PD": "#0F1B5C",
+ "A": "#F2B705",
+ "AT": "#1B2F8F",
+ "top": "<b>POWER <i>VIMIX</i></b> &nbsp;·&nbsp; ANIMAL FEED PREMIX",
+ "l1": "<span>قربانی</span> والے جانوروں کے لیے<br>منرلز، وائٹامنز اور ییسٹ والا",
+ "hero": "زبردست پاؤڈر",
+ "hero_size": 158,
+ "en": "POWER <i>VIMIX</i>",
+ "en_size": 96,
+ "bag_top": 760,
+ "bag_h": 770,
+ "c1": [
+  "VITAMIN A · D3 · E",
+  "+ BIOTIN"
+ ],
+ "c2": [
+  "ORGANIC ZINC",
+  "COPPER · SELENIUM"
+ ],
+ "c1x": 80,
+ "c1y": 920,
+ "c2x": 36,
+ "c2y": 800,
+ "l4": "With <i>Yeast</i> &amp; <i>Toxin Binder</i>",
+ "l5": "<span>گائے</span>، بیل اور بکروں کے لیے",
+ "ft": "VANILLA FLAVOUR · 5 KG",
+ "en_top": 604,
+ "l1_top": 180,
+ "l1_size": 62,
+ "hero_top": 372,
+ "src": "Video Edits/Raw/power-vimix/power-vimix-reseller-cutout.png",
+ "up": 2
+}

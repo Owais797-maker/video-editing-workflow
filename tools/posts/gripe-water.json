@@ -1,1 +1,36 @@
-{"name": "gripe-water-post", "P": "#1F56C9", "P2": "#2F74EA", "PD": "#123C93", "A": "#13246B", "AT": "#FFFFFF", "top": "<b>LIFE <i>GRIPE WATER</i></b> &nbsp;·&nbsp; ORAL LIQUID", "l1": "<span>گائے</span>، بھیڑ اور بکریوں کے", "l1_top": 196, "hero": "ہاضمے کا ساتھی", "hero_size": 138, "hero_top": 326, "en": "GRIPE <i>WATER</i>", "en_size": 100, "en_top": 556, "img": "SCRATCH/gw3x.png", "bag_top": 720, "bag_h": 800, "c1": ["ORAL", "LIQUID"], "c2": ["BIG BOTTLE", "5 LITRES"], "c1x": 150, "c1y": 1400, "c2x": 150, "c2y": 780, "l4": "Happy Tummy, <i>Healthy Animal</i>", "l5": "<span>ہاضمہ</span> درست، جانور تندرست", "ft": "5 LITRES · FOR VETERINARY USE"}
+{
+ "name": "gripe-water-post",
+ "P": "#1F56C9",
+ "P2": "#2F74EA",
+ "PD": "#123C93",
+ "A": "#13246B",
+ "AT": "#FFFFFF",
+ "top": "<b>LIFE <i>GRIPE WATER</i></b> &nbsp;·&nbsp; ORAL LIQUID",
+ "l1": "<span>گائے</span>، بھیڑ اور بکریوں کے",
+ "l1_top": 196,
+ "hero": "ہاضمے کا ساتھی",
+ "hero_size": 138,
+ "hero_top": 326,
+ "en": "GRIPE <i>WATER</i>",
+ "en_size": 100,
+ "en_top": 556,
+ "bag_top": 720,
+ "bag_h": 800,
+ "c1": [
+  "ORAL",
+  "LIQUID"
+ ],
+ "c2": [
+  "BIG BOTTLE",
+  "5 LITRES"
+ ],
+ "c1x": 150,
+ "c1y": 1400,
+ "c2x": 150,
+ "c2y": 780,
+ "l4": "Happy Tummy, <i>Healthy Animal</i>",
+ "l5": "<span>ہاضمہ</span> درست، جانور تندرست",
+ "ft": "5 LITRES · FOR VETERINARY USE",
+ "src": "Video Edits/Raw/bacha-hairan/gripe-water-mockup-cutout.png",
+ "up": 3
+}

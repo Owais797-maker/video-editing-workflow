@@ -1,10 +1,35 @@
-{"name":"mega-tox-post","P":"#E2601B","P2":"#F07A2E","PD":"#B8460C","A":"#2A2440","AT":"#FFFFFF",
- "top":"<b>MEGA-<i>TOX</i> PLUS</b> &nbsp;·&nbsp; NATURAL YEAST",
- "l1":"<span>ترکی</span> کا زبردست",
- "hero":"ٹاکسن بائنڈر","hero_size":170,"hero_top":300,
- "en":"MEGA-TOX <i>PLUS</i>","en_size":96,"en_top":560,
- "img":"SCRATCH/mt2x.png","bag_top":710,"bag_h":820,
- "c1":["NATURAL","YEAST"],"c2":["WITH","VITAMINS"],"c1x":120,"c1y":1420,"c2x":110,"c2y":1100,
- "l4":"Natural Yeast, <i>Powerful Protection</i>",
- "l5":"<span>فارم</span> والوں کی اشد ضرورت",
- "ft":"25 KG · ANIMAL FEED ADDITIVE"}
+{
+ "name": "mega-tox-post",
+ "P": "#E2601B",
+ "P2": "#F07A2E",
+ "PD": "#B8460C",
+ "A": "#2A2440",
+ "AT": "#FFFFFF",
+ "top": "<b>MEGA-<i>TOX</i> PLUS</b> &nbsp;·&nbsp; NATURAL YEAST",
+ "l1": "<span>ترکی</span> کا زبردست",
+ "hero": "ٹاکسن بائنڈر",
+ "hero_size": 170,
+ "hero_top": 300,
+ "en": "MEGA-TOX <i>PLUS</i>",
+ "en_size": 96,
+ "en_top": 560,
+ "bag_top": 710,
+ "bag_h": 820,
+ "c1": [
+  "NATURAL",
+  "YEAST"
+ ],
+ "c2": [
+  "WITH",
+  "VITAMINS"
+ ],
+ "c1x": 120,
+ "c1y": 1420,
+ "c2x": 110,
+ "c2y": 1100,
+ "l4": "Natural Yeast, <i>Powerful Protection</i>",
+ "l5": "<span>فارم</span> والوں کی اشد ضرورت",
+ "ft": "25 KG · ANIMAL FEED ADDITIVE",
+ "src": "Video Edits/Raw/mega-tox/mega-tox-bag-cutout.png",
+ "up": 2
+}

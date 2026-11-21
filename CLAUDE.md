@@ -56,9 +56,9 @@ yellow Bebas hero words, words clearing from blur), styles/glow-stack/style.md.
 `"style": "plain-captions"` (styles/plain-captions/style.md: white caps + red script word typing in,
 from the owner's viral CapCut reel), with good SFX, in ultra 4K.
 
-**PRODUCT POSTS (owner loved, 2026-11-21):** 9:16 4K reseller posts = `tools/posts/product_post.py tools/posts/<product>.json`
-(white minimal series: Noori line + big Aslam hero in the bag colour + Montserrat product name, bag on a disc, 2 filled
-badges anchored on blank parts of the bag, Poppins line + Urdu line). No shop name/number unless asked (resellers use them).
+**LOCKED PRODUCT POSTS (owner 2026-11-21: "is mizaaj ko lock karo"):** every product post / price list / DP follows
+`styles/product-posts/style.md` (white minimal series, Noori + Aslam + Montserrat + Poppins, product colours, no shop
+name/number for resellers). Make one with `python3 tools/posts/product_post.py tools/posts/<product>.json`.
 
 **Owner's working rules (learned the hard way):**
 - Confirm caption WORDING with the owner first (Caption Review page), then do the rest.

@@ -1,5 +1,12 @@
-# Reseller product post (9:16, 4K): python3 tools/posts/product_post.py tools/posts/<product>.json
-# img paths must point to a 2x upscaled cutout; see the json examples. Owner-approved series style 2026-11-21.
+#!/usr/bin/env python3
+"""LOCKED product-post series (owner loved it, 2026-11-21): 9:16 4K reseller posts.
+
+    python3 tools/posts/product_post.py tools/posts/<product>.json   ->  Video Edits/Export/<name>/<name>.jpg
+
+See styles/product-posts/style.md for the look and the rules. JSON keys: name, src (cutout in the repo), up
+(upscale 2-3 for small cutouts), P/P2/PD (product colour light->dark), A/AT (2nd badge colour + its text),
+top, l1, hero, en, c1/c2 ([small, big] badge text), c1x/c1y/c2x/c2y, l4, l5, ft, sizes/tops (optional).
+"""
 import json,subprocess,sys
 from pathlib import Path
 from PIL import Image
@@ -13,6 +20,12 @@ fonts=[{"family":"Noori","path":F("JameelNooriNastaleeq-400.ttf"),"weight":400,"
  {"family":"Poppins","path":F("Poppins-700.ttf"),"weight":700,"style":"normal"},
  {"family":"Poppins","path":F("Poppins-800.ttf"),"weight":800,"style":"normal"}]
 c=json.load(open(sys.argv[1]))
+if c.get("src"):
+    from PIL import ImageFilter
+    w=R/"Video Edits/Export"/c["name"]/"work"; w.mkdir(parents=True,exist_ok=True)
+    im=Image.open(R/c["src"]).convert("RGBA"); u=int(c.get("up",2))
+    im=im.resize((im.width*u,im.height*u),Image.LANCZOS).filter(ImageFilter.UnsharpMask(2,50,2))
+    c["img"]=str(w/"product-up.png"); im.save(c["img"])
 P,P2,PD,A,AT=c["P"],c["P2"],c["PD"],c["A"],c["AT"]; INK="#1B1B1F"
 chk=lambda col:f'<svg width="26" height="26" viewBox="0 0 24 24"><path d="M5 12.5l4.2 4.2L19 7" fill="none" stroke="{col}" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/></svg>'
 css=f"""

@@ -1,0 +1,167 @@
+{
+  "project": "sab-gham",
+  "style": "bold-clean",
+  "summary": "Naat (Ala Hazrat): 'Un ke nisar koi kaise hi ranj mein ho / jab yaad aa gaye hain sab gham bhula diye hain'. Owner recites; Madina (Green Dome) on 'jab yaad aa gaye hain'.",
+  "reference_notes": "Noori + Aslam combo (owner's favourite), respectful: no pop/whoosh SFX, warm glow transition, polished voice with soft hall, 4K. Madina photos CC0 (Wikimedia Commons).",
+  "shots": [
+    {
+      "src": "clip.mov",
+      "in": 0,
+      "out": 14.3,
+      "mute": true,
+      "description": "Owner reciting (selfie)",
+      "motion": {
+        "type": "zoom_in",
+        "amount": 0.04
+      }
+    },
+    {
+      "src": "madina-1.mp4",
+      "in": 0,
+      "out": 2.0,
+      "mute": true,
+      "description": "Green Dome close-up"
+    },
+    {
+      "src": "madina-2.mp4",
+      "in": 0,
+      "out": 2.0,
+      "mute": true,
+      "description": "Green Dome and minaret"
+    },
+    {
+      "src": "madina-3.mp4",
+      "in": 0,
+      "out": 2.0,
+      "mute": true,
+      "description": "Masjid an-Nabawi courtyard"
+    },
+    {
+      "src": "clip.mov",
+      "in": 20.3,
+      "out": 27.07,
+      "mute": true,
+      "description": "Owner reciting, closing line",
+      "motion": {
+        "type": "zoom_in",
+        "amount": 0.05
+      }
+    }
+  ],
+  "captions": false,
+  "look": {
+    "cinematic": 0.6,
+    "contrast": 1.04,
+    "saturation": 1.05,
+    "brightness": 0.02,
+    "warmth": 0.05,
+    "denoise": 0.9,
+    "sharpen": 0.8,
+    "vignette": 0.5,
+    "grain": 2
+  },
+  "overlays": [
+    {
+      "file": "Video Edits/Raw/sab-gham/letterbox.png",
+      "start": 0.0,
+      "end": 2.2,
+      "x": 0.5,
+      "y": 0.5,
+      "width": 1.0,
+      "animation": "fade"
+    },
+    {
+      "file": "Video Edits/Raw/sab-gham/urdu-heading.png",
+      "start": 0.0,
+      "end": 2.2,
+      "x": 0.5,
+      "y": 0.44,
+      "width": 0.9,
+      "animation": "fade"
+    },
+    {
+      "file": "Video Edits/Raw/sab-gham/urdu-heading.png",
+      "start": 2.2,
+      "end": 5.8,
+      "x": 0.5,
+      "y": 0.2,
+      "width": 0.8,
+      "animation": "fade"
+    },
+    {
+      "file": "Video Edits/Raw/sab-gham/urdu-l1.png",
+      "start": 0.5,
+      "end": 6.0,
+      "x": 0.5,
+      "y": 0.72,
+      "width": 0.557,
+      "animation": "fade"
+    },
+    {
+      "file": "Video Edits/Raw/sab-gham/urdu-l2.png",
+      "start": 6.0,
+      "end": 12.6,
+      "x": 0.5,
+      "y": 0.78,
+      "width": 0.843,
+      "animation": "fade"
+    },
+    {
+      "file": "Video Edits/Raw/sab-gham/urdu-l3.png",
+      "start": 14.3,
+      "end": 20.3,
+      "x": 0.5,
+      "y": 0.78,
+      "width": 0.706,
+      "animation": "fade"
+    },
+    {
+      "file": "Video Edits/Raw/sab-gham/urdu-l4.png",
+      "start": 20.3,
+      "end": 26.7,
+      "x": 0.5,
+      "y": 0.78,
+      "width": 0.86,
+      "animation": "fade"
+    }
+  ],
+  "effects": [
+    {
+      "type": "light_leak",
+      "at": 0.0,
+      "dur": 1.2,
+      "color": "#FFD98A"
+    },
+    {
+      "type": "light_leak",
+      "at": 14.0,
+      "dur": 0.9,
+      "color": "#FFE7A8"
+    },
+    {
+      "type": "light_leak",
+      "at": 20.0,
+      "dur": 0.9,
+      "color": "#FFE7A8"
+    }
+  ],
+  "sfx": [
+    {
+      "file": "voice-polished.wav",
+      "at": 0.0,
+      "volume": 1.0
+    }
+  ],
+  "fade": {
+    "in": 0.4,
+    "out": 0.9
+  },
+  "backdrop": [
+    {
+      "start": 0.0,
+      "end": 2.2,
+      "blur": 16,
+      "dim": 0.4
+    }
+  ]
+}

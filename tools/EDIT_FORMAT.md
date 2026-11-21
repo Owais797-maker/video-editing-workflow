@@ -211,3 +211,5 @@ Caption template `glow-stack` (layout `tier`): small white caps line + big glowi
 **sfx** extras: any earshot bank id works as a sound name (`"sound": "whoosh_fast/crisp"`, `"pro_pop/bloop"`, list: `earshot sfx list`); `"sfx_bank": "pro"` (edit or style) upgrades the classic names (whoosh, pop, ding, keys, impact …) to earshot pro sounds.
 
 **frames** extras: `"bg": "image", "bg_file": "pic.png"` (illustration canvas, cover-fit) or `"bg": "gradient", "bg_color": "#EAF7FD", "bg_color2": "#9FDDF2"`; `"left"` (0-1) places the window horizontally.
+
+**trip card** (tiny top bar): `{"type": "trip", "from": "KARACHI", "to": "150 KM", "vehicle": "🛺", "x": 0.46, "y": 0.125, "w": 0.62, "h": 0.05, "drive_time": 1.6, "rtl": true}`: a small vehicle drives along a dotted line; pair with a soft `trr`.

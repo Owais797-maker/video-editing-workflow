@@ -68,6 +68,8 @@ def card_frame(c: dict, t: float, dur: float, W: int, H: int, product: str | Non
         return panel_frame(c, t, dur, W, H, th, fade)
     if kind == "route":
         return route_frame(c, t, dur, W, H, th, fade)
+    if kind == "trip":
+        return trip_frame(c, t, dur, W, H, th, fade)
     rnd = random.Random(seed)
     bokeh = []
     for _ in range(7):
@@ -190,6 +192,40 @@ CITIES = {  # lat, lon
     "Faisalabad": (31.42, 73.08), "Multan": (30.20, 71.47), "Peshawar": (34.01, 71.58), "Quetta": (30.18, 66.98),
     "Gujranwala": (32.16, 74.19), "Khanpur": (28.65, 70.66), "Rahim Yar Khan": (28.42, 70.30), "Hyderabad": (25.40, 68.37), "Rawalpindi": (33.60, 73.04), "Sahiwal": (30.66, 73.11),
 }
+
+
+def trip_frame(c: dict, t: float, dur: float, W: int, H: int, th: dict, fade: float) -> str:
+    """Tiny trip bar near the top: FROM ● - - - 🛺 - - - ● TO, the vehicle drives along the dashed line.
+    Keys: from, to (labels), vehicle (emoji), x, y, w (0-1), rtl (true: drives right -> left, Urdu reading order),
+    drive_time (s), color."""
+    from common import REPO
+    w = W * float(c.get("w", 0.62))
+    h = H * float(c.get("h", 0.055))
+    x0, y0 = W * float(c.get("x", 0.5)) - w / 2, H * float(c.get("y", 0.13)) - h / 2
+    acc = c.get("color", "#FFC93C")
+    p = ease_out((t - 0.2) / float(c.get("drive_time", 1.6)))
+    rtl = c.get("rtl", True)
+    pad = h * 0.9
+    lx0, lx1 = pad + h * 1.6, w - pad - h * 1.6
+    vx = (lx1 - (lx1 - lx0) * p) if rtl else (lx0 + (lx1 - lx0) * p)
+    cps = "_".join(f"{ord(ch):x}" for ch in c.get("vehicle", "🛺") if ord(ch) != 0xFE0F)
+    img = REPO / "assets" / "emoji" / f"{cps}.png"
+    vs = h * 1.25
+    bounce = abs(math.sin(t * 18)) * h * 0.05
+    flip = "scaleX(-1)" if not rtl else "none"
+    left_lbl, right_lbl = (c.get("to", ""), c.get("from", "")) if rtl else (c.get("from", ""), c.get("to", ""))
+    fs = h * 0.42
+    done_l = (lx1 - vx) if rtl else (vx - lx0)
+    return (f'<div style="position:absolute;left:{x0:.0f}px;top:{y0:.0f}px;width:{w:.0f}px;height:{h:.0f}px;opacity:{fade:.3f};'
+            f'border-radius:{h / 2:.0f}px;background:rgba(10,10,10,.55);border:1.5px solid rgba(255,255,255,.35);'
+            f'box-shadow:0 8px 24px rgba(0,0,0,.3);font-family:Inter Tight,sans-serif;font-weight:800;color:#fff;">'
+            f'<div style="position:absolute;left:{pad * .55:.0f}px;top:0;height:100%;display:flex;align-items:center;font-size:{fs:.0f}px">{html.escape(left_lbl)}</div>'
+            f'<div style="position:absolute;right:{pad * .55:.0f}px;top:0;height:100%;display:flex;align-items:center;font-size:{fs:.0f}px">{html.escape(right_lbl)}</div>'
+            f'<div style="position:absolute;left:{lx0:.0f}px;width:{lx1 - lx0:.0f}px;top:{h / 2 - 2:.0f}px;height:0;border-top:4px dotted rgba(255,255,255,.5)"></div>'
+            f'<div style="position:absolute;left:{min(vx, lx1) if rtl else lx0:.0f}px;width:{max(done_l, 0):.0f}px;top:{h / 2 - 2:.0f}px;height:4px;background:{acc};border-radius:2px"></div>'
+            f'<div style="position:absolute;left:{lx0 - 7:.0f}px;top:{h / 2 - 7:.0f}px;width:14px;height:14px;border-radius:50%;background:{acc if rtl and p >= 1 else "#fff"}"></div>'
+            f'<div style="position:absolute;left:{lx1 - 7:.0f}px;top:{h / 2 - 7:.0f}px;width:14px;height:14px;border-radius:50%;background:#fff"></div>'
+            f'<img src="file://{img}" style="position:absolute;left:{vx - vs / 2:.0f}px;top:{h / 2 - vs * 0.72 - bounce:.0f}px;width:{vs:.0f}px;height:{vs:.0f}px;transform:{flip}"></div>')
 
 
 def route_frame(c: dict, t: float, dur: float, W: int, H: int, th: dict, fade: float) -> str:

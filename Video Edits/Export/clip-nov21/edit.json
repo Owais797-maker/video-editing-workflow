@@ -152,30 +152,6 @@
       "border": 0.9,
       "border_width": 2.5,
       "magnify": 1.04
-    },
-    {
-      "x": 0.5,
-      "y": 0.24,
-      "w": 0.62,
-      "h": 0.16,
-      "label": "From Karachi",
-      "value": "150 KM",
-      "sub": "Buttery Milk on the way",
-      "dot": "#FFC93C",
-      "start": 6.3,
-      "end": 7.85,
-      "tint_color": "#111111",
-      "tint": 0.45,
-      "border": 0.45,
-      "text_color": "#FFFFFF",
-      "value_font": "Anton",
-      "value_size": 0.5,
-      "label_font": "Inter Tight",
-      "sub_font": "Instrument Serif",
-      "sub_italic": true,
-      "sub_color": "#FFC93C",
-      "sub_size": 1.2,
-      "pad": 0.12
     }
   ],
   "backdrop": [
@@ -209,11 +185,6 @@
       "sound": "whoosh_fast/crisp",
       "at": 0.03,
       "volume": 0.22
-    },
-    {
-      "sound": "pro_pop_in/round",
-      "at": 6.3,
-      "volume": 0.28
     },
     {
       "sound": "pro_notify/ding_2045",
@@ -274,9 +245,30 @@
       "sound": "pro_click/soft",
       "at": 8.9,
       "volume": 0.35
+    },
+    {
+      "sound": "trr",
+      "at": 5.95,
+      "volume": 0.22
     }
   ],
   "fade": {
     "out": 0.25
-  }
+  },
+  "cards": [
+    {
+      "type": "trip",
+      "from": "KARACHI",
+      "to": "150 KM",
+      "vehicle": "🛺",
+      "x": 0.46,
+      "y": 0.125,
+      "w": 0.62,
+      "h": 0.05,
+      "start": 5.74,
+      "end": 7.88,
+      "drive_time": 1.6,
+      "rtl": true
+    }
+  ]
 }

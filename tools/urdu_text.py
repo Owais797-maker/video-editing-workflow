@@ -20,6 +20,7 @@ Each --line is "text:preset". Presets (see guides/urdu-typography.md):
   kufi            Reem Kufi modern geometric, white  - short words only (its ے looks odd in long Urdu)
   naskh           Noto Naskh Arabic Bold, white  - very readable small lines
   latin           Montserrat Black caps, white  - for English product names inside an Urdu stack
+Inline: *word* = --accent preset, {WORD} = --accent2 (default latin-pill: English on a royal-blue pill).
 Options: --size (px at 1080 wide, default 96), --scale per line "text:preset:1.3", --width (0-1, default 0.86).
 Writes Video Edits/Raw/<project>/urdu-<name>.png (2160 px canvas width, trimmed). Use it as an overlay
 (x/y/width, animation pop/slide_up) on frame 1, fully visible at 0.0 s.
@@ -36,7 +37,7 @@ HERE = Path(__file__).resolve().parent
 FONT_FILES = [("Gulzar", "Gulzar-400", 400), ("Jameel Noori Nastaleeq", "JameelNooriNastaleeq-400", 400),
               ("Mehr Nastaliq", "MehrNastaliq-400", 400), ("Aslam", "Aslam-400", 400), ("Al Mushaf", "AlMushaf-400", 400), ("Noto Nastaliq Urdu", "NotoNastaliqUrdu-700", 700),
               ("Lalezar", "Lalezar-400", 400), ("Aref Ruqaa", "ArefRuqaa-700", 700), ("Reem Kufi", "ReemKufi-700", 700),
-              ("Noto Naskh Arabic", "NotoNaskhArabic-700", 700), ("Montserrat Black", "Montserrat-900", 400)]
+              ("Noto Naskh Arabic", "NotoNaskhArabic-700", 700), ("Montserrat Black", "Montserrat-900", 400), ("Lilita One", "LilitaOne-400", 400)]
 PRESETS = {
     "nastaliq": dict(font="Gulzar", color="#FFFFFF", stroke=0, stroke_color="#000", shadow=True, lh=1.55, k=1.15),
     "nastaliq-gold": dict(font="Gulzar", color="#FFD400", stroke=5, stroke_color="#1a1200", shadow=True, lh=1.55, k=1.15),
@@ -55,22 +56,37 @@ PRESETS = {
     "ruqaa": dict(font="Aref Ruqaa", color="#FFD27A", stroke=0, stroke_color="#000", shadow=True, lh=1.35, k=1.1),
     "kufi": dict(font="Reem Kufi", color="#FFFFFF", stroke=0, stroke_color="#000", shadow=True, lh=1.3, k=0.95),
     "naskh": dict(font="Noto Naskh Arabic", color="#FFFFFF", stroke=0, stroke_color="#000", shadow=True, lh=1.45, k=0.8),
+    "aslam-sky": dict(font="Aslam", color="#5CC8FF", stroke=0, stroke_color="#000", shadow=True, lh=1.5, k=1.3),
+    "latin-pill": dict(font="Lilita One", color="#FFFFFF", stroke=0, stroke_color="#000", shadow=False, lh=1.1, k=0.95, ltr=True,
+                       pill="#1E3FA0"),
+    "latin-pill-sky": dict(font="Lilita One", color="#0B1F5C", stroke=0, stroke_color="#000", shadow=False, lh=1.1, k=0.95, ltr=True,
+                           pill="#5CC8FF"),
     "latin": dict(font="Montserrat Black", color="#FFFFFF", stroke=0, stroke_color="#000", shadow=True, lh=1.05, k=0.8, ltr=True),
 }
 
 
-def inline(text: str, accent: str, size: float) -> str:
-    """'*word*' inside a line is set in the accent preset (e.g. Aslam yellow inside a Noori line)."""
+def _span(word: str, a: dict) -> str:
+    st = f"-webkit-text-stroke:{a['stroke']}px {a['stroke_color']};paint-order:stroke fill;" if a["stroke"] else ""
+    if a.get("pill"):  # English word on a rounded product-colour pill (like the banners on the bag)
+        st += (f"background:{a['pill']};padding:.06em .32em .02em;margin:0 .12em;border-radius:.28em;display:inline-block;"
+               "line-height:1.15;vertical-align:.18em;text-shadow:none;box-shadow:0 6px 16px rgba(0,0,0,.35);")
+    dr = ' dir="ltr"' if a.get("ltr") else ""
+    return (f'<span{dr} style="font-family:\'{a["font"]}\';color:{a["color"]};font-size:{a["k"] / 1.25:.2f}em;{st}">'
+            f'{html.escape(word)}</span>')
+
+
+def inline(text: str, accent: str, size: float, accent2: str = "latin-pill") -> str:
+    """'*word*' is set in the accent preset (e.g. Aslam inside a Noori line), '{word}' in accent2 (e.g. an
+    English word on a product-colour pill)."""
     import re
-    a = PRESETS[accent]
     out = []
-    for i, part in enumerate(re.split(r"\*([^*]+)\*", text)):
-        if i % 2 == 0:
-            out.append(html.escape(part))
+    for tok in re.split(r"(\*[^*]+\*|\{[^}]+\})", text):
+        if tok.startswith("*") and tok.endswith("*") and len(tok) > 1:
+            out.append(_span(tok[1:-1], PRESETS[accent]))
+        elif tok.startswith("{") and tok.endswith("}"):
+            out.append(_span(tok[1:-1], PRESETS[accent2]))
         else:
-            st = f"-webkit-text-stroke:{a['stroke']}px {a['stroke_color']};paint-order:stroke fill;" if a["stroke"] else ""
-            out.append(f'<span style="font-family:\'{a["font"]}\';color:{a["color"]};font-size:{a["k"] / 1.25:.2f}em;{st}">'
-                       f'{html.escape(part)}</span>')
+            out.append(html.escape(tok))
     return "".join(out)
 
 
@@ -82,6 +98,7 @@ def main() -> None:
     ap.add_argument("--size", type=float, default=96)
     ap.add_argument("--width", type=float, default=0.86)
     ap.add_argument("--accent", default="aslam-yellow", help="preset for *marked* words inside a line (mixed-font combo)")
+    ap.add_argument("--accent2", default="latin-pill", help="preset for {marked} words (English on a pill)")
     ap.add_argument("--plate", default="", help="backing behind each line: dark | black | red | blue | yellow | #RRGGBB (default none)")
     args = ap.parse_args()
     fonts = []
@@ -106,7 +123,7 @@ def main() -> None:
         box = (f"background:{plate};padding:.02em .45em .12em;border-radius:.22em;box-shadow:0 10px 30px rgba(0,0,0,.35);"
                if plate else "")
         rows.append(f'<div dir="{"ltr" if p.get("ltr") else "rtl"}" style="white-space:nowrap;font-family:\'{p["font"]}\';font-size:{size:.0f}px;'
-                    f'line-height:{p["lh"]};color:{p["color"]};{stroke}{shadow}{box}">{inline(text, args.accent, size)}</div>')
+                    f'line-height:{p["lh"]};color:{p["color"]};{stroke}{shadow}{box}">{inline(text, args.accent, size, args.accent2)}</div>')
     W = 1800  # wide canvas so a long nowrap line is never clipped (the PNG is trimmed afterwards)
     side = (W - 1080 * args.width) / 2
     css = (f"#cap{{position:absolute;left:{side:.0f}px;right:{side:.0f}px;top:40px;"

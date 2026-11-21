@@ -25,3 +25,6 @@ __pycache__/
 
 # Emoji images are downloaded on demand
 assets/emoji/
+
+# Stock library media (re-download with: python3 tools/stock.py fetch)
+assets/stock/*/

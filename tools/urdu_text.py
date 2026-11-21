@@ -45,6 +45,7 @@ PRESETS = {
     "noori": dict(font="Jameel Noori Nastaleeq", color="#FFFFFF", stroke=0, stroke_color="#000", shadow=True, lh=1.7, k=1.25),
     "noori-gold": dict(font="Jameel Noori Nastaleeq", color="#FFD400", stroke=5, stroke_color="#1a1200", shadow=True, lh=1.7, k=1.25),
     "noori-red": dict(font="Jameel Noori Nastaleeq", color="#FF2A2A", stroke=7, stroke_color="#FFFFFF", shadow=True, lh=1.7, k=1.25),
+    "noori-blue": dict(font="Jameel Noori Nastaleeq", color="#10267A", stroke=0, stroke_color="#000", shadow=False, lh=1.7, k=1.25),
     "aslam-yellow": dict(font="Aslam", color="#FFC93C", stroke=0, stroke_color="#000", shadow=True, lh=1.5, k=1.3),
     "aslam-red": dict(font="Aslam", color="#FF3B30", stroke=0, stroke_color="#000", shadow=True, lh=1.5, k=1.3),
     "mehr": dict(font="Mehr Nastaliq", color="#FFFFFF", stroke=0, stroke_color="#000", shadow=True, lh=1.8, k=1.15),
@@ -61,6 +62,8 @@ PRESETS = {
                        pill="#1E3FA0"),
     "latin-pill-sky": dict(font="Lilita One", color="#0B1F5C", stroke=0, stroke_color="#000", shadow=False, lh=1.1, k=0.95, ltr=True,
                            pill="#5CC8FF"),
+    "latin-pill-gold": dict(font="Lilita One", color="#10267A", stroke=0, stroke_color="#000", shadow=False, lh=1.1, k=0.95, ltr=True,
+                            pill="#FFD400"),
     "latin": dict(font="Montserrat Black", color="#FFFFFF", stroke=0, stroke_color="#000", shadow=True, lh=1.05, k=0.8, ltr=True),
 }
 

@@ -1,0 +1,125 @@
+{
+ "project": "ahmed-raza",
+ "style": "bold-clean",
+ "summary": "Little Ahmed Raza recites a Ghaus-e-Azam manqabat with his father: 'Shah-e-Jeelan ki chaukhat salamat rahe'. Heading + lyrics, respectful.",
+ "reference_notes": "Owner: heading 'بچے (احمد رضا) نے کمال کر دیا', lyrics below, Noori + Aslam combo, 4K, viral for TikTok + Instagram. Naat rule: respectful, no pop/whoosh SFX, soft fades only. Heading white/gold on red plate (TikTok formula), fully visible at 0.0 s.",
+ "shots": [
+  {
+   "src": "clip.mov",
+   "in": 0,
+   "out": 48.4,
+   "description": "Father and son on the bed reciting the manqabat, selfie angle",
+   "motion": {
+    "type": "zoom_in",
+    "amount": 0.04
+   }
+  }
+ ],
+ "captions": false,
+ "look": {
+  "cinematic": 0.5,
+  "brightness": 0.04,
+  "contrast": 1.06,
+  "saturation": 1.12,
+  "warmth": 0.05,
+  "denoise": 0.6,
+  "sharpen": 0.9,
+  "vignette": 0.35,
+  "grain": 1
+ },
+ "overlays": [
+  {
+   "file": "Video Edits/Raw/ahmed-raza/urdu-heading.png",
+   "start": 0,
+   "end": 48.4,
+   "x": 0.5,
+   "y": 0.17,
+   "width": 0.84,
+   "animation": "none"
+  },
+  {
+   "file": "Video Edits/Raw/ahmed-raza/urdu-l1.png",
+   "start": 0.0,
+   "end": 6.9,
+   "x": 0.5,
+   "y": 0.72,
+   "width": 0.8,
+   "animation": "none"
+  },
+  {
+   "file": "Video Edits/Raw/ahmed-raza/urdu-l2.png",
+   "start": 7.4,
+   "end": 13.4,
+   "x": 0.5,
+   "y": 0.72,
+   "width": 0.8,
+   "animation": "fade"
+  },
+  {
+   "file": "Video Edits/Raw/ahmed-raza/urdu-l3.png",
+   "start": 13.6,
+   "end": 19.9,
+   "x": 0.5,
+   "y": 0.72,
+   "width": 0.575,
+   "animation": "fade"
+  },
+  {
+   "file": "Video Edits/Raw/ahmed-raza/urdu-l4.png",
+   "start": 20.2,
+   "end": 24.99,
+   "x": 0.5,
+   "y": 0.72,
+   "width": 0.8,
+   "animation": "fade"
+  },
+  {
+   "file": "Video Edits/Raw/ahmed-raza/urdu-l3.png",
+   "start": 24.99,
+   "end": 27.29,
+   "x": 0.5,
+   "y": 0.72,
+   "width": 0.575,
+   "animation": "fade"
+  },
+  {
+   "file": "Video Edits/Raw/ahmed-raza/urdu-l4.png",
+   "start": 27.29,
+   "end": 33.2,
+   "x": 0.5,
+   "y": 0.72,
+   "width": 0.8,
+   "animation": "fade"
+  },
+  {
+   "file": "Video Edits/Raw/ahmed-raza/urdu-l6.png",
+   "start": 33.5,
+   "end": 38.91,
+   "x": 0.5,
+   "y": 0.72,
+   "width": 0.8,
+   "animation": "fade"
+  },
+  {
+   "file": "Video Edits/Raw/ahmed-raza/urdu-l7.png",
+   "start": 38.91,
+   "end": 48.4,
+   "x": 0.5,
+   "y": 0.72,
+   "width": 0.699,
+   "animation": "fade"
+  }
+ ],
+ "sfx": [],
+ "effects": [
+  {
+   "type": "light_leak",
+   "at": 38.8,
+   "dur": 1.2,
+   "color": "#FFC93C"
+  }
+ ],
+ "fade": {
+  "out": 0.8
+ }
+}

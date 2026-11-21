@@ -27,7 +27,7 @@ css=f"""
 .hero{{position:absolute;top:322px;left:0;right:0;text-align:center;direction:rtl;font:{c.get('hero_size',150)}px/1.3 Aslam;
  background:linear-gradient(180deg,{P2} 0%,{P} 60%,{PD} 100%);-webkit-background-clip:text;color:transparent;
  filter:drop-shadow(0 14px 18px rgba(0,0,0,.14))}}
-.tonic{{position:absolute;top:548px;left:0;right:0;text-align:center}}
+.tonic{{position:absolute;top:{c.get("en_top",548)}px;left:0;right:0;text-align:center}}
 .tonic b{{display:inline-block;font:900 {c.get('en_size',92)}px/1 Montserrat;letter-spacing:-1px;color:{INK}}}
 .tonic b i{{font-style:normal;color:{P}}}
 .disc{{position:absolute;left:50%;top:1482px;width:600px;height:90px;transform:translateX(-50%);border-radius:50%;

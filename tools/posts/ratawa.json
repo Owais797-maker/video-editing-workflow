@@ -1,0 +1,35 @@
+{
+ "name": "ratawa-post",
+ "P": "#1F6FE0",
+ "P2": "#3C9BF5",
+ "PD": "#1A3FB0",
+ "A": "#5B2BB5",
+ "AT": "#FFFFFF",
+ "src": "Video Edits/Raw/ratawa/ratawa-cutout.png",
+ "up": 2,
+ "top": "<b>HERBAL <i>SPRAY</i></b> &nbsp;·&nbsp; 200 ML",
+ "l1": "<span>رتاوا</span> ہربل اسپرے",
+ "hero": "<span style=\"display:inline-block;margin:0 .12em\">زخم</span><span style=\"display:inline-block;margin:0 .12em\">والا</span><span style=\"display:inline-block;margin:0 .12em\">زبردست</span><span style=\"display:inline-block;margin:0 .12em\">اسپرے</span>",
+ "hero_size": 96,
+ "hero_top": 344,
+ "en": "HERBAL <i>WOUND SPRAY</i>",
+ "en_size": 66,
+ "en_top": 560,
+ "bag_top": 690,
+ "bag_h": 840,
+ "c1": [
+  "KEEPS FLIES",
+  "AWAY"
+ ],
+ "c2": [
+  "HERBAL",
+  "200 ML"
+ ],
+ "c1x": 250,
+ "c1y": 820,
+ "c2x": 260,
+ "c2y": 1330,
+ "l4": "<span style=\"font:50px/1.5 Noori;direction:rtl;display:inline-block;color:#2a2a2e\"><b style=\"font:60px Aslam;color:#1F6FE0;font-weight:400\">مکھیوں</b> اور کیڑوں کو زخم سے دور رکھے</span>",
+ "l5": "<bdi style=\"display:inline-block;direction:ltr;margin-top:10px;background:linear-gradient(135deg,#3C9BF5,#1F6FE0 55%,#1A3FB0);color:#fff;border-radius:60px;padding:14px 34px 12px;box-shadow:0 16px 30px rgba(31,111,224,.3);font:800 34px Poppins;letter-spacing:.5px\">KHYBER TRADERS &nbsp;<span style=\"font:inherit;color:#fff;opacity:.6\">|</span>&nbsp; 0310-2999262</bdi>",
+ "ft": "FOR ANIMAL USE ONLY · صرف جانوروں کے لیے"
+}

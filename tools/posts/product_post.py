@@ -22,9 +22,9 @@ css=f"""
 .sheen{{position:absolute;inset:0;background:linear-gradient(115deg,transparent 42%,rgba(255,255,255,.55) 50%,transparent 58%)}}
 .top{{position:absolute;top:118px;left:0;right:0;text-align:center;font:500 22px Montserrat;letter-spacing:8px;color:#77777d}}
 .top b{{font-weight:900;color:{INK};letter-spacing:6px}} .top i{{font-style:normal;color:{P}}}
-.l1{{position:absolute;top:196px;left:0;right:0;text-align:center;direction:rtl;font:66px/1.6 Noori;color:#2a2a2e}}
+.l1{{position:absolute;top:{c.get("l1_top",196)}px;left:0;right:0;text-align:center;direction:rtl;font:{c.get("l1_size",66)}px/1.55 Noori;color:#2a2a2e}}
 .l1 span{{font-family:Aslam;color:{P};font-size:1.12em}}
-.hero{{position:absolute;top:322px;left:0;right:0;text-align:center;direction:rtl;font:{c.get('hero_size',150)}px/1.3 Aslam;
+.hero{{position:absolute;top:{c.get("hero_top",322)}px;left:0;right:0;text-align:center;direction:rtl;font:{c.get('hero_size',150)}px/1.3 Aslam;
  background:linear-gradient(180deg,{P2} 0%,{P} 60%,{PD} 100%);-webkit-background-clip:text;color:transparent;
  filter:drop-shadow(0 14px 18px rgba(0,0,0,.14))}}
 .tonic{{position:absolute;top:{c.get("en_top",548)}px;left:0;right:0;text-align:center}}

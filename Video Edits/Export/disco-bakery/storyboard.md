@@ -6,7 +6,7 @@ Heavy Gold bag going to Disco Bakery, Gulshan-e-Iqbal: vitamins, minerals, nutri
 
 ## Style taken from the reference
 
-Same as clip-nov21: Noori subtitles + Aslam sky-blue key words, English words on royal-blue Lilita pills (Heavy Gold bag palette), heading on royal-blue plates, mini trip bar, Heavy Gold end card on a crystal disc, click SFX, 4K, brighter + more saturated.
+Same as clip-nov21: Noori subtitles + Aslam sky-blue key words, English words on royal-blue Lilita pills (Heavy Gold bag palette), heading on royal-blue plates, mini trip bar, Heavy Gold end card on a crystal disc, click SFX, 4K, brighter + more saturated. Owner: don't clutter text -> no subtitles under the heading, no trip bar, smaller subtitles.
 
 ![overview](storyboard/overview.jpg)
 

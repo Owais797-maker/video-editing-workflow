@@ -62,8 +62,26 @@
   },
   "overlays": [
     {
+      "file": "Video Edits/Raw/sab-gham/letterbox.png",
+      "start": 0.0,
+      "end": 2.2,
+      "x": 0.5,
+      "y": 0.5,
+      "width": 1.0,
+      "animation": "fade"
+    },
+    {
       "file": "Video Edits/Raw/sab-gham/urdu-heading.png",
       "start": 0.0,
+      "end": 2.2,
+      "x": 0.5,
+      "y": 0.44,
+      "width": 0.9,
+      "animation": "fade"
+    },
+    {
+      "file": "Video Edits/Raw/sab-gham/urdu-heading.png",
+      "start": 2.2,
       "end": 5.8,
       "x": 0.5,
       "y": 0.2,
@@ -75,7 +93,7 @@
       "start": 0.5,
       "end": 6.0,
       "x": 0.5,
-      "y": 0.78,
+      "y": 0.72,
       "width": 0.557,
       "animation": "fade"
     },
@@ -137,5 +155,13 @@
   "fade": {
     "in": 0.4,
     "out": 0.9
-  }
+  },
+  "backdrop": [
+    {
+      "start": 0.0,
+      "end": 2.2,
+      "blur": 16,
+      "dim": 0.4
+    }
+  ]
 }

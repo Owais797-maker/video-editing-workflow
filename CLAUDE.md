@@ -60,6 +60,9 @@ from the owner's viral CapCut reel), with good SFX, in ultra 4K.
 `styles/product-posts/style.md` (white minimal series, Noori + Aslam + Montserrat + Poppins, product colours, no shop
 name/number for resellers). Make one with `python3 tools/posts/product_post.py tools/posts/<product>.json`.
 
+**CUSTOMER STICKERS (owner 2026-11-22):** customer photo -> comic sticker + big bubbly text + name, `styles/customer-sticker/style.md`
+(`tools/posts/customer_sticker.py`, card for posts + transparent sticker PNG for video overlays).
+
 **Owner's working rules (learned the hard way):**
 - Confirm caption WORDING with the owner first (Caption Review page), then do the rest.
   Never guess unclear words; mark them `_` with a note and ask.

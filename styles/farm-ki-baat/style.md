@@ -29,3 +29,10 @@ yellow dot), footer with logo + phone and a yellow pill button.
 - Call-out lines from the subject to labels, with small yellow dots; cut-out subject standing
   on a thin yellow ellipse "spotlight ring".
 - Everything fades/slides in calmly; clean, lots of empty space, no clutter.
+
+## Animated explainer reference (owner, 2026-11-22)
+`Video Edits/Reference/fb-anim-ref/` (84 s PPR explainer, 9 slides): dark green gradient slides, lime + white Urdu
+(Lalezar/Aslam-weight heroes, Noori lines), slide counter "PPR 01..09" + "FARM KI BAAT" top bar, animal cutouts with
+numbered callout pills on thin lime lines, animated dot network (spread), icon checklists in dark cards, product /
+wholesale end slide, footer KT logo + AnimalHealth.PK + number. Process: script options -> owner picks -> VO -> slide
+storyboard -> animate (30 s, 6-8 slides) -> 4K.

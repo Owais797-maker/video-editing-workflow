@@ -184,6 +184,9 @@ def earshot_render(sid: str) -> Path:
 
 
 def get(name: str, bank: str = "") -> Path:
+    for f in (Path(name), REPO / name):  # the owner's own / downloaded sound file
+        if f.suffix and f.is_file():
+            return f.resolve()
     if "/" in name:  # an earshot bank id
         return earshot_render(name)
     if bank == "pro" and name in PRO:

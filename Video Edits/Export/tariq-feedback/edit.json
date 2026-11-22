@@ -1,0 +1,368 @@
+{
+ "project": "tariq-feedback",
+ "style": "bold-clean",
+ "summary": "Customer Tariq Shirazi sahab (with Naveed bhai) gives feedback: Heavy Gold 1 kg clears the khurli, Gripe Water at nahar munh with water, Hepta Sef for weight. Hook: 'صرف چارہ کافی نہیں'.",
+ "reference_notes": "Owner: Aslam white heading at start over blurred video, then video starts; Noori+Aslam captions mostly Urdu, a little Montserrat/Poppins (product cards); colour correction, 4K; Tariq voice louder + denoised; show HG 1 kg pouch / Gripe Water / Hepta Sef when named; water-flow SFX on 'paani ke saath'; click SFX; small animations that don't take the screen (khurli icon, water chip, wazan chip, numbered product cards 01/02/03).",
+ "shots": [
+  {
+   "src": "part-a-voice.mov",
+   "in": 0,
+   "out": 14.025,
+   "description": "Owner intro + Tariq sahab: Heavy Gold",
+   "motion": {
+    "type": "zoom_in",
+    "amount": 0.04
+   },
+   "punch": [
+    [
+     10.45,
+     11.2
+    ]
+   ],
+   "punch_zoom": 1.05
+  },
+  {
+   "src": "part-b-voice.mov",
+   "in": 0,
+   "out": 12.39,
+   "description": "Tariq sahab: Gripe Water and Hepta Sef",
+   "motion": {
+    "type": "zoom_in",
+    "amount": 0.04
+   }
+  }
+ ],
+ "captions": false,
+ "look": {
+  "cinematic": 0.5,
+  "brightness": 0.04,
+  "contrast": 1.08,
+  "saturation": 1.2,
+  "warmth": 0.03,
+  "denoise": 0.5,
+  "sharpen": 0.8,
+  "vignette": 0.3,
+  "grain": 2
+ },
+ "overlays": [
+  {
+   "file": "Video Edits/Raw/tariq-feedback/urdu-heading.png",
+   "start": 0,
+   "end": 1.6,
+   "x": 0.5,
+   "y": 0.42,
+   "width": 0.8,
+   "animation": "none"
+  },
+  {
+   "file": "Video Edits/Raw/tariq-feedback/urdu-c1.png",
+   "start": 1.6,
+   "end": 3.3,
+   "x": 0.5,
+   "y": 0.74,
+   "width": 0.86,
+   "animation": "pop"
+  },
+  {
+   "file": "Video Edits/Raw/tariq-feedback/urdu-c2.png",
+   "start": 3.3,
+   "end": 5.9,
+   "x": 0.5,
+   "y": 0.74,
+   "width": 0.86,
+   "animation": "pop"
+  },
+  {
+   "file": "Video Edits/Raw/tariq-feedback/urdu-c3.png",
+   "start": 5.9,
+   "end": 7.32,
+   "x": 0.5,
+   "y": 0.74,
+   "width": 0.648,
+   "animation": "pop"
+  },
+  {
+   "file": "Video Edits/Raw/tariq-feedback/urdu-c4a.png",
+   "start": 7.32,
+   "end": 8.9,
+   "x": 0.5,
+   "y": 0.74,
+   "width": 0.83,
+   "animation": "pop"
+  },
+  {
+   "file": "Video Edits/Raw/tariq-feedback/urdu-c4b.png",
+   "start": 8.9,
+   "end": 10.32,
+   "x": 0.5,
+   "y": 0.74,
+   "width": 0.778,
+   "animation": "pop"
+  },
+  {
+   "file": "Video Edits/Raw/tariq-feedback/urdu-c5a.png",
+   "start": 10.32,
+   "end": 12.1,
+   "x": 0.5,
+   "y": 0.74,
+   "width": 0.86,
+   "animation": "pop"
+  },
+  {
+   "file": "Video Edits/Raw/tariq-feedback/urdu-c5b.png",
+   "start": 12.1,
+   "end": 13.8,
+   "x": 0.5,
+   "y": 0.74,
+   "width": 0.8,
+   "animation": "pop"
+  },
+  {
+   "file": "Video Edits/Raw/tariq-feedback/urdu-c5c.png",
+   "start": 13.8,
+   "end": 15.625,
+   "x": 0.5,
+   "y": 0.74,
+   "width": 0.86,
+   "animation": "pop"
+  },
+  {
+   "file": "Video Edits/Raw/tariq-feedback/urdu-c6a.png",
+   "start": 15.625,
+   "end": 17.575,
+   "x": 0.5,
+   "y": 0.74,
+   "width": 0.708,
+   "animation": "pop"
+  },
+  {
+   "file": "Video Edits/Raw/tariq-feedback/urdu-c6b.png",
+   "start": 17.575,
+   "end": 20.105,
+   "x": 0.5,
+   "y": 0.74,
+   "width": 0.86,
+   "animation": "pop"
+  },
+  {
+   "file": "Video Edits/Raw/tariq-feedback/urdu-c7a.png",
+   "start": 20.105,
+   "end": 21.725,
+   "x": 0.5,
+   "y": 0.74,
+   "width": 0.86,
+   "animation": "pop"
+  },
+  {
+   "file": "Video Edits/Raw/tariq-feedback/urdu-c7b.png",
+   "start": 21.725,
+   "end": 23.945,
+   "x": 0.5,
+   "y": 0.74,
+   "width": 0.86,
+   "animation": "pop"
+  },
+  {
+   "file": "Video Edits/Raw/tariq-feedback/urdu-c8a.png",
+   "start": 23.945,
+   "end": 24.575000000000003,
+   "x": 0.5,
+   "y": 0.74,
+   "width": 0.417,
+   "animation": "pop"
+  },
+  {
+   "file": "Video Edits/Raw/tariq-feedback/urdu-c8b.png",
+   "start": 24.575000000000003,
+   "end": 26.415,
+   "x": 0.5,
+   "y": 0.74,
+   "width": 0.86,
+   "animation": "pop"
+  },
+  {
+   "file": "Video Edits/Export/tariq-feedback/work/gfx/p1.png",
+   "start": 10.45,
+   "end": 15.525,
+   "x": 0.79,
+   "y": 0.34,
+   "width": 0.33,
+   "animation": "rise"
+  },
+  {
+   "file": "Video Edits/Export/tariq-feedback/work/gfx/p2.png",
+   "start": 16.425,
+   "end": 20.025,
+   "x": 0.79,
+   "y": 0.34,
+   "width": 0.33,
+   "animation": "rise"
+  },
+  {
+   "file": "Video Edits/Export/tariq-feedback/work/gfx/p3.png",
+   "start": 21.125,
+   "end": 26.415,
+   "x": 0.79,
+   "y": 0.34,
+   "width": 0.33,
+   "animation": "rise"
+  },
+  {
+   "file": "Video Edits/Export/tariq-feedback/work/gfx/khurli.png",
+   "start": 13.0,
+   "end": 15.625,
+   "x": 0.3,
+   "y": 0.165,
+   "width": 0.4,
+   "animation": "slide_up"
+  },
+  {
+   "file": "Video Edits/Export/tariq-feedback/work/gfx/water.png",
+   "start": 18.625,
+   "end": 20.105,
+   "x": 0.3,
+   "y": 0.165,
+   "width": 0.4,
+   "animation": "slide_up"
+  },
+  {
+   "file": "Video Edits/Export/tariq-feedback/work/gfx/wazan.png",
+   "start": 20.125,
+   "end": 23.925,
+   "x": 0.3,
+   "y": 0.165,
+   "width": 0.4,
+   "animation": "slide_up"
+  }
+ ],
+ "backdrop": [
+  {
+   "start": 0,
+   "end": 1.6,
+   "blur": 22,
+   "dim": 0.28
+  }
+ ],
+ "effects": [
+  {
+   "type": "blur_whip",
+   "at": 1.55,
+   "dur": 0.12
+  }
+ ],
+ "sfx": [
+  {
+   "sound": "whoosh_fast/crisp",
+   "at": 1.5,
+   "volume": 0.25
+  },
+  {
+   "sound": "pro_click/soft",
+   "at": 1.6,
+   "volume": 0.3
+  },
+  {
+   "sound": "pro_click/soft",
+   "at": 3.3,
+   "volume": 0.3
+  },
+  {
+   "sound": "pro_click/soft",
+   "at": 5.9,
+   "volume": 0.3
+  },
+  {
+   "sound": "pro_click/soft",
+   "at": 7.32,
+   "volume": 0.3
+  },
+  {
+   "sound": "pro_click/soft",
+   "at": 8.9,
+   "volume": 0.3
+  },
+  {
+   "sound": "pro_click/soft",
+   "at": 10.32,
+   "volume": 0.3
+  },
+  {
+   "sound": "pro_click/soft",
+   "at": 12.1,
+   "volume": 0.3
+  },
+  {
+   "sound": "pro_click/soft",
+   "at": 13.8,
+   "volume": 0.3
+  },
+  {
+   "sound": "pro_click/soft",
+   "at": 15.625,
+   "volume": 0.3
+  },
+  {
+   "sound": "pro_click/soft",
+   "at": 17.575,
+   "volume": 0.3
+  },
+  {
+   "sound": "pro_click/soft",
+   "at": 20.105,
+   "volume": 0.3
+  },
+  {
+   "sound": "pro_click/soft",
+   "at": 21.725,
+   "volume": 0.3
+  },
+  {
+   "sound": "pro_click/soft",
+   "at": 23.945,
+   "volume": 0.3
+  },
+  {
+   "sound": "pro_click/soft",
+   "at": 24.575000000000003,
+   "volume": 0.3
+  },
+  {
+   "sound": "pro_pop/bloop",
+   "at": 10.5,
+   "volume": 0.25
+  },
+  {
+   "sound": "pro_pop/bloop",
+   "at": 16.475,
+   "volume": 0.25
+  },
+  {
+   "sound": "pro_pop/bloop",
+   "at": 21.175,
+   "volume": 0.25
+  },
+  {
+   "sound": "pro_notify/ding_2045",
+   "at": 13.05,
+   "volume": 0.2
+  },
+  {
+   "sound": "drip/bubble",
+   "at": 18.675,
+   "volume": 0.2
+  },
+  {
+   "sound": "pro_notify/ding_2045",
+   "at": 20.175,
+   "volume": 0.2
+  },
+  {
+   "sound": "Video Edits/Raw/tariq-feedback/sfx/water-pour.wav",
+   "at": 18.775,
+   "volume": 0.45
+  }
+ ],
+ "fade": {
+  "out": 0.4
+ }
+}

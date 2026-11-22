@@ -4,7 +4,7 @@ Claude app downloads it reliably (target <= 55 MB; files of 70-95 MB failed to d
 
     python3 tools/deliver.py "Video Edits/Export/<name>/<name>.mp4"   ->  <name>-iphone.mp4  (+ prints size and SSIM)
 
-Master already <= 55 MB: copied with faststart. Otherwise: HEVC (iPhone's own format, hvc1), 2-pass, preset slow,
+Master already <= 55 MB: copied with faststart. Otherwise: H.264 High (plays everywhere, incl. the Claude app; HEVC files would not open there on 2026-11-22), 2-pass, preset slow,
 bitrate chosen to land at the target size (capped at 45 Mb/s), AAC 256k. SSIM vs master is printed for the record.
 """
 import json, subprocess, sys, shutil
@@ -28,10 +28,10 @@ def main():
         audio_k = 256
         vk = int(min(45000, (TARGET_MB * 8e6 * 0.97 / dur) / 1000 - audio_k))
         log = src.with_name(".x265pass")
-        common = ["-c:v", "libx265", "-preset", "slow", "-b:v", f"{vk}k", "-tag:v", "hvc1", "-pix_fmt", "yuv420p"]
-        subprocess.run(["ffmpeg", "-v", "error", "-y", "-i", str(src), *common, "-x265-params", f"pass=1:stats={log}:log-level=error",
+        common = ["-c:v", "libx264", "-preset", "slow", "-profile:v", "high", "-b:v", f"{vk}k", "-maxrate", f"{int(vk*1.6)}k", "-bufsize", f"{vk*2}k", "-pix_fmt", "yuv420p"]
+        subprocess.run(["ffmpeg", "-v", "error", "-y", "-i", str(src), *common, "-pass", "1", "-passlogfile", str(log),
                         "-an", "-f", "mp4", "/dev/null"], check=True)
-        subprocess.run(["ffmpeg", "-v", "error", "-y", "-i", str(src), *common, "-x265-params", f"pass=2:stats={log}:log-level=error",
+        subprocess.run(["ffmpeg", "-v", "error", "-y", "-i", str(src), *common, "-pass", "2", "-passlogfile", str(log),
                         "-c:a", "aac", "-b:a", f"{audio_k}k", "-movflags", "+faststart", str(out)], check=True)
         for f in src.parent.glob(".x265pass*"):
             f.unlink()

@@ -225,7 +225,7 @@ For changes, edit and send a new storyboard.
 check a few frames of it, then `python3 tools/render.py "<edit.json>"`. Send
 `Export/<name>/<name>.mp4` with SendUserFile and tell them: open it → Share → Save Video.
 ALWAYS deliver ONE file made with `python3 tools/deliver.py "<master>.mp4"` -> `<name>-iphone.mp4` (owner 2026-11-22:
-"good quality, one part, every time"): 4K stays 4K, HEVC hvc1 2-pass slow, <= 55 MB, because 70-95 MB files would not
+"good quality, one part, every time"): 4K stays 4K, H.264 High 2-pass slow, <= 55 MB (HEVC files would not open in the Claude app), because 70-95 MB files would not
 download in the Claude app. Send only that file (attach); never split parts. Commit and push
 edit.json, captions.json, storyboard.md and storyboard images (never media files).
 

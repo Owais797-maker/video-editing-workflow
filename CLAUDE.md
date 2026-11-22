@@ -224,9 +224,9 @@ For changes, edit and send a new storyboard.
 **8. Render and deliver.** After approval: `python3 tools/render.py "<edit.json>" --preview`,
 check a few frames of it, then `python3 tools/render.py "<edit.json>"`. Send
 `Export/<name>/<name>.mp4` with SendUserFile and tell them: open it → Share → Save Video.
-Files over ~80 MB show no "Save Video" on the owner's iPhone: ALSO deliver a light copy (re-encode the final
-with libx265 -crf 18 -preset medium -tag:v hvc1 -movflags +faststart: iPhone's own HEVC format, 4K stays 4K, SSIM ~0.99
-vs the master = no visible loss, ~half the size); the owner insists quality must not drop, never go lower. Offer a 1080p backup. Commit and push
+ALWAYS deliver ONE file made with `python3 tools/deliver.py "<master>.mp4"` -> `<name>-iphone.mp4` (owner 2026-11-22:
+"good quality, one part, every time"): 4K stays 4K, HEVC hvc1 2-pass slow, <= 55 MB, because 70-95 MB files would not
+download in the Claude app. Send only that file (attach); never split parts. Commit and push
 edit.json, captions.json, storyboard.md and storyboard images (never media files).
 
 ## Rules

@@ -233,6 +233,15 @@
    "y": 0.165,
    "width": 0.4,
    "animation": "slide_up"
+  },
+  {
+   "file": "Video Edits/Raw/tariq-feedback/tariq-sticker-clean.png",
+   "start": 8.85,
+   "end": 10.35,
+   "x": 0.5,
+   "y": 0.37,
+   "width": 0.58,
+   "animation": "pop"
   }
  ],
  "backdrop": [
@@ -360,6 +369,11 @@
    "sound": "Video Edits/Raw/tariq-feedback/sfx/water-pour.wav",
    "at": 18.775,
    "volume": 0.45
+  },
+  {
+   "sound": "pro_pop/bloop",
+   "at": 8.9,
+   "volume": 0.3
   }
  ],
  "fade": {

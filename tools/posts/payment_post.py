@@ -14,7 +14,8 @@ c = json.load(open(sys.argv[1]))
 d = R / "Video Edits/Export" / c["name"]; w = d / "work"; w.mkdir(parents=True, exist_ok=True)
 im = Image.open(R / c["qr"]).convert("RGB"); a = np.array(im.convert("L")) < 110
 ys = np.where(a.any(1))[0]; xs = np.where(a.any(0))[0]
-q = im.crop((xs.min(), ys.min(), xs.max() + 1, ys.max() + 1)); k = max(1, 1400 // q.width)
+side = xs.max() + 1 - xs.min()  # QR is square: ignore any caption text printed under it
+q = im.crop((xs.min(), ys.min(), xs.max() + 1, ys.min() + side)); k = max(1, 1400 // q.width)
 q = q.resize((q.width * k, q.height * k), Image.NEAREST); qp = w / "qr.png"; q.save(qp)
 fonts = [{"family": "Noori", "path": F("JameelNooriNastaleeq-400.ttf"), "weight": 400, "style": "normal"},
          {"family": "Aslam", "path": F("Aslam-400.ttf"), "weight": 400, "style": "normal"},
@@ -50,11 +51,11 @@ css = f"""*{{margin:0;padding:0;box-sizing:border-box}}
 .ln{{height:2px;background:linear-gradient(90deg,rgba(11,122,59,.35),transparent)}}
 .raast{{position:absolute;left:560px;right:56px;top:836px;border-radius:30px;padding:22px 26px 24px;color:#fff;background:linear-gradient(135deg,{G2},{G} 55%,{GD});box-shadow:0 22px 36px rgba(11,122,59,.32)}}
 .raast small{{display:block;font:600 15px Poppins;letter-spacing:4px;opacity:.85}} .raast b{{display:block;font:800 40px/1.15 Poppins;margin-top:4px}} .raast span{{display:block;font:600 16px Poppins;opacity:.85;margin-top:4px}}
-.logo{{position:absolute;left:600px;top:{c.get('logo_top',790)}px;width:{c.get('logo_w',300)}px;filter:drop-shadow(0 22px 26px rgba(0,0,0,.28));transform:rotate(-3deg)}}
+.logo{{position:absolute;left:{c.get('logo_left',600)}px;top:{c.get('logo_top',790)}px;width:{c.get('logo_w',300)}px;filter:drop-shadow(0 22px 26px rgba(0,0,0,.28));transform:rotate({c.get('logo_rot',-3)}deg);border-radius:{c.get('logo_radius',0)}px}}
 .bt{{position:absolute;bottom:92px;left:0;right:0;text-align:center;direction:rtl;font:44px/1.6 Noori;color:#3a3d40}}
 .bt span{{font-family:Aslam;color:{G};font-size:1.12em}}
 .ft{{position:absolute;bottom:52px;left:0;right:0;text-align:center;font:500 16px Montserrat;letter-spacing:7px;color:#8a8f8b}}"""
-raast = (f'<div class="raast"><small>RAAST ID</small><b>{c["raast"]}</b><span>Instant transfer from any bank</span></div>' if c.get("raast") else "")
+raast = (f'<div class="raast" style="top:{c.get("raast_top",836)}px"><small>{c.get("raast_label","RAAST ID")}</small><b>{c["raast"]}</b><span>{c.get("raast_sub","Instant transfer from any bank")}</span></div>' if c.get("raast") else "")
 logo = f'<img class="logo" src="file://{R / c["logo"]}">' if c.get("logo") else ""
 html = f"""<div id="p"><div class="sheen"></div>
 <div class="top">{c['top']}</div>
@@ -64,7 +65,7 @@ html = f"""<div id="p"><div class="sheen"></div>
  <div class="nmq">{c['qr_name']}</div><div class="scan">Any bank app · Scan &amp; Pay</div></div></div>
 <div class="dt">{''.join(f'<div class="row"><small>{k}</small><b class="{s}">{v}</b></div><div class="ln"></div>' for k, v, s in c['rows'])}</div>
 {raast}{logo}
-<div class="bt">کسی بھی <span>بینک ایپ</span> سے اسکین کر کے فوراً پیمنٹ کریں</div>
+<div class="bt">{c.get('bt','کسی بھی <span>بینک ایپ</span> سے اسکین کر کے فوراً پیمنٹ کریں')}</div>
 <div class="ft">{c['ft']}</div></div>"""
 out = d / f"{c['name']}.png"; job = d / "job.json"
 job.write_text(json.dumps({"width": 1080, "height": 1350, "scale": 2, "css": css, "fonts": fonts, "states": [{"file": str(out), "html": html}]}))

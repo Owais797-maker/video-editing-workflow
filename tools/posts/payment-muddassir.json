@@ -1,0 +1,39 @@
+{
+ "name": "payment-muddassir",
+ "qr": "Video Edits/Raw/payment-muddassir/qr.png",
+ "logo": "Video Edits/Raw/payment-muddassir/logo.png",
+ "G": "#1C3F94",
+ "G2": "#2E5BC8",
+ "GD": "#102A66",
+ "top": "<b>ANIMAL VET <i>ONLINE</i></b> &nbsp;·&nbsp; OUR ACCOUNT DETAILS",
+ "app_title": "Animal Vet Online",
+ "qr_name": "MUHAMMAD MUDDASSAR · MEEZAN BANK",
+ "rows": [
+  [
+   "ACCOUNT TITLE",
+   "Muhammad Muddassir",
+   ""
+  ],
+  [
+   "MEEZAN BANK · ACCOUNT NO.",
+   "99390111174287",
+   ""
+  ],
+  [
+   "IBAN",
+   "PK64MEZN0099390111174287",
+   "s"
+  ]
+ ],
+ "raast": "0317-2735572",
+ "raast_label": "EASYPAISA ACCOUNT",
+ "raast_sub": "Muhammad Muddassir",
+ "raast_top": 596,
+ "logo_left": 680,
+ "logo_top": 800,
+ "logo_w": 270,
+ "logo_rot": 0,
+ "logo_radius": 34,
+ "bt": "<bdi style=\"font:800 40px Poppins;color:#1C3F94\">QR</bdi> اسکین کریں یا <span>ایزی پیسہ</span> پر پیمنٹ بھیجیں",
+ "ft": "ANIMAL VET ONLINE · MEEZAN BANK · EASYPAISA"
+}

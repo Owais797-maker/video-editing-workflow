@@ -35,5 +35,6 @@
  "logo_rot": 0,
  "logo_radius": 34,
  "bt": "<bdi style=\"font:800 40px Poppins;color:#1C3F94\">QR</bdi> اسکین کریں یا <span>ایزی پیسہ</span> پر پیمنٹ بھیجیں",
- "ft": "ANIMAL VET ONLINE · MEEZAN BANK · EASYPAISA"
+ "ft": "ANIMAL VET ONLINE · MEEZAN BANK · EASYPAISA",
+ "raast_logo": "assets/logos/easypaisa.png"
 }

@@ -50,12 +50,13 @@ css = f"""*{{margin:0;padding:0;box-sizing:border-box}}
 .row b{{display:block;font:800 30px/1.2 Poppins;color:{INK};word-break:break-all}} .row b.s{{font-size:23px}}
 .ln{{height:2px;background:linear-gradient(90deg,rgba(11,122,59,.35),transparent)}}
 .raast{{position:absolute;left:560px;right:56px;top:836px;border-radius:30px;padding:22px 26px 24px;color:#fff;background:linear-gradient(135deg,{G2},{G} 55%,{GD});box-shadow:0 22px 36px rgba(11,122,59,.32)}}
+.rl{{position:absolute;right:20px;bottom:18px;background:#fff;border-radius:14px;padding:8px 12px;box-shadow:0 8px 18px rgba(0,0,0,.2)}} .rl img{{height:30px;display:block}}
 .raast small{{display:block;font:600 15px Poppins;letter-spacing:4px;opacity:.85}} .raast b{{display:block;font:800 40px/1.15 Poppins;margin-top:4px}} .raast span{{display:block;font:600 16px Poppins;opacity:.85;margin-top:4px}}
 .logo{{position:absolute;left:{c.get('logo_left',600)}px;top:{c.get('logo_top',790)}px;width:{c.get('logo_w',300)}px;filter:drop-shadow(0 22px 26px rgba(0,0,0,.28));transform:rotate({c.get('logo_rot',-3)}deg);border-radius:{c.get('logo_radius',0)}px}}
 .bt{{position:absolute;bottom:92px;left:0;right:0;text-align:center;direction:rtl;font:44px/1.6 Noori;color:#3a3d40}}
 .bt span{{font-family:Aslam;color:{G};font-size:1.12em}}
 .ft{{position:absolute;bottom:52px;left:0;right:0;text-align:center;font:500 16px Montserrat;letter-spacing:7px;color:#8a8f8b}}"""
-raast = (f'<div class="raast" style="top:{c.get("raast_top",836)}px"><small>{c.get("raast_label","RAAST ID")}</small><b>{c["raast"]}</b><span>{c.get("raast_sub","Instant transfer from any bank")}</span></div>' if c.get("raast") else "")
+raast = (f'<div class="raast" style="top:{c.get("raast_top",836)}px"><small>{c.get("raast_label","RAAST ID")}</small><b>{c["raast"]}</b>{('<i class="rl"><img src="file://' + str(R / c["raast_logo"]) + '"></i>') if c.get("raast_logo") else ""}<span>{c.get("raast_sub","Instant transfer from any bank")}</span></div>' if c.get("raast") else "")
 logo = f'<img class="logo" src="file://{R / c["logo"]}">' if c.get("logo") else ""
 html = f"""<div id="p"><div class="sheen"></div>
 <div class="top">{c['top']}</div>

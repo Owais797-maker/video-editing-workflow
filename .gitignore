@@ -31,3 +31,7 @@ assets/stock/*/
 
 # x265 2-pass stats (tools/deliver.py)
 .x265pass*
+
+# personal photos (not project assets)
+Video Edits/Raw/photo-enhance/
+Video Edits/Export/photo-enhance/

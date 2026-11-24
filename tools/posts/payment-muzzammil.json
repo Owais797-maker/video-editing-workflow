@@ -1,0 +1,52 @@
+{
+ "name": "payment-muzzammil",
+ "qr": "Video Edits/Raw/payment-muzzammil/qr.jpg",
+ "logo": "Video Edits/Raw/payment-muzzammil/logo-round.png",
+ "G": "#1B2A4A",
+ "G2": "#2E4372",
+ "GD": "#0D1730",
+ "hl": [
+  "#E9C46A",
+  "#C9973A",
+  "#8E6420"
+ ],
+ "br": "#C9973A",
+ "ti": "#B8862E",
+ "ln": "rgba(201,151,58,.55)",
+ "bg": "radial-gradient(ellipse 75% 55% at 60% 45%,#FFFFFF 0%,#F5F3EE 55%,#E6E1D6 100%)",
+ "top": "<b>VET CARE <i>ONLINE</i></b> &nbsp;·&nbsp; OUR ACCOUNT DETAILS",
+ "app_title": "Vet Care Online",
+ "qr_name": "MUHAMMAD MUZZAMMIL · MEEZAN BANK",
+ "rows": [
+  [
+   "ACCOUNT TITLE",
+   "Muhammad Muzzammil",
+   ""
+  ],
+  [
+   "MEEZAN BANK · ACCOUNT NO.",
+   "01490105868156",
+   ""
+  ],
+  [
+   "IBAN",
+   "PK47MEZN0001490105868156",
+   "s"
+  ]
+ ],
+ "raast": "0332-2264293",
+ "raast_label": "EASYPAISA ACCOUNT",
+ "raast_sub": "Muhammad Muzamil",
+ "raast_top": 596,
+ "raast_logo": "assets/logos/easypaisa.png",
+ "logo_left": 700,
+ "logo_top": 805,
+ "logo_w": 250,
+ "logo_rot": 0,
+ "logo_glow": "drop-shadow(0 0 28px rgba(233,180,80,.75))",
+ "bt": "<bdi style=\"font:800 40px Poppins;color:#1B2A4A\">QR</bdi> اسکین کریں یا <span>ایزی پیسہ</span> پر پیمنٹ بھیجیں",
+ "ft": "VET CARE ONLINE · MEEZAN BANK · EASYPAISA",
+ "shadow": "rgba(13,23,48,.35)",
+ "rl_pos": "bottom:16px",
+ "rl_h": 26
+}

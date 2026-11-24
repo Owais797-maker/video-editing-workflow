@@ -25,13 +25,14 @@ fonts = [{"family": "Noori", "path": F("JameelNooriNastaleeq-400.ttf"), "weight"
          {"family": "Poppins", "path": F("Poppins-700.ttf"), "weight": 700, "style": "normal"},
          {"family": "Poppins", "path": F("Poppins-800.ttf"), "weight": 800, "style": "normal"}]
 G, G2, GD, INK = c.get("G", "#0B7A3B"), c.get("G2", "#14A350"), c.get("GD", "#075A2B"), "#1B1B1F"
+H1, H2, H3 = c.get("hl", [G2, G, GD]); BR = c.get("br", G2); TI = c.get("ti", G); BG = c.get("bg", "radial-gradient(ellipse 75% 55% at 50% 45%,#FFFFFF 0%,#F3F4F3 55%,#E2E5E3 100%)")
 css = f"""*{{margin:0;padding:0;box-sizing:border-box}}
-#p{{position:absolute;inset:0;overflow:hidden;font-family:Poppins;color:{INK};background:radial-gradient(ellipse 75% 55% at 50% 45%,#FFFFFF 0%,#F3F4F3 55%,#E2E5E3 100%)}}
+#p{{position:absolute;inset:0;overflow:hidden;font-family:Poppins;color:{INK};background:{BG}}}
 .sheen{{position:absolute;inset:0;background:linear-gradient(115deg,transparent 42%,rgba(255,255,255,.55) 50%,transparent 58%)}}
 .top{{position:absolute;top:64px;left:0;right:0;text-align:center;font:500 20px Montserrat;letter-spacing:8px;color:#6f7570}}
-.top b{{font-weight:900;color:{INK};letter-spacing:6px}} .top i{{font-style:normal;color:{G}}}
+.top b{{font-weight:900;color:{INK};letter-spacing:6px}} .top i{{font-style:normal;color:{TI}}}
 .h{{position:absolute;top:96px;left:0;right:0;text-align:center;direction:rtl;font:74px/1.5 Noori;color:#26282a}}
-.h span{{font:104px Aslam;background:linear-gradient(180deg,{G2},{G} 60%,{GD});-webkit-background-clip:text;color:transparent}}
+.h span{{font:104px Aslam;background:linear-gradient(180deg,{H1},{H2} 60%,{H3});-webkit-background-clip:text;color:transparent}}
 .ph{{position:absolute;left:64px;top:262px;width:452px;height:800px;border-radius:64px;background:linear-gradient(160deg,#2b2e31,#0d0f10);box-shadow:0 40px 60px rgba(0,0,0,.28),inset 0 0 0 3px #3a3e42}}
 .scr{{position:absolute;inset:16px;border-radius:50px;background:#fff;overflow:hidden}}
 .isl{{position:absolute;top:14px;left:50%;transform:translateX(-50%);width:120px;height:34px;border-radius:20px;background:#0d0f10}}
@@ -39,20 +40,20 @@ css = f"""*{{margin:0;padding:0;box-sizing:border-box}}
 .app small{{display:block;font:600 14px Poppins;letter-spacing:4px;opacity:.85}}
 .qrw{{position:absolute;top:172px;left:50%;transform:translateX(-50%);width:352px;height:352px;background:#fff}}
 .qrw img{{width:352px;height:352px;image-rendering:pixelated;display:block}}
-.br{{position:absolute;width:56px;height:56px;border:7px solid {G2}}}
+.br{{position:absolute;width:56px;height:56px;border:7px solid {BR}}}
 .b1{{left:-22px;top:-22px;border-right:none;border-bottom:none;border-radius:18px 0 0 0}} .b2{{right:-22px;top:-22px;border-left:none;border-bottom:none;border-radius:0 18px 0 0}}
 .b3{{left:-22px;bottom:-22px;border-right:none;border-top:none;border-radius:0 0 0 18px}} .b4{{right:-22px;bottom:-22px;border-left:none;border-top:none;border-radius:0 0 18px 0}}
 .nmq{{position:absolute;top:562px;left:0;right:0;text-align:center;font:700 18px Poppins;letter-spacing:1px;color:#33363a}}
 .scan{{position:absolute;top:606px;left:50%;transform:translateX(-50%);display:flex;align-items:center;gap:10px;background:#EEF7F1;color:{G};font:700 20px Poppins;padding:12px 26px;border-radius:40px;white-space:nowrap}}
-.scan:before{{content:"";width:12px;height:12px;border-radius:50%;background:{G2};box-shadow:0 0 0 6px rgba(20,163,80,.18)}}
+.scan:before{{content:"";width:12px;height:12px;border-radius:50%;background:{BR};box-shadow:0 0 0 6px rgba(20,163,80,.18)}}
 .dt{{position:absolute;left:560px;right:56px;top:300px;display:flex;flex-direction:column;gap:18px}}
 .row small{{display:block;font:600 15px Poppins;letter-spacing:3.5px;color:#8a8f8b}}
 .row b{{display:block;font:800 30px/1.2 Poppins;color:{INK};word-break:break-all}} .row b.s{{font-size:23px}}
-.ln{{height:2px;background:linear-gradient(90deg,rgba(11,122,59,.35),transparent)}}
-.raast{{position:absolute;left:560px;right:56px;top:836px;border-radius:30px;padding:22px 26px 24px;color:#fff;background:linear-gradient(135deg,{G2},{G} 55%,{GD});box-shadow:0 22px 36px rgba(11,122,59,.32)}}
-.rl{{position:absolute;right:20px;bottom:18px;background:#fff;border-radius:14px;padding:8px 12px;box-shadow:0 8px 18px rgba(0,0,0,.2)}} .rl img{{height:30px;display:block}}
+.ln{{height:2px;background:linear-gradient(90deg,{c.get('ln','rgba(11,122,59,.35)')},transparent)}}
+.raast{{position:absolute;left:560px;right:56px;top:836px;border-radius:30px;padding:22px 26px 24px;color:#fff;background:linear-gradient(135deg,{G2},{G} 55%,{GD});box-shadow:0 22px 36px {c.get('shadow','rgba(11,122,59,.32)')}}}
+.rl{{position:absolute;right:20px;{c.get('rl_pos','bottom:18px')};background:#fff;border-radius:14px;padding:8px 12px;box-shadow:0 8px 18px rgba(0,0,0,.2)}} .rl img{{height:{c.get('rl_h',30)}px;display:block}}
 .raast small{{display:block;font:600 15px Poppins;letter-spacing:4px;opacity:.85}} .raast b{{display:block;font:800 40px/1.15 Poppins;margin-top:4px}} .raast span{{display:block;font:600 16px Poppins;opacity:.85;margin-top:4px}}
-.logo{{position:absolute;left:{c.get('logo_left',600)}px;top:{c.get('logo_top',790)}px;width:{c.get('logo_w',300)}px;filter:drop-shadow(0 22px 26px rgba(0,0,0,.28));transform:rotate({c.get('logo_rot',-3)}deg);border-radius:{c.get('logo_radius',0)}px}}
+.logo{{position:absolute;left:{c.get('logo_left',600)}px;top:{c.get('logo_top',790)}px;width:{c.get('logo_w',300)}px;filter:drop-shadow(0 22px 26px rgba(0,0,0,.28)) {c.get('logo_glow','')};transform:rotate({c.get('logo_rot',-3)}deg);border-radius:{c.get('logo_radius',0)}px}}
 .bt{{position:absolute;bottom:92px;left:0;right:0;text-align:center;direction:rtl;font:44px/1.6 Noori;color:#3a3d40}}
 .bt span{{font-family:Aslam;color:{G};font-size:1.12em}}
 .ft{{position:absolute;bottom:52px;left:0;right:0;text-align:center;font:500 16px Montserrat;letter-spacing:7px;color:#8a8f8b}}"""

@@ -7,29 +7,29 @@
  "AT": "#FFFFFF",
  "src": "Video Edits/Raw/novasil/novasil-cutout.png",
  "up": 2,
- "top": "<b>NOVASIL <i>PLUS</i></b> &nbsp;·&nbsp; MYCOTOXIN BINDER",
+ "top": "<b>BASF</b> &nbsp;·&nbsp; WE CREATE CHEMISTRY",
  "l1": "فیڈ کے <span>زہر</span> سے بچانے والا",
  "hero": "<span style=\"display:inline-block;margin:0 .1em\">امریکہ</span><span style=\"display:inline-block;margin:0 .1em\">والا</span><span style=\"display:inline-block;margin:0 .1em\">ٹاکسن</span><span style=\"display:inline-block;margin:0 .1em\">بائنڈر</span>",
  "hero_size": 100,
  "hero_top": 338,
- "en": "RESULT <i>ORIENTED</i>",
- "en_size": 96,
- "en_top": 548,
- "bag_top": 712,
- "bag_h": 820,
+ "en": "<span style=\"font:900 110px/1 Montserrat;letter-spacing:2px;color:#1B1B1F\">BASF</span> <i>NOVASIL PLUS</i>",
+ "en_size": 74,
+ "en_top": 520,
+ "bag_top": 760,
+ "bag_h": 780,
  "c1": [
-  "BY",
-  "BASF"
+  "25 KG",
+  "BAG"
  ],
  "c2": [
   "MYCOTOXIN",
   "BINDER"
  ],
  "c1x": 130,
- "c1y": 700,
+ "c1y": 740,
  "c2x": 28,
- "c2y": 780,
- "l4": "Clean Feed, <i>Healthy Animal</i>",
+ "c2y": 830,
+ "l4": "<span style=\"font:900 58px Montserrat;letter-spacing:-.5px;color:#1B1B1F\">RESULT <b style=\"color:#0B4FA0\">ORIENTED</b></span>",
  "l5": "<span>گائے</span>، بھینس اور بکروں کے لیے",
- "ft": "25 KG · NOVASIL PLUS · MYCOTOXIN BINDER"
+ "ft": "25 KG · BASF NOVASIL PLUS · MYCOTOXIN BINDER"
 }

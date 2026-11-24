@@ -91,7 +91,8 @@ from the owner's viral CapCut reel), with good SFX, in ultra 4K.
   footage + full-frame brand cards with the product cutout, stats and contact card.
 
 The owner writes in Urdu (sometimes English or Roman Urdu). Reply in the language
-they used. Keep replies short and non-technical; they are a video creator, not a
+they used. **Voice messages sometimes arrive in Hindi (Devanagari) script: the owner can NOT
+read Hindi. Always reply in Urdu script (or Roman Urdu), never Devanagari.** Keep replies short and non-technical; they are a video creator, not a
 programmer. Never ask them to run commands.
 
 ## Folders

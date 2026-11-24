@@ -7,29 +7,31 @@
  "AT": "#FFFFFF",
  "src": "Video Edits/Raw/novasil/novasil-cutout.png",
  "up": 2,
- "top": "<b>BASF</b> &nbsp;·&nbsp; WE CREATE CHEMISTRY",
- "l1": "فیڈ کے <span>زہر</span> سے بچانے والا",
+ "top": "<b>BASF</b> &nbsp;·&nbsp; GLOBAL CHEMICAL LEADER",
+ "l1": "<span style=\"font:900 92px/1.1 Montserrat;color:#1B1B1F;letter-spacing:1px\">BASF</span> &nbsp;<span style=\"font:900 64px/1.1 Montserrat;color:#0B4FA0;font-family:Montserrat\">NOVASIL PLUS</span>",
  "hero": "<span style=\"display:inline-block;margin:0 .1em\">امریکہ</span><span style=\"display:inline-block;margin:0 .1em\">والا</span><span style=\"display:inline-block;margin:0 .1em\">ٹاکسن</span><span style=\"display:inline-block;margin:0 .1em\">بائنڈر</span>",
- "hero_size": 100,
- "hero_top": 338,
- "en": "<span style=\"font:900 110px/1 Montserrat;letter-spacing:2px;color:#1B1B1F\">BASF</span> <i>NOVASIL PLUS</i>",
- "en_size": 74,
- "en_top": 520,
- "bag_top": 760,
- "bag_h": 780,
+ "hero_size": 96,
+ "hero_top": 300,
+ "en": "<span style=\"font:56px/1.5 Noori;color:#2a2a2e;direction:rtl;display:inline-block;letter-spacing:0\"><b style=\"font:64px Aslam;font-weight:400;color:#0B4FA0\">سارو</b> اور <b style=\"font:64px Aslam;font-weight:400;color:#0B4FA0\">زہر باد</b> سے بچاؤ میں مددگار</span>",
+ "en_size": 56,
+ "en_top": 440,
+ "bag_top": 700,
+ "bag_h": 800,
  "c1": [
-  "25 KG",
-  "BAG"
+  "RESULT",
+  "ORIENTED"
  ],
  "c2": [
   "MYCOTOXIN",
   "BINDER"
  ],
- "c1x": 130,
- "c1y": 740,
+ "c1x": 120,
+ "c1y": 690,
  "c2x": 28,
- "c2y": 830,
- "l4": "<span style=\"font:900 58px Montserrat;letter-spacing:-.5px;color:#1B1B1F\">RESULT <b style=\"color:#0B4FA0\">ORIENTED</b></span>",
+ "c2y": 780,
+ "l4": "<span style=\"font:50px/1.5 Noori;direction:rtl;display:inline-block;color:#2a2a2e\">دنیا کی بہت بڑی کمپنی <b style=\"font:900 44px Montserrat;color:#0B4FA0\">BASF</b> کا زبردست ٹاکسن بائنڈر</span>",
  "l5": "<span>گائے</span>، بھینس اور بکروں کے لیے",
- "ft": "25 KG · BASF NOVASIL PLUS · MYCOTOXIN BINDER"
+ "ft": "25 KG · BASF NOVASIL PLUS · MYCOTOXIN BINDER",
+ "l1_top": 176,
+ "l1_size": 60
 }

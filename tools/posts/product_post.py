@@ -43,7 +43,7 @@ css=f"""
 .tonic{{position:absolute;top:{c.get("en_top",548)}px;left:0;right:0;text-align:center}}
 .tonic b{{display:inline-block;font:900 {c.get('en_size',92)}px/1 Montserrat;letter-spacing:-1px;color:{INK}}}
 .tonic b i{{font-style:normal;color:{P}}}
-.disc{{position:absolute;left:50%;top:1482px;width:600px;height:90px;transform:translateX(-50%);border-radius:50%;
+.disc{{position:absolute;left:50%;top:{c.get("disc_top",1482)}px;width:600px;height:90px;transform:translateX(-50%);border-radius:50%;
  background:radial-gradient(ellipse at 50% 35%,#FFFFFF 0%,#ECECEF 60%,#D6D6DC 100%);box-shadow:0 26px 40px rgba(0,0,0,.16)}}
 .bag{{position:absolute;left:50%;top:{c.get('bag_top',730)}px;height:{c.get('bag_h',800)}px;transform:translateX(-50%);filter:drop-shadow(0 26px 30px rgba(0,0,0,.26))}}
 .chip{{position:absolute;display:flex;align-items:center;gap:14px;padding:14px 30px 14px 16px;border-radius:50px;
@@ -54,9 +54,9 @@ css=f"""
 .c1 .ic{{background:#fff}}
 .c2{{right:{c.get('c2x',120)}px;top:{c.get('c2y',1262)}px;background:{A};color:{AT};transform:rotate(3deg)}}
 .c2 .ic{{background:{P}}}
-.l4{{position:absolute;top:1620px;left:0;right:0;text-align:center;font:600 46px Poppins;letter-spacing:-.5px}}
+.l4{{position:absolute;top:{c.get('l4_top',1620)}px;left:0;right:0;text-align:center;font:600 46px Poppins;letter-spacing:-.5px}}
 .l4 i{{font-style:normal;color:{P};font-weight:700}}
-.l5{{position:absolute;top:1694px;left:0;right:0;text-align:center;direction:rtl;font:50px/1.6 Noori;color:#3a3a3e}}
+.l5{{position:absolute;top:{c.get('l5_top',1694)}px;left:0;right:0;text-align:center;direction:rtl;font:50px/1.6 Noori;color:#3a3a3e}}
 .l5 span{{font-family:Aslam;color:{P};font-size:1.15em}}
 .ft{{position:absolute;bottom:46px;left:0;right:0;text-align:center;font:500 18px Montserrat;letter-spacing:6px;color:#8a8a90}}
 """

@@ -47,6 +47,8 @@ css=f"""*{{margin:0;padding:0;box-sizing:border-box}}
 .use{{position:absolute;left:44px;right:44px;top:1702px;display:flex;gap:14px}}
 .use div{{flex:1;background:{INK};color:#fff;border-radius:22px;padding:14px 18px;text-align:center}}
 .use small{{display:block;font:600 15px Poppins;letter-spacing:3px;opacity:.7}} .use b{{display:block;font:800 26px Poppins;margin-top:2px}}
+.price{{position:absolute;left:236px;top:975px;width:230px;height:230px;border-radius:50%;background:radial-gradient(circle at 35% 30%,{O2},{O} 55%,{OD});color:#fff;text-align:center;padding-top:58px;white-space:nowrap;box-shadow:0 18px 30px rgba(166,60,15,.4),inset 0 0 0 6px rgba(255,255,255,.35);transform:rotate(-8deg);z-index:3}}
+.price small{{display:block;font:700 18px Poppins;letter-spacing:3px;opacity:.9}} .price b{{display:block;font:900 44px/1.1 Montserrat;letter-spacing:-1px}} .price i{{display:block;font:700 14px Poppins;font-style:normal;letter-spacing:2px;opacity:.9;margin-top:2px}}
 .ft{{position:absolute;bottom:40px;left:0;right:0;text-align:center;font:500 17px Montserrat;letter-spacing:6px;color:#8a8a90}}"""
 bens="".join(f'<div class="b"><div class="c">{chk}</div><div class="t">{u}<small>{e}</small></div></div>' for u,e in ben)
 rows="".join(f'<div class="r"><span>{a}</span><b>{b}</b></div>' for a,b in form)
@@ -56,7 +58,7 @@ html=f"""<div id="p"><div class="sheen"></div>
 <div class="hero"><span>ترکی</span><span>کا</span><span>ٹاکسن</span><span>بائنڈر</span></div>
 <div class="en">STRONG <i>CLAY POWER</i></div>
 <div class="disc"></div><img class="bag" src="file://{bag}">
-<div class="ben"><div class="bh">KEY BENEFITS</div>{bens}</div>
+<div class="price"><small>ONLY</small><b>Rs 8,000</b><i>PER 25 KG BAG</i></div><div class="ben"><div class="bh">KEY BENEFITS</div>{bens}</div>
 <div class="fm"><div class="h"><b>COMPOSITION · PER 1 KG</b><span>فارمولا</span></div>{rows}</div>
 <div class="use"><div><small>DOSAGE</small><b>0.5–1 KG / TON FEED</b></div><div><small>FOR</small><b>CATTLE · GOATS · POULTRY</b></div></div>
 <div class="ft">25 KG KRAFT BAG · TURKEY · SOLINKON</div></div>"""

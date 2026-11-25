@@ -2,7 +2,7 @@
  "project": "rooftop-milk",
  "style": "bold-clean",
  "summary": "Naveed bhai's rooftop goats drink Buttery Milk straight from a bucket. Cold open on the drinking + big white-on-red Urdu hook, then the owner's 15 s walk-through.",
- "reference_notes": "Owner: 'use your intelligence, make it go viral'. TikTok formula: animal + Urdu hook fully visible at 0.0 s (white on red), cold open with the best shot (goats drinking), Noori+Aslam captions one line at a time, click SFX, name chip + 1kg=10L chip in the top safe area, Buttery Milk card when named, bright grade, 4K.",
+ "reference_notes": "Owner: 'use your intelligence, make it go viral'. TikTok formula: animal + Urdu hook fully visible at 0.0 s (white on red), cold open with the best shot (goats drinking), Noori+Aslam captions one line at a time, click SFX, name chip + 1kg=10L chip in the top safe area, Buttery Milk card when named, bright grade, 4K. Owner 2026-11-25: Naveed bhai's sticker only when he's introduced (fun pop, ~2.3 s); bag mockup moved from the drinking shot to the end reveal.",
  "shots": [
   {
    "src": "clip.mov",
@@ -123,15 +123,6 @@
    "animation": "pop"
   },
   {
-   "file": "Video Edits/Raw/rooftop-milk/urdu-naveed.png",
-   "start": 4.45,
-   "end": 8.6,
-   "x": 0.5,
-   "y": 0.19,
-   "width": 0.7,
-   "animation": "slide_up"
-  },
-  {
    "file": "Video Edits/Raw/rooftop-milk/urdu-kg.png",
    "start": 8.7,
    "end": 12.0,
@@ -141,12 +132,21 @@
    "animation": "pop"
   },
   {
+   "file": "Video Edits/Raw/rooftop-milk/naveed-sticker.png",
+   "start": 3.95,
+   "end": 6.3,
+   "x": 0.27,
+   "y": 0.47,
+   "width": 0.4,
+   "animation": "pop"
+  },
+  {
    "file": "Video Edits/Raw/butter-milk/butter-milk-bag-cutout.png",
-   "start": 12.1,
-   "end": 14.3,
-   "x": 0.82,
-   "y": 0.4,
-   "width": 0.22,
+   "start": 14.25,
+   "end": 16.36,
+   "x": 0.5,
+   "y": 0.42,
+   "width": 0.4,
    "animation": "rise"
   }
  ],
@@ -205,22 +205,40 @@
    "volume": 0.3
   },
   {
-   "sound": "pro_pop/bloop",
-   "at": 4.5,
-   "volume": 0.22
-  },
-  {
    "sound": "pro_notify/ding_2045",
    "at": 8.75,
    "volume": 0.22
   },
   {
    "sound": "pro_pop/bloop",
-   "at": 12.15,
+   "at": 3.97,
+   "volume": 0.3
+  },
+  {
+   "sound": "swoosh_up",
+   "at": 3.9,
+   "volume": 0.18
+  },
+  {
+   "sound": "pro_whoosh_big/swell",
+   "at": 14.15,
+   "volume": 0.25
+  },
+  {
+   "sound": "pro_pop/bloop",
+   "at": 14.3,
    "volume": 0.25
   }
  ],
  "fade": {
   "out": 0.3
- }
+ },
+ "backdrop": [
+  {
+   "start": 14.25,
+   "end": 16.36,
+   "blur": 14,
+   "dim": 0.25
+  }
+ ]
 }

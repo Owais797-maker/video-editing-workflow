@@ -1,0 +1,78 @@
+#!/usr/bin/env python3
+"""Aftodoll jel (Dollvet, Turkey) FMD vaccine 9:16 info post from box + leaflet. Locked white series."""
+import json,subprocess
+from pathlib import Path
+import numpy as np
+from PIL import Image, ImageFilter, ImageEnhance
+R=Path(__file__).resolve().parents[2]
+F=lambda g: str(next(R.joinpath('fonts').rglob(g)))
+fonts=[{"family":"Noori","path":F("JameelNooriNastaleeq-400.ttf"),"weight":400,"style":"normal"},
+ {"family":"Aslam","path":F("Aslam-400.ttf"),"weight":400,"style":"normal"},
+ {"family":"Montserrat","path":F("Montserrat-900.ttf"),"weight":900,"style":"normal"},
+ {"family":"Montserrat","path":F("Montserrat-500.ttf"),"weight":500,"style":"normal"},
+ {"family":"Poppins","path":F("Poppins-600.ttf"),"weight":600,"style":"normal"},
+ {"family":"Poppins","path":F("Poppins-700.ttf"),"weight":700,"style":"normal"},
+ {"family":"Poppins","path":F("Poppins-800.ttf"),"weight":800,"style":"normal"}]
+d=R/"Video Edits/Export/aftodoll-post"; w=d/"work"; w.mkdir(parents=True,exist_ok=True)
+
+im=Image.open(R/"Video Edits/Raw/aftodoll/box-cutout.png").convert("RGBA"); a=im.split()[3]
+x=np.asarray(im.convert("RGB")).astype(np.float32)/255
+lo=np.percentile(x[np.asarray(a)>128],1.5,axis=0); hi=np.percentile(x[np.asarray(a)>128],98.5,axis=0)
+x=np.clip((x-lo)/(hi-lo),0,1)                       # auto levels per channel (removes the grey/yellow cast)
+x=np.clip(x**0.95,0,1)                              # lift mid-tones
+x=0.5+(x-0.5)*1.04                                  # contrast
+rgb=Image.fromarray((np.clip(x,0,1)*255).astype("uint8"))
+rgb=ImageEnhance.Color(rgb).enhance(1.15).filter(ImageFilter.UnsharpMask(2,70,2))
+rgb.putalpha(a); box=w/"box.png"; rgb.save(box)
+T="#5B2A86"; T2="#7E45B5"; TD="#3D1A5E"; RED="#E8741E"; INK="#1B1B1F"
+chk='<svg width="22" height="22" viewBox="0 0 24 24"><path d="M5 12.5l4.2 4.2L19 7" fill="none" stroke="#fff" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round"/></svg>'
+cards=[("FMD VACCINE","منہ کھر سے بچاؤ","Foot & Mouth Disease"),
+       ("PURIFIED · INACTIVATED","پیوریفائیڈ جیل ویکسین","Suspension for injection")]
+css=f"""*{{margin:0;padding:0;box-sizing:border-box}}
+#p{{position:absolute;inset:0;overflow:hidden;font-family:Poppins;color:{INK};background:radial-gradient(ellipse 80% 50% at 50% 45%,#FFFFFF 0%,#F5F2F8 55%,#E5DEED 100%)}}
+.sheen{{position:absolute;inset:0;background:linear-gradient(115deg,transparent 42%,rgba(255,255,255,.55) 50%,transparent 58%)}}
+.top{{position:absolute;top:104px;left:0;right:0;text-align:center;font:500 21px Montserrat;letter-spacing:8px;color:#77777d}} .top b{{font-weight:900;color:{INK};letter-spacing:6px}} .top i{{font-style:normal;color:{RED}}}
+.l1{{position:absolute;top:158px;left:30px;right:30px;text-align:center;direction:rtl;font:50px/1.6 Noori;white-space:nowrap;color:#2a2a2e}} .l1 span{{font-family:Aslam;color:{RED};font-size:1.12em}}
+.hero{{position:absolute;top:252px;left:0;right:0;text-align:center;font:900 112px/1 Montserrat;letter-spacing:-3px;color:{T};filter:drop-shadow(0 12px 16px rgba(91,42,134,.2))}}
+.hero i{{font-style:normal;color:{RED}}}
+.sub{{position:absolute;top:382px;left:0;right:0;text-align:center;direction:rtl;font:62px/1.4 Aslam;color:{TD}}}
+.sub b{{color:{RED};font-weight:400}}
+.box{{position:absolute;left:60px;top:575px;height:700px;z-index:2;filter:drop-shadow(0 4px 6px rgba(0,0,0,.35)) drop-shadow(0 22px 30px rgba(0,0,0,.18))}}
+.cs{{position:absolute;left:80px;top:1240px;width:460px;height:44px;border-radius:50%;background:radial-gradient(ellipse at 55% 50%,rgba(0,0,0,.7),rgba(0,0,0,.35) 45%,transparent 72%);filter:blur(4px);z-index:1}}
+.disc{{position:absolute;left:40px;top:1214px;width:560px;height:100px;border-radius:50%;background:radial-gradient(ellipse at 50% 35%,#fff,#ECE6F2 60%,#D6CCE2);box-shadow:0 18px 28px rgba(0,0,0,.15)}}
+.cards{{position:absolute;left:630px;right:40px;top:560px;display:flex;flex-direction:column;gap:18px}}
+.c{{background:#fff;border-radius:26px;padding:18px 22px 16px;box-shadow:0 12px 28px rgba(0,0,0,.08);border-top:8px solid {T}}}
+.c:nth-child(2){{border-top-color:{RED}}}
+.c .e{{font:900 22px Montserrat;letter-spacing:1px;color:{INK}}}
+.c .u{{direction:rtl;text-align:right;font:40px/1.5 Aslam;color:{T};margin-top:4px}} .c:nth-child(2) .u{{color:{RED}}}
+.c .s{{font:600 18px Poppins;color:#7a7a80;margin-top:2px}}
+.two{{background:{INK};color:#fff;border-radius:26px;padding:18px 22px;text-align:center}}
+.two .u{{direction:rtl;font:32px/1.5 Noori;white-space:nowrap}} .two b{{font-family:Aslam;font-weight:400;color:#FFD400}}
+.note{{position:absolute;left:44px;right:44px;top:1375px;text-align:center;direction:rtl;font:46px/1.6 Noori;color:#2a2a2e}} .note span{{font-family:Aslam;color:{RED};font-size:1.08em}}
+.chips{{position:absolute;left:44px;right:44px;top:1480px;display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px}}
+.chips div{{background:#fff;border-radius:22px;padding:14px 10px 12px;text-align:center;box-shadow:0 10px 24px rgba(0,0,0,.07);border:2px solid #E5DEED}}
+.chips div.k{{background:{T};border-color:{T};color:#fff}} .chips div.w{{background:#FFF6EE;border-color:#F6D3B4}}
+.chips small{{display:block;font:600 14px Poppins;letter-spacing:2.5px;opacity:.75}} .chips b{{display:block;font:800 26px/1.2 Poppins;margin-top:4px}} .chips i{{display:block;font-style:normal;font:600 15px Poppins;opacity:.75}}
+.warn{{position:absolute;left:44px;right:44px;top:1650px;display:flex;align-items:center;gap:14px;justify-content:center;direction:rtl;font:38px/1.5 Noori;color:{RED}}}
+.warn em{{font-style:normal;font:800 26px Poppins;background:{RED};color:#fff;border-radius:50%;width:44px;height:44px;display:flex;align-items:center;justify-content:center}}
+.ft{{position:absolute;bottom:44px;left:0;right:0;text-align:center;font:500 17px Montserrat;letter-spacing:6px;color:#8a8a90}}"""
+cs="".join(f'<div class="c"><div class="e">{e}</div><div class="u">{u}</div><div class="s">{s}</div></div>' for e,u,s in cards)
+html=f"""<div id="p"><div class="sheen"></div>
+<div class="top"><b>DOLLVET</b> &nbsp;·&nbsp; MADE IN <i>TURKEY</i></div>
+<div class="l1"><span>منہ کھر</span> کی <span>ترکی</span> والی ویکسین</div>
+<div class="hero">AFTODOLL <i>JEL</i></div>
+<div class="sub"><b>منہ کھر</b> سے پکی حفاظت</div>
+<div class="disc"></div><div class="cs"></div><img class="box" src="file://{box}">
+<div class="cards">{cs}<div class="two"><div class="u">ویکسین ہمیشہ <b>وٹرنری ڈاکٹر</b> سے لگوائیں</div></div></div>
+<div class="note"><span>گائے</span>، بھینس، اونٹ، بھیڑ اور بکری کے لیے</div>
+<div class="chips">
+ <div class="k"><small>CATTLE · BUFFALO · CAMEL</small><b>2 ML</b><i>25 doses / 50 ml</i></div>
+ <div class="k"><small>SHEEP &amp; GOAT</small><b>1 ML</b><i>50 doses / 50 ml</i></div>
+ <div class="w"><small>STORAGE</small><b>2–8 °C</b><i>do not freeze</i></div></div>
+<div class="warn"><em>!</em>کھلی ہوئی شیشی 6 سے 8 گھنٹے میں استعمال کریں</div>
+<div class="ft">FOR VETERINARY USE ONLY · DOLLVET · TURKEY</div></div>"""
+out=d/"aftodoll-post.png"; job=d/"job.json"
+job.write_text(json.dumps({"width":1080,"height":1920,"scale":2,"css":css,"fonts":fonts,"states":[{"file":str(out),"html":html}]}))
+subprocess.run(["node",str(R/"tools/htmlcaps/render.js"),str(job)],check=True,capture_output=True)
+job.unlink(); (d/"page.html").unlink(missing_ok=True)
+Image.open(out).convert("RGB").save(d/"aftodoll-post.jpg",quality=95); out.unlink(); print(d/"aftodoll-post.jpg")

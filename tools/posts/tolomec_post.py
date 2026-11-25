@@ -14,13 +14,13 @@ fonts=[{"family":"Noori","path":F("JameelNooriNastaleeq-400.ttf"),"weight":400,"
  {"family":"Poppins","path":F("Poppins-700.ttf"),"weight":700,"style":"normal"},
  {"family":"Poppins","path":F("Poppins-800.ttf"),"weight":800,"style":"normal"}]
 d=R/"Video Edits/Export/tolomec-post"; w=d/"work"; w.mkdir(parents=True,exist_ok=True)
-im=Image.open(R/"Video Edits/Raw/tolomec/box-crop-cutout.png").convert("RGBA"); a=im.split()[3]
+im=Image.open(R/"Video Edits/Raw/tolomec/box2-crop-cutout.png").convert("RGBA"); a=im.split()[3]
 rgb=ImageEnhance.Brightness(im.convert("RGB")).enhance(1.18); rgb=ImageEnhance.Contrast(rgb).enhance(1.08); rgb=ImageEnhance.Color(rgb).enhance(1.1)
 rgb=rgb.filter(ImageFilter.UnsharpMask(2,60,2)); rgb.putalpha(a); box=w/"box.png"; rgb.save(box)
 T="#1C8C8C"; T2="#2BB3B0"; TD="#12605F"; RED="#C8202B"; INK="#1B1B1F"
 chk='<svg width="22" height="22" viewBox="0 0 24 24"><path d="M5 12.5l4.2 4.2L19 7" fill="none" stroke="#fff" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round"/></svg>'
-cards=[("IVERMECTIN 10 MG/ML","اندرونی کیڑے + بیرونی پرجیوی","Worms, ticks, lice & mange (skin)"),
-       ("CLORSULON 100 MG/ML","جگر کے کیڑے","Adult liver fluke · Fasciola")]
+cards=[("IVERMECTIN 10 MG/ML","اسکن انجیکشن","Skin parasites · ticks, lice & mange"),
+       ("CLORSULON 100 MG/ML","جگر کے کیڑوں کے لیے","Liver fluke · Fasciola")]
 css=f"""*{{margin:0;padding:0;box-sizing:border-box}}
 #p{{position:absolute;inset:0;overflow:hidden;font-family:Poppins;color:{INK};background:radial-gradient(ellipse 80% 50% at 50% 45%,#FFFFFF 0%,#F1F6F6 55%,#DDE7E7 100%)}}
 .sheen{{position:absolute;inset:0;background:linear-gradient(115deg,transparent 42%,rgba(255,255,255,.55) 50%,transparent 58%)}}
@@ -30,8 +30,9 @@ css=f"""*{{margin:0;padding:0;box-sizing:border-box}}
 .hero i{{font-style:normal;color:{T}}}
 .sub{{position:absolute;top:382px;left:0;right:0;text-align:center;direction:rtl;font:62px/1.4 Aslam;color:{TD}}}
 .sub b{{color:{RED};font-weight:400}}
-.box{{position:absolute;left:40px;top:540px;height:760px;filter:drop-shadow(0 24px 26px rgba(0,0,0,.25))}}
-.disc{{position:absolute;left:24px;top:1268px;width:470px;height:62px;border-radius:50%;background:radial-gradient(ellipse at 50% 35%,#fff,#E3EBEB 60%,#C9D6D6);box-shadow:0 18px 28px rgba(0,0,0,.15)}}
+.box{{position:absolute;left:40px;top:556px;height:760px;z-index:2;filter:drop-shadow(0 24px 26px rgba(0,0,0,.25))}}
+.cs{{position:absolute;left:30px;top:1276px;width:450px;height:56px;border-radius:50%;background:radial-gradient(ellipse at 50% 45%,rgba(0,0,0,.6),rgba(0,0,0,.3) 45%,transparent 72%);filter:blur(5px);z-index:1}}
+.disc{{position:absolute;left:-14px;top:1240px;width:540px;height:96px;border-radius:50%;background:radial-gradient(ellipse at 50% 35%,#fff,#E3EBEB 60%,#C9D6D6);box-shadow:0 18px 28px rgba(0,0,0,.15)}}
 .cards{{position:absolute;left:500px;right:40px;top:560px;display:flex;flex-direction:column;gap:18px}}
 .c{{background:#fff;border-radius:26px;padding:18px 22px 16px;box-shadow:0 12px 28px rgba(0,0,0,.08);border-top:8px solid {T}}}
 .c:nth-child(2){{border-top-color:{RED}}}
@@ -54,7 +55,7 @@ html=f"""<div id="p"><div class="sheen"></div>
 <div class="l1"><span>اٹلی</span> کا زبردست انجیکشن</div>
 <div class="hero">TOLOMEC <i>PLUS</i></div>
 <div class="sub"><b>جگر کے کیڑے</b> + اسکن، ایک ساتھ</div>
-<div class="disc"></div><img class="box" src="file://{box}">
+<div class="disc"></div><div class="cs"></div><img class="box" src="file://{box}">
 <div class="cards">{cs}<div class="two"><div class="u"><bdi style="font:900 34px Montserrat;color:#FFD400;letter-spacing:1px">2 IN 1</bdi> &nbsp;ایک ہی انجیکشن میں دونوں کام</div></div></div>
 <div class="note"><span>گائے</span> اور بھینس کے لیے</div>
 <div class="chips">

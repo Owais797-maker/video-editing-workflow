@@ -15,12 +15,12 @@ fonts=[{"family":"Noori","path":F("JameelNooriNastaleeq-400.ttf"),"weight":400,"
  {"family":"Poppins","path":F("Poppins-800.ttf"),"weight":800,"style":"normal"}]
 d=R/"Video Edits/Export/tolomec-post"; w=d/"work"; w.mkdir(parents=True,exist_ok=True)
 hero=R/"Video Edits/Raw/tolomec/box-hero.png"
-im=Image.open(R/"Video Edits/Raw/tolomec/box2-crop-cutout.png").convert("RGBA"); a=im.split()[3]
+im=Image.open(R/"Video Edits/Raw/tolomec/box-hero-cutout.png").convert("RGBA"); a=im.split()[3]
 x=np.asarray(im.convert("RGB")).astype(np.float32)/255
 lo=np.percentile(x[np.asarray(a)>128],1.5,axis=0); hi=np.percentile(x[np.asarray(a)>128],98.5,axis=0)
 x=np.clip((x-lo)/(hi-lo),0,1)                       # auto levels per channel (removes the grey/yellow cast)
-x=np.clip(x**0.85,0,1)                              # lift mid-tones
-x=0.5+(x-0.5)*1.12                                  # contrast
+x=np.clip(x**0.95,0,1)                              # lift mid-tones
+x=0.5+(x-0.5)*1.04                                  # contrast
 rgb=Image.fromarray((np.clip(x,0,1)*255).astype("uint8"))
 rgb=ImageEnhance.Color(rgb).enhance(1.15).filter(ImageFilter.UnsharpMask(2,70,2))
 rgb.putalpha(a); box=w/"box.png"; rgb.save(box)
@@ -37,10 +37,9 @@ css=f"""*{{margin:0;padding:0;box-sizing:border-box}}
 .hero i{{font-style:normal;color:{T}}}
 .sub{{position:absolute;top:382px;left:0;right:0;text-align:center;direction:rtl;font:62px/1.4 Aslam;color:{TD}}}
 .sub b{{color:{RED};font-weight:400}}
-.ph{{position:absolute;left:36px;top:540px;width:570px;height:760px;border-radius:34px;overflow:hidden;box-shadow:0 26px 50px rgba(0,0,0,.28),0 0 0 6px #fff}}
-.ph img{{width:100%;height:100%;object-fit:cover;object-position:50% 45%;display:block}}
-.cs{{position:absolute;left:30px;top:1276px;width:450px;height:56px;border-radius:50%;background:radial-gradient(ellipse at 50% 45%,rgba(0,0,0,.6),rgba(0,0,0,.3) 45%,transparent 72%);filter:blur(5px);z-index:1}}
-.disc{{position:absolute;left:-14px;top:1240px;width:540px;height:96px;border-radius:50%;background:radial-gradient(ellipse at 50% 35%,#fff,#E3EBEB 60%,#C9D6D6);box-shadow:0 18px 28px rgba(0,0,0,.15)}}
+.box{{position:absolute;left:100px;top:530px;height:770px;z-index:2;filter:drop-shadow(0 4px 6px rgba(0,0,0,.35)) drop-shadow(0 22px 30px rgba(0,0,0,.18))}}
+.cs{{position:absolute;left:110px;top:1262px;width:420px;height:44px;border-radius:50%;background:radial-gradient(ellipse at 55% 50%,rgba(0,0,0,.7),rgba(0,0,0,.35) 45%,transparent 72%);filter:blur(4px);z-index:1}}
+.disc{{position:absolute;left:40px;top:1238px;width:560px;height:100px;border-radius:50%;background:radial-gradient(ellipse at 50% 35%,#fff,#E3EBEB 60%,#C9D6D6);box-shadow:0 18px 28px rgba(0,0,0,.15)}}
 .cards{{position:absolute;left:630px;right:40px;top:560px;display:flex;flex-direction:column;gap:18px}}
 .c{{background:#fff;border-radius:26px;padding:18px 22px 16px;box-shadow:0 12px 28px rgba(0,0,0,.08);border-top:8px solid {T}}}
 .c:nth-child(2){{border-top-color:{RED}}}
@@ -63,7 +62,7 @@ html=f"""<div id="p"><div class="sheen"></div>
 <div class="l1"><span>اٹلی</span> والا <span>جگر</span> اور <span>چمڑے</span> کا زبردست انجیکشن</div>
 <div class="hero">TOLOMEC <i>PLUS</i></div>
 <div class="sub"><b>جگر کے کیڑے</b> + اسکن، ایک ساتھ</div>
-<div class="ph"><img src="file://{hero}"></div>
+<div class="disc"></div><div class="cs"></div><img class="box" src="file://{box}">
 <div class="cards">{cs}<div class="two"><div class="u"><bdi style="font:900 34px Montserrat;color:#FFD400;letter-spacing:1px">2 IN 1</bdi> &nbsp;ایک ہی انجیکشن میں دونوں کام</div></div></div>
 <div class="note"><span>گائے</span> اور بھینس کے لیے</div>
 <div class="chips">

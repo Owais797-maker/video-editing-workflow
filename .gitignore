@@ -35,3 +35,4 @@ assets/stock/*/
 # personal photos (not project assets)
 Video Edits/Raw/photo-enhance/
 Video Edits/Export/photo-enhance/
+*.zip

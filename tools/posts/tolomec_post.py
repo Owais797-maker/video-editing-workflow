@@ -32,7 +32,7 @@ css=f"""*{{margin:0;padding:0;box-sizing:border-box}}
 #p{{position:absolute;inset:0;overflow:hidden;font-family:Poppins;color:{INK};background:radial-gradient(ellipse 80% 50% at 50% 45%,#FFFFFF 0%,#F1F6F6 55%,#DDE7E7 100%)}}
 .sheen{{position:absolute;inset:0;background:linear-gradient(115deg,transparent 42%,rgba(255,255,255,.55) 50%,transparent 58%)}}
 .top{{position:absolute;top:104px;left:0;right:0;text-align:center;font:500 21px Montserrat;letter-spacing:8px;color:#77777d}} .top b{{font-weight:900;color:{INK};letter-spacing:6px}} .top i{{font-style:normal;color:{RED}}}
-.l1{{position:absolute;top:158px;left:0;right:0;text-align:center;direction:rtl;font:54px/1.6 Noori;color:#2a2a2e}} .l1 span{{font-family:Aslam;color:{RED};font-size:1.12em}}
+.l1{{position:absolute;top:158px;left:30px;right:30px;text-align:center;direction:rtl;font:50px/1.6 Noori;white-space:nowrap;color:#2a2a2e}} .l1 span{{font-family:Aslam;color:{RED};font-size:1.12em}}
 .hero{{position:absolute;top:252px;left:0;right:0;text-align:center;font:900 112px/1 Montserrat;letter-spacing:-3px;color:{RED};filter:drop-shadow(0 12px 16px rgba(200,32,43,.2))}}
 .hero i{{font-style:normal;color:{T}}}
 .sub{{position:absolute;top:382px;left:0;right:0;text-align:center;direction:rtl;font:62px/1.4 Aslam;color:{TD}}}
@@ -60,7 +60,7 @@ css=f"""*{{margin:0;padding:0;box-sizing:border-box}}
 cs="".join(f'<div class="c"><div class="e">{e}</div><div class="u">{u}</div><div class="s">{s}</div></div>' for e,u,s in cards)
 html=f"""<div id="p"><div class="sheen"></div>
 <div class="top"><b>FATRO</b> &nbsp;·&nbsp; MADE IN <i>ITALY</i></div>
-<div class="l1"><span>اٹلی</span> کا زبردست انجیکشن</div>
+<div class="l1"><span>اٹلی</span> والا <span>جگر</span> اور <span>چمڑے</span> کا زبردست انجیکشن</div>
 <div class="hero">TOLOMEC <i>PLUS</i></div>
 <div class="sub"><b>جگر کے کیڑے</b> + اسکن، ایک ساتھ</div>
 <div class="ph"><img src="file://{hero}"></div>

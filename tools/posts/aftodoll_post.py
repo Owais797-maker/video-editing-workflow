@@ -53,9 +53,19 @@ css=f"""*{{margin:0;padding:0;box-sizing:border-box}}
 .chips div{{background:#fff;border-radius:22px;padding:14px 10px 12px;text-align:center;box-shadow:0 10px 24px rgba(0,0,0,.07);border:2px solid #E5DEED}}
 .chips div.k{{background:{T};border-color:{T};color:#fff}} .chips div.w{{background:#FFF6EE;border-color:#F6D3B4}}
 .chips small{{display:block;font:600 14px Poppins;letter-spacing:2.5px;opacity:.75}} .chips b{{display:block;font:800 26px/1.2 Poppins;margin-top:4px}} .chips i{{display:block;font-style:normal;font:600 15px Poppins;opacity:.75}}
-.warn{{position:absolute;left:44px;right:44px;top:1650px;display:flex;align-items:center;gap:14px;justify-content:center;direction:rtl;font:38px/1.5 Noori;color:{RED}}}
+.warn{{position:absolute;left:44px;right:44px;top:1640px;display:flex;align-items:center;gap:14px;justify-content:center;direction:rtl;font:38px/1.5 Noori;color:{RED}}}
 .warn em{{font-style:normal;font:800 26px Poppins;background:{RED};color:#fff;border-radius:50%;width:44px;height:44px;display:flex;align-items:center;justify-content:center}}
-.ft{{position:absolute;bottom:44px;left:0;right:0;text-align:center;font:500 17px Montserrat;letter-spacing:6px;color:#8a8a90}}"""
+.trust{{position:absolute;left:630px;right:40px;top:1030px;display:flex;flex-direction:column;gap:14px}}
+.t{{display:flex;align-items:center;gap:14px;background:#fff;border-radius:22px;padding:14px 16px;box-shadow:0 10px 24px rgba(0,0,0,.07);border:2px solid #E5DEED}}
+.t .ic{{flex:none;width:58px;height:58px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:30px;background:{T};color:#fff}}
+.t.cold .ic{{background:#1E88E5}}
+.t .tx{{flex:1;text-align:right}} .t .tx b{{display:block;font:900 17px Montserrat;letter-spacing:1px;color:{INK}}}
+.t .tx span{{display:block;direction:rtl;font:30px/1.55 Noori;color:#2a2a2e}} .t.cold .tx span em{{font-style:normal;color:#1E88E5;font-family:Aslam}} .t .tx span em{{font-style:normal;color:{T};font-family:Aslam}}
+.kt{{position:absolute;left:44px;right:44px;top:1742px;height:118px;border-radius:60px;background:#1B1B1F;display:flex;align-items:center;padding:0 34px 0 10px;gap:20px;box-shadow:0 14px 30px rgba(0,0,0,.18)}}
+.kt img{{width:100px;height:100px;border-radius:50%;background:#fff}}
+.kt .nm{{flex:1;color:#fff}} .kt .nm b{{display:block;font:900 30px Montserrat;letter-spacing:1px}} .kt .nm i{{display:block;font-style:normal;font:600 15px Montserrat;letter-spacing:4px;color:#FFD400}}
+.kt .ph{{display:flex;align-items:center;gap:10px;background:#FFD400;color:#1B1B1F;border-radius:40px;padding:14px 24px;font:900 32px Montserrat;letter-spacing:.5px}}
+.ft{{position:absolute;bottom:22px;left:0;right:0;text-align:center;font:500 14px Montserrat;letter-spacing:5px;color:#8a8a90}}"""
 cs="".join(f'<div class="c"><div class="e">{e}</div><div class="u">{u}</div><div class="s">{s}</div></div>' for e,u,s in cards)
 html=f"""<div id="p"><div class="sheen"></div>
 <div class="top"><b>DOLLVET</b> &nbsp;·&nbsp; MADE IN <i>TURKEY</i></div>
@@ -64,12 +74,16 @@ html=f"""<div id="p"><div class="sheen"></div>
 <div class="sub"><b>منہ کھر</b> سے پکی حفاظت</div>
 <img class="box" src="file://{box}">
 <div class="cards">{cs}<div class="two"><div class="u">ویکسین ہمیشہ <b>وٹرنری ڈاکٹر</b> سے لگوائیں</div></div></div>
+<div class="trust">
+ <div class="t"><div class="ic">✓</div><div class="tx"><b>COMMERCIAL STOCK</b><span><em>کمپنی</em> والا اصلی مال</span></div></div>
+ <div class="t cold"><div class="ic">❄</div><div class="tx"><b>COLD CHAIN MAINTAINED</b><span><em>کولڈ چین</em> کا خاص خیال</span></div></div></div>
 <div class="note"><span>گائے</span>، بھینس، اونٹ، بھیڑ اور بکری کے لیے</div>
 <div class="chips">
  <div class="k"><small>CATTLE · BUFFALO · CAMEL</small><b>2 ML</b><i>25 doses / 50 ml</i></div>
  <div class="k"><small>SHEEP &amp; GOAT</small><b>1 ML</b><i>50 doses / 50 ml</i></div>
  <div class="w"><small>STORAGE</small><b>2–8 °C</b><i>do not freeze</i></div></div>
 <div class="warn"><em>!</em>کھلی ہوئی شیشی 6 سے 8 گھنٹے میں استعمال کریں</div>
+<div class="kt"><img src="file://{R}/assets/logos/khyber-traders.png"><div class="nm"><b>KHYBER TRADERS</b><i>WHOLESALE VET STORE</i></div><div class="ph"><svg width="30" height="30" viewBox="0 0 24 24"><path fill="#1B1B1F" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .1-3.3-.8-2.8-1.1-4.5-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.3 0 .5l-.4.5-.3.4c-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.3 2.4 1.5.3.1.5.1.6-.1l.9-1c.2-.3.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.2.1.7-.1 1.2z"/></svg>0310-2999262</div></div>
 <div class="ft">FOR VETERINARY USE ONLY · DOLLVET · TURKEY</div></div>"""
 out=d/"aftodoll-post.png"; job=d/"job.json"
 job.write_text(json.dumps({"width":1080,"height":1920,"scale":2,"css":css,"fonts":fonts,"states":[{"file":str(out),"html":html}]}))

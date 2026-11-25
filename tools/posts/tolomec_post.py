@@ -14,6 +14,7 @@ fonts=[{"family":"Noori","path":F("JameelNooriNastaleeq-400.ttf"),"weight":400,"
  {"family":"Poppins","path":F("Poppins-700.ttf"),"weight":700,"style":"normal"},
  {"family":"Poppins","path":F("Poppins-800.ttf"),"weight":800,"style":"normal"}]
 d=R/"Video Edits/Export/tolomec-post"; w=d/"work"; w.mkdir(parents=True,exist_ok=True)
+hero=R/"Video Edits/Raw/tolomec/box-hero.png"
 im=Image.open(R/"Video Edits/Raw/tolomec/box2-crop-cutout.png").convert("RGBA"); a=im.split()[3]
 x=np.asarray(im.convert("RGB")).astype(np.float32)/255
 lo=np.percentile(x[np.asarray(a)>128],1.5,axis=0); hi=np.percentile(x[np.asarray(a)>128],98.5,axis=0)
@@ -36,17 +37,18 @@ css=f"""*{{margin:0;padding:0;box-sizing:border-box}}
 .hero i{{font-style:normal;color:{T}}}
 .sub{{position:absolute;top:382px;left:0;right:0;text-align:center;direction:rtl;font:62px/1.4 Aslam;color:{TD}}}
 .sub b{{color:{RED};font-weight:400}}
-.box{{position:absolute;left:40px;top:556px;height:760px;z-index:2;filter:drop-shadow(0 24px 26px rgba(0,0,0,.25))}}
+.ph{{position:absolute;left:36px;top:540px;width:570px;height:760px;border-radius:34px;overflow:hidden;box-shadow:0 26px 50px rgba(0,0,0,.28),0 0 0 6px #fff}}
+.ph img{{width:100%;height:100%;object-fit:cover;object-position:50% 45%;display:block}}
 .cs{{position:absolute;left:30px;top:1276px;width:450px;height:56px;border-radius:50%;background:radial-gradient(ellipse at 50% 45%,rgba(0,0,0,.6),rgba(0,0,0,.3) 45%,transparent 72%);filter:blur(5px);z-index:1}}
 .disc{{position:absolute;left:-14px;top:1240px;width:540px;height:96px;border-radius:50%;background:radial-gradient(ellipse at 50% 35%,#fff,#E3EBEB 60%,#C9D6D6);box-shadow:0 18px 28px rgba(0,0,0,.15)}}
-.cards{{position:absolute;left:500px;right:40px;top:560px;display:flex;flex-direction:column;gap:18px}}
+.cards{{position:absolute;left:630px;right:40px;top:560px;display:flex;flex-direction:column;gap:18px}}
 .c{{background:#fff;border-radius:26px;padding:18px 22px 16px;box-shadow:0 12px 28px rgba(0,0,0,.08);border-top:8px solid {T}}}
 .c:nth-child(2){{border-top-color:{RED}}}
 .c .e{{font:900 22px Montserrat;letter-spacing:1px;color:{INK}}}
 .c .u{{direction:rtl;text-align:right;font:40px/1.5 Aslam;color:{T};margin-top:4px}} .c:nth-child(2) .u{{color:{RED}}}
 .c .s{{font:600 18px Poppins;color:#7a7a80;margin-top:2px}}
 .two{{background:{INK};color:#fff;border-radius:26px;padding:18px 22px;text-align:center}}
-.two .u{{direction:rtl;font:38px/1.5 Noori}} .two b{{font-family:Aslam;font-weight:400;color:#FFD400}}
+.two .u{{direction:rtl;font:32px/1.5 Noori;white-space:nowrap}} .two b{{font-family:Aslam;font-weight:400;color:#FFD400}}
 .note{{position:absolute;left:44px;right:44px;top:1375px;text-align:center;direction:rtl;font:46px/1.6 Noori;color:#2a2a2e}} .note span{{font-family:Aslam;color:{RED};font-size:1.08em}}
 .chips{{position:absolute;left:44px;right:44px;top:1480px;display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px}}
 .chips div{{background:#fff;border-radius:22px;padding:14px 10px 12px;text-align:center;box-shadow:0 10px 24px rgba(0,0,0,.07);border:2px solid #DDE7E7}}
@@ -61,7 +63,7 @@ html=f"""<div id="p"><div class="sheen"></div>
 <div class="l1"><span>اٹلی</span> کا زبردست انجیکشن</div>
 <div class="hero">TOLOMEC <i>PLUS</i></div>
 <div class="sub"><b>جگر کے کیڑے</b> + اسکن، ایک ساتھ</div>
-<div class="disc"></div><div class="cs"></div><img class="box" src="file://{box}">
+<div class="ph"><img src="file://{hero}"></div>
 <div class="cards">{cs}<div class="two"><div class="u"><bdi style="font:900 34px Montserrat;color:#FFD400;letter-spacing:1px">2 IN 1</bdi> &nbsp;ایک ہی انجیکشن میں دونوں کام</div></div></div>
 <div class="note"><span>گائے</span> اور بھینس کے لیے</div>
 <div class="chips">

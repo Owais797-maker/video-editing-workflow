@@ -13,7 +13,14 @@ fonts=[{"family":"Noori","path":F("JameelNooriNastaleeq-400.ttf"),"weight":400,"
  {"family":"Poppins","path":F("Poppins-700.ttf"),"weight":700,"style":"normal"},
  {"family":"Poppins","path":F("Poppins-800.ttf"),"weight":800,"style":"normal"}]
 d=R/"Video Edits/Export/antox9-post"; w=d/"work"; w.mkdir(parents=True,exist_ok=True)
-im=Image.open(R/"Video Edits/Raw/antox9/box-crop-cutout.png").convert("RGBA").filter(ImageFilter.UnsharpMask(2,40,2)); box=w/"box.png"; im.save(box)
+from PIL import ImageEnhance
+im=Image.open(R/"Video Edits/Raw/antox9/box-crop-cutout.png").convert("RGBA")
+a=im.split()[3]; rgb=im.convert("RGB")
+rgb=ImageEnhance.Brightness(rgb).enhance(1.22); rgb=ImageEnhance.Contrast(rgb).enhance(1.08); rgb=ImageEnhance.Color(rgb).enhance(1.12)
+import numpy as np
+x=np.array(rgb).astype(float); x[...,2]=np.clip(x[...,2]*1.04,0,255); x[...,0]=np.clip(x[...,0]*0.98,0,255)
+rgb=Image.fromarray(x.astype("uint8")).filter(ImageFilter.UnsharpMask(2,60,2)); rgb.putalpha(a); im=rgb
+box=w/"box.png"; im.save(box)
 B="#1E3A8C"; B2="#2F55C2"; BD="#122563"; RED="#D9232E"; INK="#1B1B1F"
 rows=[("Cl. perfringens A","گیس گینگرین / آنتوں کی سوزش"),
       ("Cl. perfringens C (B)","خونی دست / انٹیروٹاکسیمیا"),

@@ -1,0 +1,226 @@
+{
+ "project": "rooftop-milk",
+ "style": "bold-clean",
+ "summary": "Naveed bhai's rooftop goats drink Buttery Milk straight from a bucket. Cold open on the drinking + big white-on-red Urdu hook, then the owner's 15 s walk-through.",
+ "reference_notes": "Owner: 'use your intelligence, make it go viral'. TikTok formula: animal + Urdu hook fully visible at 0.0 s (white on red), cold open with the best shot (goats drinking), Noori+Aslam captions one line at a time, click SFX, name chip + 1kg=10L chip in the top safe area, Buttery Milk card when named, bright grade, 4K.",
+ "shots": [
+  {
+   "src": "clip.mov",
+   "in": 10.6,
+   "out": 12.0,
+   "description": "COLD OPEN: goats drinking Buttery Milk from the bucket",
+   "volume": 0.2,
+   "motion": {
+    "type": "zoom_in",
+    "amount": 0.08
+   }
+  },
+  {
+   "src": "clip.mov",
+   "in": 0.0,
+   "out": 14.96,
+   "description": "Owner's walk-through: rooftop setup, goats, bag, goats drinking",
+   "motion": {
+    "type": "zoom_in",
+    "amount": 0.04
+   },
+   "punch": [
+    [
+     10.3,
+     11.2
+    ],
+    [
+     13.0,
+     13.8
+    ]
+   ],
+   "punch_zoom": 1.06
+  }
+ ],
+ "captions": false,
+ "look": {
+  "cinematic": 0.5,
+  "brightness": 0.05,
+  "contrast": 1.08,
+  "saturation": 1.2,
+  "warmth": 0.03,
+  "denoise": 0.6,
+  "sharpen": 0.9,
+  "vignette": 0.3,
+  "grain": 2
+ },
+ "overlays": [
+  {
+   "file": "Video Edits/Raw/rooftop-milk/urdu-heading.png",
+   "start": 0,
+   "end": 4.3,
+   "x": 0.5,
+   "y": 0.23,
+   "width": 0.86,
+   "animation": "none"
+  },
+  {
+   "file": "Video Edits/Raw/rooftop-milk/urdu-c1.png",
+   "start": 1.4,
+   "end": 4.3,
+   "x": 0.5,
+   "y": 0.72,
+   "width": 0.88,
+   "animation": "pop"
+  },
+  {
+   "file": "Video Edits/Raw/rooftop-milk/urdu-c2.png",
+   "start": 4.3,
+   "end": 6.32,
+   "x": 0.5,
+   "y": 0.72,
+   "width": 0.88,
+   "animation": "pop"
+  },
+  {
+   "file": "Video Edits/Raw/rooftop-milk/urdu-c3.png",
+   "start": 6.32,
+   "end": 8.7,
+   "x": 0.5,
+   "y": 0.72,
+   "width": 0.88,
+   "animation": "pop"
+  },
+  {
+   "file": "Video Edits/Raw/rooftop-milk/urdu-c4.png",
+   "start": 8.7,
+   "end": 10.3,
+   "x": 0.5,
+   "y": 0.72,
+   "width": 0.864,
+   "animation": "pop"
+  },
+  {
+   "file": "Video Edits/Raw/rooftop-milk/urdu-c5.png",
+   "start": 10.3,
+   "end": 12.1,
+   "x": 0.5,
+   "y": 0.72,
+   "width": 0.831,
+   "animation": "pop"
+  },
+  {
+   "file": "Video Edits/Raw/rooftop-milk/urdu-c6.png",
+   "start": 12.1,
+   "end": 14.3,
+   "x": 0.5,
+   "y": 0.72,
+   "width": 0.88,
+   "animation": "pop"
+  },
+  {
+   "file": "Video Edits/Raw/rooftop-milk/urdu-c7.png",
+   "start": 14.3,
+   "end": 16.36,
+   "x": 0.5,
+   "y": 0.72,
+   "width": 0.709,
+   "animation": "pop"
+  },
+  {
+   "file": "Video Edits/Raw/rooftop-milk/urdu-naveed.png",
+   "start": 4.45,
+   "end": 8.6,
+   "x": 0.5,
+   "y": 0.19,
+   "width": 0.7,
+   "animation": "slide_up"
+  },
+  {
+   "file": "Video Edits/Raw/rooftop-milk/urdu-kg.png",
+   "start": 8.7,
+   "end": 12.0,
+   "x": 0.5,
+   "y": 0.19,
+   "width": 0.7,
+   "animation": "pop"
+  },
+  {
+   "file": "Video Edits/Raw/butter-milk/butter-milk-bag-cutout.png",
+   "start": 12.1,
+   "end": 14.3,
+   "x": 0.82,
+   "y": 0.4,
+   "width": 0.22,
+   "animation": "rise"
+  }
+ ],
+ "effects": [
+  {
+   "type": "light_leak",
+   "at": 1.3,
+   "dur": 0.4,
+   "color": "#FFD400"
+  }
+ ],
+ "sfx": [
+  {
+   "sound": "impact/punch",
+   "at": 0.0,
+   "volume": 0.32
+  },
+  {
+   "sound": "whoosh_fast/crisp",
+   "at": 1.35,
+   "volume": 0.25
+  },
+  {
+   "sound": "pro_click/soft",
+   "at": 1.4,
+   "volume": 0.3
+  },
+  {
+   "sound": "pro_click/soft",
+   "at": 4.3,
+   "volume": 0.3
+  },
+  {
+   "sound": "pro_click/soft",
+   "at": 6.32,
+   "volume": 0.3
+  },
+  {
+   "sound": "pro_click/soft",
+   "at": 8.7,
+   "volume": 0.3
+  },
+  {
+   "sound": "pro_click/soft",
+   "at": 10.3,
+   "volume": 0.3
+  },
+  {
+   "sound": "pro_click/soft",
+   "at": 12.1,
+   "volume": 0.3
+  },
+  {
+   "sound": "pro_click/soft",
+   "at": 14.3,
+   "volume": 0.3
+  },
+  {
+   "sound": "pro_pop/bloop",
+   "at": 4.5,
+   "volume": 0.22
+  },
+  {
+   "sound": "pro_notify/ding_2045",
+   "at": 8.75,
+   "volume": 0.22
+  },
+  {
+   "sound": "pro_pop/bloop",
+   "at": 12.15,
+   "volume": 0.25
+  }
+ ],
+ "fade": {
+  "out": 0.3
+ }
+}

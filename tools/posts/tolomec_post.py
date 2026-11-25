@@ -15,7 +15,7 @@ fonts=[{"family":"Noori","path":F("JameelNooriNastaleeq-400.ttf"),"weight":400,"
  {"family":"Poppins","path":F("Poppins-800.ttf"),"weight":800,"style":"normal"}]
 d=R/"Video Edits/Export/tolomec-post"; w=d/"work"; w.mkdir(parents=True,exist_ok=True)
 hero=R/"Video Edits/Raw/tolomec/box-hero.png"
-im=Image.open(R/"Video Edits/Raw/tolomec/box-hero-cutout.png").convert("RGBA"); a=im.split()[3]
+im=Image.open(R/"Video Edits/Raw/tolomec/box-grounded.png").convert("RGBA"); a=im.split()[3]
 x=np.asarray(im.convert("RGB")).astype(np.float32)/255
 lo=np.percentile(x[np.asarray(a)>128],1.5,axis=0); hi=np.percentile(x[np.asarray(a)>128],98.5,axis=0)
 x=np.clip((x-lo)/(hi-lo),0,1)                       # auto levels per channel (removes the grey/yellow cast)
@@ -37,7 +37,7 @@ css=f"""*{{margin:0;padding:0;box-sizing:border-box}}
 .hero i{{font-style:normal;color:{T}}}
 .sub{{position:absolute;top:382px;left:0;right:0;text-align:center;direction:rtl;font:62px/1.4 Aslam;color:{TD}}}
 .sub b{{color:{RED};font-weight:400}}
-.box{{position:absolute;left:100px;top:530px;height:770px;z-index:2;filter:drop-shadow(0 4px 6px rgba(0,0,0,.35)) drop-shadow(0 22px 30px rgba(0,0,0,.18))}}
+.box{{position:absolute;left:50px;top:530px;height:862px;z-index:2;}}
 .cs{{position:absolute;left:110px;top:1262px;width:420px;height:44px;border-radius:50%;background:radial-gradient(ellipse at 55% 50%,rgba(0,0,0,.7),rgba(0,0,0,.35) 45%,transparent 72%);filter:blur(4px);z-index:1}}
 .disc{{position:absolute;left:40px;top:1238px;width:560px;height:100px;border-radius:50%;background:radial-gradient(ellipse at 50% 35%,#fff,#E3EBEB 60%,#C9D6D6);box-shadow:0 18px 28px rgba(0,0,0,.15)}}
 .cards{{position:absolute;left:630px;right:40px;top:560px;display:flex;flex-direction:column;gap:18px}}
@@ -62,7 +62,7 @@ html=f"""<div id="p"><div class="sheen"></div>
 <div class="l1"><span>اٹلی</span> والا <span>جگر</span> اور <span>چمڑے</span> کا زبردست انجیکشن</div>
 <div class="hero">TOLOMEC <i>PLUS</i></div>
 <div class="sub"><b>جگر کے کیڑے</b> + اسکن، ایک ساتھ</div>
-<div class="disc"></div><div class="cs"></div><img class="box" src="file://{box}">
+<img class="box" src="file://{box}">
 <div class="cards">{cs}<div class="two"><div class="u"><bdi style="font:900 34px Montserrat;color:#FFD400;letter-spacing:1px">2 IN 1</bdi> &nbsp;ایک ہی انجیکشن میں دونوں کام</div></div></div>
 <div class="note"><span>گائے</span> اور بھینس کے لیے</div>
 <div class="chips">

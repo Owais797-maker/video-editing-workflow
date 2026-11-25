@@ -15,7 +15,7 @@ fonts=[{"family":"Noori","path":F("JameelNooriNastaleeq-400.ttf"),"weight":400,"
  {"family":"Poppins","path":F("Poppins-800.ttf"),"weight":800,"style":"normal"}]
 d=R/"Video Edits/Export/aftodoll-post"; w=d/"work"; w.mkdir(parents=True,exist_ok=True)
 
-im=Image.open(R/"Video Edits/Raw/aftodoll/box-cutout.png").convert("RGBA"); a=im.split()[3]
+im=Image.open(R/"Video Edits/Raw/aftodoll/box-grounded.png").convert("RGBA"); a=im.split()[3]
 x=np.asarray(im.convert("RGB")).astype(np.float32)/255
 lo=np.percentile(x[np.asarray(a)>128],1.5,axis=0); hi=np.percentile(x[np.asarray(a)>128],98.5,axis=0)
 x=np.clip((x-lo)/(hi-lo),0,1)                       # auto levels per channel (removes the grey/yellow cast)
@@ -27,7 +27,7 @@ rgb.putalpha(a); box=w/"box.png"; rgb.save(box)
 T="#5B2A86"; T2="#7E45B5"; TD="#3D1A5E"; RED="#E8741E"; INK="#1B1B1F"
 chk='<svg width="22" height="22" viewBox="0 0 24 24"><path d="M5 12.5l4.2 4.2L19 7" fill="none" stroke="#fff" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round"/></svg>'
 cards=[("FMD VACCINE","منہ کھر سے بچاؤ","Foot & Mouth Disease"),
-       ("PURIFIED · INACTIVATED","پیوریفائیڈ جیل ویکسین","Suspension for injection")]
+       ("PURIFIED · INACTIVATED","پیوریفائیڈ ویکسین","Suspension for injection")]
 css=f"""*{{margin:0;padding:0;box-sizing:border-box}}
 #p{{position:absolute;inset:0;overflow:hidden;font-family:Poppins;color:{INK};background:radial-gradient(ellipse 80% 50% at 50% 45%,#FFFFFF 0%,#F5F2F8 55%,#E5DEED 100%)}}
 .sheen{{position:absolute;inset:0;background:linear-gradient(115deg,transparent 42%,rgba(255,255,255,.55) 50%,transparent 58%)}}
@@ -37,7 +37,7 @@ css=f"""*{{margin:0;padding:0;box-sizing:border-box}}
 .hero i{{font-style:normal;color:{RED}}}
 .sub{{position:absolute;top:382px;left:0;right:0;text-align:center;direction:rtl;font:62px/1.4 Aslam;color:{TD}}}
 .sub b{{color:{RED};font-weight:400}}
-.box{{position:absolute;left:60px;top:575px;height:700px;z-index:2;filter:drop-shadow(0 4px 6px rgba(0,0,0,.35)) drop-shadow(0 22px 30px rgba(0,0,0,.18))}}
+.box{{position:absolute;left:0px;top:575px;height:784px;z-index:2;}}
 .cs{{position:absolute;left:80px;top:1240px;width:460px;height:44px;border-radius:50%;background:radial-gradient(ellipse at 55% 50%,rgba(0,0,0,.7),rgba(0,0,0,.35) 45%,transparent 72%);filter:blur(4px);z-index:1}}
 .disc{{position:absolute;left:40px;top:1214px;width:560px;height:100px;border-radius:50%;background:radial-gradient(ellipse at 50% 35%,#fff,#ECE6F2 60%,#D6CCE2);box-shadow:0 18px 28px rgba(0,0,0,.15)}}
 .cards{{position:absolute;left:630px;right:40px;top:560px;display:flex;flex-direction:column;gap:18px}}
@@ -62,7 +62,7 @@ html=f"""<div id="p"><div class="sheen"></div>
 <div class="l1"><span>منہ کھر</span> کی <span>ترکی</span> والی ویکسین</div>
 <div class="hero">AFTODOLL <i>JEL</i></div>
 <div class="sub"><b>منہ کھر</b> سے پکی حفاظت</div>
-<div class="disc"></div><div class="cs"></div><img class="box" src="file://{box}">
+<img class="box" src="file://{box}">
 <div class="cards">{cs}<div class="two"><div class="u">ویکسین ہمیشہ <b>وٹرنری ڈاکٹر</b> سے لگوائیں</div></div></div>
 <div class="note"><span>گائے</span>، بھینس، اونٹ، بھیڑ اور بکری کے لیے</div>
 <div class="chips">

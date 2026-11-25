@@ -61,8 +61,8 @@ css=f"""*{{margin:0;padding:0;box-sizing:border-box}}
 .t.cold .ic{{background:#1E88E5}}
 .t .tx{{flex:1;text-align:right}} .t .tx b{{display:block;font:900 17px Montserrat;letter-spacing:1px;color:{INK}}}
 .t .tx span{{display:block;direction:rtl;font:30px/1.55 Noori;color:#2a2a2e}} .t.cold .tx span em{{font-style:normal;color:#1E88E5;font-family:Aslam}} .t .tx span em{{font-style:normal;color:{T};font-family:Aslam}}
-.kt{{position:absolute;left:44px;right:44px;top:1742px;height:118px;border-radius:60px;background:#1B1B1F;display:flex;align-items:center;padding:0 34px 0 10px;gap:20px;box-shadow:0 14px 30px rgba(0,0,0,.18)}}
-.kt img{{width:100px;height:100px;border-radius:50%;background:#fff}}
+.kt{{position:absolute;left:44px;right:44px;top:1742px;height:118px;border-radius:60px;background:#1B1B1F;display:flex;align-items:center;padding:0 26px 0 22px;gap:20px;box-shadow:0 14px 30px rgba(0,0,0,.18)}}
+.kt img{{height:74px;margin-left:20px}} .kt .ph{{margin-left:auto}}
 .kt .nm{{flex:1;color:#fff}} .kt .nm b{{display:block;font:900 30px Montserrat;letter-spacing:1px}} .kt .nm i{{display:block;font-style:normal;font:600 15px Montserrat;letter-spacing:4px;color:#FFD400}}
 .kt .ph{{display:flex;align-items:center;gap:10px;background:#FFD400;color:#1B1B1F;border-radius:40px;padding:14px 24px;font:900 32px Montserrat;letter-spacing:.5px}}
 .ft{{position:absolute;bottom:22px;left:0;right:0;text-align:center;font:500 14px Montserrat;letter-spacing:5px;color:#8a8a90}}"""
@@ -83,7 +83,7 @@ html=f"""<div id="p"><div class="sheen"></div>
  <div class="k"><small>SHEEP &amp; GOAT</small><b>1 ML</b><i>50 doses / 50 ml</i></div>
  <div class="w"><small>STORAGE</small><b>2–8 °C</b><i>do not freeze</i></div></div>
 <div class="warn"><em>!</em>کھلی ہوئی شیشی 6 سے 8 گھنٹے میں استعمال کریں</div>
-<div class="kt"><img src="file://{R}/assets/logos/khyber-traders.png"><div class="nm"><b>KHYBER TRADERS</b><i>WHOLESALE VET STORE</i></div><div class="ph"><svg width="30" height="30" viewBox="0 0 24 24"><path fill="#1B1B1F" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .1-3.3-.8-2.8-1.1-4.5-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.3 0 .5l-.4.5-.3.4c-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.3 2.4 1.5.3.1.5.1.6-.1l.9-1c.2-.3.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.2.1.7-.1 1.2z"/></svg>0310-2999262</div></div>
+<div class="kt"><img src="file://{R}/assets/logos/khyber-traders-wordmark-white-red.png"><div class="ph"><svg width="30" height="30" viewBox="0 0 24 24"><path fill="#1B1B1F" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .1-3.3-.8-2.8-1.1-4.5-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.3 0 .5l-.4.5-.3.4c-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.3 2.4 1.5.3.1.5.1.6-.1l.9-1c.2-.3.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.2.1.7-.1 1.2z"/></svg>0310-2999262</div></div>
 <div class="ft">FOR VETERINARY USE ONLY · DOLLVET · TURKEY</div></div>"""
 out=d/"aftodoll-post.png"; job=d/"job.json"
 job.write_text(json.dumps({"width":1080,"height":1920,"scale":2,"css":css,"fonts":fonts,"states":[{"file":str(out),"html":html}]}))

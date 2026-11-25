@@ -18,7 +18,7 @@ from pathlib import Path
 R = Path(__file__).resolve().parents[2]
 OUT = R / "Video Edits/Export/posts-3x4"
 NUMBER = "0310-2999262"
-JSONS = ["heavy-gold", "heavy-gold-pouch", "mega-vmix", "power-vimix", "mega-tox", "mega-tox-clay", "hepta-sef",
+JSONS = ["heavy-gold", "heavy-gold-pouch", "buttery-milk", "mega-vmix", "power-vimix", "mega-tox", "mega-tox-clay", "hepta-sef",
          "gripe-water", "milkolin", "ratawa", "lacto-sol", "novasil", "novasil-colour", "ear-tags"]
 SCRIPTS = ["megatox_detail.py", "antox9_post.py", "tolomec_post.py", "aftodoll_post.py"]
 W, H, BAR = 1440, 1920, 150           # css px; scale 2 -> 2880x3840

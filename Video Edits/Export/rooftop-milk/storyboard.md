@@ -6,7 +6,7 @@ Naveed bhai's rooftop goats drink Buttery Milk straight from a bucket. Cold open
 
 ## Style taken from the reference
 
-Owner: 'use your intelligence, make it go viral'. TikTok formula: animal + Urdu hook fully visible at 0.0 s (white on red), cold open with the best shot (goats drinking), Noori+Aslam captions one line at a time, click SFX, name chip + 1kg=10L chip in the top safe area, Buttery Milk card when named, bright grade, 4K.
+Owner: 'use your intelligence, make it go viral'. TikTok formula: animal + Urdu hook fully visible at 0.0 s (white on red), cold open with the best shot (goats drinking), Noori+Aslam captions one line at a time, click SFX, name chip + 1kg=10L chip in the top safe area, Buttery Milk card when named, bright grade, 4K. Owner 2026-11-25: Naveed bhai's sticker only when he's introduced (fun pop, ~2.3 s); bag mockup moved from the drinking shot to the end reveal.
 
 ![overview](storyboard/overview.jpg)
 

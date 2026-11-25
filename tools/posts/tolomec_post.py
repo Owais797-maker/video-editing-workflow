@@ -15,8 +15,14 @@ fonts=[{"family":"Noori","path":F("JameelNooriNastaleeq-400.ttf"),"weight":400,"
  {"family":"Poppins","path":F("Poppins-800.ttf"),"weight":800,"style":"normal"}]
 d=R/"Video Edits/Export/tolomec-post"; w=d/"work"; w.mkdir(parents=True,exist_ok=True)
 im=Image.open(R/"Video Edits/Raw/tolomec/box2-crop-cutout.png").convert("RGBA"); a=im.split()[3]
-rgb=ImageEnhance.Brightness(im.convert("RGB")).enhance(1.18); rgb=ImageEnhance.Contrast(rgb).enhance(1.08); rgb=ImageEnhance.Color(rgb).enhance(1.1)
-rgb=rgb.filter(ImageFilter.UnsharpMask(2,60,2)); rgb.putalpha(a); box=w/"box.png"; rgb.save(box)
+x=np.asarray(im.convert("RGB")).astype(np.float32)/255
+lo=np.percentile(x[np.asarray(a)>128],1.5,axis=0); hi=np.percentile(x[np.asarray(a)>128],98.5,axis=0)
+x=np.clip((x-lo)/(hi-lo),0,1)                       # auto levels per channel (removes the grey/yellow cast)
+x=np.clip(x**0.85,0,1)                              # lift mid-tones
+x=0.5+(x-0.5)*1.12                                  # contrast
+rgb=Image.fromarray((np.clip(x,0,1)*255).astype("uint8"))
+rgb=ImageEnhance.Color(rgb).enhance(1.15).filter(ImageFilter.UnsharpMask(2,70,2))
+rgb.putalpha(a); box=w/"box.png"; rgb.save(box)
 T="#1C8C8C"; T2="#2BB3B0"; TD="#12605F"; RED="#C8202B"; INK="#1B1B1F"
 chk='<svg width="22" height="22" viewBox="0 0 24 24"><path d="M5 12.5l4.2 4.2L19 7" fill="none" stroke="#fff" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round"/></svg>'
 cards=[("IVERMECTIN 10 MG/ML","اسکن انجیکشن","Skin parasites · ticks, lice & mange"),

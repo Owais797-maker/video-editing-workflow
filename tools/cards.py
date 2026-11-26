@@ -194,6 +194,16 @@ CITIES = {  # lat, lon
 }
 
 
+def img_ok(emoji: str) -> bool:
+    """Download the Noto emoji PNG for the vehicle if it is not in assets/emoji yet."""
+    try:
+        from badge import emoji_png
+        emoji_png(emoji)
+        return True
+    except BaseException:  # badge.die() raises SystemExit
+        return False
+
+
 def trip_frame(c: dict, t: float, dur: float, W: int, H: int, th: dict, fade: float) -> str:
     """Tiny trip bar near the top: FROM ● - - - 🛺 - - - ● TO, the vehicle drives along the dashed line.
     Keys: from, to (labels), vehicle (emoji), x, y, w (0-1), rtl (true: drives right -> left, Urdu reading order),
@@ -206,7 +216,11 @@ def trip_frame(c: dict, t: float, dur: float, W: int, H: int, th: dict, fade: fl
     p = ease_out((t - 0.2) / float(c.get("drive_time", 1.6)))
     rtl = c.get("rtl", True)
     pad = h * 0.9
-    lx0, lx1 = pad + h * 1.6, w - pad - h * 1.6
+    fs = h * 0.42
+    l_lbl, r_lbl = (c.get("to", ""), c.get("from", "")) if c.get("rtl", True) else (c.get("from", ""), c.get("to", ""))
+    lw = lambda s: len(s) * fs * 0.68 + h * 0.5        # label width + gap, so long names never run over the line
+    lx0, lx1 = pad * .55 + max(h * 1.6, lw(l_lbl)), w - pad * .55 - max(h * 1.6, lw(r_lbl))
+    img_ok(c.get("vehicle", "🛺"))
     vx = (lx1 - (lx1 - lx0) * p) if rtl else (lx0 + (lx1 - lx0) * p)
     cps = "_".join(f"{ord(ch):x}" for ch in c.get("vehicle", "🛺") if ord(ch) != 0xFE0F)
     img = REPO / "assets" / "emoji" / f"{cps}.png"
@@ -214,7 +228,6 @@ def trip_frame(c: dict, t: float, dur: float, W: int, H: int, th: dict, fade: fl
     bounce = abs(math.sin(t * 18)) * h * 0.05
     flip = "scaleX(-1)" if not rtl else "none"
     left_lbl, right_lbl = (c.get("to", ""), c.get("from", "")) if rtl else (c.get("from", ""), c.get("to", ""))
-    fs = h * 0.42
     done_l = (lx1 - vx) if rtl else (vx - lx0)
     return (f'<div style="position:absolute;left:{x0:.0f}px;top:{y0:.0f}px;width:{w:.0f}px;height:{h:.0f}px;opacity:{fade:.3f};'
             f'border-radius:{h / 2:.0f}px;background:rgba(10,10,10,.55);border:1.5px solid rgba(255,255,255,.35);'

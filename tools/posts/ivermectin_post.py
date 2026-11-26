@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """Ivermectin 1% injection (Shanghai Gongyi, China) 9:16 info post: "qeemat mein kam, result mein dam", label facts only. Locked white series."""
-import json,subprocess
+import json,os,re,subprocess
 from pathlib import Path
 import numpy as np
 from PIL import Image, ImageFilter, ImageEnhance
@@ -84,8 +84,13 @@ html=f"""<div id="p"><div class="sheen"></div>
 <div class="warn"><em>!</em>دھوپ سے بچائیں، بچوں کی پہنچ سے دور رکھیں</div>
 <div class="kt"><img src="file://{R}/assets/logos/khyber-traders-wordmark-white-red.png"><div class="ph"><svg width="30" height="30" viewBox="0 0 24 24"><path fill="#1B1B1F" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .1-3.3-.8-2.8-1.1-4.5-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.3 0 .5l-.4.5-.3.4c-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.3 2.4 1.5.3.1.5.1.6-.1l.9-1c.2-.3.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.2.1.7-.1 1.2z"/></svg>0310-2999262</div></div>
 <div class="ft">FOR VETERINARY USE ONLY · SHANGHAI GONGYI · CHINA</div></div>"""
-out=d/"ivermectin-post.png"; job=d/"job.json"
+NOKT=bool(os.environ.get("NO_KT"))   # reseller version: no Khyber Traders bar
+if NOKT:
+    html=re.sub(r'<div class="kt">.*?</div></div>\n','',html,flags=re.S).replace('top:1640px','top:1700px')
+    css=css.replace('top:1640px','top:1700px')
+name="ivermectin-post-nokt" if NOKT else "ivermectin-post"
+out=d/f"{name}.png"; job=d/"job.json"
 job.write_text(json.dumps({"width":1080,"height":1920,"scale":2,"css":css,"fonts":fonts,"states":[{"file":str(out),"html":html}]}))
 subprocess.run(["node",str(R/"tools/htmlcaps/render.js"),str(job)],check=True,capture_output=True)
 job.unlink(); (d/"page.html").unlink(missing_ok=True)
-Image.open(out).convert("RGB").save(d/"ivermectin-post.jpg",quality=95); out.unlink(); print(d/"ivermectin-post.jpg")
+Image.open(out).convert("RGB").save(d/f"{name}.jpg",quality=95); out.unlink(); print(d/f"{name}.jpg")

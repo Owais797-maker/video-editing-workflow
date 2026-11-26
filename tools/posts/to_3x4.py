@@ -9,6 +9,7 @@ Each post script runs unchanged; its render job is intercepted: the 1080x1920 la
 (official wordmark + WhatsApp number) goes along the bottom. Output: Video Edits/Export/posts-3x4/<name>.jpg
 """
 import json
+import os
 import re
 import runpy
 import subprocess
@@ -37,6 +38,9 @@ def transform(job: dict, name: str) -> dict:
     html = re.sub(r'<bdi[^>]*>KHYBER TRADERS.*?</bdi>', '', html, flags=re.S)   # old KT pill (ratawa, lacto-sol-kt)
     bar = (f'<div id="kt3"><img src="file://{R}/assets/logos/khyber-traders-wordmark-white-red.png">'
            f'<div class="ph">{WA}{NUMBER}</div></div>')
+    if os.environ.get("NO_KT"):      # reseller version: no shop name / number, layout keeps its full size
+        bar = ""
+        job["css"] += "#wrap{transform:scale(1)!important;left:180px!important}"
     st["html"] = f'<div id="p"><div class="sheen"></div></div><div id="wrap">{html}</div>{bar}'
     st["file"] = str(OUT / f"{name}.jpg")
     job["width"], job["height"], job["scale"] = W, H, 2

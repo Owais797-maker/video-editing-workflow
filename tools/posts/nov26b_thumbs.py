@@ -61,7 +61,9 @@ fb = f"""<div id="p"><div class="rays"></div>
 <div class="prod"><img class="hg" src="file://{hg}"><img class="vb" src="file://{box}"></div>
 <div class="tr">{trip}</div><div class="ktw">{kt}</div></div>"""
 
-for name, w, h, css, html in [("tiktok-cover", 1080, 1920, tt_css, tt), ("facebook-thumbnail", 1920, 1080, fb_css, fb)]:
+nk = lambda x: x.replace('<div class="ktw">' + kt + '</div>', '')
+for name, w, h, css, html in [("tiktok-cover", 1080, 1920, tt_css, tt), ("facebook-thumbnail", 1920, 1080, fb_css, fb),
+                              ("tiktok-cover-nokt", 1080, 1920, tt_css, nk(tt)), ("facebook-thumbnail-nokt", 1920, 1080, fb_css, nk(fb))]:
     job = W / f"{name}.json"; png = W / f"{name}.png"
     job.write_text(json.dumps({"width": w, "height": h, "scale": 2, "css": css, "fonts": fonts, "states": [{"file": str(png), "html": html}]}))
     subprocess.run(["node", str(R / "tools/htmlcaps/render.js"), str(job)], check=True, capture_output=True)

@@ -60,6 +60,8 @@ from the owner's viral CapCut reel), with good SFX, in ultra 4K.
 `styles/product-posts/style.md` (white minimal series, Noori + Aslam + Montserrat + Poppins, product colours, no shop
 name/number for resellers). Make one with `python3 tools/posts/product_post.py tools/posts/<product>.json`.
 
+**VIDEOS = NO SHOP BRANDING (owner 2026-11-26):** never put the Khyber Traders name, logo or number inside a video (resellers repost them). Thumbnails/posts: make a with-KT and a `-nokt` version.
+
 **CUSTOMER STICKERS (owner 2026-11-22):** customer photo -> comic sticker + big bubbly text + name, `styles/customer-sticker/style.md`
 (`tools/posts/customer_sticker.py`, card for posts + transparent sticker PNG for video overlays).
 

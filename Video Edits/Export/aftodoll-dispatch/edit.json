@@ -1,0 +1,345 @@
+{
+ "project": "aftodoll-dispatch",
+ "style": "bold-clean",
+ "summary": "Dispatch of 8 Aftodoll jel FMD vaccines (Dollvet, Turkey, company stock) with full cold chain: out of the fridge, gel ice pack, double bag, handed to Ibrahim bhai for the highway. Owner's AI voice-over.",
+ "reference_notes": "Owner 2026-11-26: Urdu heading on frame 1, good Urdu captions (spelling checked, approved list), storage icons, light highway animation, colour correction, editing in the vaccine pack colours (purple #5B2A86 + orange #E8741E + white), eye-catching. Heading chosen by me: 'رکیے! ویکسین خریدنا ہی کافی نہیں!' on a purple plate (matches the first spoken word).",
+ "shots": [
+  {
+   "src": "dispatch.mov",
+   "in": 0.0,
+   "out": 21.3,
+   "description": "Fridge -> gel ice -> double bag on counter -> street hand-over to Ibrahim bhai",
+   "volume": 1.0,
+   "motion": {
+    "type": "zoom_in",
+    "amount": 0.04
+   },
+   "punch": [
+    [
+     0.0,
+     0.9
+    ],
+    [
+     6.36,
+     7.2
+    ],
+    [
+     17.9,
+     18.6
+    ]
+   ],
+   "punch_zoom": 1.06
+  }
+ ],
+ "captions": false,
+ "look": {
+  "cinematic": 0.45,
+  "brightness": 0.04,
+  "contrast": 1.08,
+  "saturation": 1.18,
+  "warmth": 0.01,
+  "denoise": 0.6,
+  "sharpen": 0.8,
+  "vignette": 0.25,
+  "grain": 2
+ },
+ "overlays": [
+  {
+   "file": "Video Edits/Raw/aftodoll-dispatch/urdu-heading.png",
+   "start": 0,
+   "end": 2.92,
+   "x": 0.5,
+   "y": 0.25,
+   "width": 0.8,
+   "animation": "none"
+  },
+  {
+   "file": "Video Edits/Raw/aftodoll-dispatch/storage.png",
+   "start": 3.9,
+   "end": 6.36,
+   "x": 0.46,
+   "y": 0.165,
+   "width": 0.74,
+   "animation": "pop"
+  },
+  {
+   "file": "Video Edits/Raw/aftodoll-dispatch/box-cutout.png",
+   "start": 6.36,
+   "end": 9.0,
+   "x": 0.5,
+   "y": 0.42,
+   "width": 0.44,
+   "animation": "rise"
+  },
+  {
+   "file": "Video Edits/Raw/aftodoll-dispatch/label.png",
+   "start": 6.5,
+   "end": 9.0,
+   "x": 0.46,
+   "y": 0.165,
+   "width": 0.78,
+   "animation": "pop"
+  },
+  {
+   "file": "Video Edits/Raw/aftodoll-dispatch/coldchain.png",
+   "start": 9.0,
+   "end": 10.8,
+   "x": 0.46,
+   "y": 0.165,
+   "width": 0.42,
+   "animation": "pop"
+  },
+  {
+   "file": "Video Edits/Raw/aftodoll-dispatch/eight.png",
+   "start": 16.68,
+   "end": 19.2,
+   "x": 0.46,
+   "y": 0.19,
+   "width": 0.56,
+   "animation": "pop"
+  },
+  {
+   "file": "Video Edits/Raw/aftodoll-dispatch/urdu-c3.png",
+   "start": 2.92,
+   "end": 4.38,
+   "x": 0.46,
+   "y": 0.72,
+   "width": 0.8,
+   "animation": "pop"
+  },
+  {
+   "file": "Video Edits/Raw/aftodoll-dispatch/urdu-c4a.png",
+   "start": 4.38,
+   "end": 5.12,
+   "x": 0.46,
+   "y": 0.72,
+   "width": 0.617,
+   "animation": "pop"
+  },
+  {
+   "file": "Video Edits/Raw/aftodoll-dispatch/urdu-c4b.png",
+   "start": 5.12,
+   "end": 6.36,
+   "x": 0.46,
+   "y": 0.72,
+   "width": 0.643,
+   "animation": "pop"
+  },
+  {
+   "file": "Video Edits/Raw/aftodoll-dispatch/urdu-c5a.png",
+   "start": 6.36,
+   "end": 7.34,
+   "x": 0.46,
+   "y": 0.72,
+   "width": 0.474,
+   "animation": "pop"
+  },
+  {
+   "file": "Video Edits/Raw/aftodoll-dispatch/urdu-c5b.png",
+   "start": 7.34,
+   "end": 9.0,
+   "x": 0.46,
+   "y": 0.72,
+   "width": 0.756,
+   "animation": "pop"
+  },
+  {
+   "file": "Video Edits/Raw/aftodoll-dispatch/urdu-c6a.png",
+   "start": 9.0,
+   "end": 9.82,
+   "x": 0.46,
+   "y": 0.72,
+   "width": 0.554,
+   "animation": "pop"
+  },
+  {
+   "file": "Video Edits/Raw/aftodoll-dispatch/urdu-c6b.png",
+   "start": 9.82,
+   "end": 10.8,
+   "x": 0.46,
+   "y": 0.72,
+   "width": 0.794,
+   "animation": "pop"
+  },
+  {
+   "file": "Video Edits/Raw/aftodoll-dispatch/urdu-c7a.png",
+   "start": 10.8,
+   "end": 11.5,
+   "x": 0.46,
+   "y": 0.72,
+   "width": 0.431,
+   "animation": "pop"
+  },
+  {
+   "file": "Video Edits/Raw/aftodoll-dispatch/urdu-c7b.png",
+   "start": 11.5,
+   "end": 12.76,
+   "x": 0.46,
+   "y": 0.72,
+   "width": 0.77,
+   "animation": "pop"
+  },
+  {
+   "file": "Video Edits/Raw/aftodoll-dispatch/urdu-c8.png",
+   "start": 12.76,
+   "end": 14.12,
+   "x": 0.46,
+   "y": 0.72,
+   "width": 0.722,
+   "animation": "pop"
+  },
+  {
+   "file": "Video Edits/Raw/aftodoll-dispatch/urdu-c9.png",
+   "start": 14.12,
+   "end": 15.58,
+   "x": 0.46,
+   "y": 0.72,
+   "width": 0.8,
+   "animation": "pop"
+  },
+  {
+   "file": "Video Edits/Raw/aftodoll-dispatch/urdu-c10.png",
+   "start": 15.58,
+   "end": 16.68,
+   "x": 0.46,
+   "y": 0.72,
+   "width": 0.711,
+   "animation": "pop"
+  },
+  {
+   "file": "Video Edits/Raw/aftodoll-dispatch/urdu-c11.png",
+   "start": 16.68,
+   "end": 18.16,
+   "x": 0.46,
+   "y": 0.72,
+   "width": 0.8,
+   "animation": "pop"
+  },
+  {
+   "file": "Video Edits/Raw/aftodoll-dispatch/urdu-c12.png",
+   "start": 18.16,
+   "end": 19.26,
+   "x": 0.46,
+   "y": 0.72,
+   "width": 0.8,
+   "animation": "pop"
+  },
+  {
+   "file": "Video Edits/Raw/aftodoll-dispatch/urdu-c13a.png",
+   "start": 19.26,
+   "end": 20.28,
+   "x": 0.46,
+   "y": 0.72,
+   "width": 0.8,
+   "animation": "pop"
+  },
+  {
+   "file": "Video Edits/Raw/aftodoll-dispatch/urdu-c13b.png",
+   "start": 20.28,
+   "end": 21.3,
+   "x": 0.46,
+   "y": 0.72,
+   "width": 0.574,
+   "animation": "pop"
+  }
+ ],
+ "backdrop": [
+  {
+   "start": 6.36,
+   "end": 9.0,
+   "blur": 12,
+   "dim": 0.22
+  }
+ ],
+ "cards": [
+  {
+   "type": "trip",
+   "start": 19.26,
+   "end": 21.3,
+   "from": "DENSO HALL",
+   "to": "HIGHWAY",
+   "vehicle": "📦",
+   "x": 0.46,
+   "y": 0.17,
+   "w": 0.72,
+   "h": 0.06,
+   "drive_time": 1.5,
+   "rtl": false
+  }
+ ],
+ "effects": [
+  {
+   "type": "light_leak",
+   "at": 0.0,
+   "dur": 0.5,
+   "color": "#E8741E"
+  },
+  {
+   "type": "blur_whip",
+   "at": 17.85,
+   "dur": 0.15
+  }
+ ],
+ "sfx_bank": "pro",
+ "sfx": [
+  {
+   "sound": "impact",
+   "at": 0.0,
+   "volume": 0.3
+  },
+  {
+   "sound": "whoosh_fast",
+   "at": 2.88,
+   "volume": 0.22
+  },
+  {
+   "sound": "pop",
+   "at": 3.9,
+   "volume": 0.28
+  },
+  {
+   "sound": "ding",
+   "at": 4.0,
+   "volume": 0.16
+  },
+  {
+   "sound": "swoosh_up",
+   "at": 6.3,
+   "volume": 0.22
+  },
+  {
+   "sound": "pop",
+   "at": 6.5,
+   "volume": 0.25
+  },
+  {
+   "sound": "pop",
+   "at": 9.0,
+   "volume": 0.28
+  },
+  {
+   "sound": "swish",
+   "at": 14.12,
+   "volume": 0.18
+  },
+  {
+   "sound": "pop",
+   "at": 16.7,
+   "volume": 0.28
+  },
+  {
+   "sound": "whoosh_fast",
+   "at": 17.8,
+   "volume": 0.2
+  },
+  {
+   "sound": "trr",
+   "at": 19.3,
+   "volume": 0.22
+  }
+ ],
+ "fade": {
+  "out": 0.3
+ },
+ "loudness": -14
+}

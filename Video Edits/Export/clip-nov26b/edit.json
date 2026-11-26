@@ -1,0 +1,243 @@
+{
+ "project": "clip-nov26b",
+ "style": "bold-clean",
+ "summary": "North Nazimabad delivery: 2 Aftodoll jel FMD vaccines (Turkey) + 2 bags Heavy Gold, taken by Mahad bhai. Owner's own voice.",
+ "reference_notes": "TikTok formula: big Urdu hook white on red plate on frame 1 ('North Nazimabad, puranay paisay walon ki pasand!'). Heavy Gold palette (royal blue + gold) for captions/chips, Aftodoll purple chip for the vaccine. Name pill on Mahad bhai, product pops on the punch words, bright grade, 4K.",
+ "shots": [
+  {
+   "src": "clip.mov",
+   "in": 0.0,
+   "out": 13.66,
+   "description": "Vaccines on Heavy Gold bag, bags on the bike, Mahad bhai, close-ups",
+   "volume": 1.0,
+   "motion": {
+    "type": "zoom_in",
+    "amount": 0.04
+   },
+   "punch": [
+    [
+     0.0,
+     0.8
+    ],
+    [
+     11.14,
+     11.7
+    ],
+    [
+     12.9,
+     13.66
+    ]
+   ],
+   "punch_zoom": 1.06
+  }
+ ],
+ "captions": false,
+ "look": {
+  "cinematic": 0.45,
+  "brightness": 0.05,
+  "contrast": 1.08,
+  "saturation": 1.18,
+  "warmth": 0.02,
+  "denoise": 0.6,
+  "sharpen": 0.8,
+  "vignette": 0.25,
+  "grain": 2
+ },
+ "overlays": [
+  {
+   "file": "Video Edits/Raw/clip-nov26b/urdu-heading.png",
+   "start": 0,
+   "end": 2.88,
+   "x": 0.46,
+   "y": 0.25,
+   "width": 0.78,
+   "animation": "none"
+  },
+  {
+   "file": "Video Edits/Raw/clip-nov26b/urdu-c1.png",
+   "start": 1.14,
+   "end": 2.88,
+   "x": 0.46,
+   "y": 0.72,
+   "width": 0.8,
+   "animation": "pop"
+  },
+  {
+   "file": "Video Edits/Raw/clip-nov26b/urdu-c2a.png",
+   "start": 2.88,
+   "end": 3.54,
+   "x": 0.46,
+   "y": 0.72,
+   "width": 0.47,
+   "animation": "pop"
+  },
+  {
+   "file": "Video Edits/Raw/clip-nov26b/urdu-c2b.png",
+   "start": 3.54,
+   "end": 4.38,
+   "x": 0.46,
+   "y": 0.72,
+   "width": 0.707,
+   "animation": "pop"
+  },
+  {
+   "file": "Video Edits/Raw/clip-nov26b/urdu-c3a.png",
+   "start": 4.38,
+   "end": 5.52,
+   "x": 0.46,
+   "y": 0.72,
+   "width": 0.456,
+   "animation": "pop"
+  },
+  {
+   "file": "Video Edits/Raw/clip-nov26b/urdu-c3b.png",
+   "start": 5.52,
+   "end": 6.7,
+   "x": 0.46,
+   "y": 0.72,
+   "width": 0.78,
+   "animation": "pop"
+  },
+  {
+   "file": "Video Edits/Raw/clip-nov26b/urdu-c4.png",
+   "start": 6.7,
+   "end": 8.3,
+   "x": 0.46,
+   "y": 0.72,
+   "width": 0.8,
+   "animation": "pop"
+  },
+  {
+   "file": "Video Edits/Raw/clip-nov26b/urdu-c5a.png",
+   "start": 8.3,
+   "end": 9.72,
+   "x": 0.46,
+   "y": 0.72,
+   "width": 0.8,
+   "animation": "pop"
+  },
+  {
+   "file": "Video Edits/Raw/clip-nov26b/urdu-c5b.png",
+   "start": 9.72,
+   "end": 11.68,
+   "x": 0.46,
+   "y": 0.72,
+   "width": 0.8,
+   "animation": "pop"
+  },
+  {
+   "file": "Video Edits/Raw/clip-nov26b/urdu-c6.png",
+   "start": 11.68,
+   "end": 13.66,
+   "x": 0.46,
+   "y": 0.72,
+   "width": 0.8,
+   "animation": "pop"
+  },
+  {
+   "file": "Video Edits/Raw/clip-nov26b/vac.png",
+   "start": 3.0,
+   "end": 4.9,
+   "x": 0.46,
+   "y": 0.19,
+   "width": 0.6,
+   "animation": "pop"
+  },
+  {
+   "file": "Video Edits/Raw/clip-nov26b/hg.png",
+   "start": 4.9,
+   "end": 5.9,
+   "x": 0.46,
+   "y": 0.19,
+   "width": 0.6,
+   "animation": "pop"
+  },
+  {
+   "file": "Video Edits/Raw/clip-nov26b/mahad.png",
+   "start": 5.95,
+   "end": 8.2,
+   "x": 0.28,
+   "y": 0.3,
+   "width": 0.34,
+   "animation": "pop"
+  },
+  {
+   "file": "Video Edits/Raw/aftodoll-dispatch/box-cutout.png",
+   "start": 11.7,
+   "end": 13.66,
+   "x": 0.5,
+   "y": 0.42,
+   "width": 0.36,
+   "animation": "pop"
+  }
+ ],
+ "backdrop": [
+  {
+   "start": 11.14,
+   "end": 13.66,
+   "blur": 12,
+   "dim": 0.25
+  }
+ ],
+ "effects": [
+  {
+   "type": "light_leak",
+   "at": 0.0,
+   "dur": 0.5,
+   "color": "#FFD400"
+  },
+  {
+   "type": "glitch",
+   "at": 11.66,
+   "dur": 0.15,
+   "amount": 10
+  }
+ ],
+ "sfx_bank": "pro",
+ "sfx": [
+  {
+   "sound": "impact",
+   "at": 0.0,
+   "volume": 0.3
+  },
+  {
+   "sound": "whoosh_fast",
+   "at": 2.85,
+   "volume": 0.22
+  },
+  {
+   "sound": "pop",
+   "at": 3.0,
+   "volume": 0.26
+  },
+  {
+   "sound": "pop",
+   "at": 4.9,
+   "volume": 0.26
+  },
+  {
+   "sound": "swoosh_up",
+   "at": 11.05,
+   "volume": 0.22
+  },
+  {
+   "sound": "ding",
+   "at": 11.2,
+   "volume": 0.16
+  },
+  {
+   "sound": "glitch",
+   "at": 11.66,
+   "volume": 0.14
+  },
+  {
+   "sound": "pop",
+   "at": 5.95,
+   "volume": 0.28
+  }
+ ],
+ "fade": {
+  "out": 0.3
+ },
+ "loudness": -14
+}

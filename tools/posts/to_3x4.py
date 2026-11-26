@@ -20,7 +20,7 @@ OUT = R / "Video Edits/Export/posts-3x4"
 NUMBER = "0310-2999262"
 JSONS = ["heavy-gold", "heavy-gold-pouch", "buttery-milk", "mega-vmix", "power-vimix", "mega-tox", "mega-tox-clay", "hepta-sef",
          "gripe-water", "milkolin", "ratawa", "lacto-sol", "novasil", "novasil-colour", "ear-tags"]
-SCRIPTS = ["megatox_detail.py", "antox9_post.py", "tolomec_post.py", "aftodoll_post.py"]
+SCRIPTS = ["megatox_detail.py", "antox9_post.py", "tolomec_post.py", "aftodoll_post.py", "ivermectin_post.py"]
 W, H, BAR = 1440, 1920, 150           # css px; scale 2 -> 2880x3840
 WA = ('<svg width="34" height="34" viewBox="0 0 24 24"><path fill="#1B1B1F" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .1-3.3-.8-2.8-1.1-4.5-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.3 0 .5l-.4.5-.3.4c-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.3 2.4 1.5.3.1.5.1.6-.1l.9-1c.2-.3.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.2.1.7-.1 1.2z"/></svg>')
 KT_CSS = f"""

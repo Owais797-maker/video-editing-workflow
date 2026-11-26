@@ -218,7 +218,8 @@ def trip_frame(c: dict, t: float, dur: float, W: int, H: int, th: dict, fade: fl
     pad = h * 0.9
     fs = h * 0.42
     l_lbl, r_lbl = (c.get("to", ""), c.get("from", "")) if c.get("rtl", True) else (c.get("from", ""), c.get("to", ""))
-    lw = lambda s: len(s) * fs * 0.68 + h * 0.5        # label width + gap, so long names never run over the line
+    fs = min(fs, (w * 0.58 - pad * 1.1 - h) / max(1, (len(l_lbl) + len(r_lbl)) * 0.7))   # long names: smaller text, line stays >= ~40%
+    lw = lambda s: len(s) * fs * 0.7 + h * 0.5        # label width + gap, so long names never run over the line
     lx0, lx1 = pad * .55 + max(h * 1.6, lw(l_lbl)), w - pad * .55 - max(h * 1.6, lw(r_lbl))
     img_ok(c.get("vehicle", "🛺"))
     vx = (lx1 - (lx1 - lx0) * p) if rtl else (lx0 + (lx1 - lx0) * p)

@@ -299,10 +299,10 @@
    "from": "DENSO HALL",
    "to": "NORTH NAZIMABAD",
    "vehicle": "🏍️",
-   "x": 0.46,
+   "x": 0.47,
    "y": 0.17,
-   "w": 0.84,
-   "h": 0.06,
+   "w": 0.88,
+   "h": 0.068,
    "drive_time": 1.8,
    "rtl": false,
    "color": "#FFD400"

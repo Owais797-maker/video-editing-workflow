@@ -2,7 +2,7 @@
  "project": "clip-nov26b",
  "style": "bold-clean",
  "summary": "North Nazimabad delivery: 2 Aftodoll jel FMD vaccines (Turkey) + 2 bags Heavy Gold, taken by Mahad bhai. Owner's own voice.",
- "reference_notes": "TikTok formula: big Urdu hook white on red plate on frame 1 ('North Nazimabad, puranay paisay walon ki pasand!'). Heavy Gold palette (royal blue + gold) for captions/chips, Aftodoll purple chip for the vaccine. Name pill on Mahad bhai, product pops on the punch words, bright grade, 4K.",
+ "reference_notes": "TikTok formula: big Urdu hook white on red plate on frame 1 ('North Nazimabad, puranay paisay walon ki pasand!'). Heavy Gold palette (royal blue + gold) for captions/chips, Aftodoll purple chip for the vaccine. Name pill on Mahad bhai, product pops on the punch words, bright grade, 4K. Owner 2026-11-26: stronger colour correction / enhanced colours, trip animation Denso Hall -> North Nazimabad with trr, click SFX on captions.",
  "shots": [
   {
    "src": "clip.mov",
@@ -33,15 +33,16 @@
  ],
  "captions": false,
  "look": {
-  "cinematic": 0.45,
-  "brightness": 0.05,
-  "contrast": 1.08,
-  "saturation": 1.18,
-  "warmth": 0.02,
+  "cinematic": 0.6,
+  "brightness": 0.06,
+  "contrast": 1.13,
+  "saturation": 1.32,
+  "warmth": 0.03,
   "denoise": 0.6,
-  "sharpen": 0.8,
-  "vignette": 0.25,
-  "grain": 2
+  "sharpen": 0.85,
+  "vignette": 0.3,
+  "grain": 2,
+  "gamma": 0.97
  },
  "overlays": [
   {
@@ -234,10 +235,77 @@
    "sound": "pop",
    "at": 5.95,
    "volume": 0.28
+  },
+  {
+   "sound": "trr",
+   "at": 8.5,
+   "volume": 0.24
+  },
+  {
+   "sound": "pro_click/soft",
+   "at": 1.14,
+   "volume": 0.24
+  },
+  {
+   "sound": "pro_click/soft",
+   "at": 2.88,
+   "volume": 0.24
+  },
+  {
+   "sound": "pro_click/soft",
+   "at": 3.54,
+   "volume": 0.24
+  },
+  {
+   "sound": "pro_click/soft",
+   "at": 4.38,
+   "volume": 0.24
+  },
+  {
+   "sound": "pro_click/soft",
+   "at": 5.52,
+   "volume": 0.24
+  },
+  {
+   "sound": "pro_click/soft",
+   "at": 6.7,
+   "volume": 0.24
+  },
+  {
+   "sound": "pro_click/soft",
+   "at": 8.3,
+   "volume": 0.24
+  },
+  {
+   "sound": "pro_click/soft",
+   "at": 9.72,
+   "volume": 0.24
+  },
+  {
+   "sound": "pro_click/soft",
+   "at": 11.68,
+   "volume": 0.24
   }
  ],
  "fade": {
   "out": 0.3
  },
- "loudness": -14
+ "loudness": -14,
+ "cards": [
+  {
+   "type": "trip",
+   "start": 8.3,
+   "end": 11.1,
+   "from": "DENSO HALL",
+   "to": "NORTH NAZIMABAD",
+   "vehicle": "🏍️",
+   "x": 0.46,
+   "y": 0.17,
+   "w": 0.84,
+   "h": 0.06,
+   "drive_time": 1.8,
+   "rtl": false,
+   "color": "#FFD400"
+  }
+ ]
 }

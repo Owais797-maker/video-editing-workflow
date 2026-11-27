@@ -50,6 +50,8 @@ css = f"""*{{margin:0;padding:0;box-sizing:border-box}}
 .pill i{{font-style:normal;color:{BUT}}}
 .cardw{{position:absolute;left:80px;right:80px;background:#fff;border-radius:44px;box-shadow:0 24px 60px rgba(0,0,0,.10);border:2px solid #E3E9E2}}
 .num{{font:900 300px/1 Montserrat;letter-spacing:-10px;counter-reset:n var(--n);animation-fill-mode:both}} .num::before{{content:counter(n)}}
+.credit{{position:absolute;left:50%;translate:-50% 0;display:flex;align-items:center;gap:16px;white-space:nowrap;background:#fff;border:4px solid {BUT};border-radius:60px;padding:2px 28px 8px;box-shadow:0 14px 30px rgba(0,0,0,.18);z-index:5}}
+.credit .cu{{direction:rtl;font:400 48px/1.7 Mehr;color:{INK}}} .credit .ce{{font:900 19px Montserrat;letter-spacing:3px;color:#9a7a00;margin-top:8px}}
 .bag{{position:absolute;filter:drop-shadow(0 30px 34px rgba(0,0,0,.25))}}
 """
 
@@ -62,6 +64,10 @@ def seq(name, t0):
     n = len(list((Q / name).glob("*.jpg")))
     return f'data-seq="{Q / name}" data-start="{t0:.2f}" data-n="{n}" data-fps="30" src="file://{Q / name}/0001.jpg"'
 en = lambda s: f'<span class="en">{s}</span>'
+def credit(t, y, ur, enl):
+    return (f'<div class="credit" style="top:{y}px;{at(t, "pop", .4)}"><span class="cu">{ur}</span><span class="ce">{enl}</span></div>')
+NAVEED = ("نوید گوٹ فارم", "NAVEED GOAT FARM")
+MAC = ("محمد احمد کیٹل فارم", "UMAIR NASEEM · MUHAMMAD AHMED CATTLE")
 top = '<div class="top"><b>BUTTERY</b> <i>MILK</i> &nbsp;·&nbsp; CALF MILK REPLACER</div>'
 def gauge(pct, col, t, label):
     off = 1131 * (1 - pct / 100)
@@ -74,8 +80,8 @@ sc_ = []
 a, b = S[0]
 sc_.append(sc(0, top +
     f'<div class="ur" style="position:absolute;top:220px;left:40px;right:40px;font-size:86px;line-height:1.7;{at(.05,"pop",.5)}">بکرا ہو یا بچھڑا، <b>وزن چاہیے؟</b></div>'
-    f'<div class="win" style="left:110px;right:110px;top:470px;height:880px;{at(.15)}"><img {seq("G1", 0.0)}></div>'
-    f'<div class="ur" style="position:absolute;top:1370px;left:40px;right:40px;font-size:84px;line-height:1.7;{at(2.56,"pop")}">تو دودھ بھی <b>تگڑا</b> چاہیے!</div>'))
+    f'<div class="win" style="left:110px;right:110px;top:470px;height:860px;{at(.15)}"><img {seq("G1", 0.0)}></div>' + credit(.5, 1290, *NAVEED) +
+    f'<div class="ur" style="position:absolute;top:1385px;left:40px;right:40px;font-size:82px;line-height:1.7;{at(2.56,"pop")}">تو دودھ بھی <b>تگڑا</b> چاہیے!</div>'))
 # 2 product reveal
 a, b = S[1]
 sc_.append(sc(1, top +
@@ -93,15 +99,14 @@ sc_.append(sc(2, top +
     f'<div class="ur" style="position:absolute;left:0;right:0;top:640px;font-size:66px;line-height:1.6;{at(a+.9,"pop")}"><b style="color:#C98A00">ملک فیٹ</b> یعنی مکھن والی چکنائی</div>'
     f'{drops}</div>'
     f'<div class="ur" style="position:absolute;top:1210px;left:40px;right:40px;font-size:82px;line-height:1.7;{at(7.28,"pop")}"><b>بھرپور طاقت،</b> بھرا بھرا جانور!</div>'))
-# 4 34% PROTEIN
+# 4 34% PROTEIN with muscular bull (Muhammad Ahmed Cattle, Umair Naseem bhai)
 a, b = S[3]
 sc_.append(sc(3, top +
-    f'<div class="cardw" style="top:260px;height:900px;{at(a,"up",.4)}">'
-    f'<div style="position:absolute;left:0;right:0;top:60px;display:flex;justify-content:center">{gauge(34, GREEN, a + .25, "")}</div>'
-    f'<div style="position:absolute;left:0;right:0;top:150px;text-align:center"><span class="num" style="--to:34;font-size:220px;animation:count 1.3s cubic-bezier(.2,.8,.2,1) {a + .25:.2f}s both"></span><span style="font:900 120px Montserrat">%</span></div>'
-    f'<div style="position:absolute;left:0;right:0;top:520px;text-align:center;font:900 92px Montserrat;letter-spacing:4px;color:{GREEN};{at(a+.6,"pop")}">PROTEIN</div>'
-    f'<div class="ur" style="position:absolute;left:0;right:0;top:640px;font-size:66px;line-height:1.6;{at(a+.9,"pop")}"><g>پروٹین</g> یعنی گوشت بنانے والا</div></div>'
-    f'<div class="ur" style="position:absolute;top:1210px;left:40px;right:40px;font-size:86px;line-height:1.7;{at(11.44,"pop")}"><b>گوشت</b> اور <b>پٹھے!</b> 💪</div>'))
+    f'<div style="position:absolute;top:220px;left:0;right:0;display:flex;align-items:center;justify-content:center;gap:26px;{at(a,"up",.4)}">'
+    f'<div><span class="num" style="--to:34;font-size:200px;color:{GREEN};animation:count 1.2s cubic-bezier(.2,.8,.2,1) {a + .2:.2f}s both"></span><span style="font:900 110px Montserrat;color:{GREEN}">%</span></div>'
+    f'<div style="text-align:left"><div style="font:900 84px/1 Montserrat;letter-spacing:3px">PROTEIN</div><div class="ur" style="text-align:left;font-size:50px;line-height:1.5"><g>پروٹین</g> یعنی گوشت بنانے والا</div></div></div>'
+    f'<div class="win" style="left:70px;right:70px;top:520px;height:620px;{at(a+.25)}"><img {seq("M", a)}></div>' + credit(a + .6, 1100, *MAC) +
+    f'<div class="ur" style="position:absolute;top:1230px;left:40px;right:40px;font-size:90px;line-height:1.7;{at(11.44,"pop")}"><b>گوشت</b> اور <b>پٹھے!</b> 💪</div>'))
 # 5 1 kg = 10 litre
 a, b = S[4]
 bottles = "".join(f'<div style="display:inline-block;margin:6px;{at(14.04 + i * .07, "pop", .3)}"><img src="file://{R}/assets/emoji/1f95b.png" style="width:86px;height:86px"></div>' for i in range(10))
@@ -116,8 +121,8 @@ sc_.append(sc(4, top +
 # 6 drinks eagerly, grows fast
 a, b = S[5]
 sc_.append(sc(5, top +
-    f'<div class="win" style="left:150px;right:150px;top:230px;height:780px;{at(a+.05)}"><img {seq("G2", a)}></div>'
-    f'<div class="cardw" style="top:1030px;height:300px;{at(16.76,"up",.4)}"><svg viewBox="0 0 900 300" style="width:100%;height:100%">'
+    f'<div class="win" style="left:150px;right:150px;top:230px;height:760px;{at(a+.05)}"><img {seq("G2", a)}></div>' + credit(a + .4, 950, *NAVEED) +
+    f'<div class="cardw" style="top:1050px;height:280px;{at(16.76,"up",.4)}"><svg viewBox="0 0 900 300" style="width:100%;height:100%">'
     f'<path d="M60 250 C 300 235, 560 170, 840 50" fill="none" stroke="{RED}" stroke-width="14" stroke-linecap="round" stroke-dasharray="1600" style="animation:draw 1.1s ease-out {16.9:.2f}s both"/>'
     f'<text x="60" y="290" font-size="28" fill="#888" font-family="Montserrat">WEIGHT ↑</text>'
     f'<image href="file://{goatpng}" x="790" y="-10" width="90" height="90" style="{at(17.6,"pop",.3)}"/><image href="file://{goatpng}" x="30" y="200" width="46" height="46"/></svg></div>'

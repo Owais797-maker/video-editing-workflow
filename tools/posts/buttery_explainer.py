@@ -71,7 +71,7 @@ MAC = ("محمد احمد کیٹل فارم", "UMAIR NASEEM · MUHAMMAD AHMED CA
 top = '<div class="top"><b>BUTTERY</b> <i>MILK</i> &nbsp;·&nbsp; CALF MILK REPLACER</div>'
 def gauge(pct, col, t, label):
     off = 1131 * (1 - pct / 100)
-    return (f'<svg viewBox="0 0 400 400" style="width:420px;height:420px"><circle cx="200" cy="200" r="180" fill="none" stroke="#EEF1EC" stroke-width="34"/>'
+    return (f'<svg viewBox="0 0 400 400" style="width:520px;height:520px"><circle cx="200" cy="200" r="180" fill="none" stroke="#EEF1EC" stroke-width="34"/>'
             f'<circle cx="200" cy="200" r="180" fill="none" stroke="{col}" stroke-width="34" stroke-linecap="round" stroke-dasharray="1131" '
             f'transform="rotate(-90 200 200)" style="--off:{off:.0f};animation:ring 1.3s cubic-bezier(.2,.8,.2,1) {t:.2f}s both"/></svg>')
 
@@ -93,10 +93,10 @@ a, b = S[2]
 drops = "".join(f'<div style="position:absolute;left:{x}px;top:250px;width:26px;height:36px;border-radius:50% 50% 50% 50%/60% 60% 40% 40%;background:{BUT};animation:drip 1.1s ease-in {a + .4 + d:.2f}s 3 both"></div>' for x, d in ((260, 0), (520, .35), (780, .7)))
 sc_.append(sc(2, top +
     f'<div class="cardw" style="top:260px;height:900px;{at(a,"up",.4)}">'
-    f'<div style="position:absolute;left:0;right:0;top:60px;display:flex;justify-content:center">{gauge(28, BUT, a + .25, "")}</div>'
-    f'<div style="position:absolute;left:0;right:0;top:150px;text-align:center;color:{INK}"><span class="num" style="--to:28;font-size:220px;animation:count 1.3s cubic-bezier(.2,.8,.2,1) {a + .25:.2f}s both"></span><span style="font:900 120px Montserrat">%</span></div>'
-    f'<div style="position:absolute;left:0;right:0;top:520px;text-align:center;font:900 92px Montserrat;letter-spacing:4px;color:{BUT};{at(a+.6,"pop")}">MILK FAT</div>'
-    f'<div class="ur" style="position:absolute;left:0;right:0;top:640px;font-size:66px;line-height:1.6;{at(a+.9,"pop")}"><b style="color:#C98A00">ملک فیٹ</b> یعنی مکھن والی چکنائی</div>'
+    f'<div style="position:absolute;left:0;right:0;top:40px;display:flex;justify-content:center">{gauge(28, BUT, a + .25, "")}</div>'
+    f'<div style="position:absolute;left:0;right:0;top:40px;height:520px;display:flex;align-items:center;justify-content:center;color:{INK}"><span class="num" style="--to:28;font-size:150px;letter-spacing:-6px;animation:count 1.3s cubic-bezier(.2,.8,.2,1) {a + .25:.2f}s both"></span><span style="font:900 80px Montserrat;margin-top:30px">%</span></div>'
+    f'<div style="position:absolute;left:0;right:0;top:590px;text-align:center;font:900 92px Montserrat;letter-spacing:4px;color:{BUT};{at(a+.6,"pop")}">MILK FAT</div>'
+    f'<div class="ur" style="position:absolute;left:0;right:0;top:700px;font-size:64px;line-height:1.6;{at(a+.9,"pop")}"><b style="color:#C98A00">ملک فیٹ</b> یعنی مکھن والی چکنائی</div>'
     f'{drops}</div>'
     f'<div class="ur" style="position:absolute;top:1210px;left:40px;right:40px;font-size:82px;line-height:1.7;{at(7.28,"pop")}"><b>بھرپور طاقت،</b> بھرا بھرا جانور!</div>'))
 # 4 34% PROTEIN with muscular bull (Muhammad Ahmed Cattle, Umair Naseem bhai)

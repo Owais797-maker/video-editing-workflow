@@ -2,7 +2,7 @@
  "project": "minerals-nov27",
  "style": "bold-clean",
  "summary": "Loader dispatch: 7 cartons Hepta Sef 5L, 7 cartons Life Gripe Water 5L, 10 bags Mega-VMix 25kg, 10 bags Power ViMix 5kg. Owner's voice.",
- "reference_notes": "Owner 2026-11-27: heading 'اعلیٰ کوالٹی کا منرل مکسچر', product pictures on slightly frosted transparent glass (not crystal), Urdu punch line per product (Hepta Sef, Gripe Water), map animation, good colour correction, 4K + 1080p, not heavy, reach-friendly. No KT branding in video. Source 720x1296 upscaled with Lanczos.",
+ "reference_notes": "Owner 2026-11-27: heading 'اعلیٰ کوالٹی کا منرل مکسچر', product pictures on slightly frosted transparent glass (not crystal), Urdu punch line per product (Hepta Sef, Gripe Water), map animation, good colour correction, 4K + 1080p, not heavy, reach-friendly. No KT branding in video. Source 720x1296 upscaled with Lanczos. Owner: route Karachi -> Gadap, then Gadap -> Super Highway (trip cards; local places are not on the Pakistan map card). Glass = clear transparent (crystal), not frosted.",
  "shots": [
   {
    "src": "clip.mov",
@@ -218,12 +218,11 @@
    "radius": 0.12,
    "start": 1.6,
    "end": 5.0,
-   "blur": 26,
-   "tint": 0.16,
-   "tint_color": "#FFFFFF",
-   "border": 0.6,
+   "tint": 0.06,
+   "border": 0.85,
    "border_width": 2.5,
-   "brightness": 0.02
+   "crystal": true,
+   "magnify": 1.0
   },
   {
    "x": 0.46,
@@ -233,12 +232,11 @@
    "radius": 0.12,
    "start": 5.0,
    "end": 8.2,
-   "blur": 26,
-   "tint": 0.16,
-   "tint_color": "#FFFFFF",
-   "border": 0.6,
+   "tint": 0.06,
+   "border": 0.85,
    "border_width": 2.5,
-   "brightness": 0.02
+   "crystal": true,
+   "magnify": 1.0
   },
   {
    "x": 0.46,
@@ -248,12 +246,11 @@
    "radius": 0.12,
    "start": 8.3,
    "end": 12.2,
-   "blur": 26,
-   "tint": 0.16,
-   "tint_color": "#FFFFFF",
-   "border": 0.6,
+   "tint": 0.06,
+   "border": 0.85,
    "border_width": 2.5,
-   "brightness": 0.02
+   "crystal": true,
+   "magnify": 1.0
   },
   {
    "x": 0.46,
@@ -263,12 +260,11 @@
    "radius": 0.12,
    "start": 12.3,
    "end": 19.4,
-   "blur": 26,
-   "tint": 0.16,
-   "tint_color": "#FFFFFF",
-   "border": 0.6,
+   "tint": 0.06,
+   "border": 0.85,
    "border_width": 2.5,
-   "brightness": 0.02
+   "crystal": true,
+   "magnify": 1.0
   }
  ],
  "effects": [
@@ -360,10 +356,57 @@
    "sound": "swish",
    "at": 12.8,
    "volume": 0.18
+  },
+  {
+   "sound": "trr",
+   "at": 19.7,
+   "volume": 0.22
+  },
+  {
+   "sound": "whoosh_fast",
+   "at": 22.62,
+   "volume": 0.2
+  },
+  {
+   "sound": "trr",
+   "at": 22.9,
+   "volume": 0.22
   }
  ],
  "fade": {
   "out": 0.3
  },
- "loudness": -14
+ "loudness": -14,
+ "cards": [
+  {
+   "type": "trip",
+   "start": 19.5,
+   "end": 22.7,
+   "from": "KARACHI",
+   "to": "GADAP",
+   "vehicle": "🛺",
+   "x": 0.46,
+   "y": 0.2,
+   "w": 0.82,
+   "h": 0.068,
+   "drive_time": 2.2,
+   "rtl": false,
+   "color": "#FFD400"
+  },
+  {
+   "type": "trip",
+   "start": 22.7,
+   "end": 25.76,
+   "from": "GADAP",
+   "to": "SUPER HIGHWAY",
+   "vehicle": "🛺",
+   "x": 0.46,
+   "y": 0.2,
+   "w": 0.82,
+   "h": 0.068,
+   "drive_time": 2.2,
+   "rtl": false,
+   "color": "#FFD400"
+  }
+ ]
 }

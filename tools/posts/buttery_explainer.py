@@ -109,13 +109,13 @@ sc_.append(sc(3, top +
     f'<div class="ur" style="position:absolute;top:1230px;left:40px;right:40px;font-size:90px;line-height:1.7;{at(11.44,"pop")}"><b>گوشت</b> اور <b>پٹھے!</b> 💪</div>'))
 # 5 1 kg = 10 litre
 a, b = S[4]
-bottles = "".join(f'<div style="display:inline-block;margin:6px;{at(14.04 + i * .07, "pop", .3)}"><img src="file://{R}/assets/emoji/1f95b.png" style="width:86px;height:86px"></div>' for i in range(10))
+bottles = "".join(f'<div style="display:inline-block;margin:6px;{at(14.04 + i * .07, "pop", .3)}"><img src="file://{R}/assets/emoji/1f95b.png" style="width:96px;height:96px"></div>' for i in range(10))
 sc_.append(sc(4, top +
     f'<div style="position:absolute;top:250px;left:0;right:0;display:flex;align-items:center;justify-content:center;gap:30px">'
     f'<img src="file://{bag}" style="height:420px;filter:drop-shadow(0 20px 24px rgba(0,0,0,.22));{at(a,"pop",.4)}">'
     f'<div style="font:900 110px Montserrat;color:{RED};{at(a+.3,"pop")}">=</div>'
     f'<div style="text-align:center;{at(14.04,"pop")}"><div style="font:900 200px/1 Montserrat;color:{BLUE}">10</div><div style="font:900 54px Montserrat;letter-spacing:6px">LITRE</div></div></div>'
-    f'<div style="position:absolute;top:760px;left:110px;right:110px;text-align:center;background:#fff;border-radius:40px;padding:26px;box-shadow:0 20px 50px rgba(0,0,0,.1)">{bottles}</div>'
+    f'<div style="position:absolute;top:740px;left:50%;translate:-50% 0;width:640px;text-align:center;background:#fff;border-radius:40px;padding:22px 20px;box-shadow:0 20px 50px rgba(0,0,0,.1)">{bottles}</div>'
     f'<div class="ur" style="position:absolute;top:1120px;left:40px;right:40px;font-size:96px;line-height:1.7;{at(a+.15,"pop")}"><b>ایک کلو</b> پاؤڈر، <b>دس لیٹر</b> دودھ!</div>'
     f'<div class="pill" style="top:1350px;background:{GREEN};{at(a+.5,"pop")}">1 KG = <i>10 LITRE</i></div>'))
 # 6 drinks eagerly, grows fast

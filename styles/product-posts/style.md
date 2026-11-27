@@ -34,3 +34,6 @@ Look at the full image, fix anything touching the edges or covering bag text, co
   thumbnail, name (Montserrat Black), size line, price in red Poppins; small TURKEY tag on Mega-Tox / Mega-VMix.
 - WhatsApp DPs (`Export/whatsapp-dp/`, `Export/dp-muddassir/`): red ring badge, red/white, name big red
   Poppins, red pill, line-art cow + goat drawn from the owner's own photos (owner wants sketches, never photos).
+
+## Owner 2026-11-27: less Aslam
+Aslam is too heavy when used everywhere ("bohat mota, samajh nahi aata"). Use Jameel Noori Nastaleeq for Urdu lines and Mehr Nastaliq for the big Urdu hook line; Aslam only for a single short accent word, if at all. Example: tools/posts/calsol_post.py.

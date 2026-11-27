@@ -2,7 +2,7 @@
  "project": "lania-gulshan",
  "style": "bold-clean",
  "summary": "Dispatch for Asif Lania sahab (famous cattle farmer, Gulshan-e-Iqbal) and his son Sufyan Lania: Buttery Milk, Gripe Water, Ivermectin, under Sheikh sahab's supervision. Neither Lania is in the footage.",
- "reference_notes": "Owner 2026-11-27: captions; 'Gulshan-e-Iqbal ke mashhoor cattle farmer Asif Lania' must be prominent (hook + captions; owner said cattle farmer, the voice says 'builder'); Buttery Milk punch 'janwaron ka wazan tezi se barhane wala'; rider animation to Gulshan with trr + click sounds; export so it stays sharp on Facebook/TikTok/WhatsApp status (4K + 1080p + WhatsApp file). No KT branding, no photos of the Lanias.",
+ "reference_notes": "Owner 2026-11-27: captions; 'Gulshan-e-Iqbal ke mashhoor cattle farmer Asif Lania' must be prominent (hook + captions; owner said cattle farmer, the voice says 'builder'); Buttery Milk punch 'janwaron ka wazan tezi se barhane wala'; rider animation to Gulshan with trr + click sounds; export so it stays sharp on Facebook/TikTok/WhatsApp status (4K + 1080p + WhatsApp file). No KT branding, no photos of the Lanias. Owner: Asif Lania is a famous builder AND cattle farmer: building skyline emojis rise on 'builder', cattle pop on 'cattle'.",
  "shots": [
   {
    "src": "clip.mov",
@@ -53,24 +53,6 @@
    "y": 0.24,
    "width": 0.72,
    "animation": "none"
-  },
-  {
-   "file": "Video Edits/Raw/lania-gulshan/urdu-c1.png",
-   "start": 0.0,
-   "end": 2.4,
-   "x": 0.46,
-   "y": 0.74,
-   "width": 0.8,
-   "animation": "pop"
-  },
-  {
-   "file": "Video Edits/Raw/lania-gulshan/urdu-c2.png",
-   "start": 2.4,
-   "end": 4.8,
-   "x": 0.46,
-   "y": 0.74,
-   "width": 0.722,
-   "animation": "pop"
   },
   {
    "file": "Video Edits/Raw/lania-gulshan/urdu-c3.png",
@@ -206,6 +188,87 @@
    "x": 0.8,
    "y": 0.62,
    "width": 0.12,
+   "animation": "pop"
+  },
+  {
+   "file": "Video Edits/Raw/lania-gulshan/urdu-c1.png",
+   "start": 0.0,
+   "end": 2.4,
+   "x": 0.46,
+   "y": 0.74,
+   "width": 0.8,
+   "animation": "pop"
+  },
+  {
+   "file": "Video Edits/Raw/lania-gulshan/urdu-c1b.png",
+   "start": 2.4,
+   "end": 3.5,
+   "x": 0.46,
+   "y": 0.74,
+   "width": 0.6,
+   "animation": "pop"
+  },
+  {
+   "file": "Video Edits/Raw/lania-gulshan/urdu-c2.png",
+   "start": 3.5,
+   "end": 4.8,
+   "x": 0.46,
+   "y": 0.74,
+   "width": 0.722,
+   "animation": "pop"
+  },
+  {
+   "emoji": "🏗️",
+   "start": 1.95,
+   "end": 3.0,
+   "x": 0.24,
+   "y": 0.47,
+   "width": 0.14,
+   "animation": "rise"
+  },
+  {
+   "emoji": "🏢",
+   "start": 2.1,
+   "end": 3.0,
+   "x": 0.4,
+   "y": 0.47,
+   "width": 0.14,
+   "animation": "rise"
+  },
+  {
+   "emoji": "🏙️",
+   "start": 2.25,
+   "end": 3.0,
+   "x": 0.56,
+   "y": 0.47,
+   "width": 0.14,
+   "animation": "rise"
+  },
+  {
+   "emoji": "🏬",
+   "start": 2.4,
+   "end": 3.0,
+   "x": 0.71,
+   "y": 0.47,
+   "width": 0.14,
+   "animation": "rise"
+  },
+  {
+   "emoji": "🐄",
+   "start": 2.95,
+   "end": 3.6,
+   "x": 0.36,
+   "y": 0.47,
+   "width": 0.14,
+   "animation": "pop"
+  },
+  {
+   "emoji": "🐐",
+   "start": 3.05,
+   "end": 3.6,
+   "x": 0.56,
+   "y": 0.47,
+   "width": 0.14,
    "animation": "pop"
   }
  ],
@@ -368,6 +431,36 @@
    "sound": "keys",
    "at": 13.8,
    "volume": 0.3
+  },
+  {
+   "sound": "riser",
+   "at": 1.6,
+   "volume": 0.14
+  },
+  {
+   "sound": "pop",
+   "at": 1.97,
+   "volume": 0.18
+  },
+  {
+   "sound": "pop",
+   "at": 2.12,
+   "volume": 0.18
+  },
+  {
+   "sound": "pop",
+   "at": 2.27,
+   "volume": 0.18
+  },
+  {
+   "sound": "pop",
+   "at": 2.42,
+   "volume": 0.18
+  },
+  {
+   "sound": "ding",
+   "at": 2.95,
+   "volume": 0.14
   }
  ],
  "fade": {

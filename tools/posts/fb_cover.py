@@ -9,7 +9,7 @@ fonts=[{"family":"Montserrat","path":F("Montserrat-900.ttf"),"weight":900,"style
  {"family":"Poppins","path":F("Poppins-700.ttf"),"weight":700,"style":"normal"},{"family":"Poppins","path":F("Poppins-800.ttf"),"weight":800,"style":"normal"},
  {"family":"Noori","path":F("JameelNooriNastaleeq-400.ttf"),"weight":400,"style":"normal"},{"family":"Aslam","path":F("Aslam-400.ttf"),"weight":400,"style":"normal"}]
 RED="#D9232E"; INK="#1B1B1F"; RV=R/"Video Edits/Raw"
-prods=[RV/"heavy-gold/heavy-gold-bag-cutout.png",RV/"butter-milk/butter-milk-bag-cutout.png",RV/"three-products/hepta-sef-cutout.png",RV/"mega-vmix/mega-vmix-bag-cutout.png"]
+prods=[RV/"heavy-gold/heavy-gold-bag-cutout.png",RV/"butter-milk/butter-milk-bag-cutout-noprice.png",RV/"three-products/hepta-sef-cutout.png",RV/"mega-vmix/mega-vmix-bag-cutout.png"]
 css=f"""*{{margin:0;padding:0;box-sizing:border-box}}
 #p{{position:absolute;inset:0;overflow:hidden;font-family:Poppins;color:{INK};background:radial-gradient(ellipse 70% 90% at 30% 50%,#FFFFFF 0%,#F4F4F5 55%,#E4E4E7 100%)}}
 .sheen{{position:absolute;inset:0;background:linear-gradient(110deg,transparent 40%,rgba(255,255,255,.6) 50%,transparent 60%)}}
@@ -34,3 +34,19 @@ job.write_text(json.dumps({"width":1640,"height":624,"scale":2,"css":css,"fonts"
 subprocess.run(["node",str(R/"tools/htmlcaps/render.js"),str(job)],check=True,capture_output=True)
 job.unlink(); (d/"page.html").unlink(missing_ok=True)
 Image.open(out).convert("RGB").save(d/"fb-cover.jpg",quality=95); out.unlink(); print(d/"fb-cover.jpg")
+
+# YouTube banner 2560x1440: everything inside the 1546x423 centre safe area (visible on phones, TV and desktop)
+yt_css=css.replace(".txt{{position:absolute;left:230px;top:112px}}".replace("{{","{").replace("}}","}"),"")
+yt_css+=""".safe{position:absolute;left:507px;top:508px;width:1546px;height:423px}
+.safe .txt{position:absolute;left:40px;top:10px;transform:scale(.78);transform-origin:0 0}
+.safe .prods{right:40px;bottom:22px} .safe .disc{right:20px;bottom:0;width:600px}"""
+yt=f"""<div id="p"><div class="sheen"></div><div class="bar"></div><div class="safe">
+<div class="txt"><div class="kw">KHYBER <i>WALA</i></div><div class="nm">“Owais”</div>
+<div class="pill">WHOLESALE VET STORE</div><div class="u">جانوروں کی <span>صحت</span>، ہماری ذمہ داری</div>
+<div class="ph">DENSO HALL · KARACHI</div></div>
+<div class="disc"></div><div class="prods">{"".join(f'<img src="file://{p}" style="height:{h}px">' for p,h in zip(prods,[300,314,240,300]))}</div></div></div>"""
+out2=d/"yt-banner.png"
+job.write_text(json.dumps({"width":2560,"height":1440,"scale":1.5,"css":yt_css,"fonts":fonts,"states":[{"file":str(out2),"html":yt}]}))
+subprocess.run(["node",str(R/"tools/htmlcaps/render.js"),str(job)],check=True,capture_output=True)
+job.unlink(); (d/"page.html").unlink(missing_ok=True)
+Image.open(out2).convert("RGB").resize((2560,1440),Image.LANCZOS).save(d/"yt-banner.jpg",quality=95); out2.unlink(); print(d/"yt-banner.jpg")

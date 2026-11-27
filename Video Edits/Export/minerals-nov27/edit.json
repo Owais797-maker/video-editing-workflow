@@ -222,7 +222,10 @@
    "border": 0.85,
    "border_width": 2.5,
    "crystal": true,
-   "magnify": 1.0
+   "magnify": 1.0,
+   "blur": 0.4,
+   "brightness": 0.02,
+   "saturation": 1.0
   },
   {
    "x": 0.46,
@@ -236,7 +239,10 @@
    "border": 0.85,
    "border_width": 2.5,
    "crystal": true,
-   "magnify": 1.0
+   "magnify": 1.0,
+   "blur": 0.4,
+   "brightness": 0.02,
+   "saturation": 1.0
   },
   {
    "x": 0.46,
@@ -250,7 +256,10 @@
    "border": 0.85,
    "border_width": 2.5,
    "crystal": true,
-   "magnify": 1.0
+   "magnify": 1.0,
+   "blur": 0.4,
+   "brightness": 0.02,
+   "saturation": 1.0
   },
   {
    "x": 0.46,
@@ -264,7 +273,10 @@
    "border": 0.85,
    "border_width": 2.5,
    "crystal": true,
-   "magnify": 1.0
+   "magnify": 1.0,
+   "blur": 0.4,
+   "brightness": 0.02,
+   "saturation": 1.0
   }
  ],
  "effects": [

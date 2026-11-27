@@ -1,0 +1,293 @@
+{
+ "project": "antox-f12",
+ "style": "bold-clean",
+ "summary": "Memon Communication (front shop, Saddar) takes 2 Antox 9 + 1 Aftodoll jel; Muzammil bhai and Faizan bhai at the counter. Owner's voice.",
+ "reference_notes": "Owner 2026-11-27: Antox + Aftodoll mockups ('F12' = Aftodoll), strong edit, no photos of the people named, 4K, colour correction, no approvals. Aftodoll purple + orange palette, hook 'صدر کراچی سے ویکسین کا آرڈر!', crystal glass product cards with Urdu punch lines, trip card Denso Hall -> Saddar at the end. No KT branding. First 8 s transcribed without VAD (Whisper VAD dropped it).",
+ "shots": [
+  {
+   "src": "clip.mov",
+   "in": 0.0,
+   "out": 11.56,
+   "description": "Counter: Antox 9 boxes, Aftodoll, handshake, bag",
+   "volume": 1.0,
+   "motion": {
+    "type": "zoom_in",
+    "amount": 0.04
+   },
+   "punch": [
+    [
+     0.0,
+     0.7
+    ],
+    [
+     8.0,
+     8.8
+    ]
+   ],
+   "punch_zoom": 1.06
+  }
+ ],
+ "captions": false,
+ "look": {
+  "cinematic": 0.55,
+  "brightness": 0.05,
+  "contrast": 1.1,
+  "saturation": 1.25,
+  "warmth": 0.02,
+  "gamma": 0.97,
+  "denoise": 0.6,
+  "sharpen": 0.8,
+  "vignette": 0.28,
+  "grain": 1
+ },
+ "overlays": [
+  {
+   "file": "Video Edits/Raw/antox-f12/urdu-heading.png",
+   "start": 0,
+   "end": 2.7,
+   "x": 0.46,
+   "y": 0.25,
+   "width": 0.68,
+   "animation": "none"
+  },
+  {
+   "file": "Video Edits/Raw/antox-f12/urdu-c1.png",
+   "start": 0.0,
+   "end": 1.3,
+   "x": 0.46,
+   "y": 0.74,
+   "width": 0.8,
+   "animation": "pop"
+  },
+  {
+   "file": "Video Edits/Raw/antox-f12/urdu-c2.png",
+   "start": 1.3,
+   "end": 2.7,
+   "x": 0.46,
+   "y": 0.74,
+   "width": 0.8,
+   "animation": "pop"
+  },
+  {
+   "file": "Video Edits/Raw/antox-f12/urdu-c3a.png",
+   "start": 2.7,
+   "end": 4.2,
+   "x": 0.46,
+   "y": 0.74,
+   "width": 0.72,
+   "animation": "pop"
+  },
+  {
+   "file": "Video Edits/Raw/antox-f12/urdu-c3b.png",
+   "start": 4.2,
+   "end": 5.6,
+   "x": 0.46,
+   "y": 0.74,
+   "width": 0.8,
+   "animation": "pop"
+  },
+  {
+   "file": "Video Edits/Raw/antox-f12/urdu-c4a.png",
+   "start": 5.6,
+   "end": 6.7,
+   "x": 0.46,
+   "y": 0.74,
+   "width": 0.767,
+   "animation": "pop"
+  },
+  {
+   "file": "Video Edits/Raw/antox-f12/urdu-c4b.png",
+   "start": 6.7,
+   "end": 8.0,
+   "x": 0.46,
+   "y": 0.74,
+   "width": 0.8,
+   "animation": "pop"
+  },
+  {
+   "file": "Video Edits/Raw/antox-f12/urdu-c5.png",
+   "start": 8.0,
+   "end": 10.1,
+   "x": 0.46,
+   "y": 0.74,
+   "width": 0.8,
+   "animation": "pop"
+  },
+  {
+   "file": "Video Edits/Raw/antox-f12/urdu-c6.png",
+   "start": 10.1,
+   "end": 11.56,
+   "x": 0.46,
+   "y": 0.74,
+   "width": 0.8,
+   "animation": "pop"
+  },
+  {
+   "file": "Video Edits/Raw/antox9/box-crop-cutout.png",
+   "start": 2.8,
+   "end": 4.35,
+   "x": 0.42,
+   "y": 0.48,
+   "width": 0.15,
+   "animation": "rise"
+  },
+  {
+   "file": "Video Edits/Raw/antox-f12/qa.png",
+   "start": 2.85,
+   "end": 4.35,
+   "x": 0.42,
+   "y": 0.365,
+   "width": 0.404,
+   "animation": "pop"
+  },
+  {
+   "file": "Video Edits/Raw/antox-f12/urdu-p1.png",
+   "start": 3.15,
+   "end": 4.35,
+   "x": 0.42,
+   "y": 0.625,
+   "width": 0.46,
+   "animation": "pop"
+  },
+  {
+   "file": "Video Edits/Raw/aftodoll/box-cutout.png",
+   "start": 4.45,
+   "end": 6.2,
+   "x": 0.42,
+   "y": 0.48,
+   "width": 0.2,
+   "animation": "rise"
+  },
+  {
+   "file": "Video Edits/Raw/antox-f12/qf.png",
+   "start": 4.5,
+   "end": 6.2,
+   "x": 0.42,
+   "y": 0.365,
+   "width": 0.493,
+   "animation": "pop"
+  },
+  {
+   "file": "Video Edits/Raw/antox-f12/urdu-p2.png",
+   "start": 4.800000000000001,
+   "end": 6.2,
+   "x": 0.42,
+   "y": 0.625,
+   "width": 0.46,
+   "animation": "pop"
+  }
+ ],
+ "glass": [
+  {
+   "crystal": true,
+   "x": 0.42,
+   "y": 0.5,
+   "w": 0.5,
+   "h": 0.3,
+   "radius": 0.12,
+   "start": 2.75,
+   "end": 4.35,
+   "tint": 0.06,
+   "border": 0.85,
+   "border_width": 2.5,
+   "magnify": 1.0,
+   "blur": 0.4,
+   "brightness": 0.02,
+   "saturation": 1.0
+  },
+  {
+   "crystal": true,
+   "x": 0.42,
+   "y": 0.5,
+   "w": 0.5,
+   "h": 0.3,
+   "radius": 0.12,
+   "start": 4.4,
+   "end": 6.2,
+   "tint": 0.06,
+   "border": 0.85,
+   "border_width": 2.5,
+   "magnify": 1.0,
+   "blur": 0.4,
+   "brightness": 0.02,
+   "saturation": 1.0
+  }
+ ],
+ "cards": [
+  {
+   "type": "trip",
+   "start": 10.1,
+   "end": 11.56,
+   "from": "DENSO HALL",
+   "to": "SADDAR",
+   "vehicle": "🛍️",
+   "x": 0.46,
+   "y": 0.145,
+   "w": 0.7,
+   "h": 0.06,
+   "drive_time": 1.1,
+   "rtl": false,
+   "color": "#E8741E"
+  }
+ ],
+ "effects": [
+  {
+   "type": "light_leak",
+   "at": 0.0,
+   "dur": 0.5,
+   "color": "#E8741E"
+  },
+  {
+   "type": "blur_whip",
+   "at": 4.35,
+   "dur": 0.12
+  }
+ ],
+ "sfx_bank": "pro",
+ "sfx": [
+  {
+   "sound": "impact",
+   "at": 0.0,
+   "volume": 0.3
+  },
+  {
+   "sound": "whoosh_fast",
+   "at": 2.65,
+   "volume": 0.2
+  },
+  {
+   "sound": "pop",
+   "at": 2.85,
+   "volume": 0.24
+  },
+  {
+   "sound": "whoosh_fast",
+   "at": 4.32,
+   "volume": 0.18
+  },
+  {
+   "sound": "pop",
+   "at": 4.5,
+   "volume": 0.24
+  },
+  {
+   "sound": "swish",
+   "at": 6.7,
+   "volume": 0.18
+  },
+  {
+   "sound": "ding",
+   "at": 8.05,
+   "volume": 0.14
+  },
+  {
+   "sound": "trr",
+   "at": 10.2,
+   "volume": 0.2
+  }
+ ],
+ "fade": {
+  "out": 0.3
+ },
+ "loudness": -14
+}

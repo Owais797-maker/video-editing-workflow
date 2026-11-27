@@ -15,7 +15,7 @@ fonts=[{"family":"Noori","path":F("JameelNooriNastaleeq-400.ttf"),"weight":400,"
  {"family":"Poppins","path":F("Poppins-700.ttf"),"weight":700,"style":"normal"},
  {"family":"Poppins","path":F("Poppins-800.ttf"),"weight":800,"style":"normal"}]
 d=R/"Video Edits/Export/calsol-post"; w=d/"work"; w.mkdir(parents=True,exist_ok=True)
-im=Image.open(R/"Video Edits/Raw/calsol-d/bottle-grounded.png").convert("RGBA"); a=im.split()[3]
+im=Image.open(R/"Video Edits/Raw/calsol-d/bottle-clean-grounded.png").convert("RGBA"); a=im.split()[3]
 x=np.asarray(im.convert("RGB")).astype(np.float32)/255
 lo=np.percentile(x[np.asarray(a)>128],1.5,axis=0); hi=np.percentile(x[np.asarray(a)>128],98.5,axis=0)
 x=np.clip((x-lo)/(hi-lo),0,1)                       # auto levels per channel (removes the grey/yellow cast)

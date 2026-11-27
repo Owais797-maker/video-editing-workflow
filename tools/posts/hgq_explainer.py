@@ -14,7 +14,8 @@ F = lambda g: str(next(R.joinpath("fonts").rglob(g)))
 fonts = [{"family": "Noori", "path": F("JameelNooriNastaleeq-400.ttf"), "weight": 400, "style": "normal"},
          {"family": "Aslam", "path": F("Aslam-400.ttf"), "weight": 400, "style": "normal"},
          {"family": "Montserrat", "path": F("Montserrat-900.ttf"), "weight": 900, "style": "normal"},
-         {"family": "Montserrat", "path": F("Montserrat-500.ttf"), "weight": 500, "style": "normal"}]
+         {"family": "Montserrat", "path": F("Montserrat-500.ttf"), "weight": 500, "style": "normal"},
+         {"family": "Mehr", "path": F("MehrNastaliq-400.ttf"), "weight": 400, "style": "normal"}]
 DUR = 28.38
 ST = R / "assets/stock"
 def pick(cat, *names):
@@ -66,6 +67,8 @@ css = f"""*{{margin:0;padding:0;box-sizing:border-box}}
 .panel{{position:absolute;left:70px;right:70px;background:rgba(255,255,255,.96);border-radius:40px;box-shadow:0 30px 60px rgba(0,0,0,.4);padding:40px}}
 .panel h4{{direction:rtl;font:400 46px/1.6 Noori;color:{NAVY};text-align:right}} .panel h4 .en{{font-size:.6em}}
 .axis{{stroke:#9aa3c7;stroke-width:4}} .lab{{font:500 26px Montserrat;fill:#6b7290}}
+.credit{{position:absolute;left:50%;translate:-50% 0;display:flex;align-items:center;gap:18px;white-space:nowrap;background:linear-gradient(135deg,#FFFFFF,#F3F1EA);border:4px solid {GOLD};border-radius:60px;padding:4px 30px 10px;box-shadow:0 14px 30px rgba(0,0,0,.35);z-index:5}}
+.credit .cu{{direction:rtl;font:400 50px/1.7 Mehr;color:{NAVY}}} .credit .ce{{font:900 20px Montserrat;letter-spacing:3px;color:#8a7a2a;margin-top:8px}}
 .shine{{position:absolute;top:0;bottom:0;width:30%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.35),transparent);animation:shine 1.6s ease-in-out 1}}
 """
 
@@ -80,20 +83,32 @@ def bg(img, t0, t1):
     return f'<img class="bg" src="file://{img}" style="animation:kb {t1 - t0:.2f}s linear {t0:.2f}s both"><div class="grad"></div>'
 
 en = lambda s: f'<span class="en">{s}</span>'
+Q = W / "seq"
+def seq(name, t0, extra=""):
+    n = len(list((Q / name).glob("*.jpg")))
+    return f'data-seq="{Q / name}" data-start="{t0:.2f}" data-n="{n}" data-fps="30" src="file://{Q / name}/0001.jpg" {extra}'
+def clipcard(name, t0, x, y, w, h):
+    return (f'<div class="card" style="left:{x}px;top:{y}px;width:{w}px;height:{h}px;{at(t0 + .05, "pop", .45)}"><img {seq(name, t0)}></div>'
+            + credit(t0 + .4, y + h - 34))
+def clipbg(name, t0):
+    return f'<img class="bg" {seq(name, t0)} style="filter:brightness(.5) saturate(1.15) blur(2px)"><div class="grad"></div>'
+def credit(t, y):
+    return (f'<div class="credit" style="top:{y}px;{at(t, "pop", .4)}"><span class="cu">محمد احمد کیٹل فارم</span>'
+            f'<span class="ce">MUHAMMAD AHMED CATTLE FARM</span></div>')
 scenes = []
 # 1 hook
 a, b = S[0]
-scenes.append(sc(0, bg(goat1, a, b) +
-    f'<div class="ur big" style="top:250px;{at(0.05,"pop",.5)}">منڈی میں سب سے پہلے<br><b>کون سا جانور</b> بکتا ہے؟</div>'
-    f'<div class="ur big" style="top:1320px;font-size:110px;{at(2.5,"pop",.45)}"><b>جو بھرا ہوا ہو!</b></div>'))
+scenes.append(sc(0, '<div class="plain"></div><div class="rays"></div>' + clipcard("A", 0.0, 150, 560, 780, 780) +
+    f'<div class="ur big" style="top:170px;font-size:88px;{at(0.05,"pop",.5)}">منڈی میں سب سے پہلے<br><b>کون سا جانور</b> بکتا ہے؟</div>'
+    f'<div class="ur big" style="top:1400px;font-size:100px;{at(2.5,"pop",.45)}"><b>جو بھرا ہوا ہو!</b></div>'))
 # 2 eid countdown
 a, b = S[1]
-scenes.append(sc(1, bg(calf, a, b) +
+scenes.append(sc(1, '<div class="plain"></div><div class="rays"></div>' + clipcard("B", a, 90, 830, 900, 462) +
     f'<div class="chip" style="left:50%;top:300px;translate:-50% 0;{at(a+.05,"pop")}"><i>🌙</i>EID UL ADHA 2027</div>'
     f'<div class="ur mid" style="top:470px;font-size:84px;{at(a+.2)}">عید میں <b>چند مہینے</b> رہ گئے ہیں بھائی!</div>'
     f'<div style="position:absolute;left:120px;right:120px;top:740px;height:40px;border-radius:20px;background:rgba(255,255,255,.25);overflow:hidden;{at(a+.4,"fin",.3)}">'
     f'<div style="position:absolute;inset:0;background:linear-gradient(90deg,{GOLD},#FF9A3C);transform-origin:0 50%;animation:grow-x 2.2s ease-out {a+.5:.2f}s both"></div></div>'
-    f'<div class="ur mid" style="top:1380px;font-size:96px;{at(5.64,"pop")}">ابھی سے <b>تیاری</b> کرو!</div>'))
+    f'<div class="ur mid" style="top:1400px;font-size:92px;{at(5.64,"pop")}">ابھی سے <b>تیاری</b> کرو!</div>'))
 css += "@keyframes grow-x{from{scale:0 1}to{scale:1 1}}"
 # 3 heavy gold reveal
 a, b = S[2]
@@ -107,7 +122,7 @@ scenes.append(sc(2, '<div class="plain"></div><div class="rays"></div>'
 a, b = S[3]
 bars = "".join(f'<rect x="{80 + i * 130}" y="{360 - h}" width="90" height="{h}" rx="14" fill="{c}" style="transform-box:fill-box;transform-origin:50% 100%;animation:grow .7s cubic-bezier(.2,.8,.2,1) {a + .6 + i * .12:.2f}s both"/>'
                for i, (h, c) in enumerate([(110, "#c9cfe6"), (160, "#c9cfe6"), (230, GOLD), (300, GOLD)]))
-scenes.append(sc(3, bg(bull, a, b) +
+scenes.append(sc(3, clipbg("D", a) + credit(a + .3, 1330) +
     f'<div class="ur mid" style="top:230px;font-size:80px;{at(a+.05,"pop")}"><b>سی سولہ بائی پاس فیٹ</b><br>{en("C16 BYPASS FAT")}</div>'
     f'<div class="panel" style="top:760px;height:560px;{at(a+.3)}"><h4>جانور میں <b style="color:{BLUE};font-family:Aslam;font-weight:400">طاقت</b> {en("ENERGY")} ⚡</h4>'
     f'<svg viewBox="0 0 640 400" style="width:100%;height:380px"><line class="axis" x1="50" y1="362" x2="620" y2="362"/>{bars}'
@@ -124,11 +139,11 @@ scenes.append(sc(4, bg(goat2, a, b) +
     f'<div class="ur mid" style="top:1330px;font-size:90px;{at(12.5,"pop")}">جو کھائے، وہ <b>جسم کو لگے!</b></div>'))
 # 6 DCP bones
 a, b = S[5]
-scenes.append(sc(5, '<div class="plain"></div><div class="rays"></div>'
-    f'<div class="card" style="left:90px;right:90px;top:520px;height:760px;{at(a+.15)}"><img src="file://{goat3}" style="animation:kb {b - a:.2f}s linear {a:.2f}s both"></div>'
-    f'<div class="ur mid" style="top:180px;font-size:84px;{at(a+.05,"pop")}"><b>ڈی سی پی</b> {en("DCP")}</div>'
-    f'<div class="chip" style="left:50%;top:1240px;translate:-50% 0;{at(a+.5,"pop")}"><i>🦴</i>CALCIUM + PHOSPHORUS</div>'
-    f'<div class="ur mid" style="top:1420px;font-size:80px;{at(14.92,"pop")}">مضبوط <b>ڈھانچہ</b>، تبھی تو چڑھے گا <b>گوشت!</b></div>'))
+scenes.append(sc(5, '<div class="plain"></div><div class="rays"></div>' +
+    clipcard("C", a, 90, 480, 900, 760) +
+    f'<div class="ur mid" style="top:150px;font-size:84px;{at(a+.05,"pop")}"><b>ڈی سی پی</b> {en("DCP")}</div>'
+    f'<div class="chip" style="left:50%;top:330px;translate:-50% 0;font-size:30px;{at(a+.5,"pop")}"><i>🦴</i>CALCIUM + PHOSPHORUS</div>'
+    f'<div class="ur mid" style="top:1300px;font-size:78px;{at(14.92,"pop")}">مضبوط <b>ڈھانچہ</b>، تبھی تو چڑھے گا <b>گوشت!</b></div>'))
 # 7 vitamins & minerals
 a, b = S[6]
 vm = ["VIT A", "VIT D3", "VIT E", "VIT B", "ZINC", "COPPER", "SELENIUM", "IODINE"]
@@ -148,7 +163,7 @@ scenes.append(sc(7, '<div class="plain"></div><div class="rays"></div>'
     f'<div class="ur mid" style="top:1250px;font-size:90px;{at(22.74,"pop")}">اور ساتھ میں <b>ہیوی گولڈ!</b></div>'))
 # 9 weight = rate graph
 a, b = S[8]
-scenes.append(sc(8, bg(calf, a, b) +
+scenes.append(sc(8, clipbg("E", a) + credit(a + .3, 1300) +
     f'<div class="ur mid" style="top:220px;font-size:100px;{at(a+.05,"pop")}"><b>وزن</b> ہے تو <b>ریٹ</b> ہے!</div>'
     f'<div class="panel" style="top:600px;height:640px;{at(a+.25)}"><h4>{en("WEIGHT")} وزن ↑ &nbsp; = &nbsp; ریٹ ↑ {en("PRICE")}</h4>'
     f'<svg viewBox="0 0 640 430" style="width:100%;height:440px"><line class="axis" x1="60" y1="380" x2="620" y2="380"/><line class="axis" x1="60" y1="20" x2="60" y2="380"/>'

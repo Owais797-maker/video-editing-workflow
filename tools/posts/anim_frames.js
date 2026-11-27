@@ -20,6 +20,15 @@ const { chromium } = require("playwright");
   const n = Math.round(fps * dur);
   for (let i = 0; i < n; i++) {
     await p.evaluate((t) => document.getAnimations().forEach((a) => { a.currentTime = t; }), (i / fps) * 1000);
+    // video clips as image sequences: <img data-seq="/abs/dir" data-start="3.4" data-n="100" data-fps="30">
+    await p.evaluate(async (t) => {
+      const ims = [...document.querySelectorAll("img[data-seq]")];
+      for (const im of ims) {
+        const k = Math.max(0, Math.min(+im.dataset.n - 1, Math.floor((t - +im.dataset.start) * +im.dataset.fps)));
+        const src = "file://" + im.dataset.seq + "/" + String(k + 1).padStart(4, "0") + ".jpg";
+        if (im.src !== src) { im.src = src; await new Promise((r) => { if (im.complete) r(); else { im.onload = im.onerror = r; } }); }
+      }
+    }, i / fps);
     await p.screenshot({ path: path.join(outDir, `f${String(i).padStart(5, "0")}.jpg`), type: "jpeg", quality: 93 });
   }
   await b.close(); console.log(`${n} frames`);

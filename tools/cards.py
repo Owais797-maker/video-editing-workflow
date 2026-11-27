@@ -167,7 +167,8 @@ def swiss_frame(c: dict, t: float, dur: float, W: int, H: int, th: dict, fade: f
         pop = ease_back(t / 0.3)
         col = c.get("color", th["accent"])
         return (f'<div class="tagbox" style="left:{(x - bw / 2) * 100:.2f}%;top:{(y - bh / 2) * 100:.2f}%;'
-                f'width:{bw * 100:.2f}%;height:{bh * 100:.2f}%;--c:{col};opacity:{fade:.3f};'
+                f'width:{bw * 100:.2f}%;height:{bh * 100:.2f}%;--c:{col};opacity:{fade:.3f};white-space:nowrap;'
+                f'font-size:{min(bh * H * 0.62, bw * W * 0.86 / max(1, len(txt) * 0.7)):.0f}px;'
                 f'transform:scale({0.7 + 0.3 * pop:.4f})"><span>{html.escape(txt[:n])}</span>'
                 f'<span class="ghost">{html.escape(txt[n:])}</span></div>')
     bg = c.get("bg", th["accent"])

@@ -1,0 +1,405 @@
+{
+ "project": "qurbani-wazan",
+ "style": "bold-clean",
+ "summary": "Loader dispatch: 14 bags Heavy Gold (10 Super Highway, 4 Gadap) + 2 cartons medicine + 3 bags BASF Novasil. Owner's voice. Hook: qurbani animal must not stay light.",
+ "reference_notes": "Owner 2026-11-27: full freedom, no approvals, 'dhoom dhaam'. Hook 'قربانی کا جانور ہلکا نہ رہ جائے!' on a green+gold plate (varies from the blue/red ones), Heavy Gold blue/gold captions, quantity pills, clear crystal glass product cards with Urdu punch lines, trip cards Karachi -> Super Highway and Karachi -> Gadap, Heavy Gold end card. No KT branding. 4K + 1080p. Source 720x1296.",
+ "shots": [
+  {
+   "src": "clip.mov",
+   "in": 0.0,
+   "out": 23.96,
+   "description": "Loader full of Heavy Gold bags, cartons, Novasil, close-ups",
+   "volume": 1.0,
+   "motion": {
+    "type": "zoom_in",
+    "amount": 0.05
+   },
+   "punch": [
+    [
+     0.0,
+     0.7
+    ],
+    [
+     5.1,
+     5.8
+    ],
+    [
+     6.7,
+     7.4
+    ],
+    [
+     17.0,
+     18.0
+    ]
+   ],
+   "punch_zoom": 1.06
+  }
+ ],
+ "captions": false,
+ "look": {
+  "cinematic": 0.55,
+  "brightness": 0.05,
+  "contrast": 1.12,
+  "saturation": 1.3,
+  "warmth": 0.02,
+  "gamma": 0.97,
+  "denoise": 0.7,
+  "sharpen": 0.9,
+  "vignette": 0.28,
+  "grain": 1
+ },
+ "overlays": [
+  {
+   "file": "Video Edits/Raw/qurbani-wazan/urdu-heading.png",
+   "start": 0,
+   "end": 2.2,
+   "x": 0.46,
+   "y": 0.25,
+   "width": 0.7,
+   "animation": "none"
+  },
+  {
+   "file": "Video Edits/Raw/qurbani-wazan/urdu-c1.png",
+   "start": 2.2,
+   "end": 5.1,
+   "x": 0.46,
+   "y": 0.74,
+   "width": 0.8,
+   "animation": "pop"
+  },
+  {
+   "file": "Video Edits/Raw/qurbani-wazan/urdu-c2.png",
+   "start": 5.1,
+   "end": 6.7,
+   "x": 0.46,
+   "y": 0.74,
+   "width": 0.594,
+   "animation": "pop"
+  },
+  {
+   "file": "Video Edits/Raw/qurbani-wazan/urdu-c3.png",
+   "start": 6.7,
+   "end": 9.6,
+   "x": 0.46,
+   "y": 0.74,
+   "width": 0.669,
+   "animation": "pop"
+  },
+  {
+   "file": "Video Edits/Raw/qurbani-wazan/urdu-c4.png",
+   "start": 9.6,
+   "end": 12.8,
+   "x": 0.46,
+   "y": 0.74,
+   "width": 0.8,
+   "animation": "pop"
+  },
+  {
+   "file": "Video Edits/Raw/qurbani-wazan/urdu-c5.png",
+   "start": 12.8,
+   "end": 14.8,
+   "x": 0.46,
+   "y": 0.74,
+   "width": 0.772,
+   "animation": "pop"
+  },
+  {
+   "file": "Video Edits/Raw/qurbani-wazan/q14.png",
+   "start": 2.3,
+   "end": 5.0,
+   "x": 0.46,
+   "y": 0.215,
+   "width": 0.428,
+   "animation": "pop"
+  },
+  {
+   "file": "Video Edits/Raw/qurbani-wazan/q10.png",
+   "start": 5.1,
+   "end": 6.7,
+   "x": 0.46,
+   "y": 0.2,
+   "width": 0.49,
+   "animation": "pop"
+  },
+  {
+   "file": "Video Edits/Raw/qurbani-wazan/q4.png",
+   "start": 6.7,
+   "end": 9.6,
+   "x": 0.46,
+   "y": 0.2,
+   "width": 0.34,
+   "animation": "pop"
+  },
+  {
+   "file": "Video Edits/Raw/qurbani-wazan/qm.png",
+   "start": 11.4,
+   "end": 12.8,
+   "x": 0.46,
+   "y": 0.2,
+   "width": 0.451,
+   "animation": "pop"
+  },
+  {
+   "file": "Video Edits/Raw/qurbani-wazan/qn.png",
+   "start": 12.95,
+   "end": 16.0,
+   "x": 0.46,
+   "y": 0.215,
+   "width": 0.438,
+   "animation": "pop"
+  },
+  {
+   "file": "Video Edits/Raw/heavy-gold/heavy-gold-bag-cutout.png",
+   "start": 3.05,
+   "end": 5.0,
+   "x": 0.46,
+   "y": 0.32999999999999996,
+   "width": 0.2,
+   "animation": "rise"
+  },
+  {
+   "file": "Video Edits/Raw/qurbani-wazan/urdu-p1.png",
+   "start": 3.45,
+   "end": 5.0,
+   "x": 0.46,
+   "y": 0.475,
+   "width": 0.46,
+   "animation": "pop"
+  },
+  {
+   "file": "Video Edits/Raw/novasil/novasil-cutout.png",
+   "start": 13.0,
+   "end": 16.0,
+   "x": 0.46,
+   "y": 0.32999999999999996,
+   "width": 0.2,
+   "animation": "rise"
+  },
+  {
+   "file": "Video Edits/Raw/qurbani-wazan/urdu-p2.png",
+   "start": 13.399999999999999,
+   "end": 16.0,
+   "x": 0.46,
+   "y": 0.475,
+   "width": 0.46,
+   "animation": "pop"
+  },
+  {
+   "file": "Video Edits/Raw/heavy-gold/heavy-gold-bag-cutout.png",
+   "start": 21.05,
+   "end": 23.96,
+   "x": 0.46,
+   "y": 0.39999999999999997,
+   "width": 0.27,
+   "animation": "rise"
+  },
+  {
+   "file": "Video Edits/Raw/qurbani-wazan/urdu-p3.png",
+   "start": 21.45,
+   "end": 23.96,
+   "x": 0.46,
+   "y": 0.5449999999999999,
+   "width": 0.46,
+   "animation": "pop"
+  }
+ ],
+ "glass": [
+  {
+   "crystal": true,
+   "x": 0.46,
+   "y": 0.35,
+   "w": 0.52,
+   "h": 0.3,
+   "radius": 0.12,
+   "start": 3.0,
+   "end": 5.0,
+   "tint": 0.06,
+   "border": 0.85,
+   "border_width": 2.5,
+   "magnify": 1.0,
+   "blur": 0.4,
+   "brightness": 0.02,
+   "saturation": 1.0
+  },
+  {
+   "crystal": true,
+   "x": 0.46,
+   "y": 0.35,
+   "w": 0.52,
+   "h": 0.3,
+   "radius": 0.12,
+   "start": 12.95,
+   "end": 16.0,
+   "tint": 0.06,
+   "border": 0.85,
+   "border_width": 2.5,
+   "magnify": 1.0,
+   "blur": 0.4,
+   "brightness": 0.02,
+   "saturation": 1.0
+  },
+  {
+   "crystal": true,
+   "x": 0.46,
+   "y": 0.42,
+   "w": 0.6,
+   "h": 0.38,
+   "radius": 0.12,
+   "start": 21.0,
+   "end": 23.96,
+   "tint": 0.06,
+   "border": 0.85,
+   "border_width": 2.5,
+   "magnify": 1.0,
+   "blur": 0.4,
+   "brightness": 0.02,
+   "saturation": 1.0
+  }
+ ],
+ "backdrop": [
+  {
+   "start": 21.0,
+   "end": 23.96,
+   "blur": 10,
+   "dim": 0.25
+  }
+ ],
+ "cards": [
+  {
+   "type": "trip",
+   "start": 16.1,
+   "end": 18.6,
+   "from": "KARACHI",
+   "to": "SUPER HIGHWAY",
+   "vehicle": "🛺",
+   "x": 0.46,
+   "y": 0.2,
+   "w": 0.74,
+   "h": 0.06,
+   "drive_time": 1.8,
+   "rtl": false,
+   "color": "#FFD400"
+  },
+  {
+   "type": "trip",
+   "start": 18.6,
+   "end": 21.0,
+   "from": "KARACHI",
+   "to": "GADAP",
+   "vehicle": "🛺",
+   "x": 0.46,
+   "y": 0.2,
+   "w": 0.74,
+   "h": 0.06,
+   "drive_time": 1.8,
+   "rtl": false,
+   "color": "#FFD400"
+  }
+ ],
+ "effects": [
+  {
+   "type": "light_leak",
+   "at": 0.0,
+   "dur": 0.5,
+   "color": "#FFD400"
+  },
+  {
+   "type": "blur_whip",
+   "at": 5.05,
+   "dur": 0.15
+  },
+  {
+   "type": "blur_whip",
+   "at": 12.9,
+   "dur": 0.15
+  },
+  {
+   "type": "light_leak",
+   "at": 20.9,
+   "dur": 0.5,
+   "color": "#FFD400"
+  }
+ ],
+ "sfx_bank": "pro",
+ "sfx": [
+  {
+   "sound": "impact",
+   "at": 0.0,
+   "volume": 0.3
+  },
+  {
+   "sound": "whoosh_fast",
+   "at": 2.2,
+   "volume": 0.2
+  },
+  {
+   "sound": "pop",
+   "at": 2.35,
+   "volume": 0.24
+  },
+  {
+   "sound": "ding",
+   "at": 3.1,
+   "volume": 0.14
+  },
+  {
+   "sound": "pop",
+   "at": 5.15,
+   "volume": 0.24
+  },
+  {
+   "sound": "pop",
+   "at": 6.75,
+   "volume": 0.24
+  },
+  {
+   "sound": "pop",
+   "at": 11.45,
+   "volume": 0.22
+  },
+  {
+   "sound": "whoosh_fast",
+   "at": 12.85,
+   "volume": 0.2
+  },
+  {
+   "sound": "pop",
+   "at": 13.0,
+   "volume": 0.24
+  },
+  {
+   "sound": "trr",
+   "at": 16.3,
+   "volume": 0.22
+  },
+  {
+   "sound": "whoosh_fast",
+   "at": 18.55,
+   "volume": 0.18
+  },
+  {
+   "sound": "trr",
+   "at": 18.8,
+   "volume": 0.22
+  },
+  {
+   "sound": "riser",
+   "at": 19.6,
+   "volume": 0.16
+  },
+  {
+   "sound": "boom",
+   "at": 21.0,
+   "volume": 0.3
+  },
+  {
+   "sound": "ching",
+   "at": 21.5,
+   "volume": 0.16
+  }
+ ],
+ "fade": {
+  "out": 0.3
+ },
+ "loudness": -14
+}

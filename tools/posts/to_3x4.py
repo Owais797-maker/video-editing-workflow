@@ -43,7 +43,7 @@ def transform(job: dict, name: str) -> dict:
         job["css"] += "#wrap{transform:scale(1)!important;left:180px!important}"
     st["html"] = f'<div id="p"><div class="sheen"></div></div><div id="wrap">{html}</div>{bar}'
     st["file"] = str(OUT / f"{name}.jpg")
-    job["width"], job["height"], job["scale"] = W, H, 2
+    job["width"], job["height"], job["scale"] = W, H, float(os.environ.get("POST_SCALE", 2))
     job["css"] += KT_CSS
     return job
 

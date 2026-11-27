@@ -15,7 +15,7 @@ fonts=[{"family":"Noori","path":F("JameelNooriNastaleeq-400.ttf"),"weight":400,"
  {"family":"Poppins","path":F("Poppins-700.ttf"),"weight":700,"style":"normal"},
  {"family":"Poppins","path":F("Poppins-800.ttf"),"weight":800,"style":"normal"}]
 d=R/"Video Edits/Export/calsol-post"; w=d/"work"; w.mkdir(parents=True,exist_ok=True)
-im=Image.open(R/"Video Edits/Raw/calsol-d/bottle-clean-grounded.png").convert("RGBA"); a=im.split()[3]
+im=Image.open(R/"Video Edits/Raw/calsol-d/bottle-clean-grounded-hd.png").convert("RGBA"); a=im.split()[3]
 x=np.asarray(im.convert("RGB")).astype(np.float32)/255
 lo=np.percentile(x[np.asarray(a)>128],1.5,axis=0); hi=np.percentile(x[np.asarray(a)>128],98.5,axis=0)
 x=np.clip((x-lo)/(hi-lo),0,1)                       # auto levels per channel (removes the grey/yellow cast)
@@ -91,7 +91,7 @@ if NOKT:
     css=css.replace('top:1640px','top:1700px')
 name="calsol-post-nokt" if NOKT else "calsol-post"
 out=d/f"{name}.png"; job=d/"job.json"
-job.write_text(json.dumps({"width":1080,"height":1920,"scale":2,"css":css,"fonts":fonts,"states":[{"file":str(out),"html":html}]}))
+job.write_text(json.dumps({"width":1080,"height":1920,"scale":float(os.environ.get("POST_SCALE",3)),"css":css,"fonts":fonts,"states":[{"file":str(out),"html":html}]}))
 subprocess.run(["node",str(R/"tools/htmlcaps/render.js"),str(job)],check=True,capture_output=True)
 job.unlink(); (d/"page.html").unlink(missing_ok=True)
 Image.open(out).convert("RGB").save(d/f"{name}.jpg",quality=95); out.unlink(); print(d/f"{name}.jpg")

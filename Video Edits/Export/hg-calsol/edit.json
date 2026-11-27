@@ -1,0 +1,427 @@
+{
+ "project": "hg-calsol",
+ "style": "bold-clean",
+ "summary": "Abdul Ghafoor bhai takes 4 bags Heavy Gold + Calsol-D; 'khandani mineral' on one side, Calsol-D (tricalcium phosphate) on the other; burgundy-iPhone joke at the end. Owner's voice.",
+ "reference_notes": "Owner 2026-11-27: no approvals; Heavy Gold + Calsol-D mockups, typing SFX with typed text, hook at the start, punch lines like 'qeemat mein kam, result mein dam', 4K + 1080p. Burgundy (Calsol + owner's outfit) palette with gold, Noori/Aslam mix (less Aslam), crystal glass product cards, typed tags. Unclear word after 'kalcium ki' dropped from the caption. No KT branding.",
+ "shots": [
+  {
+   "src": "clip.mov",
+   "in": 0.0,
+   "out": 18.93,
+   "description": "Abdul Ghafoor bhai, Heavy Gold bags + Vetsol carton in the rickshaw, owner + friend selfie",
+   "volume": 1.0,
+   "motion": {
+    "type": "zoom_in",
+    "amount": 0.04
+   },
+   "punch": [
+    [
+     0.0,
+     0.7
+    ],
+    [
+     2.3,
+     3.0
+    ],
+    [
+     14.0,
+     14.8
+    ],
+    [
+     18.0,
+     18.9
+    ]
+   ],
+   "punch_zoom": 1.06
+  }
+ ],
+ "captions": false,
+ "look": {
+  "cinematic": 0.55,
+  "brightness": 0.05,
+  "contrast": 1.1,
+  "saturation": 1.25,
+  "warmth": 0.02,
+  "gamma": 0.97,
+  "denoise": 0.6,
+  "sharpen": 0.8,
+  "vignette": 0.28,
+  "grain": 1
+ },
+ "overlays": [
+  {
+   "file": "Video Edits/Raw/hg-calsol/urdu-heading.png",
+   "start": 0,
+   "end": 2.3,
+   "x": 0.46,
+   "y": 0.25,
+   "width": 0.7,
+   "animation": "none"
+  },
+  {
+   "file": "Video Edits/Raw/hg-calsol/urdu-c1.png",
+   "start": 0.0,
+   "end": 1.4,
+   "x": 0.46,
+   "y": 0.74,
+   "width": 0.8,
+   "animation": "pop"
+  },
+  {
+   "file": "Video Edits/Raw/hg-calsol/urdu-c2a.png",
+   "start": 1.4,
+   "end": 2.3,
+   "x": 0.46,
+   "y": 0.74,
+   "width": 0.707,
+   "animation": "pop"
+  },
+  {
+   "file": "Video Edits/Raw/hg-calsol/urdu-c2b.png",
+   "start": 2.3,
+   "end": 4.3,
+   "x": 0.46,
+   "y": 0.74,
+   "width": 0.8,
+   "animation": "pop"
+  },
+  {
+   "file": "Video Edits/Raw/hg-calsol/urdu-c3.png",
+   "start": 4.3,
+   "end": 6.8,
+   "x": 0.46,
+   "y": 0.74,
+   "width": 0.8,
+   "animation": "pop"
+  },
+  {
+   "file": "Video Edits/Raw/hg-calsol/urdu-c4.png",
+   "start": 6.8,
+   "end": 8.6,
+   "x": 0.46,
+   "y": 0.74,
+   "width": 0.8,
+   "animation": "pop"
+  },
+  {
+   "file": "Video Edits/Raw/hg-calsol/urdu-c5.png",
+   "start": 8.6,
+   "end": 10.3,
+   "x": 0.46,
+   "y": 0.74,
+   "width": 0.8,
+   "animation": "pop"
+  },
+  {
+   "file": "Video Edits/Raw/hg-calsol/urdu-c6a.png",
+   "start": 10.3,
+   "end": 11.7,
+   "x": 0.46,
+   "y": 0.74,
+   "width": 0.8,
+   "animation": "pop"
+  },
+  {
+   "file": "Video Edits/Raw/hg-calsol/urdu-c6b.png",
+   "start": 11.7,
+   "end": 14.0,
+   "x": 0.46,
+   "y": 0.74,
+   "width": 0.8,
+   "animation": "pop"
+  },
+  {
+   "file": "Video Edits/Raw/hg-calsol/urdu-c7a.png",
+   "start": 14.0,
+   "end": 15.4,
+   "x": 0.46,
+   "y": 0.74,
+   "width": 0.8,
+   "animation": "pop"
+  },
+  {
+   "file": "Video Edits/Raw/hg-calsol/urdu-c7b.png",
+   "start": 15.4,
+   "end": 16.4,
+   "x": 0.46,
+   "y": 0.74,
+   "width": 0.474,
+   "animation": "pop"
+  },
+  {
+   "file": "Video Edits/Raw/hg-calsol/urdu-c8a.png",
+   "start": 16.4,
+   "end": 18.0,
+   "x": 0.46,
+   "y": 0.74,
+   "width": 0.8,
+   "animation": "pop"
+  },
+  {
+   "file": "Video Edits/Raw/hg-calsol/urdu-c8b.png",
+   "start": 18.0,
+   "end": 18.93,
+   "x": 0.46,
+   "y": 0.74,
+   "width": 0.574,
+   "animation": "pop"
+  },
+  {
+   "file": "Video Edits/Raw/heavy-gold/heavy-gold-bag-cutout.png",
+   "start": 2.4,
+   "end": 4.3,
+   "x": 0.46,
+   "y": 0.4,
+   "width": 0.2,
+   "animation": "rise"
+  },
+  {
+   "file": "Video Edits/Raw/hg-calsol/qh.png",
+   "start": 2.45,
+   "end": 4.3,
+   "x": 0.46,
+   "y": 0.275,
+   "width": 0.416,
+   "animation": "pop"
+  },
+  {
+   "file": "Video Edits/Raw/hg-calsol/urdu-p1.png",
+   "start": 2.75,
+   "end": 4.3,
+   "x": 0.46,
+   "y": 0.555,
+   "width": 0.48,
+   "animation": "pop"
+  },
+  {
+   "file": "Video Edits/Raw/calsol-d/bottle-clean-cutout-hd.png",
+   "start": 4.3999999999999995,
+   "end": 6.8,
+   "x": 0.46,
+   "y": 0.4,
+   "width": 0.11,
+   "animation": "rise"
+  },
+  {
+   "file": "Video Edits/Raw/hg-calsol/qc.png",
+   "start": 4.449999999999999,
+   "end": 6.8,
+   "x": 0.46,
+   "y": 0.275,
+   "width": 0.572,
+   "animation": "pop"
+  },
+  {
+   "file": "Video Edits/Raw/hg-calsol/urdu-p2.png",
+   "start": 4.75,
+   "end": 6.8,
+   "x": 0.46,
+   "y": 0.555,
+   "width": 0.48,
+   "animation": "pop"
+  },
+  {
+   "file": "Video Edits/Raw/hg-calsol/urdu-p3.png",
+   "start": 6.9,
+   "end": 8.6,
+   "x": 0.46,
+   "y": 0.6,
+   "width": 0.52,
+   "animation": "pop"
+  },
+  {
+   "emoji": "📱",
+   "start": 14.6,
+   "end": 16.4,
+   "x": 0.78,
+   "y": 0.6,
+   "width": 0.12,
+   "animation": "pop"
+  },
+  {
+   "emoji": "😄",
+   "animated": true,
+   "start": 18.0,
+   "end": 18.93,
+   "x": 0.78,
+   "y": 0.62,
+   "width": 0.13,
+   "animation": "pop"
+  }
+ ],
+ "glass": [
+  {
+   "crystal": true,
+   "x": 0.46,
+   "y": 0.42,
+   "w": 0.5,
+   "h": 0.32,
+   "radius": 0.12,
+   "start": 2.35,
+   "end": 4.3,
+   "tint": 0.06,
+   "border": 0.85,
+   "border_width": 2.5,
+   "magnify": 1.0,
+   "blur": 0.4,
+   "brightness": 0.02,
+   "saturation": 1.0
+  },
+  {
+   "crystal": true,
+   "x": 0.46,
+   "y": 0.42,
+   "w": 0.5,
+   "h": 0.32,
+   "radius": 0.12,
+   "start": 4.35,
+   "end": 6.8,
+   "tint": 0.06,
+   "border": 0.85,
+   "border_width": 2.5,
+   "magnify": 1.0,
+   "blur": 0.4,
+   "brightness": 0.02,
+   "saturation": 1.0
+  }
+ ],
+ "cards": [
+  {
+   "type": "tag",
+   "text": "HEAVY GOLD × 4 + CALSOL-D",
+   "start": 0.2,
+   "end": 2.3,
+   "x": 0.46,
+   "y": 0.14,
+   "w": 0.62,
+   "h": 0.055,
+   "type_time": 0.9,
+   "color": "#FFD400"
+  },
+  {
+   "type": "tag",
+   "text": "TRICALCIUM PHOSPHATE + VITAMINS",
+   "start": 10.3,
+   "end": 13.9,
+   "x": 0.46,
+   "y": 0.6,
+   "w": 0.74,
+   "h": 0.06,
+   "type_time": 0.9,
+   "color": "#B23A8E"
+  },
+  {
+   "type": "tag",
+   "text": "BURGUNDY EDITION",
+   "start": 14.0,
+   "end": 16.4,
+   "x": 0.46,
+   "y": 0.6,
+   "w": 0.56,
+   "h": 0.06,
+   "type_time": 0.6,
+   "color": "#8E1F6E"
+  }
+ ],
+ "effects": [
+  {
+   "type": "light_leak",
+   "at": 0.0,
+   "dur": 0.5,
+   "color": "#FFD400"
+  },
+  {
+   "type": "blur_whip",
+   "at": 4.3,
+   "dur": 0.12
+  },
+  {
+   "type": "glitch",
+   "at": 13.95,
+   "dur": 0.15,
+   "amount": 10
+  }
+ ],
+ "sfx_bank": "pro",
+ "sfx": [
+  {
+   "sound": "impact",
+   "at": 0.0,
+   "volume": 0.3
+  },
+  {
+   "sound": "keys",
+   "at": 0.3,
+   "volume": 0.3
+  },
+  {
+   "sound": "whoosh_fast",
+   "at": 2.28,
+   "volume": 0.2
+  },
+  {
+   "sound": "pop",
+   "at": 2.45,
+   "volume": 0.24
+  },
+  {
+   "sound": "pop",
+   "at": 2.3,
+   "volume": 0.16
+  },
+  {
+   "sound": "pop",
+   "at": 3.0,
+   "volume": 0.16
+  },
+  {
+   "sound": "pop",
+   "at": 3.5,
+   "volume": 0.16
+  },
+  {
+   "sound": "pop",
+   "at": 3.8,
+   "volume": 0.2
+  },
+  {
+   "sound": "whoosh_fast",
+   "at": 4.28,
+   "volume": 0.18
+  },
+  {
+   "sound": "pop",
+   "at": 4.45,
+   "volume": 0.24
+  },
+  {
+   "sound": "swish",
+   "at": 6.9,
+   "volume": 0.18
+  },
+  {
+   "sound": "keys",
+   "at": 10.4,
+   "volume": 0.3
+  },
+  {
+   "sound": "glitch",
+   "at": 13.95,
+   "volume": 0.12
+  },
+  {
+   "sound": "keys",
+   "at": 14.1,
+   "volume": 0.28
+  },
+  {
+   "sound": "pop",
+   "at": 18.0,
+   "volume": 0.24
+  }
+ ],
+ "fade": {
+  "out": 0.3
+ },
+ "loudness": -14
+}

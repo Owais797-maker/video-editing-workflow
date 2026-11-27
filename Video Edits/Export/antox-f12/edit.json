@@ -175,6 +175,15 @@
    "y": 0.625,
    "width": 0.46,
    "animation": "pop"
+  },
+  {
+   "file": "Video Edits/Raw/antox-f12/urdu-p3.png",
+   "start": 8.1,
+   "end": 10.0,
+   "x": 0.46,
+   "y": 0.6,
+   "width": 0.5,
+   "animation": "pop"
   }
  ],
  "glass": [
@@ -227,6 +236,18 @@
    "h": 0.06,
    "drive_time": 1.1,
    "rtl": false,
+   "color": "#E8741E"
+  },
+  {
+   "type": "tag",
+   "text": "COMPANY STOCK · COLD CHAIN",
+   "start": 6.2,
+   "end": 8.0,
+   "x": 0.46,
+   "y": 0.6,
+   "w": 0.66,
+   "h": 0.06,
+   "type_time": 0.7,
    "color": "#E8741E"
   }
  ],
@@ -284,6 +305,16 @@
    "sound": "trr",
    "at": 10.2,
    "volume": 0.2
+  },
+  {
+   "sound": "keys",
+   "at": 6.3,
+   "volume": 0.3
+  },
+  {
+   "sound": "pop",
+   "at": 8.1,
+   "volume": 0.22
   }
  ],
  "fade": {

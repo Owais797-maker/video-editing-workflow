@@ -1,0 +1,377 @@
+{
+ "project": "lania-gulshan",
+ "style": "bold-clean",
+ "summary": "Dispatch for Asif Lania sahab (famous cattle farmer, Gulshan-e-Iqbal) and his son Sufyan Lania: Buttery Milk, Gripe Water, Ivermectin, under Sheikh sahab's supervision. Neither Lania is in the footage.",
+ "reference_notes": "Owner 2026-11-27: captions; 'Gulshan-e-Iqbal ke mashhoor cattle farmer Asif Lania' must be prominent (hook + captions; owner said cattle farmer, the voice says 'builder'); Buttery Milk punch 'janwaron ka wazan tezi se barhane wala'; rider animation to Gulshan with trr + click sounds; export so it stays sharp on Facebook/TikTok/WhatsApp status (4K + 1080p + WhatsApp file). No KT branding, no photos of the Lanias.",
+ "shots": [
+  {
+   "src": "clip.mov",
+   "in": 0.0,
+   "out": 15.57,
+   "description": "Shop: Buttery Milk bag, staff, Sadiq bhai with tea, Gripe Water + Ivermectin cartons, Sheikh sahab",
+   "volume": 1.0,
+   "motion": {
+    "type": "zoom_in",
+    "amount": 0.04
+   },
+   "punch": [
+    [
+     0.0,
+     0.7
+    ],
+    [
+     7.5,
+     8.2
+    ],
+    [
+     13.7,
+     14.5
+    ]
+   ],
+   "punch_zoom": 1.06
+  }
+ ],
+ "captions": false,
+ "look": {
+  "cinematic": 0.55,
+  "brightness": 0.05,
+  "contrast": 1.1,
+  "saturation": 1.25,
+  "warmth": 0.02,
+  "gamma": 0.97,
+  "denoise": 0.6,
+  "sharpen": 0.8,
+  "vignette": 0.28,
+  "grain": 1
+ },
+ "overlays": [
+  {
+   "file": "Video Edits/Raw/lania-gulshan/urdu-heading.png",
+   "start": 0,
+   "end": 2.4,
+   "x": 0.46,
+   "y": 0.24,
+   "width": 0.72,
+   "animation": "none"
+  },
+  {
+   "file": "Video Edits/Raw/lania-gulshan/urdu-c1.png",
+   "start": 0.0,
+   "end": 2.4,
+   "x": 0.46,
+   "y": 0.74,
+   "width": 0.8,
+   "animation": "pop"
+  },
+  {
+   "file": "Video Edits/Raw/lania-gulshan/urdu-c2.png",
+   "start": 2.4,
+   "end": 4.8,
+   "x": 0.46,
+   "y": 0.74,
+   "width": 0.722,
+   "animation": "pop"
+  },
+  {
+   "file": "Video Edits/Raw/lania-gulshan/urdu-c3.png",
+   "start": 4.8,
+   "end": 6.3,
+   "x": 0.46,
+   "y": 0.74,
+   "width": 0.8,
+   "animation": "pop"
+  },
+  {
+   "file": "Video Edits/Raw/lania-gulshan/urdu-c4.png",
+   "start": 6.3,
+   "end": 7.5,
+   "x": 0.46,
+   "y": 0.74,
+   "width": 0.785,
+   "animation": "pop"
+  },
+  {
+   "file": "Video Edits/Raw/lania-gulshan/urdu-c5.png",
+   "start": 7.5,
+   "end": 9.2,
+   "x": 0.46,
+   "y": 0.74,
+   "width": 0.8,
+   "animation": "pop"
+  },
+  {
+   "file": "Video Edits/Raw/lania-gulshan/urdu-c6.png",
+   "start": 9.2,
+   "end": 10.6,
+   "x": 0.46,
+   "y": 0.74,
+   "width": 0.737,
+   "animation": "pop"
+  },
+  {
+   "file": "Video Edits/Raw/lania-gulshan/urdu-c7.png",
+   "start": 10.6,
+   "end": 12.0,
+   "x": 0.46,
+   "y": 0.74,
+   "width": 0.8,
+   "animation": "pop"
+  },
+  {
+   "file": "Video Edits/Raw/lania-gulshan/urdu-c8.png",
+   "start": 12.0,
+   "end": 13.7,
+   "x": 0.46,
+   "y": 0.74,
+   "width": 0.8,
+   "animation": "pop"
+  },
+  {
+   "file": "Video Edits/Raw/lania-gulshan/urdu-c9.png",
+   "start": 13.7,
+   "end": 15.57,
+   "x": 0.46,
+   "y": 0.74,
+   "width": 0.8,
+   "animation": "pop"
+  },
+  {
+   "file": "Video Edits/Raw/butter-milk/butter-milk-bag-cutout.png",
+   "start": 10.55,
+   "end": 12.0,
+   "x": 0.46,
+   "y": 0.4,
+   "width": 0.22,
+   "animation": "rise"
+  },
+  {
+   "file": "Video Edits/Raw/lania-gulshan/qb.png",
+   "start": 10.6,
+   "end": 12.0,
+   "x": 0.46,
+   "y": 0.275,
+   "width": 0.646,
+   "animation": "pop"
+  },
+  {
+   "file": "Video Edits/Raw/lania-gulshan/urdu-p1.png",
+   "start": 10.8,
+   "end": 12.0,
+   "x": 0.46,
+   "y": 0.555,
+   "width": 0.5,
+   "animation": "pop"
+  },
+  {
+   "file": "Video Edits/Raw/bacha-hairan/gripe-water-mockup-cutout.png",
+   "start": 12.05,
+   "end": 13.7,
+   "x": 0.38,
+   "y": 0.41,
+   "width": 0.15,
+   "animation": "rise"
+  },
+  {
+   "file": "Video Edits/Raw/ivermectin/box-cutout.png",
+   "start": 12.15,
+   "end": 13.7,
+   "x": 0.55,
+   "y": 0.41,
+   "width": 0.15,
+   "animation": "rise"
+  },
+  {
+   "file": "Video Edits/Raw/lania-gulshan/qg.png",
+   "start": 12.1,
+   "end": 13.7,
+   "x": 0.46,
+   "y": 0.275,
+   "width": 0.508,
+   "animation": "pop"
+  },
+  {
+   "file": "Video Edits/Raw/lania-gulshan/urdu-p2.png",
+   "start": 12.4,
+   "end": 13.7,
+   "x": 0.46,
+   "y": 0.555,
+   "width": 0.46,
+   "animation": "pop"
+  },
+  {
+   "emoji": "😄",
+   "animated": true,
+   "start": 8.1,
+   "end": 9.2,
+   "x": 0.8,
+   "y": 0.62,
+   "width": 0.12,
+   "animation": "pop"
+  }
+ ],
+ "glass": [
+  {
+   "crystal": true,
+   "x": 0.46,
+   "y": 0.42,
+   "w": 0.52,
+   "h": 0.32,
+   "radius": 0.12,
+   "start": 10.5,
+   "end": 12.0,
+   "tint": 0.06,
+   "border": 0.85,
+   "border_width": 2.5,
+   "magnify": 1.0,
+   "blur": 0.4,
+   "brightness": 0.02,
+   "saturation": 1.0
+  },
+  {
+   "crystal": true,
+   "x": 0.46,
+   "y": 0.42,
+   "w": 0.52,
+   "h": 0.32,
+   "radius": 0.12,
+   "start": 12.0,
+   "end": 13.7,
+   "tint": 0.06,
+   "border": 0.85,
+   "border_width": 2.5,
+   "magnify": 1.0,
+   "blur": 0.4,
+   "brightness": 0.02,
+   "saturation": 1.0
+  }
+ ],
+ "cards": [
+  {
+   "type": "trip",
+   "start": 6.3,
+   "end": 9.2,
+   "from": "DENSO HALL",
+   "to": "GULSHAN-E-IQBAL",
+   "vehicle": "🛺",
+   "x": 0.46,
+   "y": 0.15,
+   "w": 0.76,
+   "h": 0.06,
+   "drive_time": 2.0,
+   "rtl": false,
+   "color": "#FFD400"
+  },
+  {
+   "type": "tag",
+   "text": "UNDER SUPERVISION: SHEIKH SAHAB",
+   "start": 13.7,
+   "end": 15.57,
+   "x": 0.46,
+   "y": 0.6,
+   "w": 0.74,
+   "h": 0.06,
+   "type_time": 0.9,
+   "color": "#178A3B"
+  }
+ ],
+ "effects": [
+  {
+   "type": "light_leak",
+   "at": 0.0,
+   "dur": 0.5,
+   "color": "#FFD400"
+  },
+  {
+   "type": "blur_whip",
+   "at": 10.45,
+   "dur": 0.12
+  },
+  {
+   "type": "blur_whip",
+   "at": 11.95,
+   "dur": 0.12
+  }
+ ],
+ "sfx_bank": "pro",
+ "sfx": [
+  {
+   "sound": "impact",
+   "at": 0.0,
+   "volume": 0.3
+  },
+  {
+   "sound": "swish",
+   "at": 2.4,
+   "volume": 0.18
+  },
+  {
+   "sound": "click",
+   "at": 6.3,
+   "volume": 0.28
+  },
+  {
+   "sound": "click",
+   "at": 6.45,
+   "volume": 0.28
+  },
+  {
+   "sound": "trr",
+   "at": 6.5,
+   "volume": 0.24
+  },
+  {
+   "sound": "click",
+   "at": 8.4,
+   "volume": 0.26
+  },
+  {
+   "sound": "click",
+   "at": 8.55,
+   "volume": 0.26
+  },
+  {
+   "sound": "pop",
+   "at": 8.1,
+   "volume": 0.2
+  },
+  {
+   "sound": "whoosh_fast",
+   "at": 10.42,
+   "volume": 0.2
+  },
+  {
+   "sound": "pop",
+   "at": 10.6,
+   "volume": 0.24
+  },
+  {
+   "sound": "ding",
+   "at": 10.9,
+   "volume": 0.14
+  },
+  {
+   "sound": "whoosh_fast",
+   "at": 11.92,
+   "volume": 0.18
+  },
+  {
+   "sound": "pop",
+   "at": 12.1,
+   "volume": 0.22
+  },
+  {
+   "sound": "pop",
+   "at": 12.2,
+   "volume": 0.22
+  },
+  {
+   "sound": "keys",
+   "at": 13.8,
+   "volume": 0.3
+  }
+ ],
+ "fade": {
+  "out": 0.3
+ },
+ "loudness": -14
+}

@@ -60,6 +60,8 @@ from the owner's viral CapCut reel), with good SFX, in ultra 4K.
 `styles/product-posts/style.md` (white minimal series, Noori + Aslam + Montserrat + Poppins, product colours, no shop
 name/number for resellers). Make one with `python3 tools/posts/product_post.py tools/posts/<product>.json`.
 
+**NO APPROVALS (owner 2026-11-28: "mujh se ijazat nahi liya karo, apne hisaab se acche se acche bana diya karo"):** skip the caption-review page, storyboard OK and heading-options questions. Decide yourself, check the frames yourself, fix flaws yourself, and deliver the final directly (4K `-iphone.mp4` + `-1080p.mp4` + `tools/whatsapp.sh` file). Ask only when a fact is truly unknown (a name, number or claim), never about design. Keep credits for farms whose footage is used, no KT branding inside videos, no prices.
+
 **VIDEOS = NO SHOP BRANDING (owner 2026-11-26):** never put the Khyber Traders name, logo or number inside a video (resellers repost them). Thumbnails/posts: make a with-KT and a `-nokt` version.
 
 **SHARP POSTS (owner 2026-11-27: "zoom karo to pixel phatte hain"):** AI-upscale small product photos/cutouts first with `python3 tools/upscale.py <img>` (Real-ESRGAN x4 -> `-hd.png`), then render posts at scale 3 (`POST_SCALE=3`).

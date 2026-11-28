@@ -69,13 +69,13 @@ x = []
 # 1 hook: 10 kg -> 2-3 kg
 a, b = S[0]
 x.append(sc(0, top +
-    f'<div class="ur" style="top:210px;font-size:80px;{at(.05,"pop",.5)}">گائے <b>دس کلو</b> دودھ والی تھی</div>'
+    f'<div class="ur" style="top:210px;font-size:80px;{at(.05,"pop",.5)}">گائے <b>دس لیٹر</b> دودھ والی تھی</div>'
     f'<div class="win" style="left:110px;right:110px;top:420px;height:700px;{at(.1)}">{clip("K1", a)}</div>'
     f'<div style="position:absolute;top:1150px;left:0;right:0;display:flex;align-items:center;justify-content:center;gap:34px">'
-    f'<div style="font:900 120px Montserrat;color:{GRN};{at(.5,"pop")}">10<span style="font-size:.45em"> KG</span></div>'
+    f'<div style="font:900 108px Montserrat;color:{GRN};{at(.5,"pop")}">10<span style="font-size:.45em"> LITRE</span></div>'
     f'<div style="font:900 110px Montserrat;color:{RED};{at(2.5,"drop",.4)}">→</div>'
-    f'<div style="font:900 120px Montserrat;color:{RED};{at(2.66,"pop")}">2–3<span style="font-size:.45em"> KG</span></div></div>'
-    f'<div class="ur" style="top:1320px;font-size:74px;{at(1.86,"pop")}">بیانے کے بعد <r>دو تین کلو</r> پر آ گئی؟</div>'))
+    f'<div style="font:900 108px Montserrat;color:{RED};{at(2.66,"pop")}">2–3<span style="font-size:.45em"> LITRE</span></div></div>'
+    f'<div class="ur" style="top:1320px;font-size:74px;{at(1.86,"pop")}">بیانے کے بعد <r>دو تین لیٹر</r> پر آ گئی؟</div>'))
 # 2 problem: retained placenta
 a, b = S[1]
 x.append(sc(1, top +
@@ -104,7 +104,7 @@ x.append(sc(4, top +
     f'<line x1="70" y1="120" x2="880" y2="120" stroke="{GRN}" stroke-width="4" stroke-dasharray="16 12"/>'
     f'<text x="880" y="100" text-anchor="end" font-family="Montserrat" font-weight="900" font-size="26" fill="{GRN}">HER NORMAL MILK (اصل سطح)</text>'
     f'<path d="M70 140 C 160 140, 200 380, 300 380 C 420 380, 560 200, 860 122" fill="none" stroke="{OR}" stroke-width="14" stroke-linecap="round" stroke-dasharray="2000" style="animation:draw 1.8s ease-out {a + .5:.2f}s both"/>'
-    f'<text x="300" y="430" text-anchor="middle" font-family="Montserrat" font-weight="900" font-size="26" fill="{RED}">AFTER CALVING 2–3 KG</text>'
+    f'<text x="300" y="430" text-anchor="middle" font-family="Montserrat" font-weight="900" font-size="26" fill="{RED}">AFTER CALVING 2–3 LITRE</text>'
     f'<text x="70" y="460" font-family="Montserrat" font-size="22" fill="#888">DAYS →</text></svg></div>'
     f'<div class="ur" style="top:1290px;font-size:76px;{at(13.84,"pop")}">واپس اپنی <g>اصل پیداوار</g> پر!<br>{en("ACTUAL MILK YIELD")}</div>'))
 # 6 not a milk-increasing syrup
@@ -119,7 +119,7 @@ x.append(sc(5, top +
     f'<div style="height:2px;background:#EAE1D6;margin:6px 40px"></div>'
     + row(18.84, True, "اپنے پورے دودھ پر واپسی میں مددگار", "BACK TO HER OWN LEVEL") +
     '</div>'
-    f'<div class="win" style="left:200px;right:200px;top:1060px;height:300px;{at(19.3)}">{photo("cows-field.jpg", a, b, "55% 35%")}</div>'))
+    f'<div class="win" style="left:150px;right:150px;top:1050px;height:330px;{at(19.3)}">{clip("K3", a)}</div>'))
 # 7 end card
 a, b = S[6]
 x.append(sc(6, top +

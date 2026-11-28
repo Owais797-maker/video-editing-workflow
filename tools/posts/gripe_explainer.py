@@ -33,6 +33,7 @@ css = f"""*{{margin:0;padding:0;box-sizing:border-box}}
 @keyframes pop{{0%{{opacity:0;scale:.4}}70%{{opacity:1;scale:1.08}}100%{{opacity:1;scale:1}}}}
 @keyframes bag{{0%{{opacity:0;translate:0 300px;scale:.8}}100%{{opacity:1;translate:0 0;scale:1}}}}
 @keyframes float{{from{{translate:0 0}}to{{translate:0 -14px}}}}
+@keyframes kb{{from{{scale:1.04}}to{{scale:1.14}}}}
 @keyframes ripple{{0%{{opacity:.8;scale:.2}}100%{{opacity:0;scale:1.6}}}}
 .sc{{position:absolute;inset:0;opacity:0}}
 .top{{position:absolute;top:150px;left:0;right:0;text-align:center;font:500 24px Montserrat;letter-spacing:8px;color:#77777d}} .top b{{font-weight:900;color:{INK}}} .top i{{font-style:normal;color:{BLUE}}}
@@ -78,7 +79,7 @@ flow = "".join(
     + (f'<span style="display:inline-block;vertical-align:middle;font:900 70px Montserrat;color:{BLUE};margin-top:-50px;{at(a + .32 + i * .25, "fin", .2)}">←</span>' if i < 2 else "")
     for i, (c, t) in enumerate([("1f33e.png", "خوراک"), ("1f9eb.png", "ہاضمہ"), ("1f4aa.png", "طاقت")]))
 x.append(sc(1, top +
-    f'<div class="win" style="left:150px;right:150px;top:230px;height:640px;{at(a+.03)}">{clip("B", a)}</div>' + credit(a + .2, 810) +
+    f'<div class="win" style="left:150px;right:150px;top:230px;height:640px;{at(a+.03)}"><img src="file://{R}/assets/owner-library/buffalo-feeding.jpg" style="object-position:50% 70%;animation:kb {b - a:.2f}s linear {a:.2f}s both"></div>' +
     f'<div style="position:absolute;top:910px;left:80px;right:80px;background:#fff;border-radius:40px;padding:26px 10px 14px;text-align:center;direction:rtl;box-shadow:0 20px 50px rgba(0,0,0,.1);{at(a+.1)}">{flow}</div>'
     f'<div class="ur" style="top:1240px;font-size:90px;{at(a+.05,"pop")}">پہلے <b>ہاضمہ</b> ٹھیک کرو بھائی! {en("DIGESTION")}</div>'))
 # 3 product: real bottle close-up + title

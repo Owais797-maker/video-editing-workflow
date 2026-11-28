@@ -19,3 +19,5 @@
 - Animal Life Care oral liquid. Per 100 ml: sodium bicarbonate 5 g, mint (Mentha viridis) 2.5 g, ajwain (Trachyspermum ammi) 1.25 g, ammonium chloride 1.25 g, rhubarb (Rheum) 1.25 g, acetic acid 1.25 ml, zeera (Cuminum) 1.25 g.
 - Label claims: best rumen pH; activates feed intake (bhook); digestive secretions; beneficial bacteria; converts undigestible feed into digestible matter and makes it part of the weight; immune system; useful to avoid steroid use.
 - Front label (hepta-sef-front.jpg): "وزن بڑھانے کے لئے" + a liver picture, 5 litres, DRAP E. No. 00706. So: weight gain + liver/digestion support (soft wording: madadgar). Never show the MRP.
+- Dose (owner 2026-11-28): goat 10-12 ml (show "approx 40 kg live body weight"); cattle / calf 35-40 ml (show "approx 350-400 kg live body weight"); milking cow or buffalo 60-70 ml (show "approx 600 kg live body weight").
+- Videos: benefits only (APPETITE, DIGESTION, LIVER, WEIGHT GAIN), no ingredient lists (owner: people do not care about ingredients).

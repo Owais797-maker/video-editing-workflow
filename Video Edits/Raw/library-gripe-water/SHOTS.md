@@ -1,7 +1,7 @@
 # Gripe Water clip library (owner 2026-11-28, for Gripe Water informative / non-dispatch videos)
 
 Owner's own farm footage (478x850, low res: use in rounded windows or as a dimmed background, not full-frame 4K).
-Media files are git-ignored: if missing in a new session, ask the owner to resend the two WhatsApp clips.
+Owner 2026-11-28: "save them": both clips are committed (force-added) so every future session has them.
 
 clip-1.mp4 (9.1 s)
 - 0.0-3.0  man holding Life Gripe Water 5 L bottle, label clear (product shot)

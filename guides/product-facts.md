@@ -14,3 +14,8 @@
 - Oral liquid (1 litre), given to a freshly calved cow (post-delivery). Helps the placenta/afterbirth (jer, owner says "zehar mela") come out and helps the cow return to her **own actual milk level** (e.g. a 10 kg cow down to 2-3 kg after calving).
 - Call it a **syrup (سیرپ), never "dawai/medicine"** (owner 2026-11-28). It is **not a milk-increasing syrup**: say "yeh doodh barhane ka syrup nahi, asal paidawar par wapas laane mein madadgar". Never show the milk going above her normal level in graphs.
 - Mockup: Video Edits/Raw/milkolin/milkolin-clean-cutout.png. TikTok version: soft words on screen (no "dawai"/"jer").
+
+## Hepta Sef (owner 2026-11-28, label photo Video Edits/Raw/three-products/hepta-sef-label.jpg)
+- Animal Life Care oral liquid. Per 100 ml: sodium bicarbonate 5 g, mint (Mentha viridis) 2.5 g, ajwain (Trachyspermum ammi) 1.25 g, ammonium chloride 1.25 g, rhubarb (Rheum) 1.25 g, acetic acid 1.25 ml, zeera (Cuminum) 1.25 g.
+- Label claims: best rumen pH; activates feed intake (bhook); digestive secretions; beneficial bacteria; converts undigestible feed into digestible matter and makes it part of the weight; immune system; useful to avoid steroid use.
+- Label does NOT mention liver (older post called it a liver tonic): stick to the label. Never show the MRP.

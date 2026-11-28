@@ -1,0 +1,277 @@
+{
+ "project": "abdullah-vaccines",
+ "style": "bold-clean",
+ "summary": "Vaccines going to Abdullah Hotel, Gadap: LSD (Turkey), Antox 9, HS, FMD (Aftodoll). 'People trust us a lot with vaccines.'",
+ "reference_notes": "Owner 2026-11-28: no text clutter, no big boxes: each vaccine just pops in (pill + small mockup) when named, with click/pop sounds. LSD has no photo: name only 'LSD VACCINE · TURKEY'. Trust line 'ویکسین میں صرف ویکسین نہیں، اعتبار دیکھا جاتا ہے'. Owner sent photos: LSD = LSD-NDOLL (Turkey), HS = DILPHES (CZ Vaccines, Spain), cutouts added. Noori + Aslam key word. No KT branding.",
+ "shots": [
+  {
+   "src": "clip.mov",
+   "in": 0.0,
+   "out": 13.6,
+   "description": "Shop: vaccines on shelf, bags, owner speaking",
+   "volume": 1.0,
+   "motion": {
+    "type": "zoom_in",
+    "amount": 0.04
+   },
+   "punch": [
+    [
+     0.0,
+     0.7
+    ],
+    [
+     9.6,
+     10.4
+    ]
+   ],
+   "punch_zoom": 1.06
+  }
+ ],
+ "captions": false,
+ "look": {
+  "cinematic": 0.5,
+  "brightness": 0.05,
+  "contrast": 1.1,
+  "saturation": 1.25,
+  "warmth": 0.02,
+  "gamma": 0.97,
+  "denoise": 0.6,
+  "sharpen": 0.85,
+  "vignette": 0.25,
+  "grain": 1
+ },
+ "overlays": [
+  {
+   "file": "Video Edits/Raw/abdullah-vaccines/urdu-heading.png",
+   "start": 0,
+   "end": 2.9,
+   "x": 0.46,
+   "y": 0.24,
+   "width": 0.66,
+   "animation": "none"
+  },
+  {
+   "file": "Video Edits/Raw/abdullah-vaccines/urdu-c1.png",
+   "start": 0.0,
+   "end": 1.1,
+   "x": 0.46,
+   "y": 0.76,
+   "width": 0.672,
+   "animation": "pop"
+  },
+  {
+   "file": "Video Edits/Raw/abdullah-vaccines/urdu-c2.png",
+   "start": 1.1,
+   "end": 2.9,
+   "x": 0.46,
+   "y": 0.76,
+   "width": 0.8,
+   "animation": "pop"
+  },
+  {
+   "file": "Video Edits/Raw/abdullah-vaccines/urdu-c3.png",
+   "start": 2.9,
+   "end": 5.0,
+   "x": 0.46,
+   "y": 0.76,
+   "width": 0.8,
+   "animation": "pop"
+  },
+  {
+   "file": "Video Edits/Raw/abdullah-vaccines/urdu-c4.png",
+   "start": 5.0,
+   "end": 6.5,
+   "x": 0.46,
+   "y": 0.76,
+   "width": 0.619,
+   "animation": "pop"
+  },
+  {
+   "file": "Video Edits/Raw/abdullah-vaccines/urdu-c5.png",
+   "start": 6.5,
+   "end": 8.4,
+   "x": 0.46,
+   "y": 0.76,
+   "width": 0.8,
+   "animation": "pop"
+  },
+  {
+   "file": "Video Edits/Raw/abdullah-vaccines/urdu-c6.png",
+   "start": 8.4,
+   "end": 9.6,
+   "x": 0.46,
+   "y": 0.76,
+   "width": 0.798,
+   "animation": "pop"
+  },
+  {
+   "file": "Video Edits/Raw/abdullah-vaccines/urdu-c7.png",
+   "start": 9.6,
+   "end": 12.0,
+   "x": 0.46,
+   "y": 0.76,
+   "width": 0.8,
+   "animation": "pop"
+  },
+  {
+   "file": "Video Edits/Raw/abdullah-vaccines/urdu-c8.png",
+   "start": 12.0,
+   "end": 13.6,
+   "x": 0.46,
+   "y": 0.76,
+   "width": 0.672,
+   "animation": "pop"
+  },
+  {
+   "file": "Video Edits/Raw/abdullah-vaccines/v-lsd.png",
+   "start": 3.4,
+   "end": 5.0,
+   "x": 0.46,
+   "y": 0.2,
+   "width": 0.391,
+   "animation": "pop"
+  },
+  {
+   "file": "Video Edits/Raw/abdullah-vaccines/v-antox.png",
+   "start": 5.0,
+   "end": 6.6,
+   "x": 0.46,
+   "y": 0.2,
+   "width": 0.347,
+   "animation": "pop"
+  },
+  {
+   "file": "Video Edits/Raw/abdullah-vaccines/v-hs.png",
+   "start": 6.7,
+   "end": 8.4,
+   "x": 0.46,
+   "y": 0.2,
+   "width": 0.371,
+   "animation": "pop"
+  },
+  {
+   "file": "Video Edits/Raw/abdullah-vaccines/v-fmd.png",
+   "start": 8.7,
+   "end": 9.6,
+   "x": 0.46,
+   "y": 0.2,
+   "width": 0.382,
+   "animation": "pop"
+  },
+  {
+   "file": "Video Edits/Raw/antox9/box-crop-cutout.png",
+   "start": 5.05,
+   "end": 6.6,
+   "x": 0.5,
+   "y": 0.42,
+   "width": 0.17,
+   "animation": "rise"
+  },
+  {
+   "file": "Video Edits/Raw/aftodoll/box-cutout.png",
+   "start": 8.75,
+   "end": 9.6,
+   "x": 0.5,
+   "y": 0.42,
+   "width": 0.2,
+   "animation": "rise"
+  },
+  {
+   "file": "Video Edits/Raw/abdullah-vaccines/urdu-trust.png",
+   "start": 9.7,
+   "end": 13.6,
+   "x": 0.46,
+   "y": 0.6,
+   "width": 0.72,
+   "animation": "pop"
+  },
+  {
+   "file": "Video Edits/Raw/lsd-ndoll/bottles-cutout.png",
+   "start": 3.45,
+   "end": 5.0,
+   "x": 0.5,
+   "y": 0.42,
+   "width": 0.24,
+   "animation": "rise"
+  },
+  {
+   "file": "Video Edits/Raw/dilphes/box-cutout.png",
+   "start": 6.75,
+   "end": 8.4,
+   "x": 0.5,
+   "y": 0.42,
+   "width": 0.17,
+   "animation": "rise"
+  }
+ ],
+ "effects": [
+  {
+   "type": "light_leak",
+   "at": 0.0,
+   "dur": 0.45,
+   "color": "#E8741E"
+  }
+ ],
+ "sfx_bank": "pro",
+ "sfx": [
+  {
+   "sound": "impact",
+   "at": 0.0,
+   "volume": 0.28
+  },
+  {
+   "sound": "pro_click/soft",
+   "at": 3.4,
+   "volume": 0.3
+  },
+  {
+   "sound": "pro_click/soft",
+   "at": 5.0,
+   "volume": 0.3
+  },
+  {
+   "sound": "pro_click/soft",
+   "at": 6.7,
+   "volume": 0.3
+  },
+  {
+   "sound": "pro_click/soft",
+   "at": 8.7,
+   "volume": 0.3
+  },
+  {
+   "sound": "pop",
+   "at": 3.4499999999999997,
+   "volume": 0.22
+  },
+  {
+   "sound": "pop",
+   "at": 5.05,
+   "volume": 0.22
+  },
+  {
+   "sound": "pop",
+   "at": 6.75,
+   "volume": 0.22
+  },
+  {
+   "sound": "pop",
+   "at": 8.75,
+   "volume": 0.22
+  },
+  {
+   "sound": "swoosh_up",
+   "at": 9.6,
+   "volume": 0.16
+  },
+  {
+   "sound": "ding",
+   "at": 9.8,
+   "volume": 0.14
+  }
+ ],
+ "fade": {
+  "out": 0.3
+ },
+ "loudness": -14
+}

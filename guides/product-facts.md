@@ -21,3 +21,9 @@
 - Front label (hepta-sef-front.jpg): "وزن بڑھانے کے لئے" + a liver picture, 5 litres, DRAP E. No. 00706. So: weight gain + liver/digestion support (soft wording: madadgar). Never show the MRP.
 - Dose (owner 2026-11-28): goat 10-12 ml (show "approx 40 kg live body weight"); cattle / calf 35-40 ml (show "approx 350-400 kg live body weight"); milking cow or buffalo 60-70 ml (show "approx 600 kg live body weight").
 - Videos: benefits only (APPETITE, DIGESTION, LIVER, WEIGHT GAIN), no ingredient lists (owner: people do not care about ingredients).
+
+## LSD-NDOLL (owner 2026-11-28)
+- Turkish live attenuated lumpy skin disease (LSD) vaccine for cattle; 10-dose vial + 20 ml diluent, 2 cc per cow subcutaneous. Cutout: Video Edits/Raw/lsd-ndoll/bottles-cutout.png.
+
+## Dilphes (owner 2026-11-28)
+- CZ Vaccines, Spain. HS (gal ghotu) vaccine, 100 ml. Label: 2 ml cattle under 6 months and sheep/goats over 2 months, 5 ml cattle over 6 months, subcutaneous; zero days withdrawal; store refrigerated, do not freeze; under veterinary supervision. (Owner poster says 2 ml cows/buffalo, 1 ml sheep/goats: follow the box label if unsure.) Cutout: Video Edits/Raw/dilphes/box-cutout.png.

@@ -12,5 +12,5 @@
 
 ## Milkolin Plus (owner 2026-11-28)
 - Oral liquid (1 litre), given to a freshly calved cow (post-delivery). Helps the placenta/afterbirth (jer, owner says "zehar mela") come out and helps the cow return to her **own actual milk level** (e.g. a 10 kg cow down to 2-3 kg after calving).
-- It is **NOT a milk-increasing medicine**: say "asal paidawar par wapas laane mein madadgar". Never show the milk going above her normal level in graphs.
+- Call it a **syrup (سیرپ), never "dawai/medicine"** (owner 2026-11-28). It is **not a milk-increasing syrup**: say "yeh doodh barhane ka syrup nahi, asal paidawar par wapas laane mein madadgar". Never show the milk going above her normal level in graphs.
 - Mockup: Video Edits/Raw/milkolin/milkolin-clean-cutout.png. TikTok version: soft words on screen (no "dawai"/"jer").

@@ -1,7 +1,7 @@
 {
  "project": "abdullah-vaccines",
  "style": "bold-clean",
- "summary": "Vaccines going to Abdullah Hotel, Gadap: LSD (Turkey), Antox 9, HS, FMD (Aftodoll). 'People trust us a lot with vaccines.'",
+ "summary": "Vaccines going to a farmer near Abdullah Hotel, Gadap: LSD (Turkey), Antox 9, HS, FMD (Aftodoll). 'People trust us a lot with vaccines.'",
  "reference_notes": "Owner 2026-11-28: no text clutter, no big boxes: each vaccine just pops in (pill + small mockup) when named, with click/pop sounds. LSD has no photo: name only 'LSD VACCINE · TURKEY'. Trust line 'ویکسین میں صرف ویکسین نہیں، اعتبار دیکھا جاتا ہے'. Owner sent photos: LSD = LSD-NDOLL (Turkey), HS = DILPHES (CZ Vaccines, Spain), cutouts added. Noori + Aslam key word. No KT branding.",
  "shots": [
   {
@@ -56,7 +56,7 @@
    "end": 1.1,
    "x": 0.46,
    "y": 0.76,
-   "width": 0.672,
+   "width": 0.8,
    "animation": "pop"
   },
   {

@@ -16,7 +16,8 @@ F = lambda g: str(next(R.joinpath("fonts").rglob(g)))
 fonts = [{"family": "Noori", "path": F("JameelNooriNastaleeq-400.ttf"), "weight": 400, "style": "normal"},
          {"family": "Aslam", "path": F("Aslam-400.ttf"), "weight": 400, "style": "normal"},
          {"family": "Montserrat", "path": F("Montserrat-900.ttf"), "weight": 900, "style": "normal"},
-         {"family": "Montserrat", "path": F("Montserrat-500.ttf"), "weight": 500, "style": "normal"}]
+         {"family": "Montserrat", "path": F("Montserrat-500.ttf"), "weight": 500, "style": "normal"},
+         {"family": "Mehr", "path": F("MehrNastaliq-400.ttf"), "weight": 400, "style": "normal"}]
 DUR = 23.76
 PUR, PUD, YEL, RED, GRN, INK = "#7B2C8F", "#4A1458", "#F2C400", "#D7232E", "#1E8A3A", "#1B1B1F"
 hd = R / "Video Edits/Raw/three-products/hepta-sef-cutout-hd.png"
@@ -48,6 +49,8 @@ css = f"""*{{margin:0;padding:0;box-sizing:border-box}}
 .chip{{display:flex;align-items:center;gap:18px;background:#fff;border-radius:60px;padding:12px 32px 12px 12px;box-shadow:0 16px 34px rgba(0,0,0,.14);font:900 34px Montserrat;color:{PUD}}}
 .chip img{{width:68px;height:68px}}
 .cardw{{position:absolute;left:80px;right:80px;background:#fff;border-radius:44px;box-shadow:0 24px 60px rgba(0,0,0,.10);border:2px solid #E7DCEC}}
+.credit{{position:absolute;left:50%;translate:-50% 0;display:flex;flex-direction:column;align-items:center;white-space:nowrap;background:#fff;border:4px solid {PUR};border-radius:40px;padding:2px 30px 8px;box-shadow:0 14px 30px rgba(0,0,0,.18);z-index:5}}
+.credit .cu{{direction:rtl;font:400 44px/1.6 Mehr;color:{INK}}} .credit .ce{{font:900 18px Montserrat;letter-spacing:3px;color:{PUR}}}
 .btl{{position:absolute;filter:drop-shadow(0 30px 34px rgba(0,0,0,.25))}}
 .dose{{flex:1;background:#fff;border-radius:30px;padding:16px 8px 14px;text-align:center;box-shadow:0 14px 30px rgba(0,0,0,.10);border-top:8px solid {PUR}}}
 .dose img{{width:84px;height:84px}} .dose b{{display:block;font:900 48px Montserrat;color:{PUR};margin-top:4px}}
@@ -89,14 +92,15 @@ x.append(sc(3, top +
     f'<img class="btl" src="file://{bottle}" style="left:50%;top:330px;height:860px;margin-left:-240px;{at(a,"bag",.4)},float 2s ease-in-out {a+.4:.2f}s infinite alternate">'
     f'<div style="position:absolute;top:200px;left:0;right:0;text-align:center;font:900 110px Montserrat;letter-spacing:-3px;{at(a,"pop")}">HEPTA <span style="color:{PUR}">SEF</span></div>'
     f'<div class="ur" style="top:1220px;font-size:88px;{at(a+.15,"pop")}"><b>ہیپٹا سیف</b> پلانا پڑے گا!</div>'))
-# 5 appetite + digestion (+ liver)
+# 5 appetite + digestion (+ liver), Feroz Shakir Goat Farm herd
 a, b = S[4]
 chips = [("1f60b.png", "APPETITE", "بھوک", a + .05), ("1f9eb.png", "DIGESTION", "ہاضمہ", 10.6), ("1fac1.png", "LIVER", "جگر", 11.1)]
 x.append(sc(4, top +
-    f'<img class="btl" src="file://{bottle}" style="left:50%;top:240px;height:560px;margin-left:-156px;{at(a,"bag",.35)}">'
-    f'<div style="position:absolute;top:850px;left:0;right:0;display:flex;flex-direction:column;align-items:center;gap:20px">'
+    f'<div class="win" style="left:150px;right:150px;top:220px;height:560px;{at(a+.03)}">{clip("FZ", a)}</div>'
+    f'<div class="credit" style="top:730px;{at(a+.25,"pop",.35)}"><span class="cu">فیروز شاکر گوٹ فارم (روف ٹاپ)</span><span class="ce">FEROZ SHAKIR GOAT FARM · ROOFTOP</span></div>'
+    f'<div style="position:absolute;top:900px;left:0;right:0;display:flex;flex-direction:column;align-items:center;gap:18px">'
     + "".join(f'<div class="chip" style="{at(t, "pop")}"><img src="file://{E(c)}">{e} <span style="font-family:Noori;font-weight:400;font-size:40px;color:{INK}">({u})</span></div>' for c, e, u, t in chips) +
-    f'</div><div class="ur" style="top:1290px;font-size:74px;{at(a+.1,"pop")}"><g>بھوک</g> بھی کھلے گی، <b>ہاضمہ</b> بھی اچھا!</div>'))
+    f'</div><div class="ur" style="top:1300px;font-size:74px;{at(a+.1,"pop")}"><g>بھوک</g> بھی کھلے گی، <b>ہاضمہ</b> بھی اچھا!</div>'))
 # 6 what it eats will show
 a, b = S[5]
 flow = "".join(

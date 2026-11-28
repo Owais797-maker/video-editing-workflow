@@ -37,3 +37,5 @@ Look at the full image, fix anything touching the edges or covering bag text, co
 
 ## Owner 2026-11-27: less Aslam
 Aslam is too heavy when used everywhere ("bohat mota, samajh nahi aata"). Use Jameel Noori Nastaleeq for Urdu lines and Mehr Nastaliq for the big Urdu hook line; Aslam only for a single short accent word, if at all. Example: tools/posts/calsol_post.py.
+
+## Owner 2026-11-28 (videos too): Urdu lines in Noori; Aslam ONLY for the one key word/phrase of a line (other highlights = colour only). Hook plates the same.

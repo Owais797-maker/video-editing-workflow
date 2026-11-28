@@ -41,7 +41,7 @@ css = f"""*{{margin:0;padding:0;box-sizing:border-box}}
 .sc{{position:absolute;inset:0;opacity:0}}
 .top{{position:absolute;top:150px;left:0;right:0;text-align:center;font:500 24px Montserrat;letter-spacing:8px;color:#77777d}} .top b{{font-weight:900;color:{INK}}} .top i{{font-style:normal;color:{PUR}}}
 .ur{{position:absolute;left:40px;right:40px;direction:rtl;text-align:center;font-family:Noori;color:#2a2a2e;line-height:1.7}}
-.ur b{{font-family:Aslam;font-weight:400;color:{PUR}}} .ur r{{font-family:Aslam;color:{RED}}} .ur g{{font-family:Aslam;color:{GRN}}}
+.ur b{{font-family:Aslam;font-weight:400;color:{PUR}}} .ur r{{color:{RED}}} .ur g{{color:{GRN}}} .ur rk{{font-family:Aslam;color:{RED}}} .ur gk{{font-family:Aslam;color:{GRN}}}
 .en{{display:inline-block;direction:ltr;font:900 .42em Montserrat;color:{INK};background:{YEL};border-radius:.3em;padding:.16em .45em;vertical-align:middle;letter-spacing:.05em;margin:0 .15em}}
 .win{{position:absolute;border-radius:46px;overflow:hidden;border:8px solid #fff;box-shadow:0 30px 60px rgba(0,0,0,.18)}}
 .win img{{width:100%;height:100%;object-fit:cover}}
@@ -74,20 +74,20 @@ a, b = S[0]
 x.append('<div class="sc" style="opacity:1;animation:fout .14s ease 2.76s forwards">' + (
     f'<div style="position:absolute;inset:0;overflow:hidden"><div style="position:absolute;inset:0;animation:hk {b:.2f}s linear 0s both">{clip("E1", 0.0).replace("<img ", "<img style=\'width:100%;height:100%;object-fit:cover\' ")}</div></div>'
     f'<div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.45) 0%,rgba(0,0,0,0) 38%,rgba(0,0,0,0) 60%,rgba(0,0,0,.55) 100%)"></div>'
-    f'<div style="position:absolute;top:250px;left:0;right:0;text-align:center;"><span style="display:inline-block;direction:rtl;background:{RED};color:#fff;font:400 110px/1.5 Aslam;padding:0 .4em .1em;border-radius:.2em;box-shadow:0 14px 34px rgba(0,0,0,.45)">کھاتا بہت ہے!</span></div>'
-    f'<div style="position:absolute;top:1230px;left:0;right:0;text-align:center;{at(1.45,"pop",.25)}"><span style="display:inline-block;direction:rtl;background:#fff;color:{RED};font:400 120px/1.5 Aslam;padding:0 .4em .1em;border-radius:.2em;box-shadow:0 14px 34px rgba(0,0,0,.45)">پر لگتا نہیں؟</span></div>') + '</div>')
+    f'<div style="position:absolute;top:250px;left:0;right:0;text-align:center;"><span style="display:inline-block;direction:rtl;background:{RED};color:#fff;font:400 112px/1.6 Noori;padding:0 .4em .1em;border-radius:.2em;box-shadow:0 14px 34px rgba(0,0,0,.45)">کھاتا <span style="font-family:Aslam;font-size:1.08em">بہت</span> ہے!</span></div>'
+    f'<div style="position:absolute;top:1230px;left:0;right:0;text-align:center;{at(1.45,"pop",.25)}"><span style="display:inline-block;direction:rtl;background:#fff;color:{INK};font:400 120px/1.6 Noori;padding:0 .4em .1em;border-radius:.2em;box-shadow:0 14px 34px rgba(0,0,0,.45)">پر <span style="font-family:Aslam;color:{RED};font-size:1.08em">لگتا نہیں؟</span></span></div>') + '</div>')
 # 2 and you keep feeding more
 a, b = S[1]
 x.append(sc(1, top +
     f'<div class="win" style="left:110px;right:110px;top:230px;height:760px;{at(a+.03)}">{clip("E2", a)}</div>'
     f'<div style="position:absolute;top:1010px;left:0;right:0;display:flex;justify-content:center;gap:24px;{at(a+.4,"pop")}">'
     + "".join(f'<img src="file://{E("1f33e.png")}" style="width:{90 + i * 18}px;height:{90 + i * 18}px;transform-origin:50% 100%;animation:pile .3s ease-out {a + .4 + i * .18:.2f}s both">' for i in range(4)) +
-    f'</div><div class="ur" style="top:1180px;font-size:78px;{at(a+.05,"pop")}">اور آپ ہو کہ اسے<br><r>اور زیادہ</r> کھلانے پر تلے ہوئے ہو!</div>'))
+    f'</div><div class="ur" style="top:1180px;font-size:78px;{at(a+.05,"pop")}">اور آپ ہو کہ اسے<br><rk>اور زیادہ</rk> کھلانے پر تلے ہوئے ہو!</div>'))
 # 3 won't work
 a, b = S[2]
 x.append(sc(2, top +
     f'<div style="position:absolute;top:420px;left:50%;margin-left:-210px;width:420px;height:420px;border-radius:50%;background:{RED};color:#fff;font:900 300px/420px Montserrat;text-align:center;box-shadow:0 30px 60px rgba(215,35,46,.35);{at(a,"pop",.35)},shake .4s ease {a+.35:.2f}s 2">✕</div>'
-    f'<div class="ur" style="top:960px;font-size:100px;{at(a+.1,"pop")}">ایسے <r>کام نہیں</r> چلے گا بھائی!</div>'))
+    f'<div class="ur" style="top:960px;font-size:100px;{at(a+.1,"pop")}">ایسے <rk>کام نہیں</rk> چلے گا بھائی!</div>'))
 # 4 Hepta Sef
 a, b = S[3]
 x.append(sc(3, top +
@@ -114,7 +114,7 @@ flow = "".join(
 x.append(sc(5, top +
     f'<div class="win" style="left:150px;right:150px;top:230px;height:720px;{at(a+.03)}">{clip("BR", a)}</div>'
     f'<div style="position:absolute;top:990px;left:80px;right:80px;background:#fff;border-radius:40px;padding:22px 10px 14px;text-align:center;box-shadow:0 20px 50px rgba(0,0,0,.1);{at(a+.05)}">{flow}</div>'
-    f'<div class="ur" style="top:1250px;font-size:84px;{at(a+.1,"pop")}">جو کھائے گا، وہ <g>لگے گا بھی!</g></div>'))
+    f'<div class="ur" style="top:1250px;font-size:84px;{at(a+.1,"pop")}">جو کھائے گا، وہ <gk>لگے گا بھی!</gk></div>'))
 # 7+8 the real kamal: X kitna khaya / OK kitna laga
 a, b = S[6]
 a2, b2 = S[7]

@@ -18,4 +18,4 @@
 ## Hepta Sef (owner 2026-11-28, label photo Video Edits/Raw/three-products/hepta-sef-label.jpg)
 - Animal Life Care oral liquid. Per 100 ml: sodium bicarbonate 5 g, mint (Mentha viridis) 2.5 g, ajwain (Trachyspermum ammi) 1.25 g, ammonium chloride 1.25 g, rhubarb (Rheum) 1.25 g, acetic acid 1.25 ml, zeera (Cuminum) 1.25 g.
 - Label claims: best rumen pH; activates feed intake (bhook); digestive secretions; beneficial bacteria; converts undigestible feed into digestible matter and makes it part of the weight; immune system; useful to avoid steroid use.
-- Label does NOT mention liver (older post called it a liver tonic): stick to the label. Never show the MRP.
+- Front label (hepta-sef-front.jpg): "وزن بڑھانے کے لئے" + a liver picture, 5 litres, DRAP E. No. 00706. So: weight gain + liver/digestion support (soft wording: madadgar). Never show the MRP.

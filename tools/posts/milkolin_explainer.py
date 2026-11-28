@@ -59,6 +59,10 @@ def at(t, kind="up", d=0.45, extra=""):
 def photo(f, a, b, pos="50% 50%"):
     return f'<img src="file://{L / f}" style="object-position:{pos};animation:kb {b - a:.2f}s linear {a:.2f}s both">'
 en = lambda s: f'<span class="en">{s}</span>'
+Q = W / "seq"
+def clip(name, t0):
+    n = len(list((Q / name).glob("*.jpg")))
+    return f'<img data-seq="{Q / name}" data-start="{t0:.2f}" data-n="{n}" data-fps="30" src="file://{Q / name}/0001.jpg">'
 top = '<div class="top"><b>MILKOLIN</b> <i>PLUS</i> &nbsp;·&nbsp; ORAL LIQUID</div>'
 
 x = []
@@ -66,7 +70,7 @@ x = []
 a, b = S[0]
 x.append(sc(0, top +
     f'<div class="ur" style="top:210px;font-size:80px;{at(.05,"pop",.5)}">گائے <b>دس کلو</b> دودھ والی تھی</div>'
-    f'<div class="win" style="left:110px;right:110px;top:420px;height:700px;{at(.1)}">{photo("cows-dairy-farm.jpg", a, b, "60% 40%")}</div>'
+    f'<div class="win" style="left:110px;right:110px;top:420px;height:700px;{at(.1)}">{clip("K1", a)}</div>'
     f'<div style="position:absolute;top:1150px;left:0;right:0;display:flex;align-items:center;justify-content:center;gap:34px">'
     f'<div style="font:900 120px Montserrat;color:{GRN};{at(.5,"pop")}">10<span style="font-size:.45em"> KG</span></div>'
     f'<div style="font:900 110px Montserrat;color:{RED};{at(2.5,"drop",.4)}">→</div>'
@@ -95,7 +99,7 @@ x.append(sc(3, top +
 # 5 back to her own level: graph never above the dashed "her level" line
 a, b = S[4]
 x.append(sc(4, top +
-    f'<div class="win" style="left:110px;right:110px;top:240px;height:520px;{at(a+.05)}">{photo("calves-drinking-milk-pour.jpg", a, b, "60% 70%")}</div>'
+    f'<div class="win" style="left:110px;right:110px;top:240px;height:520px;{at(a+.05)}">{clip("K2", a)}</div>'
     f'<div class="cardw" style="top:800px;height:470px;{at(a+.15,"up",.4)}"><svg viewBox="0 0 920 470" style="width:100%;height:100%">'
     f'<line x1="70" y1="120" x2="880" y2="120" stroke="{GRN}" stroke-width="4" stroke-dasharray="16 12"/>'
     f'<text x="880" y="100" text-anchor="end" font-family="Montserrat" font-weight="900" font-size="26" fill="{GRN}">HER NORMAL MILK (اصل سطح)</text>'

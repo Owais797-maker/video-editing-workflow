@@ -36,6 +36,7 @@ css = f"""*{{margin:0;padding:0;box-sizing:border-box}}
 @keyframes bag{{0%{{opacity:0;translate:0 300px;scale:.8}}100%{{opacity:1;translate:0 0;scale:1}}}}
 @keyframes float{{from{{translate:0 0}}to{{translate:0 -14px}}}}
 @keyframes shake{{0%,100%{{rotate:0deg}}25%{{rotate:-4deg}}75%{{rotate:4deg}}}}
+@keyframes hk{{0%{{scale:1.18}}12%{{scale:1.04}}100%{{scale:1.12}}}}
 @keyframes pile{{from{{scale:1 .2}}to{{scale:1 1}}}}
 .sc{{position:absolute;inset:0;opacity:0}}
 .top{{position:absolute;top:150px;left:0;right:0;text-align:center;font:500 24px Montserrat;letter-spacing:8px;color:#77777d}} .top b{{font-weight:900;color:{INK}}} .top i{{font-style:normal;color:{PUR}}}
@@ -68,12 +69,13 @@ def clip(name, t0):
 en = lambda s: f'<span class="en">{s}</span>'
 top = '<div class="top"><b>LIFE</b> <i>HEPTA SEF</i> &nbsp;·&nbsp; ORAL LIQUID</div>'
 x = []
-# 1 hook: eats a lot, doesn't show
+# 1 hook: FULL-BLEED real footage (cow eating) + big white-on-red plate, punch-in zoom (owner: start real, tight hook)
 a, b = S[0]
-x.append(sc(0, top +
-    f'<div class="ur" style="top:200px;font-size:96px;{at(.02,"pop",.35)}">جانور <b>کھاتا بہت</b> ہے،</div>'
-    f'<div class="win" style="left:110px;right:110px;top:450px;height:760px;{at(.04)}">{clip("E1", 0.0)}</div>'
-    f'<div class="ur" style="top:1240px;font-size:104px;{at(1.5,"pop")}">پر <r>لگتا نہیں؟</r></div>'))
+x.append('<div class="sc" style="opacity:1;animation:fout .14s ease 2.76s forwards">' + (
+    f'<div style="position:absolute;inset:0;overflow:hidden"><div style="position:absolute;inset:0;animation:hk {b:.2f}s linear 0s both">{clip("E1", 0.0).replace("<img ", "<img style=\'width:100%;height:100%;object-fit:cover\' ")}</div></div>'
+    f'<div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.45) 0%,rgba(0,0,0,0) 38%,rgba(0,0,0,0) 60%,rgba(0,0,0,.55) 100%)"></div>'
+    f'<div style="position:absolute;top:250px;left:0;right:0;text-align:center;"><span style="display:inline-block;direction:rtl;background:{RED};color:#fff;font:400 110px/1.5 Aslam;padding:0 .4em .1em;border-radius:.2em;box-shadow:0 14px 34px rgba(0,0,0,.45)">کھاتا بہت ہے!</span></div>'
+    f'<div style="position:absolute;top:1230px;left:0;right:0;text-align:center;{at(1.45,"pop",.25)}"><span style="display:inline-block;direction:rtl;background:#fff;color:{RED};font:400 120px/1.5 Aslam;padding:0 .4em .1em;border-radius:.2em;box-shadow:0 14px 34px rgba(0,0,0,.45)">پر لگتا نہیں؟</span></div>') + '</div>')
 # 2 and you keep feeding more
 a, b = S[1]
 x.append(sc(1, top +

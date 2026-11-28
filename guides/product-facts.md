@@ -9,3 +9,8 @@
 - Calf milk replacer, 20 kg bag. Owner: **28% milk fat, 34% protein** per kg powder (old bag label read Milk Fat 26% min, Protein in SNF 34% min: confirm which bag before printing the number).
 - 1 kg powder = 10 litre milk. Label benefits: increases weight, strengthens bones, shining skin, general health. Animals drink it eagerly (owner).
 - Never show price (resellers).
+
+## Milkolin Plus (owner 2026-11-28)
+- Oral liquid (1 litre), given to a freshly calved cow (post-delivery). Helps the placenta/afterbirth (jer, owner says "zehar mela") come out and helps the cow return to her **own actual milk level** (e.g. a 10 kg cow down to 2-3 kg after calving).
+- It is **NOT a milk-increasing medicine**: say "asal paidawar par wapas laane mein madadgar". Never show the milk going above her normal level in graphs.
+- Mockup: Video Edits/Raw/milkolin/milkolin-clean-cutout.png. TikTok version: soft words on screen (no "dawai"/"jer").

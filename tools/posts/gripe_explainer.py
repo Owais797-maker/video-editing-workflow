@@ -15,7 +15,8 @@ F = lambda g: str(next(R.joinpath("fonts").rglob(g)))
 fonts = [{"family": "Noori", "path": F("JameelNooriNastaleeq-400.ttf"), "weight": 400, "style": "normal"},
          {"family": "Aslam", "path": F("Aslam-400.ttf"), "weight": 400, "style": "normal"},
          {"family": "Montserrat", "path": F("Montserrat-900.ttf"), "weight": 900, "style": "normal"},
-         {"family": "Montserrat", "path": F("Montserrat-500.ttf"), "weight": 500, "style": "normal"}]
+         {"family": "Montserrat", "path": F("Montserrat-500.ttf"), "weight": 500, "style": "normal"},
+         {"family": "Mehr", "path": F("MehrNastaliq-400.ttf"), "weight": 400, "style": "normal"}]
 DUR = 13.02
 BLUE, NAVY, GRN, RED, INK = "#1F4AA8", "#0F2A6B", "#2E9B3A", "#D7232E", "#1B1B1F"
 hd = R / "Video Edits/Raw/bacha-hairan/gripe-water-mockup-cutout-hd.png"
@@ -44,6 +45,8 @@ css = f"""*{{margin:0;padding:0;box-sizing:border-box}}
 .pill i{{font-style:normal;color:#8FD3FF}}
 .chip{{display:flex;align-items:center;gap:18px;background:#fff;border-radius:60px;padding:14px 34px 14px 14px;box-shadow:0 16px 34px rgba(0,0,0,.14);font:900 34px Montserrat;color:{NAVY}}}
 .chip img{{width:72px;height:72px}}
+.credit{{position:absolute;left:50%;translate:-50% 0;display:flex;flex-direction:column;align-items:center;white-space:nowrap;background:#fff;border:4px solid {BLUE};border-radius:40px;padding:2px 30px 8px;box-shadow:0 14px 30px rgba(0,0,0,.18);z-index:5}}
+.credit .cu{{direction:rtl;font:400 44px/1.6 Mehr;color:{INK}}} .credit .ce{{font:900 18px Montserrat;letter-spacing:3px;color:{BLUE}}}
 .btl{{position:absolute;filter:drop-shadow(0 30px 34px rgba(0,0,0,.25))}}
 """
 
@@ -56,14 +59,17 @@ def clip(name, t0):
     n = len(list((Q / name).glob("*.jpg")))
     return f'<img data-seq="{Q / name}" data-start="{t0:.2f}" data-n="{n}" data-fps="30" src="file://{Q / name}/0001.jpg">'
 en = lambda s: f'<span class="en">{s}</span>'
+def credit(t, y):
+    return (f'<div class="credit" style="top:{y}px;{at(t, "pop", .35)}"><span class="cu">رضوان رفیق صاحب · آیان کیٹل فارم</span>'
+            f'<span class="ce">AYAN CATTLE FARM · SUPER HIGHWAY</span></div>')
 top = '<div class="top"><b>LIFE</b> <i>GRIPE WATER</i> &nbsp;·&nbsp; ORAL LIQUID</div>'
 x = []
 # 1 hook
 a, b = S[0]
 x.append(sc(0, top +
     f'<div class="ur" style="top:210px;font-size:84px;{at(.03,"pop",.4)}">جانور <r>چارہ چھوڑ</r> رہا ہے؟</div>'
-    f'<div class="win" style="left:110px;right:110px;top:420px;height:780px;{at(.05)}">{clip("F", 0.0)}</div>'
-    f'<div class="ur" style="top:1240px;font-size:96px;{at(1.32,"pop")}"><r>پیٹ پھولا</r> ہوا ہے؟</div>'))
+    f'<div class="win" style="left:110px;right:110px;top:420px;height:780px;{at(.05)}">{clip("F", 0.0)}</div>' + credit(.3, 1130) +
+    f'<div class="ur" style="top:1250px;font-size:92px;{at(1.32,"pop")}"><r>پیٹ پھولا</r> ہوا ہے؟</div>'))
 # 2 fix digestion first
 a, b = S[1]
 flow = "".join(
@@ -72,15 +78,15 @@ flow = "".join(
     + (f'<span style="display:inline-block;vertical-align:middle;font:900 70px Montserrat;color:{BLUE};margin-top:-50px;{at(a + .32 + i * .25, "fin", .2)}">←</span>' if i < 2 else "")
     for i, (c, t) in enumerate([("1f33e.png", "خوراک"), ("1f9eb.png", "ہاضمہ"), ("1f4aa.png", "طاقت")]))
 x.append(sc(1, top +
-    f'<div class="win" style="left:150px;right:150px;top:230px;height:640px;{at(a+.03)}">{clip("B", a)}</div>'
+    f'<div class="win" style="left:150px;right:150px;top:230px;height:640px;{at(a+.03)}">{clip("B", a)}</div>' + credit(a + .2, 810) +
     f'<div style="position:absolute;top:910px;left:80px;right:80px;background:#fff;border-radius:40px;padding:26px 10px 14px;text-align:center;direction:rtl;box-shadow:0 20px 50px rgba(0,0,0,.1);{at(a+.1)}">{flow}</div>'
     f'<div class="ur" style="top:1240px;font-size:90px;{at(a+.05,"pop")}">پہلے <b>ہاضمہ</b> ٹھیک کرو بھائی! {en("DIGESTION")}</div>'))
 # 3 product: real bottle close-up + title
 a, b = S[2]
 x.append(sc(2, top +
     f'<div style="position:absolute;top:210px;left:0;right:0;text-align:center;font:900 100px Montserrat;letter-spacing:-3px;{at(a,"pop",.35)}">LIFE <span style="color:{BLUE}">GRIPE WATER</span></div>'
-    f'<div class="win" style="left:150px;right:150px;top:380px;height:820px;{at(a+.02,"pop",.35)}">{clip("P", a)}</div>'
-    f'<div class="pill" style="top:1250px;{at(a+.2,"pop")}">5 LITRES · <i>ORAL LIQUID</i></div>'))
+    f'<div class="win" style="left:150px;right:150px;top:380px;height:820px;{at(a+.02,"pop",.35)}">{clip("P", a)}</div>' + credit(a + .15, 1130) +
+    f'<div class="pill" style="top:1300px;{at(a+.2,"pop")}">5 LITRES · <i>ORAL LIQUID</i></div>'))
 # 4 benefits
 a, b = S[3]
 x.append(sc(3, top +
@@ -93,8 +99,8 @@ x.append(sc(3, top +
 a, b = S[4]
 x.append(sc(4, top +
     f'<div class="ur" style="top:200px;font-size:92px;{at(a+.02,"pop",.35)}">بس <b>پانی میں ملا کر</b> پلائیں!</div>'
-    f'<div class="win" style="left:110px;right:110px;top:430px;height:820px;{at(a+.03)}">{clip("M", a)}</div>'
-    f'<div class="pill" style="top:1290px;background:{BLUE};font-size:40px;{at(a+.25,"pop")}">💧 MIX IN <i>WATER</i></div>'))
+    f'<div class="win" style="left:110px;right:110px;top:430px;height:820px;{at(a+.03)}">{clip("M", a)}</div>' + credit(a + .15, 1180) +
+    f'<div class="pill" style="top:1340px;background:{BLUE};font-size:40px;{at(a+.25,"pop")}">💧 MIX IN <i>WATER</i></div>'))
 # 6 end card
 a, b = S[5]
 x.append(sc(5, top +

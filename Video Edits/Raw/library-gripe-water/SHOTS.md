@@ -16,3 +16,5 @@ clip-2.mp4 (17.7 s)
 - 6.0-8.5  two men holding the bottle
 - 8.5-12.0 water trough close-up (clean water)
 - 12.0-17.7 pouring gripe water into the trough, ripples  ** best "mix in water" shot **
+
+Credit (owner 2026-11-28): footage of **Rizwan Rafiq sahab, Ayan Cattle Farm, Super Highway** ("رضوان رفیق صاحب · آیان کیٹل فارم، سپر ہائی وے"). Always show this credit when these clips are used.

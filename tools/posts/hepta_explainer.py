@@ -118,7 +118,7 @@ x.append(f'<div class="sc" style="animation:fin .16s ease {a:.2f}s both,fout .14
     f'<div class="ur" style="top:210px;font-size:96px;{at(a+.02,"pop")}"><b>اصل کمال</b> کیا ہے؟</div>'
     f'<div class="cardw" style="top:460px;padding:26px 10px;{at(a+.1,"up",.35)}">' + row(a + .2, False, "کتنا کھا رہا ہے", "HOW MUCH IT EATS") +
     '<div style="height:2px;background:#E7DCEC;margin:6px 40px"></div>' + row(a2 + .05, True, "کتنا لگ رہا ہے!", "HOW MUCH IT GAINS") + '</div>'
-    f'<div class="win" style="left:200px;right:200px;top:1060px;height:330px;{at(a2+.1)}">{clip("BR", a2 - 2.0)}</div></div>')
+    f'<div class="win" style="left:200px;right:200px;top:1060px;height:330px;{at(a2+.1)}">{clip("G", a2)}</div></div>')
 # 9 mandi: won't sell
 a, b = S[8]
 x.append(sc(8, top +

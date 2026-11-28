@@ -64,6 +64,8 @@ name/number for resellers). Make one with `python3 tools/posts/product_post.py t
 
 **AI VOICE-OVERS (owner 2026-11-28):** cut every silence sharply with `tools/tighten_voice.sh` (pauses -> ~0.08 s) and change the scene on each new sentence with a soft whoosh, so it feels fast and fancy.
 
+**HOOK = REAL ANIMAL FULL-SCREEN (owner 2026-11-28):** start every promo with real animal footage FULL-BLEED (not in a window), the hook text on a red/white plate visible on frame 1 (no fade-in), a quick punch-in zoom; windows/cards only after the first 3 s.
+
 **VIDEOS = NO SHOP BRANDING (owner 2026-11-26):** never put the Khyber Traders name, logo or number inside a video (resellers repost them). Thumbnails/posts: make a with-KT and a `-nokt` version.
 
 **SHARP POSTS (owner 2026-11-27: "zoom karo to pixel phatte hain"):** AI-upscale small product photos/cutouts first with `python3 tools/upscale.py <img>` (Real-ESRGAN x4 -> `-hd.png`), then render posts at scale 3 (`POST_SCALE=3`).

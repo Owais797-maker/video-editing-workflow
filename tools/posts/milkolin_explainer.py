@@ -18,11 +18,11 @@ fonts = [{"family": "Noori", "path": F("JameelNooriNastaleeq-400.ttf"), "weight"
          {"family": "Aslam", "path": F("Aslam-400.ttf"), "weight": 400, "style": "normal"},
          {"family": "Montserrat", "path": F("Montserrat-900.ttf"), "weight": 900, "style": "normal"},
          {"family": "Montserrat", "path": F("Montserrat-500.ttf"), "weight": 500, "style": "normal"}]
-DUR = 25.87
+DUR = 23.32
 OR, BR, YE, INK, RED, GRN = "#E2780E", "#5A3A1E", "#F6C400", "#1B1B1F", "#D7232E", "#1E8A3A"
 hd = R / "Video Edits/Raw/milkolin/milkolin-clean-cutout-hd.png"
 bottle = hd if hd.exists() else R / "Video Edits/Raw/milkolin/milkolin-clean-cutout.png"
-S = [(0.0, 4.18), (4.18, 7.98), (7.98, 9.24), (9.24, 13.46), (13.46, 16.32), (16.32, 22.88), (22.88, DUR)]
+S = [(0.0, 4.02), (4.02, 7.66), (7.66, 8.74), (8.74, 12.36), (12.36, 15.06), (15.06, 20.84), (20.84, DUR)]
 
 css = f"""*{{margin:0;padding:0;box-sizing:border-box}}
 @property --n {{ syntax:'<integer>'; inherits:false; initial-value:0 }}
@@ -73,16 +73,16 @@ x.append(sc(0, top +
     f'<div class="win" style="left:110px;right:110px;top:420px;height:700px;{at(.1)}">{clip("K1", a)}</div>'
     f'<div style="position:absolute;top:1150px;left:0;right:0;display:flex;align-items:center;justify-content:center;gap:34px">'
     f'<div style="font:900 108px Montserrat;color:{GRN};{at(.5,"pop")}">10<span style="font-size:.45em"> LITRE</span></div>'
-    f'<div style="font:900 110px Montserrat;color:{RED};{at(2.5,"drop",.4)}">→</div>'
-    f'<div style="font:900 108px Montserrat;color:{RED};{at(2.66,"pop")}">2–3<span style="font-size:.45em"> LITRE</span></div></div>'
-    f'<div class="ur" style="top:1320px;font-size:74px;{at(1.86,"pop")}">بیانے کے بعد <r>دو تین لیٹر</r> پر آ گئی؟</div>'))
+    f'<div style="font:900 110px Montserrat;color:{RED};{at(2.58,"drop",.4)}">→</div>'
+    f'<div style="font:900 108px Montserrat;color:{RED};{at(2.62,"pop")}">2–3<span style="font-size:.45em"> LITRE</span></div></div>'
+    f'<div class="ur" style="top:1320px;font-size:74px;{at(1.8,"pop")}">بیانے کے بعد <r>دو تین لیٹر</r> پر آ گئی؟</div>'))
 # 2 problem: retained placenta
 a, b = S[1]
 x.append(sc(1, top +
     f'<div class="ur" style="top:230px;font-size:90px;{at(a+.05,"pop")}">مسئلہ <b>دودھ</b> کا نہیں بھائی!</div>'
     f'<div class="win" style="left:110px;right:110px;top:470px;height:640px;{at(a+.1)}">{photo("brahman-white-calves-1.jpg", a, b, "50% 30%")}</div>'
-    f'<div class="ur" style="top:1150px;font-size:86px;{at(5.9,"pop")}">اندر رکا ہوا <r>جیر</r> {en("PLACENTA")}</div>'
-    f'<div class="pill" style="top:1350px;background:{RED};{at(6.9,"pop")}">RETAINED <i>PLACENTA</i></div>'))
+    f'<div class="ur" style="top:1150px;font-size:86px;{at(5.84,"pop")}">اندر رکا ہوا <r>جیر</r> {en("PLACENTA")}</div>'
+    f'<div class="pill" style="top:1350px;background:{RED};{at(6.82,"pop")}">RETAINED <i>PLACENTA</i></div>'))
 # 3 product reveal
 a, b = S[2]
 x.append(sc(2, top +
@@ -95,7 +95,7 @@ x.append(sc(3, top +
     f'<div class="win" style="left:110px;right:330px;top:260px;height:860px;{at(a+.05)}">{photo("brahman-white-calves-3.jpg", a, b, "50% 40%")}</div>'
     f'<img class="btl" src="file://{bottle}" style="right:70px;top:420px;height:700px;{at(a+.25,"bag",.5)}">'
     f'<div class="ur" style="top:1140px;font-size:74px;{at(a+.1,"pop")}"><b>تازہ بیائی ہوئی</b> گائے کو پلائیں<br>{en("AFTER CALVING")}</div>'
-    f'<div class="ur" style="top:1360px;font-size:70px;{at(11.28,"pop")}"><r>جیر</r> باہر نکالنے میں <g>مدد</g> {en("PLACENTA")}</div>'))
+    f'<div class="ur" style="top:1360px;font-size:70px;{at(10.58,"pop")}"><r>جیر</r> باہر نکالنے میں <g>مدد</g> {en("PLACENTA")}</div>'))
 # 5 back to her own level: graph never above the dashed "her level" line
 a, b = S[4]
 x.append(sc(4, top +
@@ -106,7 +106,7 @@ x.append(sc(4, top +
     f'<path d="M70 140 C 160 140, 200 380, 300 380 C 420 380, 560 200, 860 122" fill="none" stroke="{OR}" stroke-width="14" stroke-linecap="round" stroke-dasharray="2000" style="animation:draw 1.8s ease-out {a + .5:.2f}s both"/>'
     f'<text x="300" y="430" text-anchor="middle" font-family="Montserrat" font-weight="900" font-size="26" fill="{RED}">AFTER CALVING 2–3 LITRE</text>'
     f'<text x="70" y="460" font-family="Montserrat" font-size="22" fill="#888">DAYS →</text></svg></div>'
-    f'<div class="ur" style="top:1290px;font-size:76px;{at(13.84,"pop")}">واپس اپنی <g>اصل پیداوار</g> پر!<br>{en("ACTUAL MILK YIELD")}</div>'))
+    f'<div class="ur" style="top:1290px;font-size:76px;{at(12.66,"pop")}">واپس اپنی <g>اصل پیداوار</g> پر!<br>{en("ACTUAL MILK YIELD")}</div>'))
 # 6 not a milk-increasing syrup
 a, b = S[5]
 row = lambda t, ok, txt, enl: (f'<div style="display:flex;align-items:center;gap:26px;direction:rtl;padding:26px 36px;{at(t, "pop", .45)}">'
@@ -115,11 +115,11 @@ row = lambda t, ok, txt, enl: (f'<div style="display:flex;align-items:center;gap
 x.append(sc(5, top +
     f'<div class="ur" style="top:220px;font-size:92px;{at(a+.05,"pop")}"><b>یاد رکھیں!</b></div>'
     f'<div class="cardw" style="top:470px;padding:30px 10px;{at(a+.2,"up",.4)}">'
-    + row(16.9, False, "دودھ بڑھانے کا سیرپ", "NOT A MILK BOOSTER") +
+    + row(15.74, False, "دودھ بڑھانے کا سیرپ", "NOT A MILK BOOSTER") +
     f'<div style="height:2px;background:#EAE1D6;margin:6px 40px"></div>'
-    + row(18.84, True, "اپنے پورے دودھ پر واپسی میں مددگار", "BACK TO HER OWN LEVEL") +
+    + row(17.3, True, "اپنے پورے دودھ پر واپسی میں مددگار", "BACK TO HER OWN LEVEL") +
     '</div>'
-    f'<div class="win" style="left:150px;right:150px;top:1050px;height:330px;{at(19.3)}">{clip("K3", a)}</div>'))
+    f'<div class="win" style="left:150px;right:150px;top:1050px;height:330px;{at(17.9)}">{clip("K3", a)}</div>'))
 # 7 end card
 a, b = S[6]
 x.append(sc(6, top +
@@ -127,7 +127,7 @@ x.append(sc(6, top +
     f'<div style="position:absolute;top:200px;left:0;right:0;text-align:center;font:900 104px Montserrat;letter-spacing:-3px;{at(a,"pop")}">MILKOLIN <span style="color:{OR}">PLUS</span></div>'
     f'<div style="position:absolute;top:1220px;left:0;right:0;display:flex;justify-content:center;gap:18px;{at(a+.25,"pop")}">'
     f'<div class="pill" style="position:static;translate:none;background:{OR}">ORAL LIQUID</div><div class="pill" style="position:static;translate:none;background:{BR}">1 LITRE</div></div>'
-    f'<div class="ur" style="top:1330px;font-size:92px;{at(24.12,"pop")}">بیانے کے بعد کا <b>ساتھی!</b></div>'))
+    f'<div class="ur" style="top:1330px;font-size:92px;{at(21.94,"pop")}">بیانے کے بعد کا <b>ساتھی!</b></div>'))
 
 html = f'<div id="v"><div class="sheen"></div>{"".join(x)}</div>'
 W.mkdir(parents=True, exist_ok=True)

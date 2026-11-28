@@ -3,8 +3,8 @@ from pathlib import Path
 R=Path('/home/user/video-editing-workflow'); sys.path.insert(0,str(R/'tools'))
 from sfx import get
 D=R/'Video Edits/Export/milkolin-vo'; W=D/'work'
-cuts=[4.18,7.98,9.24,13.46,16.32,22.88]
-fx=[('impact',0.0,0.28),('pop',0.55,0.18),('glitch',2.55,0.14),('pop',2.7,0.2)]+[('whoosh_fast',t-0.06,0.2) for t in cuts]+[('ding',6.95,0.14),('ching',8.3,0.16),('pop',9.55,0.2),('swish',11.3,0.16),('swoosh_up',14.0,0.18),('pop',16.95,0.2),('ding',18.9,0.16),('boom',22.88,0.26),('ching',24.2,0.14)]
+cuts=[4.02,7.66,8.74,12.36,15.06,20.84]
+fx=[('impact',0.0,0.28),('pop',0.55,0.18),('glitch',2.55,0.14),('pop',2.65,0.2)]+[('whoosh_fast',t-0.06,0.2) for t in cuts]+[('ding',6.85,0.14),('ching',7.95,0.16),('pop',9.05,0.2),('swish',10.6,0.16),('swoosh_up',12.9,0.18),('pop',15.8,0.2),('ding',17.35,0.16),('boom',20.84,0.26),('ching',22.0,0.14)]
 fx=[f for f in fx if f[2]>0]
 ins=['-framerate','30','-i',str(W/'frames/f%05d.jpg'),'-i',str(W/'voice-tight.wav')]
 flt=['[1:a]volume=1.0,aresample=48000[a0]']

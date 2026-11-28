@@ -100,9 +100,10 @@ chips = [("1f60b.png", "APPETITE", "بھوک", a + .05), ("1f9eb.png", "DIGESTIO
 x.append(sc(4, top +
     f'<div class="win" style="left:150px;right:150px;top:220px;height:560px;{at(a+.03)}">{clip("FZ", a)}</div>'
     f'<div class="credit" style="top:730px;{at(a+.25,"pop",.35)}"><span class="cu">فیروز شاکر گوٹ فارم (روف ٹاپ)</span><span class="ce">FEROZ SHAKIR GOAT FARM · ROOFTOP</span></div>'
-    f'<div style="position:absolute;top:900px;left:0;right:0;display:flex;flex-direction:column;align-items:center;gap:18px">'
+    f'<div style="position:absolute;top:842px;left:50%;translate:-50% 0;white-space:nowrap;display:flex;align-items:center;gap:12px;background:{GRN};color:#fff;border-radius:40px;padding:6px 26px 10px 10px;box-shadow:0 12px 26px rgba(0,0,0,.2);{at(a+.6,"pop",.35)}"><span style="width:46px;height:46px;border-radius:50%;background:#fff;color:{GRN};font:900 30px/46px Montserrat;text-align:center">✓</span><span style="direction:rtl;font:400 38px/1.6 Noori">خود ہیپٹا سیف استعمال کرتے ہیں</span><span style="font:900 18px Montserrat;letter-spacing:2px;color:#CFF5D6">REAL CUSTOMER</span></div>'
+    f'<div style="position:absolute;top:960px;left:0;right:0;display:flex;flex-direction:column;align-items:center;gap:16px">'
     + "".join(f'<div class="chip" style="{at(t, "pop")}"><img src="file://{E(c)}">{e} <span style="font-family:Noori;font-weight:400;font-size:40px;color:{INK}">({u})</span></div>' for c, e, u, t in chips) +
-    f'</div><div class="ur" style="top:1300px;font-size:74px;{at(a+.1,"pop")}"><g>بھوک</g> بھی کھلے گی، <b>ہاضمہ</b> بھی اچھا!</div>'))
+    f'</div><div class="ur" style="top:1330px;font-size:72px;{at(a+.1,"pop")}"><g>بھوک</g> بھی کھلے گی، <b>ہاضمہ</b> بھی اچھا!</div>'))
 # 6 what it eats will show
 a, b = S[5]
 flow = "".join(

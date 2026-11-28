@@ -4,7 +4,7 @@ R=Path('/home/user/video-editing-workflow'); sys.path.insert(0,str(R/'tools'))
 from sfx import get
 D=R/'Video Edits/Export/gripe-vo'; W=D/'work'
 cuts=[2.26,4.6,5.68,8.16,9.8]
-fx=[('impact',0.0,0.28),('pop',1.32,0.2)]+[('whoosh_fast',t-0.06,0.2) for t in cuts]+[('pop',2.5,0.14),('pop',2.75,0.14),('pop',3.0,0.14),('ching',4.75,0.16),('pop',5.73,0.2),('pop',7.26,0.2),('swish',8.3,0.18),('ding',8.5,0.14),('boom',9.8,0.24),('ching',11.9,0.14)]
+fx=[('impact',0.0,0.28),('pop',1.32,0.2)]+[('whoosh_fast',t-0.06,0.2) for t in cuts]+[('pop',2.5,0.14),('pop',2.75,0.14),('pop',3.0,0.14),('ching',4.75,0.16),('pop',5.73,0.2),('pop',7.26,0.2),('assets/sfx/water-pour-gripe.wav',8.2,0.9),('ding',9.0,0.1),('boom',9.8,0.24),('ching',11.9,0.14)]
 fx=[f for f in fx if f[2]>0]
 ins=['-framerate','30','-i',str(W/'frames/f%05d.jpg'),'-i',str(W/'voice-tight.wav')]
 flt=['[1:a]volume=1.0,aresample=48000[a0]']
